@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllRoles() (pgx.Rows, error) {
-	return s.db.getAllRoles()
+// GetAllRoles return all roles
+func (s *Service) GetAllRoles() (pgx.Rows, error) {
+	return s.db.GetAllRoles()
 }

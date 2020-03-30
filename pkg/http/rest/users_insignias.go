@@ -2,14 +2,17 @@ package rest
 
 import (
 	"github.com/fasthttp/router"
+	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/valyala/fasthttp"
 )
 
-// InitUsersInsigniasHandler initialize UsersInsignias router
-func InitUsersInsigniasHandler(r *router.Router) {
-	r.GET("/", getAllUsersInsignias)
+// InitUsersInsigniasHandler initialize usersInsignias router
+func InitUsersInsigniasHandler(r *router.Router, s *service.Service) {
+	r.GET("/", getAllUsersInsignias(s))
 }
 
-func getAllUsersInsignias(ctx *fasthttp.RequestCtx) {
-	ctx.WriteString("get all UsersInsignias")
+func getAllUsersInsignias(s *service.Service) fasthttp.RequestHandler {
+	return func(ctx *fasthttp.RequestCtx) {
+		ctx.WriteString("get all usersInsignias")
+	}
 }

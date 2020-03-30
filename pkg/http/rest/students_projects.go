@@ -2,14 +2,17 @@ package rest
 
 import (
 	"github.com/fasthttp/router"
+	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/valyala/fasthttp"
 )
 
-// InitStudentsProjectsHandler initialize StudentsProjects router
-func InitStudentsProjectsHandler(r *router.Router) {
-	r.GET("/", getAllStudentsProjects)
+// InitStudentsProjectsHandler initialize studentsProjects router
+func InitStudentsProjectsHandler(r *router.Router, s *service.Service) {
+	r.GET("/", getAllStudentsProjects(s))
 }
 
-func getAllStudentsProjects(ctx *fasthttp.RequestCtx) {
-	ctx.WriteString("get all StudentsProjects")
+func getAllStudentsProjects(s *service.Service) fasthttp.RequestHandler {
+	return func(ctx *fasthttp.RequestCtx) {
+		ctx.WriteString("get all studentsProjects")
+	}
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllModules() (pgx.Rows, error) {
-	return s.db.getAllModules()
+// GetAllModules return all modules
+func (s *Service) GetAllModules() (pgx.Rows, error) {
+	return s.db.GetAllModules()
 }

@@ -2,14 +2,17 @@ package rest
 
 import (
 	"github.com/fasthttp/router"
+	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/valyala/fasthttp"
 )
 
-// InitResourcesTypesHandler initialize ResourcesTypes router
-func InitResourcesTypesHandler(r *router.Router) {
-	r.GET("/", getAllResourcesTypes)
+// InitResourcesTypesHandler initialize resourcesTypes router
+func InitResourcesTypesHandler(r *router.Router, s *service.Service) {
+	r.GET("/", getAllResourcesTypes(s))
 }
 
-func getAllResourcesTypes(ctx *fasthttp.RequestCtx) {
-	ctx.WriteString("get all ResourcesTypes")
+func getAllResourcesTypes(s *service.Service) fasthttp.RequestHandler {
+	return func(ctx *fasthttp.RequestCtx) {
+		ctx.WriteString("get all resourcesTypes")
+	}
 }

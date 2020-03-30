@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllCoursesForumsComments() (pgx.Rows, error) {
+// GetAllCoursesForumsComments queries for all coursesForumsComments
+func (db *Database) GetAllCoursesForumsComments() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM courses_forums_comments")
 }

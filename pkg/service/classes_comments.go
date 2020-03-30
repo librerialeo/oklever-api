@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllClassesComments() (pgx.Rows, error) {
-	return s.db.getAllClassesComments()
+// GetAllClassesComments return all ClassesComments
+func (s *Service) GetAllClassesComments() (pgx.Rows, error) {
+	return s.db.GetAllClassesComments()
 }

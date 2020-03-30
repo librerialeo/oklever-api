@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllChats() (pgx.Rows, error) {
-	return s.db.getAllChats()
+// GetAllChats return all chats
+func (s *Service) GetAllChats() (pgx.Rows, error) {
+	return s.db.GetAllChats()
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllTeachers() (pgx.Rows, error) {
-	return s.db.getAllTeachers()
+// GetAllTeachers return all teachers
+func (s *Service) GetAllTeachers() (pgx.Rows, error) {
+	return s.db.GetAllTeachers()
 }

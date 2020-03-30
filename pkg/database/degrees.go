@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllDegrees() (pgx.Rows, error) {
+// GetAllDegrees queries for all degrees
+func (db *Database) GetAllDegrees() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM degrees")
 }

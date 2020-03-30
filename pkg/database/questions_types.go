@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllQuestionsTypes() (pgx.Rows, error) {
+// GetAllQuestionsTypes queries for all questionsTypes
+func (db *Database) GetAllQuestionsTypes() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM questions_types")
 }

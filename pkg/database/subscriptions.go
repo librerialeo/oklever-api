@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllSubscriptions() (pgx.Rows, error) {
+// GetAllSubscriptions queries for all subscriptions
+func (db *Database) GetAllSubscriptions() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM subscriptions")
 }

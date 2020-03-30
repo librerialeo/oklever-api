@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllTestClassesFeedback() (pgx.Rows, error) {
-	return s.db.getAllTestClassesFeedback()
+// GetAllTestClassesFeedback return all testClassesFeedback
+func (s *Service) GetAllTestClassesFeedback() (pgx.Rows, error) {
+	return s.db.GetAllTestClassesFeedback()
 }

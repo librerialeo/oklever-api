@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllTestClassesFeedback() (pgx.Rows, error) {
+// GetAllTestClassesFeedback queries for all testClassesFeedback
+func (db *Database) GetAllTestClassesFeedback() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM test_classes_feedback")
 }

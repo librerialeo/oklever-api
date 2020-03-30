@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllModulesResources() (pgx.Rows, error) {
+// GetAllModulesResources queries for all modulesResources
+func (db *Database) GetAllModulesResources() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM modules_resources")
 }

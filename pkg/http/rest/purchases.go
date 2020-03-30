@@ -2,14 +2,17 @@ package rest
 
 import (
 	"github.com/fasthttp/router"
+	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/valyala/fasthttp"
 )
 
-// InitPurchasesHandler initialize Purchases router
-func InitPurchasesHandler(r *router.Router) {
-	r.GET("/", getAllPurchases)
+// InitPurchasesHandler initialize purchases router
+func InitPurchasesHandler(r *router.Router, s *service.Service) {
+	r.GET("/", getAllPurchases(s))
 }
 
-func getAllPurchases(ctx *fasthttp.RequestCtx) {
-	ctx.WriteString("get all Purchases")
+func getAllPurchases(s *service.Service) fasthttp.RequestHandler {
+	return func(ctx *fasthttp.RequestCtx) {
+		ctx.WriteString("get all purchases")
+	}
 }

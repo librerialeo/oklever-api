@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllInsignias() (pgx.Rows, error) {
+// GetAllInsignias queries for all insignias
+func (db *Database) GetAllInsignias() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM insignias")
 }

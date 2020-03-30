@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllCoursesProjects() (pgx.Rows, error) {
+// GetAllCoursesProjects queries for all coursesProjects
+func (db *Database) GetAllCoursesProjects() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM courses_projects")
 }

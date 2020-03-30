@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllUsers() (pgx.Rows, error) {
-	return s.db.getAllUsers()
+// GetAllUsers return all users
+func (s *Service) GetAllUsers() (pgx.Rows, error) {
+	return s.db.GetAllUsers()
 }

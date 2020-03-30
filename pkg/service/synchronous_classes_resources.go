@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllSynchronousClassesResources() (pgx.Rows, error) {
-	return s.db.getAllSynchronousClassesResources()
+// GetAllSynchronousClassesResources return all synchronousClassesResources
+func (s *Service) GetAllSynchronousClassesResources() (pgx.Rows, error) {
+	return s.db.GetAllSynchronousClassesResources()
 }

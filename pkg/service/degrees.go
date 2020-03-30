@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllDegrees() (pgx.Rows, error) {
-	return s.db.getAllDegrees()
+// GetAllDegrees return all degrees
+func (s *Service) GetAllDegrees() (pgx.Rows, error) {
+	return s.db.GetAllDegrees()
 }

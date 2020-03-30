@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllLanguages() (pgx.Rows, error) {
-	return s.db.getAllLanguages()
+// GetAllLanguages return all languages
+func (s *Service) GetAllLanguages() (pgx.Rows, error) {
+	return s.db.GetAllLanguages()
 }

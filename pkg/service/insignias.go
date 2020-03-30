@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllInsignias() (pgx.Rows, error) {
-	return s.db.getAllInsignias()
+// GetAllInsignias return all insignias
+func (s *Service) GetAllInsignias() (pgx.Rows, error) {
+	return s.db.GetAllInsignias()
 }

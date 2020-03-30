@@ -6,6 +6,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (db *Database) getAllPurchasesProducts() (pgx.Rows, error) {
+// GetAllPurchasesProducts queries for all purchasesProducts
+func (db *Database) GetAllPurchasesProducts() (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM purchases_products")
 }

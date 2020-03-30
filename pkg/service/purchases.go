@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllPurchases() (pgx.Rows, error) {
-	return s.db.getAllPurchases()
+// GetAllPurchases return all purchases
+func (s *Service) GetAllPurchases() (pgx.Rows, error) {
+	return s.db.GetAllPurchases()
 }

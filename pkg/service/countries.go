@@ -4,6 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-func (s *Service) getAllCountries() (pgx.Rows, error) {
-	return s.db.getAllCountries()
+// GetAllCountries return all countries
+func (s *Service) GetAllCountries() (pgx.Rows, error) {
+	return s.db.GetAllCountries()
 }
