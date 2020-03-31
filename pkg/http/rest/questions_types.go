@@ -1,18 +1,18 @@
 package rest
 
 import (
-	"github.com/fasthttp/router"
 	"github.com/librerialeo/oklever-api/pkg/service"
-	"github.com/valyala/fasthttp"
+	"github.com/savsgio/atreugo"
 )
 
 // InitQuestionsTypesHandler initialize questionsTypes router
-func InitQuestionsTypesHandler(r *router.Router, s *service.Service) {
+func InitQuestionsTypesHandler(r *atreugo.Router, s *service.Service) {
 	r.GET("/", getAllQuestionsTypes(s))
 }
 
-func getAllQuestionsTypes(s *service.Service) fasthttp.RequestHandler {
-	return func(ctx *fasthttp.RequestCtx) {
-		ctx.WriteString("get all questionsTypes")
+func getAllQuestionsTypes(s *service.Service) atreugo.View {
+	return func(ctx *atreugo.RequestCtx) error {
+		_, err := ctx.WriteString("get all questionsTypes")
+		return err
 	}
 }

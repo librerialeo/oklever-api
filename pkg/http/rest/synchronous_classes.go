@@ -1,18 +1,18 @@
 package rest
 
 import (
-	"github.com/fasthttp/router"
 	"github.com/librerialeo/oklever-api/pkg/service"
-	"github.com/valyala/fasthttp"
+	"github.com/savsgio/atreugo"
 )
 
 // InitSynchronousClassesHandler initialize synchronousClasses router
-func InitSynchronousClassesHandler(r *router.Router, s *service.Service) {
+func InitSynchronousClassesHandler(r *atreugo.Router, s *service.Service) {
 	r.GET("/", getAllSynchronousClasses(s))
 }
 
-func getAllSynchronousClasses(s *service.Service) fasthttp.RequestHandler {
-	return func(ctx *fasthttp.RequestCtx) {
-		ctx.WriteString("get all synchronousClasses")
+func getAllSynchronousClasses(s *service.Service) atreugo.View {
+	return func(ctx *atreugo.RequestCtx) error {
+		_, err := ctx.WriteString("get all synchronousClasses")
+		return err
 	}
 }

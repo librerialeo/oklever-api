@@ -1,18 +1,18 @@
 package rest
 
 import (
-	"github.com/fasthttp/router"
 	"github.com/librerialeo/oklever-api/pkg/service"
-	"github.com/valyala/fasthttp"
+	"github.com/savsgio/atreugo"
 )
 
 // InitTeachersHandler initialize teachers router
-func InitTeachersHandler(r *router.Router, s *service.Service) {
+func InitTeachersHandler(r *atreugo.Router, s *service.Service) {
 	r.GET("/", getAllTeachers(s))
 }
 
-func getAllTeachers(s *service.Service) fasthttp.RequestHandler {
-	return func(ctx *fasthttp.RequestCtx) {
-		ctx.WriteString("get all teachers")
+func getAllTeachers(s *service.Service) atreugo.View {
+	return func(ctx *atreugo.RequestCtx) error {
+		_, err := ctx.WriteString("get all teachers")
+		return err
 	}
 }

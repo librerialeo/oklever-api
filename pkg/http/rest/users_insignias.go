@@ -1,18 +1,18 @@
 package rest
 
 import (
-	"github.com/fasthttp/router"
 	"github.com/librerialeo/oklever-api/pkg/service"
-	"github.com/valyala/fasthttp"
+	"github.com/savsgio/atreugo"
 )
 
 // InitUsersInsigniasHandler initialize usersInsignias router
-func InitUsersInsigniasHandler(r *router.Router, s *service.Service) {
+func InitUsersInsigniasHandler(r *atreugo.Router, s *service.Service) {
 	r.GET("/", getAllUsersInsignias(s))
 }
 
-func getAllUsersInsignias(s *service.Service) fasthttp.RequestHandler {
-	return func(ctx *fasthttp.RequestCtx) {
-		ctx.WriteString("get all usersInsignias")
+func getAllUsersInsignias(s *service.Service) atreugo.View {
+	return func(ctx *atreugo.RequestCtx) error {
+		_, err := ctx.WriteString("get all usersInsignias")
+		return err
 	}
 }

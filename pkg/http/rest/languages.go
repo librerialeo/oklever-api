@@ -1,18 +1,18 @@
 package rest
 
 import (
-	"github.com/fasthttp/router"
 	"github.com/librerialeo/oklever-api/pkg/service"
-	"github.com/valyala/fasthttp"
+	"github.com/savsgio/atreugo"
 )
 
 // InitLanguagesHandler initialize languages router
-func InitLanguagesHandler(r *router.Router, s *service.Service) {
+func InitLanguagesHandler(r *atreugo.Router, s *service.Service) {
 	r.GET("/", getAllLanguages(s))
 }
 
-func getAllLanguages(s *service.Service) fasthttp.RequestHandler {
-	return func(ctx *fasthttp.RequestCtx) {
-		ctx.WriteString("get all languages")
+func getAllLanguages(s *service.Service) atreugo.View {
+	return func(ctx *atreugo.RequestCtx) error {
+		_, err := ctx.WriteString("get all languages")
+		return err
 	}
 }

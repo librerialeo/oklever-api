@@ -1,18 +1,18 @@
 package rest
 
 import (
-	"github.com/fasthttp/router"
 	"github.com/librerialeo/oklever-api/pkg/service"
-	"github.com/valyala/fasthttp"
+	"github.com/savsgio/atreugo"
 )
 
 // InitModulesHandler initialize modules router
-func InitModulesHandler(r *router.Router, s *service.Service) {
+func InitModulesHandler(r *atreugo.Router, s *service.Service) {
 	r.GET("/", getAllModules(s))
 }
 
-func getAllModules(s *service.Service) fasthttp.RequestHandler {
-	return func(ctx *fasthttp.RequestCtx) {
-		ctx.WriteString("get all modules")
+func getAllModules(s *service.Service) atreugo.View {
+	return func(ctx *atreugo.RequestCtx) error {
+		_, err := ctx.WriteString("get all modules")
+		return err
 	}
 }
