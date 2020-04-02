@@ -6,6 +6,8 @@ import (
 	"log"
 	"time"
 
+	jsoniter "github.com/json-iterator/go"
+
 	"github.com/fasthttp/websocket"
 	"github.com/savsgio/atreugo"
 )
@@ -34,6 +36,13 @@ var upgrader = websocket.FastHTTPUpgrader{
 	WriteBufferSize: 1024,
 }
 
+// Action is a redux like action
+type Action struct {
+	Type  string      `json:"type"`
+	Token string      `json:"token"`
+	Data  interface{} `json:"data"`
+}
+
 // Socket is a client websocket connection instance
 type Socket struct {
 	ID    uint16
@@ -54,15 +63,23 @@ func (s *Socket) register() {
 }
 
 // Emit send message to socket
-func (s *Socket) Emit(message []byte) {
-	s.send <- message
+func (s *Socket) Emit(actionType string, data interface{}) {
+	message, err := jsoniter.Marshal(Action{
+		Type: actionType,
+		Data: data,
+	})
+	if err != nil {
+		log.Printf("error: %v", err)
+	} else {
+		s.send <- message
+	}
 }
 
 // Broadcast send message to all io sockets but socket
-func (s *Socket) Broadcast(message []byte) {
+func (s *Socket) Broadcast(actionType string, data interface{}) {
 	for socket := range s.io.sockets {
 		if socket.ID != s.ID {
-			socket.Emit(message)
+			socket.Emit(actionType, data)
 		}
 	}
 }
@@ -89,15 +106,20 @@ func (s *Socket) readPump() {
 	s.conn.SetPongHandler(func(string) error { s.conn.SetReadDeadline(time.Now().Add(pongWait)); return nil })
 	for {
 		_, message, err := s.conn.ReadMessage()
-		fmt.Println(s.ID, message)
 		if err != nil {
 			if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
-				log.Printf("error: %v", err)
+				log.Printf("error: %v\n", err)
 			}
 			break
 		}
+		var action Action
+		err = jsoniter.Unmarshal(message, &action)
+		if err != nil {
+			fmt.Printf("error: %v\n", err)
+		}
+		fmt.Printf("socketID: %v, action: %s\n", s.ID, action.Type)
 		message = bytes.TrimSpace(bytes.Replace(message, newline, space, -1))
-		s.io.Emit(message)
+		s.io.Emit(action.Type, action.Data)
 	}
 }
 

@@ -1,8 +1,6 @@
 package websocket
 
 import (
-	"fmt"
-
 	"github.com/librerialeo/oklever-api/pkg/service"
 )
 
@@ -39,10 +37,9 @@ func (io *IO) removeSocket(s *Socket) {
 }
 
 // Emit send message to all sockets
-func (io *IO) Emit(message []byte) {
-	fmt.Println(message, io.sockets)
+func (io *IO) Emit(actionType string, data interface{}) {
 	for s := range io.sockets {
-		s.Emit(message)
+		s.Emit(actionType, data)
 	}
 }
 
@@ -56,13 +53,17 @@ func (io *IO) Room(name string) *Room {
 
 // NewRoom create a new room for io
 func (io *IO) NewRoom(name string) *Room {
-	io.rooms[name] = &Room{sockets: make(map[*Socket]bool)}
+	io.rooms[name] = &Room{
+		sockets: make(map[*Socket]bool),
+		io:      io,
+	}
 	return io.rooms[name]
 }
 
 // Room is a socket.io like structure
 type Room struct {
 	sockets map[*Socket]bool
+	io      *IO
 }
 
 func (r *Room) addSocket(s *Socket) {
@@ -76,8 +77,17 @@ func (r *Room) removeSocket(s *Socket) {
 }
 
 // Emit send message to room's sockets
-func (r *Room) Emit(message []byte) {
+func (r *Room) Emit(actionType string, data interface{}) {
 	for s := range r.sockets {
-		s.Emit(message)
+		s.Emit(actionType, data)
+	}
+}
+
+// Broadcast send message to all sockets but room's sockets
+func (r *Room) Broadcast(actionType string, data interface{}) {
+	for s := range r.io.sockets {
+		if _, ok := r.sockets[s]; !ok {
+			s.Emit(actionType, data)
+		}
 	}
 }

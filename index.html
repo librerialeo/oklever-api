@@ -23,7 +23,12 @@ window.onload = function () {
         if (!msg.value) {
             return false;
         }
-        conn.send(msg.value);
+        conn.send(JSON.stringify({
+					type: "MESSAGE",
+					data: {
+						message: msg.value
+					}
+				}));
         msg.value = "";
         return false;
     };
@@ -36,12 +41,17 @@ window.onload = function () {
             appendLog(item);
         };
         conn.onmessage = function (evt) {
-            var messages = evt.data.split('\n');
-            for (var i = 0; i < messages.length; i++) {
-                var item = document.createElement("div");
-                item.innerText = messages[i];
-                appendLog(item);
-            }
+            var action = JSON.parse(evt.data);
+						console.log("action", action)
+						switch (action.type) {
+							case "MESSAGE":
+								var item = document.createElement("div");
+								item.innerText = action.data.message;
+								appendLog(item);
+								break;
+							default:
+								break;
+						}
         };
     } else {
         var item = document.createElement("div");
