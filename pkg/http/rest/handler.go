@@ -3,12 +3,22 @@ package rest
 import (
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/service"
+	"github.com/librerialeo/oklever-api/pkg/websocket"
 	"github.com/savsgio/atreugo"
 )
 
 // InitRouterHandler initialize al routes
 func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	s := service.InitService(conn)
+	io := websocket.NewIO(s)
+	// r.GET("/", func(ctx *atreugo.RequestCtx) error {
+	// 	ctx.SendFile("index.html")
+	// 	return nil
+	// })
+	r.GET("/ws", func(ctx *atreugo.RequestCtx) error {
+		websocket.SocketInit(ctx, io)
+		return nil
+	})
 	chatsRouter := r.NewGroupPath("/chats")
 	InitChatsHandler(chatsRouter, s)
 	ClassesCommentsRouter := r.NewGroupPath("/classes_comments")
