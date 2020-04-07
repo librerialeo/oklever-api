@@ -11,10 +11,10 @@ import (
 func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	s := service.InitService(conn)
 	io := websocket.NewIO(s)
-	// r.GET("/", func(ctx *atreugo.RequestCtx) error {
-	// 	ctx.SendFile("index.html")
-	// 	return nil
-	// })
+	r.GET("/", func(ctx *atreugo.RequestCtx) error {
+		ctx.SendFile("index.html")
+		return nil
+	})
 	r.GET("/ws", func(ctx *atreugo.RequestCtx) error {
 		websocket.SocketInit(ctx, io)
 		return nil

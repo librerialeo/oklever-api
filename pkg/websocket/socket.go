@@ -1,7 +1,6 @@
 package websocket
 
 import (
-	"bytes"
 	"fmt"
 	"log"
 	"time"
@@ -118,7 +117,9 @@ func (s *Socket) readPump() {
 			fmt.Printf("error: %v\n", err)
 		}
 		fmt.Printf("socketID: %v, action: %s\n", s.ID, action.Type)
-		message = bytes.TrimSpace(bytes.Replace(message, newline, space, -1))
+
+		// actions
+
 		s.io.Emit(action.Type, action.Data)
 	}
 }
@@ -183,7 +184,7 @@ func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
 		socket.register()
 
 		go socket.writePump()
-		socket.readPump()
+		go socket.readPump()
 	})
 
 	if err != nil {
