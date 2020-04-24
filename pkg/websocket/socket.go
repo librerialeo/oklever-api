@@ -6,6 +6,7 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
+	"github.com/valyala/fasthttp"
 
 	"github.com/fasthttp/websocket"
 	"github.com/savsgio/atreugo"
@@ -33,6 +34,9 @@ var (
 var upgrader = websocket.FastHTTPUpgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
+	CheckOrigin: func(ctx *fasthttp.RequestCtx) bool {
+		return true
+	},
 }
 
 // Action is a redux like action
@@ -117,10 +121,16 @@ func (s *Socket) readPump() {
 			fmt.Printf("error: %v\n", err)
 		}
 		fmt.Printf("socketID: %v, action: %s\n", s.ID, action.Type)
-
 		// actions
-
-		s.io.Emit(action.Type, action.Data)
+		for actionType, actionHandlers := range s.io.actions {
+			if action.Type == actionType {
+				for _, actionHandler := range actionHandlers {
+					if len(actionHandler.Credentials) == 0 {
+						actionHandler.Handler(s, &action)
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -184,7 +194,7 @@ func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
 		socket.register()
 
 		go socket.writePump()
-		go socket.readPump()
+		socket.readPump()
 	})
 
 	if err != nil {

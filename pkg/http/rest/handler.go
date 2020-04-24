@@ -11,6 +11,7 @@ import (
 func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	s := service.InitService(conn)
 	io := websocket.NewIO(s)
+	io.InitActions()
 	r.GET("/", func(ctx *atreugo.RequestCtx) error {
 		ctx.SendFile("index.html")
 		return nil

@@ -117,6 +117,7 @@ ON users_chats FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 CREATE TABLE languages (
 	language_id SERIAL PRIMARY KEY,
 	language_name VARCHAR(32) NOT NULL,
+	language_iso VARCHAR(3) NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMP
@@ -190,7 +191,7 @@ ON teachers_expertises FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column(
 CREATE TABLE teachers_teaching (
 	teacher_teaching_id SERIAL PRIMARY KEY,
 	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
-	degree_id INT NOT NULL REFERENCES degrees(degree_id),
+	teacher_teaching_years INT,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMP
@@ -200,7 +201,7 @@ ON teachers_teaching FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE teachers_teaching_institutions (
 	teacher_teaching_institution_id SERIAL PRIMARY KEY,
-	teacher_teaching_id INT NOT NULL REFERENCES teachers_teaching(teacher_teaching_id),
+	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
 	teacher_teaching_institution_name VARCHAR(128) NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -211,7 +212,8 @@ ON teachers_teaching_institutions FOR EACH ROW EXECUTE PROCEDURE update_modified
 
 CREATE TABLE teachers_teaching_signatures (
 	teacher_teaching_signature_id SERIAL PRIMARY KEY,
-	teacher_teaching_id INT NOT NULL REFERENCES teachers_teaching(teacher_teaching_id),
+	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
+	degree_id INT NOT NULL REFERENCES degrees(degree_id),
 	teacher_teaching_signature_name VARCHAR(128) NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

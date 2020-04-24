@@ -10,6 +10,7 @@ func NewIO(s *service.Service) *IO {
 		sockets: make(map[*Socket]bool),
 		rooms:   make(map[string]*Room),
 		service: s,
+		actions: make(map[string][]ActionHandler),
 	}
 }
 
@@ -23,6 +24,20 @@ type IO struct {
 	sockets map[*Socket]bool
 	rooms   map[string]*Room
 	service *service.Service
+	actions map[string][]ActionHandler
+}
+
+// ActionHandler wraps action function handler
+type ActionHandler struct {
+	Handler     func(*Socket, *Action)
+	Credentials []string
+}
+
+// ActionsHandlers is and array
+
+// AddActionHandler adds a new action handler to map
+func (io *IO) AddActionHandler(action string, handler func(*Socket, *Action), credentials []string) {
+	io.actions[action] = []ActionHandler{ActionHandler{Handler: handler, Credentials: credentials}}
 }
 
 func (io *IO) addSocket(s *Socket) {
