@@ -37,7 +37,7 @@ type ActionHandler struct {
 
 // AddActionHandler adds a new action handler to map
 func (io *IO) AddActionHandler(action string, handler func(*Socket, *Action), credentials []string) {
-	io.actions[action] = []ActionHandler{ActionHandler{Handler: handler, Credentials: credentials}}
+	io.actions[action] = []ActionHandler{{Handler: handler, Credentials: credentials}}
 }
 
 func (io *IO) addSocket(s *Socket) {

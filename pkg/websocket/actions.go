@@ -15,6 +15,7 @@ func (io *IO) InitActions() {
 	// student actions
 
 	// teacher actions
+	io.AddActionHandler("TEACHER_REGISTER", TeacherRegister, []string{})
 
 	// academy actions
 }

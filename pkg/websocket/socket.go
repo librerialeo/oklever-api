@@ -78,6 +78,23 @@ func (s *Socket) Emit(actionType string, data interface{}) {
 	}
 }
 
+// EmitMessage emits a message to socket
+func (s *Socket) EmitMessage(message string, class string) {
+	s.Emit("MESSAGE", map[string]string{"message": message, "class": class})
+}
+
+// EmitError emits an error message to socket
+func (s *Socket) EmitError(err string) {
+	fmt.Println(err)
+	s.EmitMessage(err, "wrong")
+}
+
+// EmitServerError emits a server error message
+func (s *Socket) EmitServerError(where string, err error) {
+	fmt.Println("error at", where, "|", err)
+	s.EmitError("Error en el servidor")
+}
+
 // Broadcast send message to all io sockets but socket
 func (s *Socket) Broadcast(actionType string, data interface{}) {
 	for socket := range s.io.sockets {
@@ -164,7 +181,13 @@ func (s *Socket) writePump() {
 			// Add queued chat messages to the current websocket message.
 			n := len(s.send)
 			for i := 0; i < n; i++ {
-				w.Write(newline)
+				if err := w.Close(); err != nil {
+					return
+				}
+				w, err = s.conn.NextWriter(websocket.TextMessage)
+				if err != nil {
+					return
+				}
 				w.Write(<-s.send)
 			}
 

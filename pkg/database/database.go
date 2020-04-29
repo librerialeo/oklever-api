@@ -11,5 +11,7 @@ type Database struct {
 
 // InitDatabase initialize database wrapper
 func InitDatabase(conn *pgx.Conn) *Database {
-	return &Database{conn}
+	db := &Database{conn}
+	db.InitUserQueries()
+	return db
 }

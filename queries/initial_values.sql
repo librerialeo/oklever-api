@@ -505,3 +505,5 @@ VALUES
 	('zul', 'Zulu'),
 	('zun', 'Zuni'),
 	('zza', 'Zazaki');
+
+INSERT INTO roles("rol_name") VALUES ('student'), ('teacher'), ('academy'), ('coordinator'), ('support');
