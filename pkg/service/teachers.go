@@ -18,7 +18,7 @@ func (s *Service) AddTeacher(firstname string, lastname string, email string, pa
 	if err != nil {
 		return nil, err
 	}
-	rows.Close()
+	defer rows.Close()
 	var u database.DBUser
 	if rows.Next() {
 		err = rows.Scan(&u.ID,
