@@ -53,6 +53,7 @@ type Socket struct {
 	conn  *websocket.Conn
 	rooms []string
 	data  map[string]interface{}
+	token string
 	send  chan []byte
 }
 
@@ -65,12 +66,26 @@ func (s *Socket) register() {
 	s.io.addSocket(s)
 }
 
+// SetToken set socket token to be returned in action
+func (s *Socket) SetToken(token string) {
+	s.token = token
+}
+
+// GetToken gets socket session token if setted
+func (s *Socket) GetToken() string {
+	token := s.token
+	s.token = ""
+	return token
+}
+
 // Emit send message to socket
 func (s *Socket) Emit(actionType string, data interface{}) {
-	message, err := jsoniter.Marshal(Action{
-		Type: actionType,
-		Data: data,
-	})
+	action := Action{
+		Type:  actionType,
+		Token: s.GetToken(),
+		Data:  data,
+	}
+	message, err := jsoniter.Marshal(action)
 	if err != nil {
 		log.Printf("error: %v", err)
 	} else {
@@ -83,6 +98,11 @@ func (s *Socket) EmitMessage(message string, class string) {
 	s.Emit("MESSAGE", map[string]string{"message": message, "class": class})
 }
 
+// EmitSuccess emits a success mesage to socket
+func (s *Socket) EmitSuccess(message string) {
+	s.EmitMessage(message, "success")
+}
+
 // EmitError emits an error message to socket
 func (s *Socket) EmitError(err string) {
 	fmt.Println(err)
@@ -91,8 +111,8 @@ func (s *Socket) EmitError(err string) {
 
 // EmitServerError emits a server error message
 func (s *Socket) EmitServerError(where string, err error) {
-	fmt.Println("error at", where, "|", err)
-	s.EmitError("Error en el servidor")
+	fmt.Println(where, "|", err)
+	s.EmitMessage("Error en el servidor", "wrong")
 }
 
 // Broadcast send message to all io sockets but socket

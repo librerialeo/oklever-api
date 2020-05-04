@@ -11,11 +11,13 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("USER_REGISTER", UserRegister, []string{})
 
 	// user actions
+	io.AddActionHandler("LOGOUT", Logout, []string{})
 
 	// student actions
 
 	// teacher actions
 	io.AddActionHandler("TEACHER_REGISTER", TeacherRegister, []string{})
+	io.AddActionHandler("TEACHER_LOGIN", TeacherLogin, []string{})
 
 	// academy actions
 }
