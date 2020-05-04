@@ -3,7 +3,6 @@ package websocket
 import (
 	"fmt"
 
-	"github.com/librerialeo/oklever-api/pkg/database"
 	"github.com/librerialeo/oklever-api/pkg/utils"
 )
 
@@ -21,42 +20,20 @@ func TeacherRegister(s *Socket, a *Action) {
 		if firstnameOk && lastnameOk && emailOk && passwordOk && repasswordOk && password == repassword {
 			hash, err := utils.HashPassword(password)
 			if err != nil {
-				s.EmitServerError("Teacher Register hash generation error", err)
+				s.EmitServerError("TeacherRegister: error al encriptar password", err)
 			}
-			rows, err := s.io.service.AddTeacher(firstname, lastname, email, hash)
+			u, err := s.io.service.AddTeacher(firstname, lastname, email, hash)
 			if err != nil {
 				s.EmitServerError("TeachersRegister: error al guardar el usuario", err)
 			} else {
-				defer rows.Close()
-				var u database.DBUser
-				if rows.Next() {
-					err = rows.Scan(&u.ID,
-						&u.Email,
-						&u.Password,
-						&u.Firstname,
-						&u.Lastname,
-						&u.Gender,
-						&u.Image,
-						&u.Birthdate,
-						&u.Phone,
-						&u.Country,
-						&u.Rol,
-						&u.Created,
-						&u.Modified,
-						&u.Deleted)
-					if err != nil {
-						s.EmitServerError("TeacherRegister: error al leer la información del usuario", err)
-					} else {
-						token, err := utils.CreateToken(u.ID.Get().(int32), u.Rol.Get().(int32), false)
-						if err != nil {
-							s.EmitServerError("TeacherRegister: error al generar el token", err)
-						} else {
-							s.JoinRoom("students")
-							s.JoinRoom("teachers")
-							s.SetToken(token)
-							s.Emit("TEACHER_LOGIN", u)
-						}
-					}
+				token, err := utils.CreateToken(u.ID.Get().(int32), u.Rol.Get().(int32), false)
+				if err != nil {
+					s.EmitServerError("TeacherRegister: error al generar el token", err)
+				} else {
+					s.JoinRoom("students")
+					s.JoinRoom("teachers")
+					s.SetToken(token)
+					s.Emit("TEACHER_LOGIN", u)
 				}
 			}
 		} else {

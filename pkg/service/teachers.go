@@ -13,8 +13,33 @@ func (s *Service) GetAllTeachers() (pgx.Rows, error) {
 }
 
 // AddTeacher adds a new teacher to database
-func (s *Service) AddTeacher(firstname string, lastname string, email string, password string) (pgx.Rows, error) {
-	return s.db.AddUser(firstname, lastname, email, password, 2)
+func (s *Service) AddTeacher(firstname string, lastname string, email string, password string) (*database.DBUser, error) {
+	rows, err := s.db.AddUser(firstname, lastname, email, password, 2)
+	if err != nil {
+		return nil, err
+	}
+	rows.Close()
+	var u database.DBUser
+	if rows.Next() {
+		err = rows.Scan(&u.ID,
+			&u.Email,
+			&u.Password,
+			&u.Firstname,
+			&u.Lastname,
+			&u.Gender,
+			&u.Image,
+			&u.Birthdate,
+			&u.Phone,
+			&u.Country,
+			&u.Rol,
+			&u.Created,
+			&u.Modified,
+			&u.Deleted)
+	}
+	if err != nil {
+		return nil, err
+	}
+	return &u, nil
 }
 
 // GetTeacherUserByEmail gets the teacher that owns email
