@@ -21,6 +21,13 @@ func SendResponse(ctx *atreugo.RequestCtx, data interface{}) {
 	ctx.Write(json)
 }
 
+// ServerResponse response
+type ServerResponse struct {
+	Data  interface{} `json:"data"`
+	Token interface{} `json:"token"`
+	Error error       `json:"error"`
+}
+
 // InitRouterHandler initialize al routes
 func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	s := service.InitService(conn)
