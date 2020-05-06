@@ -1,6 +1,7 @@
 package rest
 
 import (
+	"github.com/atreugo/middlewares/cors"
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/librerialeo/oklever-api/pkg/websocket"
@@ -8,13 +9,21 @@ import (
 )
 
 // SendResponse send parsed json structure response
-func SendResponse(ctx *atreugo.RequestCtx, data interface{}) error {
-	return ctx.JSONResponse(atreugo.JSON{
+func SendResponse(ctx *atreugo.RequestCtx, data ...interface{}) error {
+	json := atreugo.JSON{
 		"token":  ctx.UserValue("token"),
 		"logout": ctx.UserValue("logout"),
 		"error":  ctx.UserValue("error"),
-		"data":   data,
-	})
+		"data":   "",
+	}
+	if len(data) > 0 {
+		if len(data) == 1 {
+			json["data"] = data[0]
+		} else {
+			json["data"] = data
+		}
+	}
+	return ctx.JSONResponse(json)
 }
 
 // InitRouterHandler initialize al routes
@@ -22,27 +31,19 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	s := service.InitService(conn)
 	io := websocket.NewIO(s)
 	io.InitActions()
-	r.UseBefore(func(ctx *atreugo.RequestCtx) error {
-		//*/ Dinamyc value
-		corsAllowOrigin := string(ctx.URI().Scheme()) + "://" + string(ctx.Host())
-		/*/// or static value
-		corsAllowOrigin := "http://example.com"
-		//*/
-
-		// Mandatory header
-		ctx.Response.Header.Set("Access-Control-Allow-Origin", corsAllowOrigin)
-
-		// Optional headers
-		// ctx.Response.Header.Set("Access-Control-Allow-Credentials", corsAllowCredentials)
-		// ctx.Response.Header.Set("Access-Control-Allow-Headers", corsAllowHeaders)
-		// ctx.Response.Header.Set("Access-Control-Allow-Methods", corsAllowMethods)
-
-		return ctx.Next()
+	cors := cors.New(cors.Config{
+		AllowedOrigins:   []string{"http://localhost:8080", "null"},
+		AllowedHeaders:   []string{"Content-Type", "X-Custom", "authorization"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+		ExposedHeaders:   []string{"Content-Length", "Authorization"},
+		AllowCredentials: true,
+		AllowMaxAge:      5600,
 	})
+	r.UseBefore(cors)
 	r.UseBefore(func(ctx *atreugo.RequestCtx) error {
 		tokenString := string(ctx.Request.Header.Peek("Authorization"))
 		if tokenString != "" {
-			claims, token, valid := s.CheckToken(tokenString)
+			claims, token, valid := s.CheckToken(tokenString[7:])
 			if valid {
 				if claims != nil {
 					if token != "" {
@@ -51,13 +52,15 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 					if userID, ok := claims["user"].(int32); ok {
 						ctx.SetUserValue("user", userID)
 					}
-					if rol, ok := claims["user"].(int32); ok {
+					if rol, ok := claims["rol"].(int32); ok {
 						ctx.SetUserValue("rol", rol)
 					}
+				} else {
+					ctx.SetUserValue("logout", true)
 				}
 			} else {
 				ctx.SetUserValue("logout", true)
-				SendResponse(ctx, "")
+				return SendResponse(ctx)
 			}
 		}
 		return ctx.Next()

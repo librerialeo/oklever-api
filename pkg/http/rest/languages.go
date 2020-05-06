@@ -12,11 +12,10 @@ func InitLanguagesHandler(r *atreugo.Router, s *service.Service) {
 
 func getAllLanguages(s *service.Service) atreugo.View {
 	return func(ctx *atreugo.RequestCtx) error {
-		ctx.Response.Header.Set("Access-Control-Allow-Origin", "*")
 		languages, err := s.GetAllLanguages()
 		if err != nil {
 			ctx.SetUserValue("error", err)
-			return SendResponse(ctx, "")
+			return SendResponse(ctx)
 		}
 		return SendResponse(ctx, languages)
 	}

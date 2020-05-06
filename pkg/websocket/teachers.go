@@ -1,14 +1,11 @@
 package websocket
 
 import (
-	"fmt"
-
 	"github.com/librerialeo/oklever-api/pkg/utils"
 )
 
 // TeacherRegister register new user
 func TeacherRegister(s *Socket, a *Action) {
-	fmt.Println("action", a)
 	data, ok := a.Data.(map[string]interface{})
 
 	if ok {
@@ -26,7 +23,7 @@ func TeacherRegister(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("TeachersRegister: error al guardar el usuario", err)
 			} else {
-				token, err := s.io.service.CreateToken(u.ID.Get().(int32), u.Rol.Get().(int32), false)
+				token, err := s.io.service.CreateToken(u.ID.Int, u.Rol.Int, false)
 				if err != nil {
 					s.EmitServerError("TeacherRegister: error al generar el token", err)
 				} else {
@@ -46,14 +43,12 @@ func TeacherRegister(s *Socket, a *Action) {
 
 // TeacherLogin handle the teachers login action
 func TeacherLogin(s *Socket, a *Action) {
-	fmt.Println("action", a)
 	data, ok := a.Data.(map[string]interface{})
 	if ok {
 		email, emailOk := data["email"].(string)
 		password, passwordOk := data["password"].(string)
 		remember, _ := data["remember"].(bool)
 		if emailOk && passwordOk {
-			fmt.Println(email, password, remember)
 			user, err := s.io.service.GetTeacherUserByEmail(email)
 			if err != nil {
 				switch err.Error() {
@@ -65,7 +60,6 @@ func TeacherLogin(s *Socket, a *Action) {
 				}
 			} else {
 				if utils.CheckPasswordHash(password, user.Password.String) {
-					fmt.Println("contraseña correcta")
 					token, err := s.io.service.CreateToken(user.ID.Int, user.Rol.Int, remember)
 					if err != nil {
 						s.EmitServerError("TeacherLogin: generate token", err)

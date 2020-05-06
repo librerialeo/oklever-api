@@ -32,6 +32,7 @@ func (s *Service) AddTeacher(firstname string, lastname string, email string, pa
 			&u.Phone,
 			&u.Country,
 			&u.Rol,
+			&u.LastAction,
 			&u.Created,
 			&u.Modified,
 			&u.Deleted)
@@ -67,6 +68,7 @@ func (s *Service) GetTeacherUserByEmail(email string) (*database.DBUser, error) 
 			&u.Phone,
 			&u.Country,
 			&u.Rol,
+			&u.LastAction,
 			&u.Created,
 			&u.Modified,
 			&u.Deleted)

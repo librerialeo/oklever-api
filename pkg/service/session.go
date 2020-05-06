@@ -31,28 +31,21 @@ func (s *Service) CheckToken(tokenString string) (jwt.MapClaims, string, bool) {
 		return nil, "", false
 	}
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		created, createdOk := claims["created"].(string)
-		userID, userIDOk := claims["user"].(int32)
-		long, longOk := claims["long"].(bool)
-		fmt.Println(createdOk, claims["created"], created)
-		if createdOk && userIDOk && longOk {
-			lastaction, err := s.GetUserLastAction(userID)
+		created, createdOk := claims["created"]
+		user, userOk := claims["user"]
+		long, longOk := claims["long"]
+		if createdOk && userOk && longOk {
+			lastaction, err := s.GetUserLastAction(int32(user.(float64)))
 			if err != nil {
-				fmt.Println("Token Data Corruption - Change token secret")
-				return nil, "", false
+				fmt.Println("can't get last action", err)
+				return nil, "", true
 			}
 			actionTime := time.Now()
-
-			if long {
-				claims["created"] = actionTime
-				at := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
-				newToken, err := at.SignedString(([]byte)(os.Getenv("TOKEN_SECRET")))
-				if err != nil {
-					return nil, "", true
-				}
-				return claims, newToken, true
+			if long.(bool) {
+				s.UpdateUserLastAction(int32(user.(float64)), actionTime)
+				return claims, "", true
 			}
-			createdTime, err := time.Parse(time.RFC3339Nano, created)
+			createdTime, err := time.Parse(time.RFC3339Nano, created.(string))
 			if err != nil {
 				return nil, "", true
 			}
@@ -60,16 +53,24 @@ func (s *Service) CheckToken(tokenString string) (jwt.MapClaims, string, bool) {
 			if err != nil {
 				return nil, "", true
 			}
-			if createdTime.Add(time.Duration(durationInt)).Unix() > lastaction.Unix() {
-				claims["created"] = actionTime
-				s.UpdateUserLastAction(userID, actionTime)
-				at := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
-				newToken, err := at.SignedString(([]byte)(os.Getenv("TOKEN_SECRET")))
-				if err != nil {
-					return nil, "", true
+			expirationTime := createdTime.Add(time.Duration(durationInt))
+			if expirationTime.Unix() < actionTime.Unix() {
+				if expirationTime.Unix() > lastaction.Unix() {
+					claims["created"] = actionTime
+					at := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
+					newToken, err := at.SignedString(([]byte)(os.Getenv("TOKEN_SECRET")))
+					if err != nil {
+						s.UpdateUserLastAction(int32(user.(float64)), actionTime)
+						return claims, "", true
+					}
+					s.UpdateUserLastAction(int32(user.(float64)), actionTime)
+					return claims, newToken, true
 				}
-				return claims, newToken, true
+			} else {
+				s.UpdateUserLastAction(int32(user.(float64)), actionTime)
+				return claims, "", true
 			}
+			return nil, "", true
 		}
 		fmt.Println("Token Data Corruption - Change token secret")
 		return nil, "", false

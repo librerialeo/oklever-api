@@ -58,7 +58,16 @@ type Socket struct {
 }
 
 func (s *Socket) unregister() {
-	s.Emit("LOGOUT", "")
+	w, err := s.conn.NextWriter(websocket.TextMessage)
+	if err == nil {
+		json, err := jsoniter.Marshal(map[string]interface{}{
+			"type": "LOGOUT",
+		})
+		if err == nil {
+			w.Write(json)
+			w.Close()
+		}
+	}
 	s.io.removeSocket(s)
 	s.conn.Close()
 }
@@ -68,7 +77,7 @@ func (s *Socket) register() {
 }
 
 // ValidateToken validate the token from action or connection
-func (s *Socket) ValidateToken(tokenString string) {
+func (s *Socket) ValidateToken(tokenString string) bool {
 	claims, token, valid := s.io.service.CheckToken(tokenString)
 	if valid {
 		if claims != nil {
@@ -78,7 +87,7 @@ func (s *Socket) ValidateToken(tokenString string) {
 			if userID, ok := claims["user"].(int32); ok {
 				s.userID = userID
 			}
-			if rol, ok := claims["user"].(int32); ok {
+			if rol, ok := claims["rol"].(int32); ok {
 				switch rol {
 				case 1: // students
 					s.JoinRoom("students")
@@ -97,13 +106,17 @@ func (s *Socket) ValidateToken(tokenString string) {
 					break
 				default: // invalid
 					s.unregister()
-					break
+					return false
 				}
 			}
+		} else {
+			Logout(s, &Action{})
 		}
 	} else {
 		s.unregister()
+		return false
 	}
+	return true
 }
 
 // SetToken set socket token to be returned in action
@@ -119,11 +132,17 @@ func (s *Socket) GetToken() string {
 }
 
 // Emit send message to socket
-func (s *Socket) Emit(actionType string, data interface{}) {
+func (s *Socket) Emit(actionType string, data ...interface{}) {
 	action := Action{
 		Type:  actionType,
 		Token: s.GetToken(),
-		Data:  data,
+	}
+	if len(data) > 0 {
+		if len(data) == 1 {
+			action.Data = data[0]
+		} else {
+			action.Data = data
+		}
 	}
 	message, err := jsoniter.Marshal(action)
 	if err != nil {
@@ -199,15 +218,18 @@ func (s *Socket) readPump() {
 		}
 		fmt.Printf("socketID: %v, action: %s\n", s.ID, action.Type)
 		// check token
+		valid := true
 		if action.Token != "" {
-			s.ValidateToken(action.Token)
+			valid = s.ValidateToken(action.Token)
 		}
 		// actions
-		for actionType, actionHandlers := range s.io.actions {
-			if action.Type == actionType {
-				for _, actionHandler := range actionHandlers {
-					if len(actionHandler.Credentials) == 0 {
-						actionHandler.Handler(s, &action)
+		if valid {
+			for actionType, actionHandlers := range s.io.actions {
+				if action.Type == actionType {
+					for _, actionHandler := range actionHandlers {
+						if len(actionHandler.Credentials) == 0 {
+							actionHandler.Handler(s, &action)
+						}
 					}
 				}
 			}
@@ -269,7 +291,6 @@ func (s *Socket) writePump() {
 
 // SocketInit handles websocket requests from the peer.
 func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
-	fmt.Println("websocket connectio attemp")
 	err := upgrader.Upgrade(ctx.RequestCtx, func(conn *websocket.Conn) {
 		var id uint16
 		id = 0
@@ -279,6 +300,7 @@ func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
 			}
 		}
 		socket := &Socket{ID: id, io: io, conn: conn, send: make(chan []byte, 256)}
+		fmt.Println("websocket connection:", id)
 		socket.register()
 		// args := ctx.QueryArgs()
 		// token := string(args.Peek("token"))

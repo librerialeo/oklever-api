@@ -18,6 +18,7 @@ func (s *Service) GetUserLastAction(userID int32) (time.Time, error) {
 	if err != nil {
 		return time.Time{}, err
 	}
+	defer rows.Close()
 	var lastaction pgtype.Timestamp
 	if rows.Next() {
 		err = rows.Scan(&lastaction)

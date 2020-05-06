@@ -10,20 +10,21 @@ import (
 
 // DBUser struct of database user
 type DBUser struct {
-	ID        pgtype.Int4        `json:"-"`
-	Email     pgtype.Varchar     `json:"email"`
-	Password  pgtype.Varchar     `json:"-"`
-	Firstname pgtype.Varchar     `json:"firstname"`
-	Lastname  pgtype.Varchar     `json:"lastname"`
-	Gender    pgtype.Varchar     `json:"gender"`
-	Image     pgtype.Varchar     `json:"image"`
-	Birthdate pgtype.Date        `json:"birthdate"`
-	Phone     pgtype.Varchar     `json:"phone"`
-	Country   pgtype.Int4        `json:"country"`
-	Rol       pgtype.Int4        `json:"-"`
-	Created   pgtype.Timestamptz `json:"-"`
-	Modified  pgtype.Timestamptz `json:"-"`
-	Deleted   pgtype.Timestamptz `json:"-"`
+	ID         pgtype.Int4        `json:"-"`
+	Email      pgtype.Varchar     `json:"email"`
+	Password   pgtype.Varchar     `json:"-"`
+	Firstname  pgtype.Varchar     `json:"firstname"`
+	Lastname   pgtype.Varchar     `json:"lastname"`
+	Gender     pgtype.Varchar     `json:"gender"`
+	Image      pgtype.Varchar     `json:"image"`
+	Birthdate  pgtype.Date        `json:"birthdate"`
+	Phone      pgtype.Varchar     `json:"phone"`
+	Country    pgtype.Int4        `json:"country"`
+	Rol        pgtype.Int4        `json:"-"`
+	LastAction pgtype.Timestamp   `json:"-"`
+	Created    pgtype.Timestamptz `json:"-"`
+	Modified   pgtype.Timestamptz `json:"-"`
+	Deleted    pgtype.Timestamptz `json:"-"`
 }
 
 // GetAllUsers queries for all users
