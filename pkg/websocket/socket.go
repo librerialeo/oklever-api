@@ -280,11 +280,11 @@ func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
 		}
 		socket := &Socket{ID: id, io: io, conn: conn, send: make(chan []byte, 256)}
 		socket.register()
-		args := ctx.QueryArgs()
-		token := string(args.Peek("token"))
-		if token != "" {
-			socket.ValidateToken(token)
-		}
+		// args := ctx.QueryArgs()
+		// token := string(args.Peek("token"))
+		// if token != "" {
+		// 	socket.ValidateToken(token)
+		// }
 
 		go socket.writePump()
 		socket.readPump()

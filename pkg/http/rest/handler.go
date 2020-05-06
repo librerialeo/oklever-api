@@ -2,30 +2,19 @@ package rest
 
 import (
 	"github.com/jackc/pgx"
-	jsoniter "github.com/json-iterator/go"
 	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/librerialeo/oklever-api/pkg/websocket"
 	"github.com/savsgio/atreugo"
 )
 
 // SendResponse send parsed json structure response
-func SendResponse(ctx *atreugo.RequestCtx, data interface{}) {
-	var response map[string]interface{}
-	response["token"] = ctx.UserValue("token")
-	response["logout"] = ctx.UserValue("logout")
-	response["error"] = ctx.UserValue("error")
-	json, err := jsoniter.Marshal(response)
-	if err != nil {
-		return
-	}
-	ctx.Write(json)
-}
-
-// ServerResponse response
-type ServerResponse struct {
-	Data  interface{} `json:"data"`
-	Token interface{} `json:"token"`
-	Error error       `json:"error"`
+func SendResponse(ctx *atreugo.RequestCtx, data interface{}) error {
+	return ctx.JSONResponse(atreugo.JSON{
+		"token":  ctx.UserValue("token"),
+		"logout": ctx.UserValue("logout"),
+		"error":  ctx.UserValue("error"),
+		"data":   data,
+	})
 }
 
 // InitRouterHandler initialize al routes
@@ -33,6 +22,23 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	s := service.InitService(conn)
 	io := websocket.NewIO(s)
 	io.InitActions()
+	r.UseBefore(func(ctx *atreugo.RequestCtx) error {
+		//*/ Dinamyc value
+		corsAllowOrigin := string(ctx.URI().Scheme()) + "://" + string(ctx.Host())
+		/*/// or static value
+		corsAllowOrigin := "http://example.com"
+		//*/
+
+		// Mandatory header
+		ctx.Response.Header.Set("Access-Control-Allow-Origin", corsAllowOrigin)
+
+		// Optional headers
+		// ctx.Response.Header.Set("Access-Control-Allow-Credentials", corsAllowCredentials)
+		// ctx.Response.Header.Set("Access-Control-Allow-Headers", corsAllowHeaders)
+		// ctx.Response.Header.Set("Access-Control-Allow-Methods", corsAllowMethods)
+
+		return ctx.Next()
+	})
 	r.UseBefore(func(ctx *atreugo.RequestCtx) error {
 		tokenString := string(ctx.Request.Header.Peek("Authorization"))
 		if tokenString != "" {
