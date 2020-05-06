@@ -2,6 +2,7 @@ package database
 
 import (
 	"context"
+	"time"
 
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
@@ -32,10 +33,15 @@ func (db *Database) GetAllUsers() (pgx.Rows, error) {
 
 // AddUser adds new user
 func (db *Database) AddUser(firstname string, lastname string, email string, password string, rol int) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "addUser", firstname, lastname, email, password, rol)
+	return db.conn.Query(context.Background(), "INSERT INTO users(user_firstname,user_lastname,user_email,user_password,rol_id) VALUES($1,$2,$3,$4,$5) RETURNING *", firstname, lastname, email, password, rol)
 }
 
-// InitUserQueries initialize all user quieries
-func (db *Database) InitUserQueries() {
-	db.conn.Prepare(context.Background(), "addUser", "INSERT INTO users(user_firstname,user_lastname,user_email,user_password,rol_id) VALUES($1,$2,$3,$4,$5) RETURNING *")
+// GetUserLastAction get the user last action from database
+func (db *Database) GetUserLastAction(userID int32) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "SELECT user_lastaction FROM users WHERE user_id = $1", userID)
+}
+
+// UpdateUserLastAction sets the user las action in database
+func (db *Database) UpdateUserLastAction(userID int32, lastaction time.Time) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "UPDATE users SET user_lastaction = $1 FROM users WHERE user_id = $2", lastaction, userID)
 }

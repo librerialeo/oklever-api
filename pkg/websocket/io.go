@@ -45,6 +45,9 @@ func (io *IO) addSocket(s *Socket) {
 }
 
 func (io *IO) removeSocket(s *Socket) {
+	for _, room := range io.rooms {
+		room.removeSocket(s)
+	}
 	if _, ok := io.sockets[s]; ok {
 		delete(io.sockets, s)
 		close(s.send)

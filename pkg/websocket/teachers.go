@@ -26,7 +26,7 @@ func TeacherRegister(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("TeachersRegister: error al guardar el usuario", err)
 			} else {
-				token, err := utils.CreateToken(u.ID.Get().(int32), u.Rol.Get().(int32), false)
+				token, err := s.io.service.CreateToken(u.ID.Get().(int32), u.Rol.Get().(int32), false)
 				if err != nil {
 					s.EmitServerError("TeacherRegister: error al generar el token", err)
 				} else {
@@ -66,7 +66,7 @@ func TeacherLogin(s *Socket, a *Action) {
 			} else {
 				if utils.CheckPasswordHash(password, user.Password.String) {
 					fmt.Println("contraseña correcta")
-					token, err := utils.CreateToken(user.ID.Int, user.Rol.Int, remember)
+					token, err := s.io.service.CreateToken(user.ID.Int, user.Rol.Int, remember)
 					if err != nil {
 						s.EmitServerError("TeacherLogin: generate token", err)
 					} else {

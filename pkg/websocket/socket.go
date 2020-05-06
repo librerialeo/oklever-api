@@ -48,22 +48,62 @@ type Action struct {
 
 // Socket is a client websocket connection instance
 type Socket struct {
-	ID    uint16
-	io    *IO
-	conn  *websocket.Conn
-	rooms []string
-	data  map[string]interface{}
-	token string
-	send  chan []byte
+	ID     uint16
+	io     *IO
+	conn   *websocket.Conn
+	rooms  []string
+	userID int32
+	token  string
+	send   chan []byte
 }
 
 func (s *Socket) unregister() {
+	s.Emit("LOGOUT", "")
 	s.io.removeSocket(s)
 	s.conn.Close()
 }
 
 func (s *Socket) register() {
 	s.io.addSocket(s)
+}
+
+// ValidateToken validate the token from action or connection
+func (s *Socket) ValidateToken(tokenString string) {
+	claims, token, valid := s.io.service.CheckToken(tokenString)
+	if valid {
+		if claims != nil {
+			if token != "" {
+				s.SetToken(token)
+			}
+			if userID, ok := claims["user"].(int32); ok {
+				s.userID = userID
+			}
+			if rol, ok := claims["user"].(int32); ok {
+				switch rol {
+				case 1: // students
+					s.JoinRoom("students")
+					break
+				case 2: // teachers
+					s.JoinRoom("teachers")
+					break
+				case 3: // academics
+					s.JoinRoom("academics")
+					break
+				case 4: // coordinators
+					s.JoinRoom("coordinators")
+					break
+				case 5: // supports
+					s.JoinRoom("supports")
+					break
+				default: // invalid
+					s.unregister()
+					break
+				}
+			}
+		}
+	} else {
+		s.unregister()
+	}
 }
 
 // SetToken set socket token to be returned in action
@@ -158,6 +198,10 @@ func (s *Socket) readPump() {
 			fmt.Printf("error: %v\n", err)
 		}
 		fmt.Printf("socketID: %v, action: %s\n", s.ID, action.Type)
+		// check token
+		if action.Token != "" {
+			s.ValidateToken(action.Token)
+		}
 		// actions
 		for actionType, actionHandlers := range s.io.actions {
 			if action.Type == actionType {
@@ -225,6 +269,7 @@ func (s *Socket) writePump() {
 
 // SocketInit handles websocket requests from the peer.
 func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
+	fmt.Println("websocket connectio attemp")
 	err := upgrader.Upgrade(ctx.RequestCtx, func(conn *websocket.Conn) {
 		var id uint16
 		id = 0
@@ -233,8 +278,13 @@ func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
 				id = c.ID + 1
 			}
 		}
-		socket := &Socket{ID: id, io: io, conn: conn, send: make(chan []byte, 256), data: make(map[string]interface{})}
+		socket := &Socket{ID: id, io: io, conn: conn, send: make(chan []byte, 256)}
 		socket.register()
+		args := ctx.QueryArgs()
+		token := string(args.Peek("token"))
+		if token != "" {
+			socket.ValidateToken(token)
+		}
 
 		go socket.writePump()
 		socket.readPump()

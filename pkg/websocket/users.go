@@ -11,5 +11,6 @@ func Logout(s *Socket, a *Action) {
 	for c, d := range s.rooms {
 		fmt.Println(c, d)
 	}
+	s.SetToken("")
 	s.Emit("LOGOUT", "")
 }

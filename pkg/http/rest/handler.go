@@ -2,16 +2,53 @@ package rest
 
 import (
 	"github.com/jackc/pgx"
+	jsoniter "github.com/json-iterator/go"
 	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/librerialeo/oklever-api/pkg/websocket"
 	"github.com/savsgio/atreugo"
 )
+
+// SendResponse send parsed json structure response
+func SendResponse(ctx *atreugo.RequestCtx, data interface{}) {
+	var response map[string]interface{}
+	response["token"] = ctx.UserValue("token")
+	response["logout"] = ctx.UserValue("logout")
+	response["error"] = ctx.UserValue("error")
+	json, err := jsoniter.Marshal(response)
+	if err != nil {
+		return
+	}
+	ctx.Write(json)
+}
 
 // InitRouterHandler initialize al routes
 func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	s := service.InitService(conn)
 	io := websocket.NewIO(s)
 	io.InitActions()
+	r.UseBefore(func(ctx *atreugo.RequestCtx) error {
+		tokenString := string(ctx.Request.Header.Peek("Authorization"))
+		if tokenString != "" {
+			claims, token, valid := s.CheckToken(tokenString)
+			if valid {
+				if claims != nil {
+					if token != "" {
+						ctx.SetUserValue("token", token)
+					}
+					if userID, ok := claims["user"].(int32); ok {
+						ctx.SetUserValue("user", userID)
+					}
+					if rol, ok := claims["user"].(int32); ok {
+						ctx.SetUserValue("rol", rol)
+					}
+				}
+			} else {
+				ctx.SetUserValue("logout", true)
+				SendResponse(ctx, "")
+			}
+		}
+		return ctx.Next()
+	})
 	r.GET("/", func(ctx *atreugo.RequestCtx) error {
 		ctx.SendFile("index.html")
 		return nil
