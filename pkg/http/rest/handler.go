@@ -7,6 +7,13 @@ import (
 	"github.com/savsgio/atreugo"
 )
 
+// ServerResponse response
+type ServerResponse struct {
+	Data  interface{} `json:"data"`
+	Token interface{} `json:"token"`
+	Error error       `json:"error"`
+}
+
 // InitRouterHandler initialize al routes
 func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	s := service.InitService(conn)
