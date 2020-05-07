@@ -643,3 +643,15 @@ CREATE TABLE students_projects_history (
 
 CREATE TRIGGER update_students_projects_history_modified_at BEFORE UPDATE
 ON students_projects_history FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+
+CREATE TABLE users_academy (
+	user_academy_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(user_id),
+	degree_id INT NOT NULL REFERENCES degrees(degree_id),
+	user_academy_name VARCHAR(64) NOT NULL,
+	user_academy_institution VARCHAR(64) NOT NULL,
+	user_academy_year SMALLINT NOT NULL,
+);
+
+CREATE TRIGGER update_users_academy_modified_at BEFORE UPDATE
+ON users_academy FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
