@@ -1,6 +1,9 @@
 package websocket
 
 import (
+	"fmt"
+	"time"
+
 	"github.com/librerialeo/oklever-api/pkg/utils"
 )
 
@@ -64,6 +67,7 @@ func TeacherLogin(s *Socket, a *Action) {
 					if err != nil {
 						s.EmitServerError("TeacherLogin: generate token", err)
 					} else {
+						s.io.service.UpdateUserLastAction(user.ID.Int, time.Now())
 						s.SetToken(token)
 						s.Emit("TEACHER_LOGIN", user)
 						s.EmitSuccess("Iniciaste sesión correctamente")
@@ -74,4 +78,9 @@ func TeacherLogin(s *Socket, a *Action) {
 			}
 		}
 	}
+}
+
+// UpdateTeacherProfile update teachers user data
+func UpdateTeacherProfile(s *Socket, a *Action) {
+	fmt.Println(a)
 }

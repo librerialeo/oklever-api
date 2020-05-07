@@ -2,6 +2,7 @@ package database
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/jackc/pgtype"
@@ -21,7 +22,7 @@ type DBUser struct {
 	Phone      pgtype.Varchar     `json:"phone"`
 	Country    pgtype.Int4        `json:"country"`
 	Rol        pgtype.Int4        `json:"-"`
-	LastAction pgtype.Timestamp   `json:"-"`
+	LastAction pgtype.Timestamptz `json:"-"`
 	Created    pgtype.Timestamptz `json:"-"`
 	Modified   pgtype.Timestamptz `json:"-"`
 	Deleted    pgtype.Timestamptz `json:"-"`
@@ -44,5 +45,6 @@ func (db *Database) GetUserLastAction(userID int32) (pgx.Rows, error) {
 
 // UpdateUserLastAction sets the user las action in database
 func (db *Database) UpdateUserLastAction(userID int32, lastaction time.Time) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "UPDATE users SET user_lastaction = $1 FROM users WHERE user_id = $2", lastaction, userID)
+	fmt.Println("query", userID, lastaction)
+	return db.conn.Query(context.Background(), "UPDATE users SET user_lastaction = $1 FROM users WHERE user_id = $2 RETURNING user_lastaction", lastaction, userID)
 }

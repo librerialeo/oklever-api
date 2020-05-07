@@ -291,6 +291,10 @@ func (s *Socket) writePump() {
 
 // SocketInit handles websocket requests from the peer.
 func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
+	token := ""
+	if ctx.QueryArgs().Len() > 0 {
+		token = string(ctx.QueryArgs().Peek("token"))
+	}
 	err := upgrader.Upgrade(ctx.RequestCtx, func(conn *websocket.Conn) {
 		var id uint16
 		id = 0
@@ -302,13 +306,12 @@ func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
 		socket := &Socket{ID: id, io: io, conn: conn, send: make(chan []byte, 256)}
 		fmt.Println("websocket connection:", id)
 		socket.register()
-		// args := ctx.QueryArgs()
-		// token := string(args.Peek("token"))
-		// if token != "" {
-		// 	socket.ValidateToken(token)
-		// }
 
 		go socket.writePump()
+		if token != "" {
+			socket.ValidateToken(token)
+			socket.Emit("UPDATE_TOKEN")
+		}
 		socket.readPump()
 	})
 
