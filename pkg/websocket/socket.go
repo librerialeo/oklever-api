@@ -310,7 +310,11 @@ func SocketInit(ctx *atreugo.RequestCtx, io *IO) {
 		go socket.writePump()
 		if token != "" {
 			socket.ValidateToken(token)
-			socket.Emit("UPDATE_TOKEN")
+			token := socket.GetToken()
+			if token != "" {
+				socket.SetToken(token)
+				socket.Emit("UPDATE_TOKEN")
+			}
 		}
 		socket.readPump()
 	})
