@@ -39,13 +39,13 @@ func (s *Service) CheckToken(tokenString string) (jwt.MapClaims, string, bool) {
 			actionTime := time.Now()
 			if long.(bool) {
 				s.UpdateUserLastAction(int32(user.(float64)), actionTime)
-				fmt.Println("c")
+				fmt.Println("b")
 				return claims, "", true
 			}
 			lastaction, err := s.GetUserLastAction(int32(user.(float64)))
 			if err != nil {
 				fmt.Println("can't get last action", err)
-				fmt.Println("b")
+				fmt.Println("c")
 				return nil, "", true
 			}
 			createdTime, err := time.Parse(time.RFC3339Nano, created.(string))
@@ -58,9 +58,14 @@ func (s *Service) CheckToken(tokenString string) (jwt.MapClaims, string, bool) {
 				fmt.Println("e")
 				return nil, "", true
 			}
-			expDuration := time.Duration(durationInt)
+			expDuration := time.Duration(time.Second.Nanoseconds() * int64(durationInt))
 			expirationTime := createdTime.Add(expDuration)
-			fmt.Println("exp:", expirationTime, "\nlast:", lastaction, "\nnow:", actionTime)
+			fmt.Println("exp:", expirationTime,
+				"\nduration:", expDuration,
+				"\ncreated:", createdTime,
+				"\nlast:", lastaction,
+				"\nlastexp:", lastaction.Add(expDuration),
+				"\nnow:", actionTime)
 			if expirationTime.Unix() < actionTime.Unix() {
 				if lastaction.Add(expDuration).Unix() > actionTime.Unix() {
 					claims["created"] = actionTime

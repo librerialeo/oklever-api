@@ -2,7 +2,6 @@ package database
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/jackc/pgtype"
@@ -45,6 +44,5 @@ func (db *Database) GetUserLastAction(userID int32) (pgx.Rows, error) {
 
 // UpdateUserLastAction sets the user las action in database
 func (db *Database) UpdateUserLastAction(userID int32, lastaction time.Time) (pgx.Rows, error) {
-	fmt.Println("query", userID, lastaction)
-	return db.conn.Query(context.Background(), "UPDATE users SET user_lastaction = $1 FROM users WHERE user_id = $2 RETURNING user_lastaction", lastaction, userID)
+	return db.conn.Query(context.Background(), "UPDATE users SET user_lastaction = $1 WHERE user_id = $2 RETURNING user_lastaction", lastaction, userID)
 }

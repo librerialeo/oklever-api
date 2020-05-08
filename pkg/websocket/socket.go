@@ -69,8 +69,8 @@ func (s *Socket) unregister() {
 		}
 	}
 	s.io.removeSocket(s)
-	fmt.Println("ñklasdjf")
 	s.conn.Close()
+	fmt.Println("ñklasdjf")
 }
 
 func (s *Socket) register() {
@@ -106,17 +106,14 @@ func (s *Socket) ValidateToken(tokenString string) bool {
 					s.JoinRoom("supports")
 					break
 				default: // invalid
-					fmt.Println("asdf")
 					s.unregister()
 					return false
 				}
 			}
 		} else {
-			fmt.Println("0")
 			Logout(s, &Action{})
 		}
 	} else {
-		fmt.Println("qwer")
 		s.unregister()
 		return false
 	}
@@ -204,7 +201,6 @@ func (s *Socket) LeaveRoom(room string) {
 // reads from this goroutine.
 func (s *Socket) readPump() {
 	defer func() {
-		fmt.Println("poiu")
 		s.unregister()
 	}()
 	s.conn.SetReadLimit(maxMessageSize)
@@ -213,7 +209,6 @@ func (s *Socket) readPump() {
 	for {
 		_, message, err := s.conn.ReadMessage()
 		if err != nil {
-			fmt.Println("1")
 			fmt.Println("error:", err)
 			if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
 				log.Printf("error: %v\n", err)
