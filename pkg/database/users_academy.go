@@ -18,7 +18,7 @@ type DBUsersAcademy struct {
 }
 
 // GetAllUsersAcademy queries for all usersAcademy
-func (db *Database) GetAllUsersAcademy(UserID int) (pgx.Rows, error) {
+func (db *Database) GetAllUsersAcademy(UserID int32) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT * FROM users_academy where user_id = $1", UserID)
 }
 

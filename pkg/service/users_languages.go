@@ -4,7 +4,7 @@ import (
 	"github.com/jackc/pgx"
 )
 
-// GetAllUsersLanguages return all teachersLanguages
+// GetAllUsersLanguages return all usersLanguages
 func (s *Service) GetAllUsersLanguages(userID int32) (pgx.Rows, error) {
 	return s.db.GetAllUsersLanguages(userID)
 }

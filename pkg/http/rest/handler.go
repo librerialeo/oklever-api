@@ -177,4 +177,6 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	InitUsersHandler(usersRouter, s)
 	usersInsigniasRouter := r.NewGroupPath("/users_insignias")
 	InitUsersInsigniasHandler(usersInsigniasRouter, s)
+	usersAcademyRouter := r.NewGroupPath("/users_academy")
+	InitUsersAcademyHandler(usersAcademyRouter, s)
 }
