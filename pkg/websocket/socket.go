@@ -85,11 +85,11 @@ func (s *Socket) ValidateToken(tokenString string) bool {
 			if token != "" {
 				s.SetToken(token)
 			}
-			if userID, ok := claims["user"].(int32); ok {
-				s.userID = userID
+			if userID, ok := claims["user"]; ok {
+				s.userID = int32(userID.(float64))
 			}
-			if rol, ok := claims["rol"].(int32); ok {
-				switch rol {
+			if rol, ok := claims["rol"]; ok {
+				switch int32(rol.(float64)) {
 				case 1: // students
 					s.JoinRoom("students")
 					break
