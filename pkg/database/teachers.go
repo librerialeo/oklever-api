@@ -23,5 +23,5 @@ func (db *Database) GetTeacherByUserID(userID int32) (pgx.Rows, error) {
 
 // UpdateTeacherInformation update teacher information
 func (db *Database) UpdateTeacherInformation(userID int32, license string, rfc string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "UPDATE users SET user_license=$1, teacher_rfc=$2 WHERE user_id=$3", license, rfc, userID)
+	return db.conn.Query(context.Background(), "UPDATE users SET user_license=$1, user_rfc=$2 WHERE user_id=$3", license, rfc, userID)
 }

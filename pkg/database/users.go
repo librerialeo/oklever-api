@@ -39,7 +39,7 @@ func (db *Database) GetAllUsers() (pgx.Rows, error) {
 
 // AddUser adds new user
 func (db *Database) AddUser(firstname string, lastname string, email string, password string, rol int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users(user_firstname,user_lastname,user_email,user_password,rol_id) VALUES($1,$2,$3,$4,$5) RETURNING user_id,user_firstname,user_lastname,user_email,rol_id", firstname, lastname, email, password, rol)
+	return db.conn.Query(context.Background(), "INSERT INTO users(user_firstname,user_lastname,user_email,user_password,rol_id) VALUES($1,$2,$3,$4,$5) RETURNING user_id, user_firstname, user_lastname, user_email, rol_id", firstname, lastname, email, password, rol)
 }
 
 // GetUserLastAction get the user last action from database
@@ -54,5 +54,5 @@ func (db *Database) UpdateUserLastAction(userID int32, lastaction time.Time) (pg
 
 // UpdateUserInformation update user information
 func (db *Database) UpdateUserInformation(userID int32, first string, last string, email string, gender string, phone string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "UPDATE users set user_firstname=$1, user_lastname=$2, user_email=$3, user_gender=$4, user_phone=$5 WHERE user_id=$6", first, last, email, gender, phone, userID)
+	return db.conn.Query(context.Background(), "UPDATE users SET user_firstname=$1, user_lastname=$2, user_email=$3, user_gender=$4, user_phone=$5 WHERE user_id=$6", first, last, email, gender, phone, userID)
 }

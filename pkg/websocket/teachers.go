@@ -1,6 +1,7 @@
 package websocket
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/librerialeo/oklever-api/pkg/utils"
@@ -36,11 +37,7 @@ func TeacherRegister(s *Socket, a *Action) {
 					s.Emit("TEACHER_LOGIN", atreugo.JSON{
 						"email":     u.Email.String,
 						"firstname": u.Firstname.String,
-						"lastname":  u.LastAction.Time,
-						"gender":    u.Gender.String,
-						"phone":     u.Phone.String,
-						"license":   u.License.String,
-						"rfc":       u.RFC.String,
+						"lastname":  u.Lastname.String,
 					})
 				}
 			}
@@ -78,13 +75,13 @@ func TeacherLogin(s *Socket, a *Action) {
 						s.io.service.UpdateUserLastAction(user.ID.Int, time.Now())
 						s.SetToken(token)
 						s.Emit("TEACHER_LOGIN", atreugo.JSON{
-							"email":     user.Email,
-							"firstname": user.Firstname,
-							"lastname":  user.LastAction,
-							"gender":    user.Gender,
-							"phone":     user.Phone,
-							"license":   user.License,
-							"rfc":       user.RFC,
+							"email":     user.Email.String,
+							"firstname": user.Firstname.String,
+							"lastname":  user.Lastname.String,
+							"gender":    user.Gender.String,
+							"phone":     user.Phone.String,
+							"license":   user.License.String,
+							"rfc":       user.RFC.String,
 						})
 						s.EmitSuccess("Iniciaste sesión correctamente")
 					}
@@ -110,10 +107,12 @@ func UpdateTeacherInformation(s *Socket, a *Action) {
 		if emailOk && firstnameOk && lastnameOk && genderOk && phoneOk && licenseOk && rfcOk && s.userID != 0 {
 			if err := s.io.service.UpdateUserInformation(s.userID, firstname, lastname, email, gender, phone); err != nil {
 				s.EmitServerError("UpdateTeacherInformation: update user information", err)
+				fmt.Println("update user", err)
 				return
 			}
 			if err := s.io.service.UpdateTeacherInformation(s.userID, license, rfc); err != nil {
 				s.EmitServerError("UpdateTeacherInformation: update teacher information", err)
+				fmt.Println("update teacher", err)
 				return
 			}
 			s.Emit("UPDATE_TEACHER_INFORMATION", atreugo.JSON{
