@@ -23,7 +23,7 @@ const (
 	pingPeriod = (pongWait * 9) / 10
 
 	// Maximum message size allowed from peer.
-	maxMessageSize = 512
+	maxMessageSize = 1024 * 1024 * 20
 )
 
 var (
@@ -32,8 +32,8 @@ var (
 )
 
 var upgrader = websocket.FastHTTPUpgrader{
-	ReadBufferSize:  1024,
-	WriteBufferSize: 1024,
+	ReadBufferSize:  4096,
+	WriteBufferSize: 4096,
 	CheckOrigin: func(ctx *fasthttp.RequestCtx) bool {
 		return true
 	},
@@ -69,6 +69,7 @@ func (s *Socket) unregister() {
 		}
 	}
 	s.io.removeSocket(s)
+	fmt.Println("ñklasdjf")
 	s.conn.Close()
 }
 
@@ -105,14 +106,17 @@ func (s *Socket) ValidateToken(tokenString string) bool {
 					s.JoinRoom("supports")
 					break
 				default: // invalid
+					fmt.Println("asdf")
 					s.unregister()
 					return false
 				}
 			}
 		} else {
+			fmt.Println("0")
 			Logout(s, &Action{})
 		}
 	} else {
+		fmt.Println("qwer")
 		s.unregister()
 		return false
 	}
@@ -199,13 +203,18 @@ func (s *Socket) LeaveRoom(room string) {
 // ensures that there is at most one reader on a connection by executing all
 // reads from this goroutine.
 func (s *Socket) readPump() {
-	defer s.unregister()
+	defer func() {
+		fmt.Println("poiu")
+		s.unregister()
+	}()
 	s.conn.SetReadLimit(maxMessageSize)
 	s.conn.SetReadDeadline(time.Now().Add(pongWait))
 	s.conn.SetPongHandler(func(string) error { s.conn.SetReadDeadline(time.Now().Add(pongWait)); return nil })
 	for {
 		_, message, err := s.conn.ReadMessage()
 		if err != nil {
+			fmt.Println("1")
+			fmt.Println("error:", err)
 			if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
 				log.Printf("error: %v\n", err)
 			}

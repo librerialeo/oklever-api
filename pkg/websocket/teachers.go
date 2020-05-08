@@ -80,7 +80,7 @@ func TeacherLogin(s *Socket, a *Action) {
 	}
 }
 
-// UpdateTeacherProfile update teachers user data
-func UpdateTeacherProfile(s *Socket, a *Action) {
+// UpdateTeacherInformation update teachers user data
+func UpdateTeacherInformation(s *Socket, a *Action) {
 	fmt.Println(a)
 }
