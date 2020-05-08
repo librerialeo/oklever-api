@@ -28,7 +28,6 @@ func (s *Service) CheckToken(tokenString string) (jwt.MapClaims, string, bool) {
 		return ([]byte)(os.Getenv("TOKEN_SECRET")), nil
 	})
 	if err != nil {
-		fmt.Println("a")
 		return nil, "", false
 	}
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
@@ -39,69 +38,44 @@ func (s *Service) CheckToken(tokenString string) (jwt.MapClaims, string, bool) {
 			actionTime := time.Now()
 			if long.(bool) {
 				s.UpdateUserLastAction(int32(user.(float64)), actionTime)
-				fmt.Println("b")
 				return claims, "", true
 			}
 			lastaction, err := s.GetUserLastAction(int32(user.(float64)))
 			if err != nil {
 				fmt.Println("can't get last action", err)
-				fmt.Println("c")
 				return nil, "", true
 			}
 			createdTime, err := time.Parse(time.RFC3339Nano, created.(string))
 			if err != nil {
-				fmt.Println("d")
 				return nil, "", true
 			}
 			durationInt, err := strconv.Atoi(os.Getenv("SHORT_SESSION"))
 			if err != nil {
-				fmt.Println("e")
 				return nil, "", true
 			}
 			expDuration := time.Duration(time.Second.Nanoseconds() * int64(durationInt))
 			expirationTime := createdTime.Add(expDuration)
-			fmt.Println("exp:", expirationTime,
-				"\nduration:", expDuration,
-				"\ncreated:", createdTime,
-				"\nlast:", lastaction,
-				"\nlastexp:", lastaction.Add(expDuration),
-				"\nnow:", actionTime)
 			if expirationTime.Unix() < actionTime.Unix() {
 				if lastaction.Add(expDuration).Unix() > actionTime.Unix() {
 					claims["created"] = actionTime
 					at := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
 					newToken, err := at.SignedString(([]byte)(os.Getenv("TOKEN_SECRET")))
 					if err != nil {
-						newLast, err := s.UpdateUserLastAction(int32(user.(float64)), actionTime)
-						if err != nil {
-							fmt.Println("new:", newLast)
-						}
-						fmt.Println("f")
+						s.UpdateUserLastAction(int32(user.(float64)), actionTime)
 						return claims, "", true
 					}
-					newLast, err := s.UpdateUserLastAction(int32(user.(float64)), actionTime)
-					if err != nil {
-						fmt.Println("new:", newLast)
-					}
-					fmt.Println("g")
+					s.UpdateUserLastAction(int32(user.(float64)), actionTime)
 					return claims, newToken, true
 				}
 			} else {
-				newLast, err := s.UpdateUserLastAction(int32(user.(float64)), actionTime)
-				if err != nil {
-					fmt.Println("new:", newLast)
-				}
-				fmt.Println("h")
+				s.UpdateUserLastAction(int32(user.(float64)), actionTime)
 				return claims, "", true
 			}
-			fmt.Println("i")
 			return nil, "", true
 		}
 		fmt.Println("Token Data Corruption - Change token secret")
-		fmt.Println("j")
 		return nil, "", false
 	}
 	fmt.Println("Invalid Token")
-	fmt.Println("k")
 	return nil, "", false
 }

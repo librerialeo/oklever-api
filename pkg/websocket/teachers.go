@@ -1,10 +1,10 @@
 package websocket
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/librerialeo/oklever-api/pkg/utils"
+	"github.com/savsgio/atreugo"
 )
 
 // TeacherRegister register new user
@@ -69,7 +69,15 @@ func TeacherLogin(s *Socket, a *Action) {
 					} else {
 						s.io.service.UpdateUserLastAction(user.ID.Int, time.Now())
 						s.SetToken(token)
-						s.Emit("TEACHER_LOGIN", user)
+						s.Emit("TEACHER_LOGIN", atreugo.JSON{
+							"email":     user.Email,
+							"firstname": user.Firstname,
+							"lastname":  user.LastAction,
+							"gender":    user.Gender,
+							"phone":     user.Phone,
+							"license":   user.License,
+							"rfc":       user.RFC,
+						})
 						s.EmitSuccess("Iniciaste sesión correctamente")
 					}
 				} else {
@@ -82,5 +90,33 @@ func TeacherLogin(s *Socket, a *Action) {
 
 // UpdateTeacherInformation update teachers user data
 func UpdateTeacherInformation(s *Socket, a *Action) {
-	fmt.Println(a)
+	data, ok := a.Data.(map[string]interface{})
+	if ok {
+		email, emailOk := data["email"].(string)
+		firstname, firstnameOk := data["firstname"].(string)
+		lastname, lastnameOk := data["lastname"].(string)
+		gender, genderOk := data["gender"].(string)
+		phone, phoneOk := data["phone"].(string)
+		license, licenseOk := data["license"].(string)
+		rfc, rfcOk := data["rfc"].(string)
+		if emailOk && firstnameOk && lastnameOk && genderOk && phoneOk && licenseOk && rfcOk && s.userID != 0 {
+			if err := s.io.service.UpdateUserInformation(s.userID, firstname, lastname, email, gender, phone); err != nil {
+				s.EmitServerError("UpdateTeacherInformation: update user information", err)
+				return
+			}
+			if err := s.io.service.UpdateTeacherInformation(s.userID, license, rfc); err != nil {
+				s.EmitServerError("UpdateTeacherInformation: update teacher information", err)
+				return
+			}
+			s.Emit("UPDATE_TEACHER_INFORMATION", atreugo.JSON{
+				"email":     email,
+				"firstname": firstname,
+				"lastname":  lastname,
+				"gender":    gender,
+				"phone":     phone,
+				"license":   license,
+				"rfc":       rfc,
+			})
+		}
+	}
 }

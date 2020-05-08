@@ -48,3 +48,13 @@ func (s *Service) UpdateUserLastAction(userID int32, lastaction time.Time) (*tim
 	}
 	return &last.Time, nil
 }
+
+// UpdateUserInformation update user information
+func (s *Service) UpdateUserInformation(userID int32, first string, last string, email string, gender string, phone string) error {
+	rows, err := s.db.UpdateUserInformation(userID, first, last, email, gender, phone)
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+	return nil
+}

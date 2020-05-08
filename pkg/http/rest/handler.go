@@ -49,10 +49,10 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 					if token != "" {
 						ctx.SetUserValue("token", token)
 					}
-					if userID, ok := claims["user"].(int32); ok {
+					if userID, ok := claims["user"]; ok {
 						ctx.SetUserValue("user", userID)
 					}
-					if rol, ok := claims["rol"].(int32); ok {
+					if rol, ok := claims["rol"]; ok {
 						ctx.SetUserValue("rol", rol)
 					}
 				} else {

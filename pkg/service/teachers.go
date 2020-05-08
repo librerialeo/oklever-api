@@ -21,21 +21,7 @@ func (s *Service) AddTeacher(firstname string, lastname string, email string, pa
 	defer rows.Close()
 	var u database.DBUser
 	if rows.Next() {
-		err = rows.Scan(&u.ID,
-			&u.Email,
-			&u.Password,
-			&u.Firstname,
-			&u.Lastname,
-			&u.Gender,
-			&u.Image,
-			&u.Birthdate,
-			&u.Phone,
-			&u.Country,
-			&u.Rol,
-			&u.LastAction,
-			&u.Created,
-			&u.Modified,
-			&u.Deleted)
+		err = rows.Scan(&u.ID, &u.Firstname, &u.Lastname, &u.Email, &u.Rol)
 	}
 	if err != nil {
 		return nil, err
@@ -66,6 +52,11 @@ func (s *Service) GetTeacherUserByEmail(email string) (*database.DBUser, error) 
 			&u.Image,
 			&u.Birthdate,
 			&u.Phone,
+			&u.License,
+			&u.RFC,
+			&u.Biography,
+			&u.TeachingMonths,
+			&u.Accepted,
 			&u.Country,
 			&u.Rol,
 			&u.LastAction,
@@ -74,4 +65,18 @@ func (s *Service) GetTeacherUserByEmail(email string) (*database.DBUser, error) 
 			&u.Deleted)
 	}
 	return &u, err
+}
+
+// GetTeacherByUserID get teacher from user id
+func (s *Service) GetTeacherByUserID(userID int32) {
+}
+
+// UpdateTeacherInformation updates teacher license and rfc
+func (s *Service) UpdateTeacherInformation(userID int32, license string, rfc string) error {
+	rows, err := s.db.UpdateTeacherInformation(userID, license, rfc)
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+	return nil
 }

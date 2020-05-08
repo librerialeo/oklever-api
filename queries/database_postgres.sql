@@ -70,6 +70,11 @@ CREATE TABLE users (
 	user_image VARCHAR(64),
 	user_birthdate DATE,
 	user_phone VARCHAR(24),
+	user_license VARCHAR(32) UNIQUE,
+	user_rfc VARCHAR(16) UNIQUE,
+	user_biography TEXT,
+	user_teaching_months SMALLINT,
+	user_accepted BOOLEAN NOT NULL DEFAULT FALSE,
 	country_id INT REFERENCES countries(country_id),
 	rol_id INT NOT NULL REFERENCES roles(rol_id),
 	user_lastaction TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
@@ -126,102 +131,87 @@ CREATE TABLE languages (
 CREATE TRIGGER update_languages_modified_at BEFORE UPDATE
 ON languages FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE teachers (
-	teacher_id SERIAL PRIMARY KEY,
+CREATE TABLE users_languages (
+	user_language_id SERIAL PRIMARY KEY,
 	user_id INT NOT NULL REFERENCES users(user_id),
-	teacher_professional_license VARCHAR(32) UNIQUE NOT NULL,
-	teacher_rfc VARCHAR(16) UNIQUE NOT NULL,
-	teacher_biography TEXT NOT NULL,
-	teacher_teaching_months SMALLINT,
-	teacher_accepted BOOLEAN NOT NULL DEFAULT FALSE,
-	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	deleted_at TIMESTAMPTZ
-);
-CREATE TRIGGER update_teachers_modified_at BEFORE UPDATE
-ON teachers FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
-
-CREATE TABLE teachers_languages (
-	teacher_language_id SERIAL PRIMARY KEY,
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
 	language_id INT NOT NULL REFERENCES languages(language_id),
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_teachers_languages_modified_at BEFORE UPDATE
-ON teachers_languages FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_languages_modified_at BEFORE UPDATE
+ON users_languages FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE teachers_research (
-	teacher_research_id SERIAL PRIMARY KEY,
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
-	teacher_research_reference TEXT NOT NULL,
-	teacher_research_year SMALLINT NOT NULL,
+CREATE TABLE users_research (
+	user_research_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(user_id),
+	user_research_reference TEXT NOT NULL,
+	user_research_year SMALLINT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_teachers_research_modified_at BEFORE UPDATE
-ON teachers_research FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_research_modified_at BEFORE UPDATE
+ON users_research FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE teachers_managements (
-	teacher_management_id SERIAL PRIMARY KEY,
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
-	teacher_management_job VARCHAR(128) NOT NULL,
-	teacher_management_institution VARCHAR(128) NOT NULL,
-	teacher_management_months SMALLINT NOT NULL,
+CREATE TABLE users_managements (
+	user_management_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(user_id),
+	user_management_job VARCHAR(128) NOT NULL,
+	user_management_institution VARCHAR(128) NOT NULL,
+	user_management_months SMALLINT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_teachers_managements_modified_at BEFORE UPDATE
-ON teachers_managements FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_managements_modified_at BEFORE UPDATE
+ON users_managements FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE teachers_expertises (
-	teacher_expertise_id SERIAL PRIMARY KEY,
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
-	teacher_expertise_name VARCHAR(128) NOT NULL,
-	teacher_expertise_months SMALLINT NOT NULL,
+CREATE TABLE users_expertises (
+	user_expertise_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(user_id),
+	user_expertise_name VARCHAR(128) NOT NULL,
+	user_expertise_months SMALLINT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_teachers_expertises_modified_at BEFORE UPDATE
-ON teachers_expertises FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_expertises_modified_at BEFORE UPDATE
+ON users_expertises FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE teachers_teaching (
-	teacher_teaching_id SERIAL PRIMARY KEY,
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
-	teacher_teaching_years INT,
+CREATE TABLE users_teaching (
+	user_teaching_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(user_id),
+	user_teaching_years INT,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_teachers_teaching_modified_at BEFORE UPDATE
-ON teachers_teaching FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_teaching_modified_at BEFORE UPDATE
+ON users_teaching FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE teachers_teaching_institutions (
-	teacher_teaching_institution_id SERIAL PRIMARY KEY,
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
-	teacher_teaching_institution_name VARCHAR(128) NOT NULL,
+CREATE TABLE users_teaching_institutions (
+	user_teaching_institution_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(user_id),
+	user_teaching_institution_name VARCHAR(128) NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_teachers_teaching_institutions_modified_at BEFORE UPDATE
-ON teachers_teaching_institutions FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_teaching_institutions_modified_at BEFORE UPDATE
+ON users_teaching_institutions FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE teachers_teaching_signatures (
-	teacher_teaching_signature_id SERIAL PRIMARY KEY,
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
+CREATE TABLE users_teaching_signatures (
+	user_teaching_signature_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(user_id),
 	degree_id INT NOT NULL REFERENCES degrees(degree_id),
-	teacher_teaching_signature_name VARCHAR(128) NOT NULL,
+	user_teaching_signature_name VARCHAR(128) NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_teachers_teaching_signatures_modified_at BEFORE UPDATE
-ON teachers_teaching_signatures FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_teaching_signatures_modified_at BEFORE UPDATE
+ON users_teaching_signatures FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE courses_levels (
 	course_level_id SERIAL PRIMARY KEY,
@@ -293,20 +283,10 @@ CREATE TABLE questions_options (
 CREATE TRIGGER update_questions_options_modified_at BEFORE UPDATE
 ON questions_options FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE students (
-	student_id SERIAL PRIMARY KEY,
-	user_id INT NOT NULL REFERENCES users(user_id),
-	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	deleted_at TIMESTAMPTZ
-);
-CREATE TRIGGER update_students_modified_at BEFORE UPDATE
-ON students FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
-
 CREATE TABLE courses (
 	course_id SERIAL PRIMARY KEY,
 	course_level_id INT NOT NULL REFERENCES courses_levels(course_level_id),
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
+	teacher_id INT NOT NULL REFERENCES users(user_id),
 	course_name VARCHAR(128) NOT NULL,
 	course_description TEXT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -358,7 +338,8 @@ ON courses_projects FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 CREATE TABLE courses_reviews (
 	course_review_id SERIAL PRIMARY KEY,
 	course_id INT NOT NULL REFERENCES courses(course_id),
-	student_id INT NOT NULL REFERENCES students(student_id),
+	user_id INT NOT NULL REFERENCES users(user_id),
+	rol_id INT NOT NULL REFERENCES roles(rol_id),
 	course_review_rating SMALLINT NOT NULL,
 	course_review_message TEXT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -396,6 +377,7 @@ CREATE TABLE courses_forums_comments (
 	course_forum_comment_id SERIAL PRIMARY KEY,
 	course_forum_id INT NOT NULL REFERENCES courses_forums(course_forum_id),
 	user_id INT NOT NULL REFERENCES users(user_id),
+	rol_id INT NOT NULL REFERENCES roles(rol_id),
 	course_forum_comment_message TEXT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -499,6 +481,7 @@ CREATE TABLE classes_comments (
 	class_comment_id SERIAL PRIMARY KEY,
 	class_id INT NOT NULL REFERENCES classes(class_id),
 	user_id INT NOT NULL REFERENCES users(user_id),
+	rol_id INT NOT NULL REFERENCES roles(rol_id),
 	class_comment_message TEXT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -509,7 +492,8 @@ ON classes_comments FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE test_classes (
 	test_class_id SERIAL PRIMARY KEY,
-	teacher_id INT NOT NULL REFERENCES teachers(teacher_id),
+	teacher_id INT NOT NULL REFERENCES users(user_id),
+	academic_id INT NOT NULL REFERENCES users(user_id),
 	test_class_type INT NOT NULL,
 	test_class_name VARCHAR(64) NOT NULL,
 	test_class_description VARCHAR(64) NOT NULL,
@@ -546,7 +530,7 @@ ON subscriptions FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE purchases (
 	purchase_id SERIAL PRIMARY KEY,
-	student_id INT NOT NULL REFERENCES students(student_id),
+	user_id INT NOT NULL REFERENCES users(user_id),
 	purchase_total DECIMAL(8,2) NOT NULL,
 	purchase_discount DECIMAL(8,2) NOT NULL,
 	purchase_currency DECIMAL(8,2) NOT NULL,
@@ -570,79 +554,79 @@ CREATE TABLE purchases_products (
 CREATE TRIGGER update_purchases_products_modified_at BEFORE UPDATE
 ON purchases_products FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE students_courses (
-	student_course_id SERIAL PRIMARY KEY,
+CREATE TABLE users_courses (
+	user_course_id SERIAL PRIMARY KEY,
 	purchase_id INT NOT NULL REFERENCES purchases(purchase_id),
 	course_id INT NOT NULL REFERENCES courses(course_id),
-	student_id INT NOT NULL REFERENCES students(student_id),
-	student_course_approved BOOLEAN NOT NULL DEFAULT FALSE,
+	user_id INT NOT NULL REFERENCES users(user_id),
+	user_course_approved BOOLEAN NOT NULL DEFAULT FALSE,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_students_courses_modified_at BEFORE UPDATE
-ON students_courses FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_courses_modified_at BEFORE UPDATE
+ON users_courses FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE students_quizzes (
-	student_quiz_id SERIAL PRIMARY KEY,
-	student_id INT NOT NULL REFERENCES students(student_id),
+CREATE TABLE users_quizzes (
+	user_quiz_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL REFERENCES users(user_id),
 	quiz_id INT NOT NULL REFERENCES quizzes(quiz_id),
-	student_quiz_aproved BOOLEAN NOT NULL DEFAULT FALSE,
+	user_quiz_aproved BOOLEAN NOT NULL DEFAULT FALSE,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_students_quizzes_modified_at BEFORE UPDATE
-ON students_quizzes FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_quizzes_modified_at BEFORE UPDATE
+ON users_quizzes FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE students_answers (
-	student_answer_id SERIAL PRIMARY KEY,
-	student_quiz_id INT NOT NULL REFERENCES students_quizzes(student_quiz_id),
-	student_id INT NOT NULL REFERENCES students(student_id),
+CREATE TABLE users_answers (
+	user_answer_id SERIAL PRIMARY KEY,
+	user_quiz_id INT NOT NULL REFERENCES users_quizzes(user_quiz_id),
+	user_id INT NOT NULL REFERENCES users(user_id),
 	question_option_id INT NOT NULL REFERENCES questions_options(question_option_id),
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_students_answers_modified_at BEFORE UPDATE
-ON students_answers FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_answers_modified_at BEFORE UPDATE
+ON users_answers FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE students_projects (
-	student_project_id SERIAL PRIMARY KEY,
+CREATE TABLE users_projects (
+	user_project_id SERIAL PRIMARY KEY,
 	course_project_id INT NOT NULL REFERENCES courses_projects(course_project_id),
-	student_id INT NOT NULL REFERENCES students(student_id),
-	student_project_type VARCHAR(64) NOT NULL,
-	student_project_data TEXT NOT NULL,
+	user_id INT NOT NULL REFERENCES users(user_id),
+	user_project_type VARCHAR(64) NOT NULL,
+	user_project_data TEXT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_students_projects_modified_at BEFORE UPDATE
-ON students_projects FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_projects_modified_at BEFORE UPDATE
+ON users_projects FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE students_subscriptions (
-	students_subscriptions_id SERIAL PRIMARY KEY,
+CREATE TABLE users_subscriptions (
+	users_subscriptions_id SERIAL PRIMARY KEY,
 	purchase_id INT NOT NULL REFERENCES purchases(purchase_id),
 	subscription_id INT NOT NULL REFERENCES subscriptions(subscription_id),
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_students_subscriptions_modified_at BEFORE UPDATE
-ON students_subscriptions FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_subscriptions_modified_at BEFORE UPDATE
+ON users_subscriptions FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE students_projects_history (
-	student_project_history_id SERIAL PRIMARY KEY,
-	student_project_id INT NOT NULL REFERENCES students_projects(student_project_id),
-	student_project_type VARCHAR(64) NOT NULL,
-	student_project_data TEXT NOT NULL,
+CREATE TABLE users_projects_history (
+	user_project_history_id SERIAL PRIMARY KEY,
+	user_project_id INT NOT NULL REFERENCES users_projects(user_project_id),
+	user_project_type VARCHAR(64) NOT NULL,
+	user_project_data TEXT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
 
-CREATE TRIGGER update_students_projects_history_modified_at BEFORE UPDATE
-ON students_projects_history FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_projects_history_modified_at BEFORE UPDATE
+ON users_projects_history FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE users_academy (
 	user_academy_id SERIAL PRIMARY KEY,
@@ -650,7 +634,7 @@ CREATE TABLE users_academy (
 	degree_id INT NOT NULL REFERENCES degrees(degree_id),
 	user_academy_name VARCHAR(64) NOT NULL,
 	user_academy_institution VARCHAR(64) NOT NULL,
-	user_academy_year SMALLINT NOT NULL,
+	user_academy_year SMALLINT NOT NULL
 );
 
 CREATE TRIGGER update_users_academy_modified_at BEFORE UPDATE
