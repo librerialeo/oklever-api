@@ -18,17 +18,17 @@ type DBUsersLanguage struct {
 	DeleteAt   pgtype.Timestamptz `json:"-"`
 }
 
-// GetAllUsersLanguages queries for all teachersLanguages
-func (db *Database) GetAllUsersLanguages() (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_languages")
+// GetAllUsersLanguages queries for all usersLanguages
+func (db *Database) GetAllUsersLanguages(userID int32) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "SELECT * FROM users_languages where user_id = $1", userID)
 }
 
-// AddUsersLanguages add language teacher
-func (db *Database) AddUsersLanguages(teacherID int, languageID int) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_languages(user_id,language_id) VALUES($1,$2)", teacherID, languageID)
+// AddUsersLanguages add language users
+func (db *Database) AddUsersLanguages(userID int32, languageID int) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "INSERT INTO users_languages(user_id,language_id) VALUES($1,$2)", userID, languageID)
 }
 
-//DeleteUsersLanguages delete language user
-func (db *Database) DeleteUsersLanguages(userID int, languageID int) (pgx.Rows, error) {
+//DeleteUsersLanguages delete language users
+func (db *Database) DeleteUsersLanguages(userID int32, languageID int) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "DELETE FROM users_languages where user_id = $1 AND language_id = $2", userID, languageID)
 }

@@ -5,13 +5,13 @@ import (
 )
 
 // GetAllUsersLanguages return all teachersLanguages
-func (s *Service) GetAllUsersLanguages() (pgx.Rows, error) {
-	return s.db.GetAllUsersLanguages()
+func (s *Service) GetAllUsersLanguages(userID int32) (pgx.Rows, error) {
+	return s.db.GetAllUsersLanguages(userID)
 }
 
 // AddUsersLanguages return success
-func (s *Service) AddUsersLanguages(teacherID int, languageID int) error {
-	rows, err := s.db.AddUsersLanguages(teacherID, languageID)
+func (s *Service) AddUsersLanguages(usersID int32, languageID int) error {
+	rows, err := s.db.AddUsersLanguages(usersID, languageID)
 	if err != nil {
 		return err
 	}
@@ -20,7 +20,7 @@ func (s *Service) AddUsersLanguages(teacherID int, languageID int) error {
 }
 
 // DeleteUsersLanguages delete user language
-func (s *Service) DeleteUsersLanguages(userID int, languageID int) error {
+func (s *Service) DeleteUsersLanguages(userID int32, languageID int) error {
 	rows, err := s.db.DeleteUsersLanguages(userID, languageID)
 	if err != nil {
 		return err
