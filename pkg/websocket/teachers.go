@@ -33,7 +33,15 @@ func TeacherRegister(s *Socket, a *Action) {
 					s.JoinRoom("students")
 					s.JoinRoom("teachers")
 					s.SetToken(token)
-					s.Emit("TEACHER_LOGIN", u)
+					s.Emit("TEACHER_LOGIN", atreugo.JSON{
+						"email":     u.Email.String,
+						"firstname": u.Firstname.String,
+						"lastname":  u.LastAction.Time,
+						"gender":    u.Gender.String,
+						"phone":     u.Phone.String,
+						"license":   u.License.String,
+						"rfc":       u.RFC.String,
+					})
 				}
 			}
 		} else {
