@@ -8,10 +8,10 @@ import (
 	"github.com/jackc/pgx"
 )
 
-// DBUsersLanguage struct of database teachers_languages
+// DBUsersLanguage struct of database users_languages
 type DBUsersLanguage struct {
 	ID         pgtype.Int4        `json:"-"`
-	TeacherID  pgtype.Int4        `json:"teacher_id"`
+	TeacherID  pgtype.Int4        `json:"_"`
 	LanguageID pgtype.Int4        `json:"id"`
 	CreatedAt  pgtype.Timestamptz `json:"-"`
 	ModifiedAt pgtype.Timestamptz `json:"-"`
@@ -20,7 +20,7 @@ type DBUsersLanguage struct {
 
 // GetAllUsersLanguages queries for all usersLanguages
 func (db *Database) GetAllUsersLanguages(userID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_languages where user_id = $1", userID)
+	return db.conn.Query(context.Background(), "SELECT language_id FROM users_languages where user_id = $1", userID)
 }
 
 // AddUsersLanguages add language users

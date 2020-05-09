@@ -84,6 +84,11 @@ func TeacherLogin(s *Socket, a *Action) {
 							"rfc":       user.RFC.String,
 						})
 						s.EmitSuccess("Iniciaste sesión correctamente")
+						idsLanguages, err := s.io.service.GetAllUsersLanguages(s.userID)
+						if err != nil {
+							s.EmitServerError("Users get languages", err)
+						}
+						s.Emit("ADD_USERS_LANGUAGE", idsLanguages)
 					}
 				} else {
 					s.EmitError("Email o contraseña incorrecta")

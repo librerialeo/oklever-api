@@ -1,12 +1,26 @@
 package service
 
 import (
-	"github.com/jackc/pgx"
+	"github.com/jackc/pgtype"
 )
 
 // GetAllUsersLanguages return all usersLanguages
-func (s *Service) GetAllUsersLanguages(userID int32) (pgx.Rows, error) {
-	return s.db.GetAllUsersLanguages(userID)
+func (s *Service) GetAllUsersLanguages(userID int32) (*[]int32, error) {
+	rows, err := s.db.GetAllUsersLanguages(userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	languages := make([]int32, 0)
+	for rows.Next() {
+		var l pgtype.Int4
+		err = rows.Scan(&l)
+		if err != nil {
+			return nil, err
+		}
+		languages = append(languages, l.Int)
+	}
+	return &languages, nil
 }
 
 // AddUsersLanguages return success

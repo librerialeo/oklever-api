@@ -12,6 +12,9 @@ func (io *IO) InitActions() {
 
 	// user actions
 	io.AddActionHandler("LOGOUT", Logout, []string{})
+	io.AddActionHandler("ADD_USERS_LANGUAGE", UsersAddLanguage, []string{})
+	io.AddActionHandler("DELETE_USERS_LANGUAGE", UsersDeleteLanguage, []string{})
+	io.AddActionHandler("GET_USERS_LANGUAGES", UsersGetLanguages, []string{})
 
 	// student actions
 
@@ -19,7 +22,6 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("TEACHER_REGISTER", TeacherRegister, []string{})
 	io.AddActionHandler("TEACHER_LOGIN", TeacherLogin, []string{})
 	io.AddActionHandler("UPDATE_TEACHER_INFORMATION", UpdateTeacherInformation, []string{})
-	io.AddActionHandler("ADD_USERS_LANGUAGE", UsersAddLanguage, []string{})
-	io.AddActionHandler("DELETE_USERS_LANGUAGE", UsersDeleteLanguage, []string{})
+
 	// academy actions
 }
