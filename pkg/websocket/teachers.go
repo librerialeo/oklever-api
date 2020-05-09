@@ -84,11 +84,18 @@ func TeacherLogin(s *Socket, a *Action) {
 							"rfc":       user.RFC.String,
 						})
 						s.EmitSuccess("Iniciaste sesión correctamente")
-						idsLanguages, err := s.io.service.GetAllUsersLanguages(s.userID)
-						if err != nil {
-							s.EmitServerError("Users get languages", err)
+						idsLanguages, idsErr := s.io.service.GetAllUsersLanguages(user.ID.Int)
+						if idsErr != nil {
+							s.EmitServerError("Users get languages", idsErr)
+						} else {
+							s.Emit("ADD_USERS_LANGUAGE", idsLanguages)
 						}
-						s.Emit("ADD_USERS_LANGUAGE", idsLanguages)
+						academies, aErr := s.io.service.GetAllUsersAcademy(user.ID.Int)
+						if aErr != nil {
+							s.EmitServerError("Users get academies", aErr)
+						} else {
+							s.Emit("ADD_USERS_ACADEMY", academies)
+						}
 					}
 				} else {
 					s.EmitError("Email o contraseña incorrecta")

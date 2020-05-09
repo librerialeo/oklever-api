@@ -507,3 +507,4 @@ VALUES
 	('zza', 'Zazaki');
 
 INSERT INTO roles("rol_name") VALUES ('student'), ('teacher'), ('academy'), ('coordinator'), ('support');
+INSERT INTO degrees(degree_name, degree_description) VALUES ('Doctorado', 'Degres description'), ('Maestría', 'Degres description'), ('Especialidad', 'Degres description'), ('Licenciatura', 'Degres description'), ('Técnico', 'Degrs descriptione');
