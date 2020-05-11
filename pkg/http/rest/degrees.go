@@ -12,7 +12,11 @@ func InitDegreesHandler(r *atreugo.Router, s *service.Service) {
 
 func getAllDegrees(s *service.Service) atreugo.View {
 	return func(ctx *atreugo.RequestCtx) error {
-		_, err := ctx.WriteString("get all degrees")
-		return err
+		degrees, err := s.GetAllDegrees()
+		if err != nil {
+			ctx.SetUserValue("error", err)
+			return SendResponse(ctx)
+		}
+		return SendResponse(ctx, degrees)
 	}
 }
