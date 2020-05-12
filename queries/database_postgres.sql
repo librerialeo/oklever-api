@@ -34,7 +34,8 @@ CREATE TABLE degrees (
 	degree_description TEXT,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	deleted_at TIMESTAMPTZ
+	deleted_at TIMESTAMPTZ,
+	degree_class VARCHAR(20)
 );
 CREATE TRIGGER update_degrees_modified_at BEFORE UPDATE
 ON degrees FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();

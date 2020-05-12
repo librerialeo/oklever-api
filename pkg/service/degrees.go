@@ -16,7 +16,7 @@ func (s *Service) GetAllDegrees() (*[]database.DBDegrees, error) {
 	err = nil
 	for rows.Next() {
 		var d database.DBDegrees
-		err = rows.Scan(&d.ID, &d.Name)
+		err = rows.Scan(&d.ID, &d.Name, &d.DegreeClass)
 		if err != nil {
 			return nil, err
 		}

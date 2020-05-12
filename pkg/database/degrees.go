@@ -10,11 +10,12 @@ import (
 
 //DBDegrees struct of database degrees
 type DBDegrees struct {
-	ID   pgtype.Int4    `json:"id"`
-	Name pgtype.Varchar `json:"name"`
+	ID          pgtype.Int4    `json:"id"`
+	Name        pgtype.Varchar `json:"name"`
+	DegreeClass pgtype.Varchar `json:"class"`
 }
 
 // GetAllDegrees queries for all degrees
 func (db *Database) GetAllDegrees() (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT degree_id, degree_name FROM degrees")
+	return db.conn.Query(context.Background(), "SELECT degree_id, degree_name, degree_class FROM degrees")
 }

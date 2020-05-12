@@ -506,5 +506,5 @@ VALUES
 	('zun', 'Zuni'),
 	('zza', 'Zazaki');
 
-INSERT INTO roles("rol_name") VALUES ('student'), ('teacher'), ('academy'), ('coordinator'), ('support');
-INSERT INTO degrees(degree_name, degree_description) VALUES ('Doctorado', 'Degrees description'), ('Maestría', 'Degrees description'), ('Especialidad', 'Degrees description'), ('Licenciatura', 'Degrees description'), ('Técnico', 'Degrees description');
+INSERT INTO roles(rol_name) VALUES ('student'), ('teacher'), ('academy'), ('coordinator'), ('support');
+INSERT INTO degrees(degree_name, degree_description, degree_class) VALUES ('Doctorado', 'Degrees description', 'cdoc'), ('Maestría', 'Degrees description', 'cmas'), ('Especialidad', 'Degrees description', 'cdeg'), ('Licenciatura', 'Degrees description', 'cspe'), ('Técnico', 'Degrees description', 'ctec');
