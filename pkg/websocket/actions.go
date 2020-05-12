@@ -19,6 +19,8 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("GET_USERS_LANGUAGES", UsersGetLanguages, []string{})
 	io.AddActionHandler("GET_USERS_ACADEMY", UsersGetAcademy, []string{})
 	io.AddActionHandler("ADD_USERS_ACADEMY", UsersAddAcademy, []string{})
+	io.AddActionHandler("UPDATE_USERS_ACADEMY", UsersUpdateAcademy, []string{})
+	io.AddActionHandler("DELETE_USERS_ACADEMY", UsersDeleteAcademy, []string{})
 
 	// student actions
 
