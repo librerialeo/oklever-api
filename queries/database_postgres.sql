@@ -32,10 +32,10 @@ CREATE TABLE degrees (
 	degree_id SERIAL PRIMARY KEY,
 	degree_name VARCHAR(64) UNIQUE NOT NULL,
 	degree_description TEXT,
+	degree_class VARCHAR(20),
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	deleted_at TIMESTAMPTZ,
-	degree_class VARCHAR(20)
+	deleted_at TIMESTAMPTZ
 );
 CREATE TRIGGER update_degrees_modified_at BEFORE UPDATE
 ON degrees FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
