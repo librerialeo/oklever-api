@@ -9,8 +9,8 @@ func (io *IO) InitActions() {
 
 	// public actions
 	io.AddActionHandler("USER_REGISTER", UserRegister, []string{})
-	io.AddActionHandler("ADD_LANGUAGES", GetAllLanguages, []string{})
-	io.AddActionHandler("ADD_DEGREES", GetAllDegrees, []string{})
+	io.AddActionHandler("GET_LANGUAGES", GetAllLanguages, []string{})
+	io.AddActionHandler("GET_DEGREES", GetAllDegrees, []string{})
 
 	// user actions
 	io.AddActionHandler("LOGOUT", Logout, []string{})
