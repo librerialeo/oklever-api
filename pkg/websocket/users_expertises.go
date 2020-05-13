@@ -1,12 +1,8 @@
 package websocket
 
-import (
-	"github.com/savsgio/atreugo"
-)
-
 // GetUserExpertise Get user expertise
 func GetUserExpertise(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok {
 		expertiseID, ok := data["id"]
 		if ok {
@@ -34,7 +30,7 @@ func GetUserExpertises(s *Socket, a *Action) {
 
 // AddUserExpertise Add user expertise
 func AddUserExpertise(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
 		name, nOk := data["name"]
 		months, mOk := data["months"]
@@ -51,7 +47,7 @@ func AddUserExpertise(s *Socket, a *Action) {
 
 // UpdateUserExpertise Update user expertise
 func UpdateUserExpertise(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok || s.userID == 0 {
 		return
 	}
@@ -79,7 +75,7 @@ func UpdateUserExpertise(s *Socket, a *Action) {
 
 // DeleteUserExpertise Delete user expertise
 func DeleteUserExpertise(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok {
 		return
 	}

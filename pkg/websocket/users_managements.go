@@ -1,12 +1,8 @@
 package websocket
 
-import (
-	"github.com/savsgio/atreugo"
-)
-
 // GetUserManagement Get user management
 func GetUserManagement(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok {
 		managementID, ok := data["id"]
 		if ok {
@@ -34,7 +30,7 @@ func GetUserManagements(s *Socket, a *Action) {
 
 // AddUserManagement Add user management
 func AddUserManagement(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
 		job, jOk := data["job"]
 		institution, iOk := data["institution"]
@@ -52,7 +48,7 @@ func AddUserManagement(s *Socket, a *Action) {
 
 // UpdateUserManagement Update user management
 func UpdateUserManagement(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok || s.userID == 0 {
 		return
 	}
@@ -81,7 +77,7 @@ func UpdateUserManagement(s *Socket, a *Action) {
 
 // DeleteUserManagement Delete user management
 func DeleteUserManagement(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok {
 		return
 	}

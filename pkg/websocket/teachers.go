@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/librerialeo/oklever-api/pkg/utils"
-	"github.com/savsgio/atreugo"
 )
 
 // TeacherRegister register new user
@@ -34,7 +33,7 @@ func TeacherRegister(s *Socket, a *Action) {
 					s.JoinRoom("students")
 					s.JoinRoom("teachers")
 					s.SetToken(token)
-					s.Emit("TEACHER_LOGIN", atreugo.JSON{
+					s.Emit("TEACHER_LOGIN", map[string]interface{}{
 						"email":     u.Email.String,
 						"firstname": u.Firstname.String,
 						"lastname":  u.Lastname.String,
@@ -74,7 +73,7 @@ func TeacherLogin(s *Socket, a *Action) {
 					} else {
 						s.io.service.UpdateUserLastAction(user.ID.Int, time.Now())
 						s.SetToken(token)
-						s.Emit("TEACHER_LOGIN", atreugo.JSON{
+						s.Emit("TEACHER_LOGIN", map[string]interface{}{
 							"email":     user.Email.String,
 							"firstname": user.Firstname.String,
 							"lastname":  user.Lastname.String,
@@ -127,7 +126,7 @@ func UpdateTeacherInformation(s *Socket, a *Action) {
 				fmt.Println("update teacher", err)
 				return
 			}
-			s.Emit("UPDATE_TEACHER_INFORMATION", atreugo.JSON{
+			s.Emit("UPDATE_TEACHER_INFORMATION", map[string]interface{}{
 				"email":     email,
 				"firstname": firstname,
 				"lastname":  lastname,
