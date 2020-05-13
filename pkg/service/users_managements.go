@@ -41,7 +41,7 @@ func (s *Service) GetUserManagements(userID int32) (*[]database.DBManagement, er
 		return nil, err
 	}
 	defer rows.Close()
-	var managements []database.DBManagement
+	managements := []database.DBManagement{}
 	management, err := readManagement(&rows)
 	for management != nil && err == nil {
 		managements = append(managements, *management)

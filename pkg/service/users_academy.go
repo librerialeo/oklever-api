@@ -11,7 +11,7 @@ func (s *Service) GetAllUsersAcademy(userID int32) (*[]database.DBUsersAcademy, 
 		return nil, err
 	}
 	defer rows.Close()
-	academies := make([]database.DBUsersAcademy, 0)
+	academies := []database.DBUsersAcademy{}
 	err = nil
 	for rows.Next() {
 		var a database.DBUsersAcademy
@@ -37,7 +37,7 @@ func (s *Service) AddUsersAcademy(userID int32, degreeID int, academyName string
 		return nil, err
 	}
 	defer rows.Close()
-	academies := make([]database.DBUsersAcademy, 0)
+	academies := []database.DBUsersAcademy{}
 	err = nil
 	if rows.Next() {
 		var a database.DBUsersAcademy
@@ -57,7 +57,7 @@ func (s *Service) UpdateUsersAcademy(ID int, userID int32, degreeID int, academy
 		return nil, err
 	}
 	defer rows.Close()
-	academies := make([]database.DBUsersAcademy, 0)
+	academies := []database.DBUsersAcademy{}
 	err = nil
 	if rows.Next() {
 		var a database.DBUsersAcademy

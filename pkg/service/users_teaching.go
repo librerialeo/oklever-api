@@ -41,7 +41,7 @@ func (s *Service) GetUserTeachingSignatures(userID int32) (*[]database.DBSignatu
 		return nil, err
 	}
 	defer rows.Close()
-	var signatures []database.DBSignature
+	signatures := []database.DBSignature{}
 	signature, err := readSignature(&rows)
 	for signature != nil && err == nil {
 		signatures = append(signatures, *signature)
@@ -117,7 +117,7 @@ func (s *Service) GetUserTeachingInstitutions(userID int32) (*[]database.DBInsti
 		return nil, err
 	}
 	defer rows.Close()
-	var institutions []database.DBInstitution
+	institutions := []database.DBInstitution{}
 	institution, err := readInstitution(&rows)
 	for institution != nil && err == nil {
 		institutions = append(institutions, *institution)

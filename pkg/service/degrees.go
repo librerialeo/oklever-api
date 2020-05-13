@@ -12,7 +12,7 @@ func (s *Service) GetAllDegrees() (*[]database.DBDegrees, error) {
 		return nil, err
 	}
 	defer rows.Close()
-	degrees := make([]database.DBDegrees, 0)
+	degrees := []database.DBDegrees{}
 	err = nil
 	for rows.Next() {
 		var d database.DBDegrees

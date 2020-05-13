@@ -10,7 +10,7 @@ func (s *Service) GetAllLanguages() (*[]database.DBLanguage, error) {
 		return nil, err
 	}
 	defer rows.Close()
-	languages := make([]database.DBLanguage, 0)
+	languages := []database.DBLanguage{}
 	err = nil
 	for rows.Next() {
 		var l database.DBLanguage

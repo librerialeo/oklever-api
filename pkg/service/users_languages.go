@@ -11,7 +11,7 @@ func (s *Service) GetAllUsersLanguages(userID int32) (*[]int32, error) {
 		return nil, err
 	}
 	defer rows.Close()
-	languages := make([]int32, 0)
+	languages := []int32{}
 	for rows.Next() {
 		var l pgtype.Int4
 		err = rows.Scan(&l)

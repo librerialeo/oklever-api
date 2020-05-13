@@ -40,7 +40,7 @@ func (s *Service) GetUserExpertises(userID int32) (*[]database.DBExpertise, erro
 		return nil, err
 	}
 	defer rows.Close()
-	var expertises []database.DBExpertise
+	expertises := []database.DBExpertise{}
 	expertise, err := readExpertise(&rows)
 	for expertise != nil && err == nil {
 		expertises = append(expertises, *expertise)
