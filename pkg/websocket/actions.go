@@ -21,6 +21,8 @@ func (io *IO) InitActions() {
 
 	io.AddActionHandler("GET_USERS_ACADEMY", UsersGetAcademy, []string{})
 	io.AddActionHandler("ADD_USERS_ACADEMY", UsersAddAcademy, []string{})
+	io.AddActionHandler("UPDATE_USERS_ACADEMY", UsersUpdateAcademy, []string{})
+	io.AddActionHandler("DELETE_USERS_ACADEMY", UsersDeleteAcademy, []string{})
 
 	io.AddActionHandler("GET_USER_SIGNATURES", GetUserTeachingSignatures, []string{})
 	io.AddActionHandler("ADD_USER_SIGNATURE", AddUserTeachingSignature, []string{})

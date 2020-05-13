@@ -25,3 +25,13 @@ func (db *Database) GetAllUsersAcademy(UserID int32) (pgx.Rows, error) {
 func (db *Database) AddUsersAcademy(userID int32, degreeID int, academyName string, institution string, year int) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "INSERT INTO users_academy(user_id,degree_id,user_academy_name,user_academy_institution,user_academy_year) VALUES($1,$2,$3,$4,$5) RETURNING user_academy_id,degree_id,user_academy_name,user_academy_institution,user_academy_year", userID, degreeID, academyName, institution, year)
 }
+
+// UpdateUsersAcademy add new user academy
+func (db *Database) UpdateUsersAcademy(ID int, userID int32, degreeID int, academyName string, institution string, year int) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "UPDATE users_academy SET degree_id = $1, user_academy_name = $2, user_academy_institution = $3, user_academy_year = $4 WHERE user_id = $6 AND user_academy_id = $5 RETURNING user_academy_id,degree_id,user_academy_name,user_academy_institution,user_academy_year", degreeID, academyName, institution, year, ID, userID)
+}
+
+// DeleteUsersAcademy add new user academy
+func (db *Database) DeleteUsersAcademy(ID int, userID int32) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "DELETE FROM users_academy WHERE user_academy_id = $1 AND user_id = $2", ID, userID)
+}

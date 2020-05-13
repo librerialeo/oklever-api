@@ -1,8 +1,6 @@
 package service
 
 import (
-	"fmt"
-
 	"github.com/librerialeo/oklever-api/pkg/database"
 )
 
@@ -35,7 +33,6 @@ func (s *Service) GetAllUsersAcademy(userID int32) (*[]database.DBUsersAcademy, 
 // AddUsersAcademy add new academy user
 func (s *Service) AddUsersAcademy(userID int32, degreeID int, academyName string, institution string, year int) (*[]database.DBUsersAcademy, error) {
 	rows, err := s.db.AddUsersAcademy(userID, degreeID, academyName, institution, year)
-	fmt.Println(err, "err")
 	if err != nil {
 		return nil, err
 	}
@@ -51,4 +48,34 @@ func (s *Service) AddUsersAcademy(userID int32, degreeID int, academyName string
 		academies = append(academies, a)
 	}
 	return &academies, nil
+}
+
+// UpdateUsersAcademy update users academy
+func (s *Service) UpdateUsersAcademy(ID int, userID int32, degreeID int, academyName string, institution string, year int) (*[]database.DBUsersAcademy, error) {
+	rows, err := s.db.UpdateUsersAcademy(ID, userID, degreeID, academyName, institution, year)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	academies := make([]database.DBUsersAcademy, 0)
+	err = nil
+	if rows.Next() {
+		var a database.DBUsersAcademy
+		err = rows.Scan(&a.ID, &a.DegreeID, &a.UserAcademyName, &a.UserAcademyInstitution, &a.UserAcademyYear)
+		if err != nil {
+			return nil, err
+		}
+		academies = append(academies, a)
+	}
+	return &academies, nil
+}
+
+// DeleteUsersAcademy  delete users academy by id
+func (s *Service) DeleteUsersAcademy(ID int, userID int32) error {
+	rows, err := s.db.DeleteUsersAcademy(ID, userID)
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+	return nil
 }
