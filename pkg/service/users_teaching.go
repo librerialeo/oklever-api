@@ -85,7 +85,6 @@ func readInstitution(rows *pgx.Rows) (*database.DBInstitution, error) {
 		var institution database.DBInstitution
 		err := (*rows).Scan(&institution.ID,
 			&institution.UserID,
-			&institution.DegreeID,
 			&institution.Name,
 			&institution.Added,
 			&institution.Modified,
@@ -126,8 +125,8 @@ func (s *Service) GetUserTeachingInstitutions(userID int32) (*[]database.DBInsti
 }
 
 // AddUserTeachingInstitution add a new user institution
-func (s *Service) AddUserTeachingInstitution(userID int32, degreeID int32, name string) (*database.DBInstitution, error) {
-	rows, err := s.db.AddUserTeachingInstitution(userID, degreeID, name)
+func (s *Service) AddUserTeachingInstitution(userID int32, name string) (*database.DBInstitution, error) {
+	rows, err := s.db.AddUserTeachingInstitution(userID, name)
 	if err != nil {
 		return nil, err
 	}

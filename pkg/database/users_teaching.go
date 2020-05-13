@@ -47,7 +47,6 @@ func (db *Database) DeleteUserTeachingSignature(signatureID int32) (pgx.Rows, er
 type DBInstitution struct {
 	ID       pgtype.Int4        `json:"id"`
 	UserID   pgtype.Int4        `json:"user"`
-	DegreeID pgtype.Int4        `json:"degree"`
 	Name     pgtype.Varchar     `json:"name"`
 	Added    pgtype.Timestamptz `json:"added"`
 	Modified pgtype.Timestamptz `json:"modified"`
@@ -65,8 +64,8 @@ func (db *Database) GetUserTeachingInstitutions(userID int32) (pgx.Rows, error) 
 }
 
 // AddUserTeachingInstitution get all userID teaching institutions
-func (db *Database) AddUserTeachingInstitution(userID int32, degreeID int32, name string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_teaching_institutions (user_id, degree_id, user_teaching_institution_name) values ($1, $2, $3)", userID, degreeID, name)
+func (db *Database) AddUserTeachingInstitution(userID int32, name string) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "INSERT INTO users_teaching_institutions (user_id, user_teaching_institution_name) values ($1, $2, $3)", userID, name)
 }
 
 // UpdateUserTeachingInstitution get all userID teaching institutions

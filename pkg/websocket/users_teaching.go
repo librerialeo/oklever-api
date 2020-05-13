@@ -134,10 +134,9 @@ func GetUserTeachingInstitutions(s *Socket, a *Action) {
 func AddUserTeachingInstitution(s *Socket, a *Action) {
 	data, ok := a.Data.(atreugo.JSON)
 	if ok && s.userID != 0 {
-		degreeID, ok := data["degree"]
 		name, ok := data["name"]
 		if ok {
-			institution, err := s.io.service.AddUserTeachingInstitution(s.userID, int32(degreeID.(float64)), name.(string))
+			institution, err := s.io.service.AddUserTeachingInstitution(s.userID, name.(string))
 			if err != nil {
 				s.EmitServerError("AddUserTeachingInstitution", err)
 			} else {
