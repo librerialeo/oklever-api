@@ -635,7 +635,8 @@ CREATE TABLE users_academy (
 	degree_id INT NOT NULL REFERENCES degrees(degree_id),
 	user_academy_name VARCHAR(64) NOT NULL,
 	user_academy_institution VARCHAR(64) NOT NULL,
-	user_academy_year SMALLINT NOT NULL
+	user_academy_year SMALLINT NOT NULL,
+	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TRIGGER update_users_academy_modified_at BEFORE UPDATE
