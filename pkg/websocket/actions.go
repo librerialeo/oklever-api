@@ -9,16 +9,36 @@ func (io *IO) InitActions() {
 
 	// public actions
 	io.AddActionHandler("USER_REGISTER", UserRegister, []string{})
-	io.AddActionHandler("ADD_LANGUAGES", GetAllLanguages, []string{})
-	io.AddActionHandler("ADD_DEGREES", GetAllDegrees, []string{})
+	io.AddActionHandler("GET_LANGUAGES", GetAllLanguages, []string{})
+	io.AddActionHandler("GET_DEGREES", GetAllDegrees, []string{})
 
 	// user actions
 	io.AddActionHandler("LOGOUT", Logout, []string{})
+
 	io.AddActionHandler("ADD_USERS_LANGUAGE", UsersAddLanguage, []string{})
 	io.AddActionHandler("DELETE_USERS_LANGUAGE", UsersDeleteLanguage, []string{})
 	io.AddActionHandler("GET_USERS_LANGUAGES", UsersGetLanguages, []string{})
+
 	io.AddActionHandler("GET_USERS_ACADEMY", UsersGetAcademy, []string{})
 	io.AddActionHandler("ADD_USERS_ACADEMY", UsersAddAcademy, []string{})
+
+	io.AddActionHandler("GET_USER_SIGNATURES", GetUserTeachingSignatures, []string{})
+	io.AddActionHandler("ADD_USER_SIGNATURE", AddUserTeachingSignature, []string{})
+	io.AddActionHandler("DELETE_USER_SIGNATURE", DeleteUserTeachingSignature, []string{})
+	io.AddActionHandler("UPDATE_USER_SIGNATURE", UpdateUserTeachingSignature, []string{})
+
+	io.AddActionHandler("GET_USER_INSTITUTIONS", GetUserTeachingInstitutions, []string{})
+	io.AddActionHandler("ADD_USER_INSTITUTION", AddUserTeachingInstitution, []string{})
+	io.AddActionHandler("DELETE_USER_INSTITUTION", DeleteUserTeachingInstitution, []string{})
+	io.AddActionHandler("UPDATE_USER_INSTITUTION", UpdateUserTeachingInstitution, []string{})
+
+	io.AddActionHandler("GET_USER_INVESTMENTS", GetUserInvestments, []string{})
+	io.AddActionHandler("ADD_USER_INVESTMENT", AddUserInvestment, []string{})
+	io.AddActionHandler("DELETE_USER_INVESTMENT", DeleteUserInvestment, []string{})
+	io.AddActionHandler("UPDATE_USER_INVESTMENT", UpdateUserInvestment, []string{})
+
+	io.AddActionHandler("GET_USER_BIOGRAPHY", GetUserBiography, []string{})
+	io.AddActionHandler("SET_USER_BIOGRAPHY", SetUserBiography, []string{})
 
 	// student actions
 

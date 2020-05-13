@@ -56,3 +56,13 @@ func (db *Database) UpdateUserLastAction(userID int32, lastaction time.Time) (pg
 func (db *Database) UpdateUserInformation(userID int32, first string, last string, email string, gender string, phone string) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "UPDATE users SET user_firstname=$1, user_lastname=$2, user_email=$3, user_gender=$4, user_phone=$5 WHERE user_id=$6", first, last, email, gender, phone, userID)
 }
+
+// GetUserBiography get user biography
+func (db *Database) GetUserBiography(userID int32) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "SELECT user_biography FROM users WHERE user_id = $1 and deleted_at IS NULL", userID)
+}
+
+// SetUserBiography get user biography
+func (db *Database) SetUserBiography(userID int32, biography string) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "UPDATE users SET user_biography=$1 WHERE user_id = $2 RETURNING user_biography", biography, userID)
+}

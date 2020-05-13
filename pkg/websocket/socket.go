@@ -194,6 +194,18 @@ func (s *Socket) LeaveRoom(room string) {
 	s.io.Room(room).removeSocket(s)
 }
 
+// CheckRooms check if socket if joined to rooms
+func (s *Socket) CheckRooms(rooms ...string) bool {
+	for _, sroom := range s.rooms {
+		for _, room := range rooms {
+			if sroom == room {
+				return true
+			}
+		}
+	}
+	return false
+}
+
 // readPump pumps messages from the websocket connection to the hub.
 //
 // The application runs readPump in a per-connection goroutine. The application

@@ -58,3 +58,37 @@ func (s *Service) UpdateUserInformation(userID int32, first string, last string,
 	defer rows.Close()
 	return nil
 }
+
+// GetUserBiography get user biography string
+func (s *Service) GetUserBiography(userID int32) (string, error) {
+	rows, err := s.db.GetUserBiography(userID)
+	if err != nil {
+		return "", err
+	}
+	defer rows.Close()
+	var biography pgtype.Text
+	if rows.Next() {
+		err := rows.Scan(&biography)
+		if err != nil {
+			return "", nil
+		}
+	}
+	return biography.String, nil
+}
+
+// SetUserBiography get user biography string
+func (s *Service) SetUserBiography(userID int32, biography string) (string, error) {
+	rows, err := s.db.SetUserBiography(userID, biography)
+	if err != nil {
+		return "", err
+	}
+	defer rows.Close()
+	var DBbiography pgtype.Text
+	if rows.Next() {
+		err := rows.Scan(&DBbiography)
+		if err != nil {
+			return "", nil
+		}
+	}
+	return DBbiography.String, nil
+}
