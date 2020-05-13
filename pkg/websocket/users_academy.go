@@ -47,7 +47,7 @@ func UsersUpdateAcademy(s *Socket, a *Action) {
 		year, yearOk := data["year"]
 		academyID, academyIDOk := data["id"]
 		if degreeOk && nameOk && institutionOk && yearOk && academyIDOk {
-			academy, err := s.io.service.UpdateUsersAcademy(int(academyID.(float32)), s.userID, int(degree.(float64)), name, institution, int(year.(float64)))
+			academy, err := s.io.service.UpdateUsersAcademy(int(academyID.(float64)), s.userID, int(degree.(float64)), name, institution, int(year.(float64)))
 			if err != nil {
 				s.EmitServerError("Error al actualizar tus datos", err)
 			} else {
@@ -67,7 +67,7 @@ func UsersDeleteAcademy(s *Socket, a *Action) {
 	if ok && s.userID != 0 {
 		academyID, academyIDOk := data["id"]
 		if academyIDOk {
-			err := s.io.service.DeleteUsersAcademy(int(academyID.(float32)), s.userID)
+			err := s.io.service.DeleteUsersAcademy(int(academyID.(float64)), s.userID)
 			if err != nil {
 				s.EmitServerError("Error al eliminar tus datos", err)
 			} else {
