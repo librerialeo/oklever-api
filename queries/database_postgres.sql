@@ -146,8 +146,9 @@ ON users_languages FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 CREATE TABLE users_research (
 	user_research_id SERIAL PRIMARY KEY,
 	user_id INT NOT NULL REFERENCES users(user_id),
+	user_research_type VARCHAR(32) NOT NULL,
 	user_research_reference TEXT NOT NULL,
-	user_research_year SMALLINT NOT NULL,
+	user_research_year INT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
@@ -180,18 +181,7 @@ CREATE TABLE users_expertises (
 CREATE TRIGGER update_users_expertises_modified_at BEFORE UPDATE
 ON users_expertises FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE users_teaching (
-	user_teaching_id SERIAL PRIMARY KEY,
-	user_id INT NOT NULL REFERENCES users(user_id),
-	user_teaching_years INT,
-	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	deleted_at TIMESTAMPTZ
-);
-CREATE TRIGGER update_users_teaching_modified_at BEFORE UPDATE
-ON users_teaching FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
-
-CREATE TABLE users_teaching_institutions (
+CREATE TABLE users_institutions (
 	user_teaching_institution_id SERIAL PRIMARY KEY,
 	user_id INT NOT NULL REFERENCES users(user_id),
 	user_teaching_institution_name VARCHAR(128) NOT NULL,
@@ -199,10 +189,10 @@ CREATE TABLE users_teaching_institutions (
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_users_teaching_institutions_modified_at BEFORE UPDATE
-ON users_teaching_institutions FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_institutions_modified_at BEFORE UPDATE
+ON users_institutions FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
-CREATE TABLE users_teaching_signatures (
+CREATE TABLE users_signatures (
 	user_teaching_signature_id SERIAL PRIMARY KEY,
 	user_id INT NOT NULL REFERENCES users(user_id),
 	degree_id INT NOT NULL REFERENCES degrees(degree_id),
@@ -211,8 +201,8 @@ CREATE TABLE users_teaching_signatures (
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_users_teaching_signatures_modified_at BEFORE UPDATE
-ON users_teaching_signatures FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+CREATE TRIGGER update_users_signatures_modified_at BEFORE UPDATE
+ON users_signatures FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE courses_levels (
 	course_level_id SERIAL PRIMARY KEY,
@@ -636,7 +626,9 @@ CREATE TABLE users_academy (
 	user_academy_name VARCHAR(64) NOT NULL,
 	user_academy_institution VARCHAR(64) NOT NULL,
 	user_academy_year SMALLINT NOT NULL,
-	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	deleted_at TIMESTAMPTZ
 );
 
 CREATE TRIGGER update_users_academy_modified_at BEFORE UPDATE
