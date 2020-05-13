@@ -1,8 +1,6 @@
 package service
 
 import (
-	"fmt"
-
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/database"
@@ -44,8 +42,10 @@ func (s *Service) GetUserTeachingSignatures(userID int32) (*[]database.DBSignatu
 	}
 	defer rows.Close()
 	var signatures []database.DBSignature
-	for signature, err := readSignature(&rows); err != nil && signature != nil; {
+	signature, err := readSignature(&rows)
+	for signature != nil && err == nil {
 		signatures = append(signatures, *signature)
+		signature, err = readSignature(&rows)
 	}
 	if err != nil {
 		return nil, err
@@ -84,9 +84,7 @@ func (s *Service) DeleteUserTeachingSignature(signatureID int32) error {
 }
 
 func readInstitution(rows *pgx.Rows) (*database.DBInstitution, error) {
-	fmt.Println("read institution")
 	if (*rows).Next() {
-		fmt.Println("1")
 		var institution database.DBInstitution
 		err := (*rows).Scan(&institution.ID,
 			&institution.UserID,
@@ -95,13 +93,10 @@ func readInstitution(rows *pgx.Rows) (*database.DBInstitution, error) {
 			&institution.Modified,
 			&institution.Deleted)
 		if err != nil {
-			fmt.Println("a")
 			return nil, err
 		}
-		fmt.Println("b")
 		return &institution, nil
 	}
-	fmt.Println("c")
 	return nil, nil
 }
 
@@ -123,8 +118,10 @@ func (s *Service) GetUserTeachingInstitutions(userID int32) (*[]database.DBInsti
 	}
 	defer rows.Close()
 	var institutions []database.DBInstitution
-	for institution, err := readInstitution(&rows); err != nil && institution != nil; {
+	institution, err := readInstitution(&rows)
+	for institution != nil && err == nil {
 		institutions = append(institutions, *institution)
+		institution, err = readInstitution(&rows)
 	}
 	if err != nil {
 		return nil, err

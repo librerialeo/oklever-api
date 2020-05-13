@@ -42,8 +42,10 @@ func (s *Service) GetUserInvestments(userID int32) (*[]database.DBInvestment, er
 	}
 	defer rows.Close()
 	var investments []database.DBInvestment
-	for investment, err := readInvestment(&rows); err != nil && investment != nil; {
+	investment, err := readInvestment(&rows)
+	for investment != nil && err == nil {
 		investments = append(investments, *investment)
+		investment, err = readInvestment(&rows)
 	}
 	if err != nil {
 		return nil, err
