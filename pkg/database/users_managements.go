@@ -31,7 +31,7 @@ func (db *Database) GetUserManagements(userID int32) (pgx.Rows, error) {
 
 // AddUserManagement get all userID  managements
 func (db *Database) AddUserManagement(userID int32, job string, institution string, months int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_managements (user_id, user_management_job, user_management_institution, user_management_months) values ($1, $2, $3, $4)", userID, job, institution, months)
+	return db.conn.Query(context.Background(), "INSERT INTO users_managements (user_id, user_management_job, user_management_institution, user_management_months) values ($1, $2, $3, $4) RETURNING *", userID, job, institution, months)
 }
 
 // UpdateUserManagement get all userID  managements

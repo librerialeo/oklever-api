@@ -1,6 +1,8 @@
 package service
 
 import (
+	"fmt"
+
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/database"
@@ -82,7 +84,9 @@ func (s *Service) DeleteUserTeachingSignature(signatureID int32) error {
 }
 
 func readInstitution(rows *pgx.Rows) (*database.DBInstitution, error) {
+	fmt.Println("read institution")
 	if (*rows).Next() {
+		fmt.Println("1")
 		var institution database.DBInstitution
 		err := (*rows).Scan(&institution.ID,
 			&institution.UserID,
@@ -91,10 +95,13 @@ func readInstitution(rows *pgx.Rows) (*database.DBInstitution, error) {
 			&institution.Modified,
 			&institution.Deleted)
 		if err != nil {
+			fmt.Println("a")
 			return nil, err
 		}
+		fmt.Println("b")
 		return &institution, nil
 	}
+	fmt.Println("c")
 	return nil, nil
 }
 

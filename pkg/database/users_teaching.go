@@ -30,7 +30,7 @@ func (db *Database) GetUserTeachingSignatures(userID int32) (pgx.Rows, error) {
 
 // AddUserTeachingSignature get all userID teaching signatures
 func (db *Database) AddUserTeachingSignature(userID int32, degreeID int32, name string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_teaching_signatures (user_id, degree_id, user_teaching_signature_name) values ($1, $2, $3)", userID, degreeID, name)
+	return db.conn.Query(context.Background(), "INSERT INTO users_teaching_signatures (user_id, degree_id, user_teaching_signature_name) values ($1, $2, $3) RETURNING *", userID, degreeID, name)
 }
 
 // UpdateUserTeachingSignature get all userID teaching signatures
@@ -65,7 +65,7 @@ func (db *Database) GetUserTeachingInstitutions(userID int32) (pgx.Rows, error) 
 
 // AddUserTeachingInstitution get all userID teaching institutions
 func (db *Database) AddUserTeachingInstitution(userID int32, name string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_teaching_institutions (user_id, user_teaching_institution_name) values ($1, $2)", userID, name)
+	return db.conn.Query(context.Background(), "INSERT INTO users_teaching_institutions (user_id, user_teaching_institution_name) values ($1, $2) RETURNING *", userID, name)
 }
 
 // UpdateUserTeachingInstitution get all userID teaching institutions

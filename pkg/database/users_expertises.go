@@ -30,7 +30,7 @@ func (db *Database) GetUserExpertises(userID int32) (pgx.Rows, error) {
 
 // AddUserExpertise get all userID  expertises
 func (db *Database) AddUserExpertise(userID int32, name string, months int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_expertises (user_id, user_expertise_name, user_expertise_months) values ($1, $2, $3)", userID, name, months)
+	return db.conn.Query(context.Background(), "INSERT INTO users_expertises (user_id, user_expertise_name, user_expertise_months) values ($1, $2, $3) RETURNING *", userID, name, months)
 }
 
 // UpdateUserExpertise get all userID  expertises

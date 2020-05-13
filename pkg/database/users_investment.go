@@ -31,7 +31,7 @@ func (db *Database) GetUserInvestments(userID int32) (pgx.Rows, error) {
 
 // AddUserInvestment get all userID  investments
 func (db *Database) AddUserInvestment(userID int32, typeof string, reference string, year int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_research (user_id, user_research_type, user_research_reference, user_research_year) values ($1, $2, $3, $4)", userID, typeof, reference, year)
+	return db.conn.Query(context.Background(), "INSERT INTO users_research (user_id, user_research_type, user_research_reference, user_research_year) values ($1, $2, $3, $4) RETURNING *", userID, typeof, reference, year)
 }
 
 // UpdateUserInvestment get all userID  investments
