@@ -12,7 +12,7 @@ type DBInvestment struct {
 	ID        pgtype.Int4        `json:"id"`
 	UserID    pgtype.Int4        `json:"user"`
 	Reference pgtype.Text        `json:"reference"`
-	Year      pgtype.Text        `json:"year"`
+	Year      pgtype.Int4        `json:"year"`
 	Added     pgtype.Timestamptz `json:"added"`
 	Modified  pgtype.Timestamptz `json:"modified"`
 	Deleted   pgtype.Timestamptz `json:"deleted"`
@@ -36,7 +36,7 @@ func (db *Database) AddUserInvestment(userID int32, typeof string, reference str
 
 // UpdateUserInvestment get all userID  investments
 func (db *Database) UpdateUserInvestment(investmentID int32, reference string, year int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "UPDATE users_research SET user_research_reference=$1, user_research_reference=$2 WHERE user_research_id=$3 RETURNING *", reference, year, investmentID)
+	return db.conn.Query(context.Background(), "UPDATE users_research SET user_research_reference=$1, user_research_year=$2 WHERE user_research_id=$3 RETURNING *", reference, year, investmentID)
 }
 
 // DeleteUserInvestment get all userID  investments
