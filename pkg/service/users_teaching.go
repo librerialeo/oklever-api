@@ -1,6 +1,7 @@
 package service
 
 import (
+	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/database"
 )
@@ -152,4 +153,38 @@ func (s *Service) DeleteUserTeachingInstitution(institutionID int32) error {
 	}
 	defer rows.Close()
 	return nil
+}
+
+// GetUserExperience get the user experience of the passed id
+func (s *Service) GetUserExperience(userID int32) (*int32, error) {
+	rows, err := s.db.GetUserExperience(userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var experience pgtype.Int4
+	if rows.Next() {
+		err = rows.Scan(&experience)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return &experience.Int, nil
+}
+
+// SetUserExperience set the user experience of the passed id
+func (s *Service) SetUserExperience(userID int32, months int32) (*int32, error) {
+	rows, err := s.db.SetUserExperience(userID, months)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var experience pgtype.Int4
+	if rows.Next() {
+		err = rows.Scan(&experience)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return &experience.Int, nil
 }

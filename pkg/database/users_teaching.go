@@ -77,3 +77,13 @@ func (db *Database) UpdateUserTeachingInstitution(institutionID int32, name stri
 func (db *Database) DeleteUserTeachingInstitution(institutionID int32) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "DELETE FROM users_teaching_institutions WHERE user_teaching_institution_id=$1", institutionID)
 }
+
+// GetUserExperience get user teaching experience months
+func (db *Database) GetUserExperience(userID int32) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "SELECT user_teaching_months FROM users WHERE user_id = $1", userID)
+}
+
+// SetUserExperience get user teaching experience months
+func (db *Database) SetUserExperience(userID int32, months int32) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "UPDATE users SET user_teaching_months = $1 WHERE user_id = $2 RETURNING user_teaching_months", months, userID)
+}

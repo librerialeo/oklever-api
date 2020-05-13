@@ -198,3 +198,36 @@ func DeleteUserTeachingInstitution(s *Socket, a *Action) {
 	}
 	s.Emit(a.Type, institutionID)
 }
+
+// GetUserExperience get user teaching months
+func GetUserExperience(s *Socket, a *Action) {
+	data, ok := a.Data.(atreugo.JSON)
+	if ok {
+		userID, ok := data["id"]
+		if ok {
+			experience, err := s.io.service.GetUserExperience(int32(userID.(float64)))
+			if err != nil {
+				s.EmitServerError("GetUserExperience", err)
+			} else {
+				s.Emit(a.Type, *experience)
+			}
+		}
+	}
+}
+
+// SetUserExperience set user teaching months
+func SetUserExperience(s *Socket, a *Action) {
+	data, ok := a.Data.(atreugo.JSON)
+	if ok {
+		userID, uOk := data["id"]
+		months, mOk := data["months"]
+		if uOk && mOk {
+			experience, err := s.io.service.SetUserExperience(int32(userID.(float64)), int32(months.(float64)))
+			if err != nil {
+				s.EmitServerError("SetUserExperience", err)
+			} else {
+				s.Emit(a.Type, *experience)
+			}
+		}
+	}
+}

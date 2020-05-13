@@ -34,6 +34,9 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("DELETE_USER_INSTITUTION", DeleteUserTeachingInstitution, []string{})
 	io.AddActionHandler("UPDATE_USER_INSTITUTION", UpdateUserTeachingInstitution, []string{})
 
+	// io.AddActionHandler("GET_USER_EXPERIENCE", GetUserExperience, []string{})
+	// io.AddActionHandler("SET_USER_EXPERIENCE", SetUserExperience, []string{})
+
 	io.AddActionHandler("GET_USER_INVESTMENTS", GetUserInvestments, []string{})
 	io.AddActionHandler("ADD_USER_INVESTMENT", AddUserInvestment, []string{})
 	io.AddActionHandler("DELETE_USER_INVESTMENT", DeleteUserInvestment, []string{})
