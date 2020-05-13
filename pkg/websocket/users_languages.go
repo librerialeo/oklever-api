@@ -18,13 +18,13 @@ func UsersGetLanguages(s *Socket, a *Action) {
 func UsersAddLanguage(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		id, idOk := data["id"]
+		id, idOk := data["id"].(float64)
 		if idOk {
-			err := s.io.service.AddUsersLanguages(s.userID, int(id.(float64)))
+			err := s.io.service.AddUsersLanguages(s.userID, int(id))
 			if err != nil {
 				s.EmitServerError("Error al registrar el idioma", err)
 			} else {
-				s.Emit("ADD_USERS_LANGUAGE", [1]int{int(id.(float64))})
+				s.Emit("ADD_USERS_LANGUAGE", [1]int{int(id)})
 			}
 		} else {
 			s.EmitError("Error al registrar el idioma")
@@ -38,9 +38,9 @@ func UsersAddLanguage(s *Socket, a *Action) {
 func UsersDeleteLanguage(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		id, idOk := data["id"]
+		id, idOk := data["id"].(float64)
 		if idOk {
-			err := s.io.service.DeleteUsersLanguages(s.userID, int(id.(float64)))
+			err := s.io.service.DeleteUsersLanguages(s.userID, int(id))
 			if err != nil {
 				s.EmitServerError("No se puedo eliminar el idioma", err)
 			} else {

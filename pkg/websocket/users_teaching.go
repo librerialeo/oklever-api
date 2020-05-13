@@ -8,9 +8,9 @@ import (
 func GetUserTeachingSignature(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok {
-		signatureID, ok := data["id"]
+		signatureID, ok := data["id"].(float64)
 		if ok {
-			signature, err := s.io.service.GetUserTeachingSignature(int32(signatureID.(float64)))
+			signature, err := s.io.service.GetUserTeachingSignature(int32(signatureID))
 			if err != nil {
 				s.EmitServerError("GetUserTeachingSignature", err)
 			} else {
@@ -36,10 +36,10 @@ func GetUserTeachingSignatures(s *Socket, a *Action) {
 func AddUserTeachingSignature(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		degreeID, ok := data["degree"]
-		name, ok := data["name"]
+		degreeID, ok := data["degree"].(float64)
+		name, ok := data["name"].(string)
 		if ok {
-			signature, err := s.io.service.AddUserTeachingSignature(s.userID, int32(degreeID.(float64)), name.(string))
+			signature, err := s.io.service.AddUserTeachingSignature(s.userID, int32(degreeID), name)
 			if err != nil {
 				s.EmitServerError("AddUserTeachingSignature", err)
 			} else {
@@ -55,12 +55,12 @@ func UpdateUserTeachingSignature(s *Socket, a *Action) {
 	if !ok || s.userID == 0 {
 		return
 	}
-	signatureID, ok := data["id"]
-	name, ok := data["name"]
+	signatureID, ok := data["id"].(float64)
+	name, ok := data["name"].(string)
 	if !ok {
 		return
 	}
-	signature, err := s.io.service.GetUserTeachingSignature(int32(signatureID.(float64)))
+	signature, err := s.io.service.GetUserTeachingSignature(int32(signatureID))
 	if err != nil || signature == nil {
 		s.EmitServerError("UpdateUserTeachingSignature: signature not found", err)
 		return
@@ -68,7 +68,7 @@ func UpdateUserTeachingSignature(s *Socket, a *Action) {
 	if signature.UserID.Int != s.userID {
 		return
 	}
-	signature, err = s.io.service.UpdateUserTeachingSignature(int32(signatureID.(float64)), name.(string))
+	signature, err = s.io.service.UpdateUserTeachingSignature(int32(signatureID), name)
 	if err != nil {
 		s.EmitServerError("UpdateUserTeachingSignature: update user error", err)
 		return
@@ -82,11 +82,11 @@ func DeleteUserTeachingSignature(s *Socket, a *Action) {
 	if !ok {
 		return
 	}
-	signatureID, ok := data["id"]
+	signatureID, ok := data["id"].(float64)
 	if !ok {
 		return
 	}
-	signature, err := s.io.service.GetUserTeachingSignature(int32(signatureID.(float64)))
+	signature, err := s.io.service.GetUserTeachingSignature(int32(signatureID))
 	if err != nil || signature == nil {
 		s.EmitServerError("DeleteUserTeachingSignature: signature not found", err)
 		return
@@ -94,7 +94,7 @@ func DeleteUserTeachingSignature(s *Socket, a *Action) {
 	if signature.UserID.Int != s.userID {
 		return
 	}
-	err = s.io.service.DeleteUserTeachingSignature(int32(signatureID.(float64)))
+	err = s.io.service.DeleteUserTeachingSignature(int32(signatureID))
 	if err != nil {
 		s.EmitServerError("DeleteUserTeachingSignature: delete error", err)
 		return
@@ -106,9 +106,9 @@ func DeleteUserTeachingSignature(s *Socket, a *Action) {
 func GetUserTeachingInstitution(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok {
-		institutionID, ok := data["id"]
+		institutionID, ok := data["id"].(float64)
 		if ok {
-			institution, err := s.io.service.GetUserTeachingInstitution(int32(institutionID.(float64)))
+			institution, err := s.io.service.GetUserTeachingInstitution(int32(institutionID))
 			if err != nil {
 				s.EmitServerError("GetUserTeachingInstitution", err)
 			} else {
@@ -135,9 +135,9 @@ func AddUserTeachingInstitution(s *Socket, a *Action) {
 	fmt.Println(a)
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		name, ok := data["name"]
+		name, ok := data["name"].(string)
 		if ok {
-			institution, err := s.io.service.AddUserTeachingInstitution(s.userID, name.(string))
+			institution, err := s.io.service.AddUserTeachingInstitution(s.userID, name)
 			if err != nil {
 				s.EmitServerError("AddUserTeachingInstitution", err)
 			} else {
@@ -153,12 +153,12 @@ func UpdateUserTeachingInstitution(s *Socket, a *Action) {
 	if !ok || s.userID == 0 {
 		return
 	}
-	institutionID, ok := data["id"]
-	name, ok := data["name"]
+	institutionID, ok := data["id"].(float64)
+	name, ok := data["name"].(string)
 	if !ok {
 		return
 	}
-	institution, err := s.io.service.GetUserTeachingInstitution(int32(institutionID.(float64)))
+	institution, err := s.io.service.GetUserTeachingInstitution(int32(institutionID))
 	if err != nil || institution == nil {
 		s.EmitServerError("UpdateUserTeachingInstitution: institution not found", err)
 		return
@@ -166,7 +166,7 @@ func UpdateUserTeachingInstitution(s *Socket, a *Action) {
 	if institution.UserID.Int != s.userID {
 		return
 	}
-	institution, err = s.io.service.UpdateUserTeachingInstitution(int32(institutionID.(float64)), name.(string))
+	institution, err = s.io.service.UpdateUserTeachingInstitution(int32(institutionID), name)
 	if err != nil {
 		s.EmitServerError("UpdateUserTeachingInstitution: update user error", err)
 		return
@@ -180,11 +180,11 @@ func DeleteUserTeachingInstitution(s *Socket, a *Action) {
 	if !ok {
 		return
 	}
-	institutionID, ok := data["id"]
+	institutionID, ok := data["id"].(float64)
 	if !ok {
 		return
 	}
-	institution, err := s.io.service.GetUserTeachingInstitution(int32(institutionID.(float64)))
+	institution, err := s.io.service.GetUserTeachingInstitution(int32(institutionID))
 	if err != nil || institution == nil {
 		s.EmitServerError("DeleteUserTeachingInstitution: institution not found", err)
 		return
@@ -192,7 +192,7 @@ func DeleteUserTeachingInstitution(s *Socket, a *Action) {
 	if institution.UserID.Int != s.userID {
 		return
 	}
-	err = s.io.service.DeleteUserTeachingInstitution(int32(institutionID.(float64)))
+	err = s.io.service.DeleteUserTeachingInstitution(int32(institutionID))
 	if err != nil {
 		s.EmitServerError("DeleteUserTeachingInstitution: delete error", err)
 		return
@@ -204,9 +204,9 @@ func DeleteUserTeachingInstitution(s *Socket, a *Action) {
 func GetUserExperience(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok {
-		userID, ok := data["id"]
+		userID, ok := data["id"].(float64)
 		if ok {
-			experience, err := s.io.service.GetUserExperience(int32(userID.(float64)))
+			experience, err := s.io.service.GetUserExperience(int32(userID))
 			if err != nil {
 				s.EmitServerError("GetUserExperience", err)
 			} else {
@@ -220,10 +220,10 @@ func GetUserExperience(s *Socket, a *Action) {
 func SetUserExperience(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok {
-		userID, uOk := data["id"]
-		months, mOk := data["months"]
+		userID, uOk := data["id"].(float64)
+		months, mOk := data["months"].(float64)
 		if uOk && mOk {
-			experience, err := s.io.service.SetUserExperience(int32(userID.(float64)), int32(months.(float64)))
+			experience, err := s.io.service.SetUserExperience(int32(userID), int32(months))
 			if err != nil {
 				s.EmitServerError("SetUserExperience", err)
 			} else {

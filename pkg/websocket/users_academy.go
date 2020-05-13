@@ -18,12 +18,12 @@ func UsersGetAcademy(s *Socket, a *Action) {
 func UsersAddAcademy(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		degree, degreeOk := data["degree"]
+		degree, degreeOk := data["degree"].(float64)
 		name, nameOk := data["name"].(string)
 		institution, institutionOk := data["institution"].(string)
-		year, yearOk := data["year"]
+		year, yearOk := data["year"].(float64)
 		if degreeOk && nameOk && institutionOk && yearOk {
-			academy, err := s.io.service.AddUsersAcademy(s.userID, int(degree.(float64)), name, institution, int(year.(float64)))
+			academy, err := s.io.service.AddUsersAcademy(s.userID, int(degree), name, institution, int(year))
 			if err != nil {
 				s.EmitServerError("Error al guardar los datos", err)
 			} else {
@@ -41,13 +41,13 @@ func UsersAddAcademy(s *Socket, a *Action) {
 func UsersUpdateAcademy(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		degree, degreeOk := data["degree"]
+		degree, degreeOk := data["degree"].(float64)
 		name, nameOk := data["name"].(string)
 		institution, institutionOk := data["institution"].(string)
-		year, yearOk := data["year"]
-		academyID, academyIDOk := data["id"]
+		year, yearOk := data["year"].(float64)
+		academyID, academyIDOk := data["id"].(float64)
 		if degreeOk && nameOk && institutionOk && yearOk && academyIDOk {
-			academy, err := s.io.service.UpdateUsersAcademy(int(academyID.(float64)), s.userID, int(degree.(float64)), name, institution, int(year.(float64)))
+			academy, err := s.io.service.UpdateUsersAcademy(int(academyID), s.userID, int(degree), name, institution, int(year))
 			if err != nil {
 				s.EmitServerError("Error al actualizar tus datos", err)
 			} else {
@@ -65,9 +65,9 @@ func UsersUpdateAcademy(s *Socket, a *Action) {
 func UsersDeleteAcademy(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		academyID, academyIDOk := data["id"]
+		academyID, academyIDOk := data["id"].(float64)
 		if academyIDOk {
-			err := s.io.service.DeleteUsersAcademy(int(academyID.(float64)), s.userID)
+			err := s.io.service.DeleteUsersAcademy(int(academyID), s.userID)
 			if err != nil {
 				s.EmitServerError("Error al eliminar tus datos", err)
 			} else {

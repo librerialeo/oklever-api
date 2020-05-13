@@ -4,9 +4,9 @@ package websocket
 func GetUserManagement(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok {
-		managementID, ok := data["id"]
+		managementID, ok := data["id"].(float64)
 		if ok {
-			management, err := s.io.service.GetUserManagement(int32(managementID.(float64)))
+			management, err := s.io.service.GetUserManagement(int32(managementID))
 			if err != nil {
 				s.EmitServerError("GetUserManagement", err)
 			} else {
@@ -32,11 +32,11 @@ func GetUserManagements(s *Socket, a *Action) {
 func AddUserManagement(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		job, jOk := data["job"]
-		institution, iOk := data["institution"]
-		months, mOk := data["months"]
+		job, jOk := data["job"].(string)
+		institution, iOk := data["institution"].(string)
+		months, mOk := data["months"].(float64)
 		if jOk && iOk && mOk {
-			management, err := s.io.service.AddUserManagement(s.userID, job.(string), institution.(string), int32(months.(float64)))
+			management, err := s.io.service.AddUserManagement(s.userID, job, institution, int32(months))
 			if err != nil {
 				s.EmitServerError("AddUserManagement", err)
 			} else {
@@ -52,14 +52,14 @@ func UpdateUserManagement(s *Socket, a *Action) {
 	if !ok || s.userID == 0 {
 		return
 	}
-	managementID, ok := data["id"]
-	job, jOk := data["job"]
-	institution, rOk := data["institution"]
-	months, mOk := data["months"]
+	managementID, ok := data["id"].(float64)
+	job, jOk := data["job"].(string)
+	institution, rOk := data["institution"].(string)
+	months, mOk := data["months"].(float64)
 	if !ok || !rOk || !mOk || jOk {
 		return
 	}
-	management, err := s.io.service.GetUserManagement(int32(managementID.(float64)))
+	management, err := s.io.service.GetUserManagement(int32(managementID))
 	if err != nil || management == nil {
 		s.EmitServerError("UpdateUserManagement: management not found", err)
 		return
@@ -67,7 +67,7 @@ func UpdateUserManagement(s *Socket, a *Action) {
 	if management.UserID.Int != s.userID {
 		return
 	}
-	management, err = s.io.service.UpdateUserManagement(int32(managementID.(float64)), job.(string), institution.(string), int32(months.(float64)))
+	management, err = s.io.service.UpdateUserManagement(int32(managementID), job, institution, int32(months))
 	if err != nil {
 		s.EmitServerError("UpdateUserManagement: update user error", err)
 		return
@@ -81,11 +81,11 @@ func DeleteUserManagement(s *Socket, a *Action) {
 	if !ok {
 		return
 	}
-	managementID, ok := data["id"]
+	managementID, ok := data["id"].(float64)
 	if !ok {
 		return
 	}
-	management, err := s.io.service.GetUserManagement(int32(managementID.(float64)))
+	management, err := s.io.service.GetUserManagement(int32(managementID))
 	if err != nil || management == nil {
 		s.EmitServerError("DeleteUserManagement: management not found", err)
 		return
@@ -93,7 +93,7 @@ func DeleteUserManagement(s *Socket, a *Action) {
 	if management.UserID.Int != s.userID {
 		return
 	}
-	err = s.io.service.DeleteUserManagement(int32(managementID.(float64)))
+	err = s.io.service.DeleteUserManagement(int32(managementID))
 	if err != nil {
 		s.EmitServerError("DeleteUserManagement: delete error", err)
 		return
