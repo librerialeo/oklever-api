@@ -1,6 +1,9 @@
 package service
 
 import (
+	"fmt"
+
+	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/database"
 )
@@ -81,20 +84,24 @@ func (s *Service) DeleteUserTeachingSignature(signatureID int32) error {
 }
 
 func readInstitution(rows *pgx.Rows) (*database.DBInstitution, error) {
+	fmt.Println("read institution")
 	if (*rows).Next() {
+		fmt.Println("1")
 		var institution database.DBInstitution
 		err := (*rows).Scan(&institution.ID,
 			&institution.UserID,
-			&institution.DegreeID,
 			&institution.Name,
 			&institution.Added,
 			&institution.Modified,
 			&institution.Deleted)
 		if err != nil {
+			fmt.Println("a")
 			return nil, err
 		}
+		fmt.Println("b")
 		return &institution, nil
 	}
+	fmt.Println("c")
 	return nil, nil
 }
 
@@ -126,8 +133,8 @@ func (s *Service) GetUserTeachingInstitutions(userID int32) (*[]database.DBInsti
 }
 
 // AddUserTeachingInstitution add a new user institution
-func (s *Service) AddUserTeachingInstitution(userID int32, degreeID int32, name string) (*database.DBInstitution, error) {
-	rows, err := s.db.AddUserTeachingInstitution(userID, degreeID, name)
+func (s *Service) AddUserTeachingInstitution(userID int32, name string) (*database.DBInstitution, error) {
+	rows, err := s.db.AddUserTeachingInstitution(userID, name)
 	if err != nil {
 		return nil, err
 	}
@@ -153,4 +160,38 @@ func (s *Service) DeleteUserTeachingInstitution(institutionID int32) error {
 	}
 	defer rows.Close()
 	return nil
+}
+
+// GetUserExperience get the user experience of the passed id
+func (s *Service) GetUserExperience(userID int32) (*int32, error) {
+	rows, err := s.db.GetUserExperience(userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var experience pgtype.Int4
+	if rows.Next() {
+		err = rows.Scan(&experience)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return &experience.Int, nil
+}
+
+// SetUserExperience set the user experience of the passed id
+func (s *Service) SetUserExperience(userID int32, months int32) (*int32, error) {
+	rows, err := s.db.SetUserExperience(userID, months)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var experience pgtype.Int4
+	if rows.Next() {
+		err = rows.Scan(&experience)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return &experience.Int, nil
 }

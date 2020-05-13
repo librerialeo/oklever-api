@@ -34,10 +34,23 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("DELETE_USER_INSTITUTION", DeleteUserTeachingInstitution, []string{})
 	io.AddActionHandler("UPDATE_USER_INSTITUTION", UpdateUserTeachingInstitution, []string{})
 
+	// io.AddActionHandler("GET_USER_EXPERIENCE", GetUserExperience, []string{})
+	// io.AddActionHandler("SET_USER_EXPERIENCE", SetUserExperience, []string{})
+
 	io.AddActionHandler("GET_USER_INVESTMENTS", GetUserInvestments, []string{})
 	io.AddActionHandler("ADD_USER_INVESTMENT", AddUserInvestment, []string{})
 	io.AddActionHandler("DELETE_USER_INVESTMENT", DeleteUserInvestment, []string{})
 	io.AddActionHandler("UPDATE_USER_INVESTMENT", UpdateUserInvestment, []string{})
+
+	io.AddActionHandler("GET_USER_MANAGEMENTS", GetUserManagements, []string{})
+	io.AddActionHandler("ADD_USER_MANAGEMENT", AddUserManagement, []string{})
+	io.AddActionHandler("DELETE_USER_MANAGEMENT", DeleteUserManagement, []string{})
+	io.AddActionHandler("UPDATE_USER_MANAGEMENT", UpdateUserManagement, []string{})
+
+	io.AddActionHandler("GET_USER_EXPERTISES", GetUserExpertises, []string{})
+	io.AddActionHandler("ADD_USER_EXPERTISE", AddUserExpertise, []string{})
+	io.AddActionHandler("DELETE_USER_EXPERTISE", DeleteUserExpertise, []string{})
+	io.AddActionHandler("UPDATE_USER_EXPERTISE", UpdateUserExpertise, []string{})
 
 	io.AddActionHandler("GET_USER_BIOGRAPHY", GetUserBiography, []string{})
 	io.AddActionHandler("SET_USER_BIOGRAPHY", SetUserBiography, []string{})

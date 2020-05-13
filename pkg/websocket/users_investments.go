@@ -1,12 +1,8 @@
 package websocket
 
-import (
-	"github.com/savsgio/atreugo"
-)
-
 // GetUserInvestment Get user investment
 func GetUserInvestment(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok {
 		investmentID, ok := data["id"]
 		if ok {
@@ -34,7 +30,7 @@ func GetUserInvestments(s *Socket, a *Action) {
 
 // AddUserInvestment Add user investment
 func AddUserInvestment(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
 		typeof, tOk := data["type"]
 		reference, nOk := data["reference"]
@@ -52,7 +48,7 @@ func AddUserInvestment(s *Socket, a *Action) {
 
 // UpdateUserInvestment Update user investment
 func UpdateUserInvestment(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok || s.userID == 0 {
 		return
 	}
@@ -80,7 +76,7 @@ func UpdateUserInvestment(s *Socket, a *Action) {
 
 // DeleteUserInvestment Delete user investment
 func DeleteUserInvestment(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok {
 		return
 	}

@@ -1,12 +1,12 @@
 package websocket
 
 import (
-	"github.com/savsgio/atreugo"
+	"fmt"
 )
 
 // GetUserTeachingSignature Get user signature
 func GetUserTeachingSignature(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok {
 		signatureID, ok := data["id"]
 		if ok {
@@ -34,7 +34,7 @@ func GetUserTeachingSignatures(s *Socket, a *Action) {
 
 // AddUserTeachingSignature Add user signature
 func AddUserTeachingSignature(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
 		degreeID, ok := data["degree"]
 		name, ok := data["name"]
@@ -51,7 +51,7 @@ func AddUserTeachingSignature(s *Socket, a *Action) {
 
 // UpdateUserTeachingSignature Update user signature
 func UpdateUserTeachingSignature(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok || s.userID == 0 {
 		return
 	}
@@ -78,7 +78,7 @@ func UpdateUserTeachingSignature(s *Socket, a *Action) {
 
 // DeleteUserTeachingSignature Delete user signature
 func DeleteUserTeachingSignature(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok {
 		return
 	}
@@ -104,7 +104,7 @@ func DeleteUserTeachingSignature(s *Socket, a *Action) {
 
 // GetUserTeachingInstitution Get user institution
 func GetUserTeachingInstitution(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if ok {
 		institutionID, ok := data["id"]
 		if ok {
@@ -132,12 +132,12 @@ func GetUserTeachingInstitutions(s *Socket, a *Action) {
 
 // AddUserTeachingInstitution Add user institution
 func AddUserTeachingInstitution(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	fmt.Println(a)
+	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
-		degreeID, ok := data["degree"]
 		name, ok := data["name"]
 		if ok {
-			institution, err := s.io.service.AddUserTeachingInstitution(s.userID, int32(degreeID.(float64)), name.(string))
+			institution, err := s.io.service.AddUserTeachingInstitution(s.userID, name.(string))
 			if err != nil {
 				s.EmitServerError("AddUserTeachingInstitution", err)
 			} else {
@@ -149,7 +149,7 @@ func AddUserTeachingInstitution(s *Socket, a *Action) {
 
 // UpdateUserTeachingInstitution Update user institution
 func UpdateUserTeachingInstitution(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok || s.userID == 0 {
 		return
 	}
@@ -176,7 +176,7 @@ func UpdateUserTeachingInstitution(s *Socket, a *Action) {
 
 // DeleteUserTeachingInstitution Delete user institution
 func DeleteUserTeachingInstitution(s *Socket, a *Action) {
-	data, ok := a.Data.(atreugo.JSON)
+	data, ok := a.Data.(map[string]interface{})
 	if !ok {
 		return
 	}
@@ -198,4 +198,37 @@ func DeleteUserTeachingInstitution(s *Socket, a *Action) {
 		return
 	}
 	s.Emit(a.Type, institutionID)
+}
+
+// GetUserExperience get user teaching months
+func GetUserExperience(s *Socket, a *Action) {
+	data, ok := a.Data.(map[string]interface{})
+	if ok {
+		userID, ok := data["id"]
+		if ok {
+			experience, err := s.io.service.GetUserExperience(int32(userID.(float64)))
+			if err != nil {
+				s.EmitServerError("GetUserExperience", err)
+			} else {
+				s.Emit(a.Type, *experience)
+			}
+		}
+	}
+}
+
+// SetUserExperience set user teaching months
+func SetUserExperience(s *Socket, a *Action) {
+	data, ok := a.Data.(map[string]interface{})
+	if ok {
+		userID, uOk := data["id"]
+		months, mOk := data["months"]
+		if uOk && mOk {
+			experience, err := s.io.service.SetUserExperience(int32(userID.(float64)), int32(months.(float64)))
+			if err != nil {
+				s.EmitServerError("SetUserExperience", err)
+			} else {
+				s.Emit(a.Type, *experience)
+			}
+		}
+	}
 }
