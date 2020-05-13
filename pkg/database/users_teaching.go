@@ -20,7 +20,7 @@ type DBSignature struct {
 
 // GetUserTeachingSignature get all userID teaching signatures
 func (db *Database) GetUserTeachingSignature(signatureID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_teaching WHERE user_teaching_signature_id=$1", signatureID)
+	return db.conn.Query(context.Background(), "SELECT * FROM users_teaching_signatures WHERE user_teaching_signature_id=$1", signatureID)
 }
 
 // GetUserTeachingSignatures get all userID teaching signatures
@@ -55,12 +55,12 @@ type DBInstitution struct {
 
 // GetUserTeachingInstitution get all userID teaching institutions
 func (db *Database) GetUserTeachingInstitution(institutionID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_teaching WHERE user_teaching_institution_id=$1", institutionID)
+	return db.conn.Query(context.Background(), "SELECT * FROM users_teaching_institutions WHERE user_teaching_institution_id=$1", institutionID)
 }
 
 // GetUserTeachingInstitutions get all userID teaching institutions
 func (db *Database) GetUserTeachingInstitutions(userID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_teaching WHERE user_id=$1", userID)
+	return db.conn.Query(context.Background(), "SELECT * FROM users_teaching_institutions WHERE user_id=$1", userID)
 }
 
 // AddUserTeachingInstitution get all userID teaching institutions
