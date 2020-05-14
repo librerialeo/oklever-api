@@ -74,7 +74,7 @@ CREATE TABLE users (
 	user_license VARCHAR(32) UNIQUE,
 	user_rfc VARCHAR(16) UNIQUE,
 	user_biography TEXT,
-	user_teaching_months SMALLINT,
+	user_months SMALLINT,
 	user_accepted BOOLEAN NOT NULL DEFAULT FALSE,
 	country_id INT REFERENCES countries(country_id),
 	rol_id INT NOT NULL REFERENCES roles(rol_id),
@@ -182,9 +182,9 @@ CREATE TRIGGER update_users_expertises_modified_at BEFORE UPDATE
 ON users_expertises FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE users_institutions (
-	user_teaching_institution_id SERIAL PRIMARY KEY,
+	user_institution_id SERIAL PRIMARY KEY,
 	user_id INT NOT NULL REFERENCES users(user_id),
-	user_teaching_institution_name VARCHAR(128) NOT NULL,
+	user_institution_name VARCHAR(128) NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
@@ -193,10 +193,10 @@ CREATE TRIGGER update_users_institutions_modified_at BEFORE UPDATE
 ON users_institutions FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE users_signatures (
-	user_teaching_signature_id SERIAL PRIMARY KEY,
+	user_signature_id SERIAL PRIMARY KEY,
 	user_id INT NOT NULL REFERENCES users(user_id),
 	degree_id INT NOT NULL REFERENCES degrees(degree_id),
-	user_teaching_signature_name VARCHAR(128) NOT NULL,
+	user_signature_name VARCHAR(128) NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ

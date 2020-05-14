@@ -178,38 +178,38 @@ CREATE TABLE `teachers_expertises` (
 );
 
 CREATE TABLE `teachers_teaching` (
-	`teacher_teaching_id` INT AUTO_INCREMENT,
+	`teacher_id` INT AUTO_INCREMENT,
 	`teacher_id` INT NOT NULL,
 	`degree_id` INT NOT NULL,
 	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`modified_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`deleted_at` DATETIME,
-	PRIMARY KEY (`teacher_teaching_id`),
+	PRIMARY KEY (`teacher_id`),
 	FOREIGN KEY (`teacher_id`) REFERENCES `teachers`(`teacher_id`),
 	FOREIGN KEY (`degree_id`) REFERENCES `degrees`(`degree_id`)
 );
 
-CREATE TABLE `teachers_teaching_institutions` (
-	`teacher_teaching_institution_id` INT AUTO_INCREMENT,
-	`teacher_teaching_id` INT NOT NULL,
-	`teacher_teaching_institution_name` VARCHAR(128) NOT NULL,
+CREATE TABLE `teachers_institutions` (
+	`teacher_institution_id` INT AUTO_INCREMENT,
+	`teacher_id` INT NOT NULL,
+	`teacher_institution_name` VARCHAR(128) NOT NULL,
 	`teacher_degree_institution_months` SMALLINT NOT NULL,
 	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`modified_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`deleted_at` DATETIME,
-	PRIMARY KEY (`teacher_teaching_institution_id`),
-	FOREIGN KEY (`teacher_teaching_id`) REFERENCES `teachers_teaching`(`teacher_teaching_id`)
+	PRIMARY KEY (`teacher_institution_id`),
+	FOREIGN KEY (`teacher_id`) REFERENCES `teachers_teaching`(`teacher_id`)
 );
 
-CREATE TABLE `teachers_teaching_signatures` (
-	`teacher_teaching_signature_id` INT AUTO_INCREMENT,
-	`teacher_teaching_id` INT NOT NULL,
-	`teacher_teaching_signature_name` VARCHAR(128) NOT NULL,
+CREATE TABLE `teachers_signatures` (
+	`teacher_signature_id` INT AUTO_INCREMENT,
+	`teacher_id` INT NOT NULL,
+	`teacher_signature_name` VARCHAR(128) NOT NULL,
 	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`modified_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`deleted_at` DATETIME,
-	PRIMARY KEY (`teacher_teaching_signature_id`),
-	FOREIGN KEY (`teacher_teaching_id`) REFERENCES `teachers_teaching`(`teacher_teaching_id`)
+	PRIMARY KEY (`teacher_signature_id`),
+	FOREIGN KEY (`teacher_id`) REFERENCES `teachers_teaching`(`teacher_id`)
 );
 
 CREATE TABLE `courses_levels` (
