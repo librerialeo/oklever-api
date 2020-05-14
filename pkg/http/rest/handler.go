@@ -145,8 +145,6 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	InitSynchronousClassesHandler(synchronousClassesRouter, s)
 	synchronousClassesResourcesRouter := r.NewGroupPath("/synchronous_classes_resources")
 	InitSynchronousClassesResourcesHandler(synchronousClassesResourcesRouter, s)
-	teachersExpertisesRouter := r.NewGroupPath("/teachers_expertises")
-	InitTeachersExpertisesHandler(teachersExpertisesRouter, s)
 	teachersRouter := r.NewGroupPath("/teachers")
 	InitTeachersHandler(teachersRouter, s)
 	usersLanguagesRouter := r.NewGroupPath("/users_languages")
