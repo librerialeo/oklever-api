@@ -53,7 +53,7 @@ func (s *Service) GetUserExpertises(userID int32) (*[]database.DBExpertise, erro
 }
 
 // AddUserExpertise add a new user expertise
-func (s *Service) AddUserExpertise(userID int32, name string, months int32) (*database.DBExpertise, error) {
+func (s *Service) AddUserExpertise(userID int32, name string, months int16) (*database.DBExpertise, error) {
 	rows, err := s.db.AddUserExpertise(userID, name, months)
 	if err != nil {
 		return nil, err
@@ -63,7 +63,7 @@ func (s *Service) AddUserExpertise(userID int32, name string, months int32) (*da
 }
 
 // UpdateUserExpertise update user expertise by id
-func (s *Service) UpdateUserExpertise(expertiseID int32, name string, months int32) (*database.DBExpertise, error) {
+func (s *Service) UpdateUserExpertise(expertiseID int32, name string, months int16) (*database.DBExpertise, error) {
 	rows, err := s.db.UpdateUserExpertise(expertiseID, name, months)
 	if err != nil {
 		return nil, err

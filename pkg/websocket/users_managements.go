@@ -36,7 +36,7 @@ func AddUserManagement(s *Socket, a *Action) {
 		institution, iOk := data["institution"].(string)
 		months, mOk := data["months"].(float64)
 		if jOk && iOk && mOk {
-			management, err := s.io.service.AddUserManagement(s.userID, job, institution, int32(months))
+			management, err := s.io.service.AddUserManagement(s.userID, job, institution, int16(months))
 			if err != nil {
 				s.EmitServerError("AddUserManagement", err)
 			} else {
@@ -56,7 +56,7 @@ func UpdateUserManagement(s *Socket, a *Action) {
 	job, jOk := data["job"].(string)
 	institution, rOk := data["institution"].(string)
 	months, mOk := data["months"].(float64)
-	if !ok || !rOk || !mOk || jOk {
+	if !ok || !rOk || !mOk || !jOk {
 		return
 	}
 	management, err := s.io.service.GetUserManagement(int32(managementID))
@@ -67,7 +67,7 @@ func UpdateUserManagement(s *Socket, a *Action) {
 	if management.UserID.Int != s.userID {
 		return
 	}
-	management, err = s.io.service.UpdateUserManagement(int32(managementID), job, institution, int32(months))
+	management, err = s.io.service.UpdateUserManagement(int32(managementID), job, institution, int16(months))
 	if err != nil {
 		s.EmitServerError("UpdateUserManagement: update user error", err)
 		return

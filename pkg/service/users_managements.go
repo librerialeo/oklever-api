@@ -54,7 +54,7 @@ func (s *Service) GetUserManagements(userID int32) (*[]database.DBManagement, er
 }
 
 // AddUserManagement add a new user management
-func (s *Service) AddUserManagement(userID int32, job string, institution string, months int32) (*database.DBManagement, error) {
+func (s *Service) AddUserManagement(userID int32, job string, institution string, months int16) (*database.DBManagement, error) {
 	rows, err := s.db.AddUserManagement(userID, job, institution, months)
 	if err != nil {
 		return nil, err
@@ -64,7 +64,7 @@ func (s *Service) AddUserManagement(userID int32, job string, institution string
 }
 
 // UpdateUserManagement update user management by id
-func (s *Service) UpdateUserManagement(managementID int32, job string, institution string, months int32) (*database.DBManagement, error) {
+func (s *Service) UpdateUserManagement(managementID int32, job string, institution string, months int16) (*database.DBManagement, error) {
 	rows, err := s.db.UpdateUserManagement(managementID, job, institution, months)
 	if err != nil {
 		return nil, err

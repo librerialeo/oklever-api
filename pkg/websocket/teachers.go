@@ -1,7 +1,6 @@
 package websocket
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/librerialeo/oklever-api/pkg/utils"
@@ -118,12 +117,10 @@ func UpdateTeacherInformation(s *Socket, a *Action) {
 		if emailOk && firstnameOk && lastnameOk && genderOk && phoneOk && licenseOk && rfcOk && s.userID != 0 {
 			if err := s.io.service.UpdateUserInformation(s.userID, firstname, lastname, email, gender, phone); err != nil {
 				s.EmitServerError("UpdateTeacherInformation: update user information", err)
-				fmt.Println("update user", err)
 				return
 			}
 			if err := s.io.service.UpdateTeacherInformation(s.userID, license, rfc); err != nil {
 				s.EmitServerError("UpdateTeacherInformation: update teacher information", err)
-				fmt.Println("update teacher", err)
 				return
 			}
 			s.Emit("UPDATE_TEACHER_INFORMATION", map[string]interface{}{

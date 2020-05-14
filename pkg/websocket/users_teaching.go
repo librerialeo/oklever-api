@@ -1,9 +1,5 @@
 package websocket
 
-import (
-	"fmt"
-)
-
 // GetUserTeachingSignature Get user signature
 func GetUserTeachingSignature(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
@@ -132,7 +128,6 @@ func GetUserTeachingInstitutions(s *Socket, a *Action) {
 
 // AddUserTeachingInstitution Add user institution
 func AddUserTeachingInstitution(s *Socket, a *Action) {
-	fmt.Println(a)
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.userID != 0 {
 		name, ok := data["name"].(string)

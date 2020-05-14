@@ -70,7 +70,6 @@ func (s *Socket) unregister() {
 	}
 	s.io.removeSocket(s)
 	s.conn.Close()
-	fmt.Println("ñklasdjf")
 }
 
 func (s *Socket) register() {

@@ -35,7 +35,7 @@ func AddUserExpertise(s *Socket, a *Action) {
 		name, nOk := data["name"].(string)
 		months, mOk := data["months"].(float64)
 		if nOk && mOk {
-			expertise, err := s.io.service.AddUserExpertise(s.userID, name, int32(months))
+			expertise, err := s.io.service.AddUserExpertise(s.userID, name, int16(months))
 			if err != nil {
 				s.EmitServerError("AddUserExpertise", err)
 			} else {
@@ -54,7 +54,7 @@ func UpdateUserExpertise(s *Socket, a *Action) {
 	expertiseID, ok := data["id"].(float64)
 	name, nOk := data["name"].(string)
 	months, mOk := data["months"].(float64)
-	if !ok || !mOk || nOk {
+	if !ok || !mOk || !nOk {
 		return
 	}
 	expertise, err := s.io.service.GetUserExpertise(int32(expertiseID))
@@ -65,7 +65,7 @@ func UpdateUserExpertise(s *Socket, a *Action) {
 	if expertise.UserID.Int != s.userID {
 		return
 	}
-	expertise, err = s.io.service.UpdateUserExpertise(int32(expertiseID), name, int32(months))
+	expertise, err = s.io.service.UpdateUserExpertise(int32(expertiseID), name, int16(months))
 	if err != nil {
 		s.EmitServerError("UpdateUserExpertise: update user error", err)
 		return
