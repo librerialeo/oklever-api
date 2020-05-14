@@ -25,7 +25,7 @@ func (db *Database) GetUserTeachingSignature(signatureID int32) (pgx.Rows, error
 
 // GetUserTeachingSignatures get all userID teaching signatures
 func (db *Database) GetUserTeachingSignatures(userID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_teaching WHERE user_id=$1", userID)
+	return db.conn.Query(context.Background(), "SELECT * FROM users_signatures WHERE user_id=$1", userID)
 }
 
 // AddUserTeachingSignature get all userID teaching signatures
