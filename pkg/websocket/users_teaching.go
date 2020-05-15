@@ -197,16 +197,12 @@ func DeleteUserTeachingInstitution(s *Socket, a *Action) {
 
 // GetUserExperience get user teaching months
 func GetUserExperience(s *Socket, a *Action) {
-	data, ok := a.Data.(map[string]interface{})
-	if ok {
-		userID, ok := data["id"].(float64)
-		if ok {
-			experience, err := s.io.service.GetUserExperience(int32(userID))
-			if err != nil {
-				s.EmitServerError("GetUserExperience", err)
-			} else {
-				s.Emit(a.Type, *experience)
-			}
+	if s.userID != 0 {
+		experience, err := s.io.service.GetUserExperience(s.userID)
+		if err != nil {
+			s.EmitServerError("GetUserExperience", err)
+		} else {
+			s.Emit(a.Type, *experience)
 		}
 	}
 }
@@ -214,11 +210,10 @@ func GetUserExperience(s *Socket, a *Action) {
 // SetUserExperience set user teaching months
 func SetUserExperience(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if ok {
-		userID, uOk := data["id"].(float64)
-		months, mOk := data["months"].(float64)
-		if uOk && mOk {
-			experience, err := s.io.service.SetUserExperience(int32(userID), int32(months))
+	if ok && s.userID != 0 {
+		months, ok := data["months"].(float64)
+		if ok {
+			experience, err := s.io.service.SetUserExperience(s.userID, int32(months))
 			if err != nil {
 				s.EmitServerError("SetUserExperience", err)
 			} else {
