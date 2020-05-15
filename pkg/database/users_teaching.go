@@ -102,6 +102,6 @@ func (db *Database) GetUserExperience(userID int32) (pgx.Rows, error) {
 }
 
 // SetUserExperience get user teaching experience months
-func (db *Database) SetUserExperience(userID int32, months int32) (pgx.Rows, error) {
+func (db *Database) SetUserExperience(userID int32, months int16) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "UPDATE users SET user_months = $1 WHERE user_id = $2 RETURNING user_months", months, userID)
 }

@@ -223,7 +223,7 @@ func SetUserExperience(s *Socket, a *Action) {
 	if ok && s.userID != 0 {
 		months, ok := data["months"].(float64)
 		if ok {
-			experience, err := s.io.service.SetUserExperience(s.userID, int32(months))
+			experience, err := s.io.service.SetUserExperience(s.userID, int16(months))
 			if err != nil {
 				s.EmitServerError("SetUserExperience", err)
 			} else {

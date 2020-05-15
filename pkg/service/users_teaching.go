@@ -177,13 +177,13 @@ func (s *Service) GetUserExperience(userID int32) (*int32, error) {
 }
 
 // SetUserExperience set the user experience of the passed id
-func (s *Service) SetUserExperience(userID int32, months int32) (*int32, error) {
+func (s *Service) SetUserExperience(userID int32, months int16) (*int16, error) {
 	rows, err := s.db.SetUserExperience(userID, months)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	var experience pgtype.Int4
+	var experience pgtype.Int2
 	if rows.Next() {
 		err = rows.Scan(&experience)
 		if err != nil {
