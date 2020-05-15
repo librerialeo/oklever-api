@@ -1,5 +1,7 @@
 package websocket
 
+import "github.com/savsgio/atreugo"
+
 // GetUserExpertise Get user expertise
 func GetUserExpertise(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
@@ -10,7 +12,7 @@ func GetUserExpertise(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("GetUserExpertise", err)
 			} else {
-				s.Emit(a.Type, expertise)
+				s.Emit(a.Type, expertise.ParseForUser())
 			}
 		}
 	}
@@ -23,7 +25,11 @@ func GetUserExpertises(s *Socket, a *Action) {
 		if err != nil {
 			s.EmitServerError("GetUserExpertises", err)
 		} else {
-			s.Emit(a.Type, *expertises)
+			parsedExpertises := []atreugo.JSON{}
+			for _, expertise := range *expertises {
+				parsedExpertises = append(parsedExpertises, expertise.ParseForUser())
+			}
+			s.Emit(a.Type, parsedExpertises)
 		}
 	}
 }
@@ -39,7 +45,7 @@ func AddUserExpertise(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("AddUserExpertise", err)
 			} else {
-				s.Emit(a.Type, expertise)
+				s.Emit(a.Type, expertise.ParseForUser())
 			}
 		}
 	}
@@ -70,7 +76,7 @@ func UpdateUserExpertise(s *Socket, a *Action) {
 		s.EmitServerError("UpdateUserExpertise: update user error", err)
 		return
 	}
-	s.Emit(a.Type, expertise)
+	s.Emit(a.Type, expertise.ParseForUser())
 }
 
 // DeleteUserExpertise Delete user expertise

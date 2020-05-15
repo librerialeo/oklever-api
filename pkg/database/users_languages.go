@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/jackc/pgtype"
+	"github.com/savsgio/atreugo"
 
 	"github.com/jackc/pgx"
 )
@@ -16,6 +17,14 @@ type DBUsersLanguage struct {
 	CreatedAt  pgtype.Timestamptz `json:"-"`
 	ModifiedAt pgtype.Timestamptz `json:"-"`
 	DeleteAt   pgtype.Timestamptz `json:"-"`
+}
+
+// ParseForUser as name says
+func (language *DBUsersLanguage) ParseForUser() atreugo.JSON {
+	return atreugo.JSON{
+		"id":       language.ID.Int,
+		"language": language.LanguageID.Int,
+	}
 }
 
 // GetAllUsersLanguages queries for all usersLanguages

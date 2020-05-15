@@ -5,6 +5,7 @@ import (
 
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
+	"github.com/savsgio/atreugo"
 )
 
 // DBExpertise is user_expertise database table structure
@@ -16,6 +17,15 @@ type DBExpertise struct {
 	Added    pgtype.Timestamptz `json:"added"`
 	Modified pgtype.Timestamptz `json:"modified"`
 	Deleted  pgtype.Timestamptz `json:"deleted"`
+}
+
+// ParseForUser as name says
+func (expertise *DBExpertise) ParseForUser() atreugo.JSON {
+	return atreugo.JSON{
+		"id":     expertise.ID.Int,
+		"name":   expertise.Name.String,
+		"months": expertise.Months.Int,
+	}
 }
 
 // GetUserExpertise get all userID  expertises

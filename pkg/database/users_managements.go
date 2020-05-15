@@ -5,6 +5,7 @@ import (
 
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
+	"github.com/savsgio/atreugo"
 )
 
 // DBManagement is user_management database table structure
@@ -17,6 +18,16 @@ type DBManagement struct {
 	Added       pgtype.Timestamptz `json:"added"`
 	Modified    pgtype.Timestamptz `json:"modified"`
 	Deleted     pgtype.Timestamptz `json:"deleted"`
+}
+
+// ParseForUser as name says
+func (management *DBManagement) ParseForUser() atreugo.JSON {
+	return atreugo.JSON{
+		"id":          management.ID.Int,
+		"job":         management.Job.String,
+		"institution": management.Institution.String,
+		"months":      management.Months.Int,
+	}
 }
 
 // GetUserManagement get all userID  managements

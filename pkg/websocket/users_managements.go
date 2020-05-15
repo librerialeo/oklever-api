@@ -1,5 +1,7 @@
 package websocket
 
+import "github.com/savsgio/atreugo"
+
 // GetUserManagement Get user management
 func GetUserManagement(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
@@ -10,7 +12,7 @@ func GetUserManagement(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("GetUserManagement", err)
 			} else {
-				s.Emit(a.Type, management)
+				s.Emit(a.Type, management.ParseForUser())
 			}
 		}
 	}
@@ -23,7 +25,11 @@ func GetUserManagements(s *Socket, a *Action) {
 		if err != nil {
 			s.EmitServerError("GetUserManagements", err)
 		} else {
-			s.Emit(a.Type, *managements)
+			parsedManagements := []atreugo.JSON{}
+			for _, management := range *managements {
+				parsedManagements = append(parsedManagements, management.ParseForUser())
+			}
+			s.Emit(a.Type, parsedManagements)
 		}
 	}
 }
@@ -40,7 +46,7 @@ func AddUserManagement(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("AddUserManagement", err)
 			} else {
-				s.Emit(a.Type, management)
+				s.Emit(a.Type, management.ParseForUser())
 			}
 		}
 	}
@@ -72,7 +78,7 @@ func UpdateUserManagement(s *Socket, a *Action) {
 		s.EmitServerError("UpdateUserManagement: update user error", err)
 		return
 	}
-	s.Emit(a.Type, management)
+	s.Emit(a.Type, management.ParseForUser())
 }
 
 // DeleteUserManagement Delete user management

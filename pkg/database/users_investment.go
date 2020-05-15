@@ -5,6 +5,7 @@ import (
 
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
+	"github.com/savsgio/atreugo"
 )
 
 // DBInvestment is user_research database table structure
@@ -13,10 +14,20 @@ type DBInvestment struct {
 	UserID    pgtype.Int4        `json:"user"`
 	Reference pgtype.Text        `json:"reference"`
 	Year      pgtype.Int4        `json:"year"`
+	Type      pgtype.Varchar     `json:"type"`
 	Added     pgtype.Timestamptz `json:"added"`
 	Modified  pgtype.Timestamptz `json:"modified"`
 	Deleted   pgtype.Timestamptz `json:"deleted"`
-	Type      pgtype.Varchar     `json:"type"`
+}
+
+// ParseForUser as name says
+func (investment *DBInvestment) ParseForUser() atreugo.JSON {
+	return atreugo.JSON{
+		"id":        investment.ID.Int,
+		"reference": investment.Reference.String,
+		"year":      investment.Year.Int,
+		"type":      investment.Type.String,
+	}
 }
 
 // GetUserInvestment get all userID  investments

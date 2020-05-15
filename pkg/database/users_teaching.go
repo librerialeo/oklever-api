@@ -5,6 +5,7 @@ import (
 
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
+	"github.com/savsgio/atreugo"
 )
 
 // DBSignature is user_signatures database table structure
@@ -16,6 +17,15 @@ type DBSignature struct {
 	Added    pgtype.Timestamptz `json:"added"`
 	Modified pgtype.Timestamptz `json:"modified"`
 	Deleted  pgtype.Timestamptz `json:"deleted"`
+}
+
+// ParseForUser as name says
+func (signature *DBSignature) ParseForUser() atreugo.JSON {
+	return atreugo.JSON{
+		"id":     signature.ID.Int,
+		"degree": signature.DegreeID.Int,
+		"name":   signature.Name.String,
+	}
 }
 
 // GetUserTeachingSignature get all userID teaching signatures
@@ -51,6 +61,14 @@ type DBInstitution struct {
 	Added    pgtype.Timestamptz `json:"added"`
 	Modified pgtype.Timestamptz `json:"modified"`
 	Deleted  pgtype.Timestamptz `json:"deleted"`
+}
+
+// ParseForUser as name says
+func (institution *DBInstitution) ParseForUser() atreugo.JSON {
+	return atreugo.JSON{
+		"id":   institution.ID.Int,
+		"name": institution.Name.String,
+	}
 }
 
 // GetUserTeachingInstitution get all userID teaching institutions

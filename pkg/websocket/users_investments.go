@@ -1,5 +1,7 @@
 package websocket
 
+import "github.com/savsgio/atreugo"
+
 // GetUserInvestment Get user investment
 func GetUserInvestment(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
@@ -10,7 +12,7 @@ func GetUserInvestment(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("GetUserInvestment", err)
 			} else {
-				s.Emit(a.Type, investment)
+				s.Emit(a.Type, investment.ParseForUser())
 			}
 		}
 	}
@@ -23,7 +25,11 @@ func GetUserInvestments(s *Socket, a *Action) {
 		if err != nil {
 			s.EmitServerError("GetUserInvestments", err)
 		} else {
-			s.Emit(a.Type, *investments)
+			parsedInvestments := []atreugo.JSON{}
+			for _, investment := range *investments {
+				parsedInvestments = append(parsedInvestments, investment.ParseForUser())
+			}
+			s.Emit(a.Type, parsedInvestments)
 		}
 	}
 }
@@ -40,7 +46,7 @@ func AddUserInvestment(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("AddUserInvestment", err)
 			} else {
-				s.Emit(a.Type, investment)
+				s.Emit(a.Type, investment.ParseForUser())
 			}
 		}
 	}
@@ -71,7 +77,7 @@ func UpdateUserInvestment(s *Socket, a *Action) {
 		s.EmitServerError("UpdateUserInvestment: update user error", err)
 		return
 	}
-	s.Emit(a.Type, investment)
+	s.Emit(a.Type, investment.ParseForUser())
 }
 
 // DeleteUserInvestment Delete user investment

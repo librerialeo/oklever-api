@@ -5,6 +5,7 @@ import (
 
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
+	"github.com/savsgio/atreugo"
 )
 
 // DBUsersAcademy struct of database users_languages
@@ -14,6 +15,17 @@ type DBUsersAcademy struct {
 	UserAcademyName        pgtype.Varchar `json:"name"`
 	UserAcademyInstitution pgtype.Varchar `json:"institution"`
 	UserAcademyYear        pgtype.Int2    `json:"year"`
+}
+
+// ParseForUser as name says
+func (academy *DBUsersAcademy) ParseForUser() atreugo.JSON {
+	return atreugo.JSON{
+		"id":          academy.ID.Int,
+		"degree":      academy.DegreeID.Int,
+		"name":        academy.UserAcademyName.String,
+		"institution": academy.UserAcademyInstitution.String,
+		"year":        academy.UserAcademyYear.Int,
+	}
 }
 
 // GetAllUsersAcademy queries for all usersAcademy

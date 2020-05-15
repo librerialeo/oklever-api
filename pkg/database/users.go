@@ -6,6 +6,7 @@ import (
 
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
+	"github.com/savsgio/atreugo"
 )
 
 // DBUser struct of database user
@@ -30,6 +31,22 @@ type DBUser struct {
 	Created        pgtype.Timestamptz `json:"created"`
 	Modified       pgtype.Timestamptz `json:"modified"`
 	Deleted        pgtype.Timestamptz `json:"deleted"`
+}
+
+// ParseForUser parse DBuser for users
+func (user *DBUser) ParseForUser() atreugo.JSON {
+	return atreugo.JSON{
+		"gender":          user.Gender.String,
+		"image":           user.Image.String,
+		"birthdate":       user.Birthdate.Time,
+		"phone":           user.Phone.String,
+		"license":         user.License.String,
+		"rfc":             user.RFC.String,
+		"biography":       user.Biography.String,
+		"teaching_months": user.TeachingMonths.Int,
+		"accepted":        user.Accepted.Bool,
+		"country":         user.Country.Int,
+	}
 }
 
 // GetAllUsers queries for all users

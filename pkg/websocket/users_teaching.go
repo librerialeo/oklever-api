@@ -1,5 +1,7 @@
 package websocket
 
+import "github.com/savsgio/atreugo"
+
 // GetUserTeachingSignature Get user signature
 func GetUserTeachingSignature(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
@@ -10,7 +12,7 @@ func GetUserTeachingSignature(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("GetUserTeachingSignature", err)
 			} else {
-				s.Emit(a.Type, signature)
+				s.Emit(a.Type, signature.ParseForUser())
 			}
 		}
 	}
@@ -23,7 +25,11 @@ func GetUserTeachingSignatures(s *Socket, a *Action) {
 		if err != nil {
 			s.EmitServerError("GetUserTeachingSignatures", err)
 		} else {
-			s.Emit(a.Type, *signatures)
+			parsedSignatures := []atreugo.JSON{}
+			for _, signature := range *signatures {
+				parsedSignatures = append(parsedSignatures, signature.ParseForUser())
+			}
+			s.Emit(a.Type, parsedSignatures)
 		}
 	}
 }
@@ -39,7 +45,7 @@ func AddUserTeachingSignature(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("AddUserTeachingSignature", err)
 			} else {
-				s.Emit(a.Type, signature)
+				s.Emit(a.Type, signature.ParseForUser())
 			}
 		}
 	}
@@ -69,7 +75,7 @@ func UpdateUserTeachingSignature(s *Socket, a *Action) {
 		s.EmitServerError("UpdateUserTeachingSignature: update user error", err)
 		return
 	}
-	s.Emit(a.Type, signature)
+	s.Emit(a.Type, signature.ParseForUser())
 }
 
 // DeleteUserTeachingSignature Delete user signature
@@ -108,7 +114,7 @@ func GetUserTeachingInstitution(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("GetUserTeachingInstitution", err)
 			} else {
-				s.Emit(a.Type, institution)
+				s.Emit(a.Type, institution.ParseForUser())
 			}
 		}
 	}
@@ -121,7 +127,11 @@ func GetUserTeachingInstitutions(s *Socket, a *Action) {
 		if err != nil {
 			s.EmitServerError("GetUserTeachingInstitutions", err)
 		} else {
-			s.Emit(a.Type, *institutions)
+			parsedInstitutions := []atreugo.JSON{}
+			for _, institution := range *institutions {
+				parsedInstitutions = append(parsedInstitutions, institution.ParseForUser())
+			}
+			s.Emit(a.Type, parsedInstitutions)
 		}
 	}
 }
@@ -136,7 +146,7 @@ func AddUserTeachingInstitution(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("AddUserTeachingInstitution", err)
 			} else {
-				s.Emit(a.Type, institution)
+				s.Emit(a.Type, institution.ParseForUser())
 			}
 		}
 	}
@@ -166,7 +176,7 @@ func UpdateUserTeachingInstitution(s *Socket, a *Action) {
 		s.EmitServerError("UpdateUserTeachingInstitution: update user error", err)
 		return
 	}
-	s.Emit(a.Type, institution)
+	s.Emit(a.Type, institution.ParseForUser())
 }
 
 // DeleteUserTeachingInstitution Delete user institution
