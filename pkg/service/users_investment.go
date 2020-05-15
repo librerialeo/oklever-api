@@ -10,12 +10,12 @@ func readInvestment(rows *pgx.Rows) (*database.DBInvestment, error) {
 		var investment database.DBInvestment
 		err := (*rows).Scan(&investment.ID,
 			&investment.UserID,
+			&investment.Type,
 			&investment.Reference,
 			&investment.Year,
 			&investment.Added,
 			&investment.Modified,
-			&investment.Deleted,
-			&investment.Type)
+			&investment.Deleted)
 		if err != nil {
 			return nil, err
 		}
