@@ -78,6 +78,7 @@ func TeacherLogin(s *Socket, a *Action) {
 							"lastname":  user.Lastname.String,
 							"gender":    user.Gender.String,
 							"phone":     user.Phone.String,
+							"image":     user.Image.String,
 							"license":   user.License.String,
 							"rfc":       user.RFC.String,
 						})

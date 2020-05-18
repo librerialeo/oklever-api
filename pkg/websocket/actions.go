@@ -55,6 +55,8 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("GET_USER_BIOGRAPHY", GetUserBiography, []string{})
 	io.AddActionHandler("SET_USER_BIOGRAPHY", SetUserBiography, []string{})
 
+	io.AddActionHandler("SET_USER_IMAGE", SetUserImage, []string{})
+
 	// student actions
 
 	// teacher actions

@@ -92,3 +92,20 @@ func (s *Service) SetUserBiography(userID int32, biography string) (string, erro
 	}
 	return DBbiography.String, nil
 }
+
+// SetUserImage get user biography string
+func (s *Service) SetUserImage(userID int32, image string) (string, error) {
+	rows, err := s.db.SetUserImage(userID, image)
+	if err != nil {
+		return "", err
+	}
+	defer rows.Close()
+	var DBimage pgtype.Varchar
+	if rows.Next() {
+		err := rows.Scan(&DBimage)
+		if err != nil {
+			return "", nil
+		}
+	}
+	return DBimage.String, nil
+}

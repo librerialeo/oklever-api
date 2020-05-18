@@ -39,6 +39,7 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 		AllowCredentials: true,
 		AllowMaxAge:      5600,
 	})
+	r.Static("/static", "static")
 	r.UseBefore(cors)
 	r.UseBefore(func(ctx *atreugo.RequestCtx) error {
 		tokenString := string(ctx.Request.Header.Peek("Authorization"))

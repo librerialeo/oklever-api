@@ -1,6 +1,12 @@
 package websocket
 
-import "github.com/savsgio/atreugo"
+import (
+	"fmt"
+	"os"
+
+	"github.com/librerialeo/oklever-api/pkg/utils"
+	"github.com/savsgio/atreugo"
+)
 
 // UserRegister register new user
 func UserRegister(socket *Socket, action *Action) {
@@ -43,4 +49,29 @@ func SetUserBiography(s *Socket, a *Action) {
 			}
 		}
 	}
+}
+
+// SetUserImage set user image
+func SetUserImage(s *Socket, a *Action) {
+	data, ok := a.Data.(string)
+	if !ok || s.userID == 0 {
+		fmt.Println("a")
+		return
+	}
+	image, err := utils.DataToImage(data)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	filename := fmt.Sprintf("%d-image.png", s.userID)
+	err = utils.SaveImageToFile(os.Getenv("USERS_DIR"), filename, image, "image/png")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	filename, err = s.io.service.SetUserImage(s.userID, filename)
+	if err != nil {
+		return
+	}
+	s.Emit(a.Type, filename)
 }

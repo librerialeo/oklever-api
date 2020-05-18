@@ -83,3 +83,8 @@ func (db *Database) GetUserBiography(userID int32) (pgx.Rows, error) {
 func (db *Database) SetUserBiography(userID int32, biography string) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "UPDATE users SET user_biography=$1 WHERE user_id = $2 RETURNING user_biography", biography, userID)
 }
+
+// SetUserImage get user biography
+func (db *Database) SetUserImage(userID int32, image string) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "UPDATE users SET user_image=$1 WHERE user_id = $2 RETURNING user_image", image, userID)
+}
