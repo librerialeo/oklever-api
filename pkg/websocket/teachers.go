@@ -81,6 +81,7 @@ func TeacherLogin(s *Socket, a *Action) {
 							"image":     user.Image.String,
 							"license":   user.License.String,
 							"rfc":       user.RFC.String,
+							"status":    user.Status.String,
 						})
 						s.EmitSuccess("Iniciaste sesión correctamente")
 						idsLanguages, idsErr := s.io.service.GetAllUsersLanguages(user.ID.Int)
@@ -89,7 +90,7 @@ func TeacherLogin(s *Socket, a *Action) {
 						} else {
 							s.Emit("ADD_USERS_LANGUAGE", idsLanguages)
 						}
-						academies, aErr := s.io.service.GetAllUsersAcademy(user.ID.Int)
+						academies, aErr := s.io.service.GetUserAcademiesByUserID(user.ID.Int)
 						if aErr != nil {
 							s.EmitServerError("Users get academies", aErr)
 						} else {
@@ -134,5 +135,115 @@ func UpdateTeacherInformation(s *Socket, a *Action) {
 				"rfc":       rfc,
 			})
 		}
+	}
+}
+
+// ValidateTeacherProfile validates teacher acception first step
+func ValidateTeacherProfile(s *Socket, a *Action) {
+	if s.userID == 0 {
+		return
+	}
+	points := 0
+	user, err := s.io.service.GetTeacherByUserID(s.userID)
+	if err != nil {
+		s.EmitServerError("ValidateTeacherProfile: GetTeacherByUserID", err)
+		return
+	} else if user.TeachingMonths.Int >= 12 && user.TeachingMonths.Int < 36 {
+		points++
+	} else if user.TeachingMonths.Int >= 36 && user.TeachingMonths.Int < 72 {
+		points += 3
+	} else if user.TeachingMonths.Int >= 72 {
+		points += 5
+	}
+	academies, err := s.io.service.GetUserAcademiesByUserID(s.userID)
+	if err != nil {
+		s.EmitServerError("ValidateTeacherProfile: GetUserAcademiesByUserID", err)
+		return
+	}
+	var aux int32 = 0
+	for _, academy := range *academies {
+		if academy.DegreeID.Int > aux {
+			aux = academy.DegreeID.Int
+		}
+	}
+	if aux == 4 || aux == 5 {
+		points++
+	} else if aux == 2 || aux == 3 {
+		points += 3
+	} else if aux == 1 {
+		points += 5
+	}
+	signatures, err := s.io.service.GetUserTeachingSignatures(s.userID)
+	if err != nil {
+		s.EmitServerError("ValidateTeacherProfile: GetUserTeachingSignatures", err)
+		return
+	}
+	aux = 0
+	for _, signature := range *signatures {
+		if signature.DegreeID.Int > aux {
+			aux = signature.DegreeID.Int
+		}
+	}
+	if aux == 4 || aux == 5 {
+		points++
+	} else if aux == 2 || aux == 3 {
+		points += 3
+	} else if aux == 1 {
+		points += 5
+	}
+	investments, err := s.io.service.GetUserInvestments(s.userID)
+	if err != nil {
+		s.EmitServerError("ValidateTeacherProfile: GetUserInvestments", err)
+		return
+	} else if len(*investments) >= 3 && len(*investments) <= 4 {
+		points++
+	} else if len(*investments) >= 5 && len(*investments) <= 6 {
+		points += 3
+	} else if len(*investments) >= 7 {
+		points += 5
+	}
+	managements, err := s.io.service.GetUserManagements(s.userID)
+	if err != nil {
+		s.EmitServerError("ValidateTeacherProfile: GetUserManagements", err)
+		return
+	}
+	aux = 0
+	for _, m := range *managements {
+		aux += int32(m.Months.Int)
+	}
+	if aux >= 24 && aux < 36 {
+		points++
+	} else if aux >= 36 && aux < 60 {
+		points += 3
+	} else if aux >= 60 {
+		points += 5
+	}
+	expertises, err := s.io.service.GetUserExpertises(s.userID)
+	if err != nil {
+		s.EmitServerError("ValidateTeacherProfile: GetUserExpertises", err)
+		return
+	}
+	aux = 0
+	for _, m := range *expertises {
+		aux += int32(m.Months.Int)
+	}
+	if aux >= 36 && aux < 48 {
+		points++
+	} else if aux >= 48 && aux < 72 {
+		points += 3
+	} else if aux >= 72 {
+		points += 5
+	}
+	if points >= 18 {
+		err := s.io.service.SetUserStatus(s.userID, "passant")
+		if err != nil {
+			s.EmitServerError("ValidateTeacherProfile: SetUserStatus", err)
+			return
+		}
+		s.Emit("SET_USER_STATUS", "passant")
+		s.Redirect("/")
+		s.EmitSuccess("Tu perfil cumple con los requisitos básicos para ser docente")
+	} else {
+		s.EmitError("Lo sentimos tu perfil no cumple con los requisitos básicos para ser docente")
 	}
 }

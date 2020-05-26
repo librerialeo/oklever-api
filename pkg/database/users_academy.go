@@ -28,8 +28,8 @@ func (academy *DBUsersAcademy) ParseForUser() atreugo.JSON {
 	}
 }
 
-// GetAllUsersAcademy queries for all usersAcademy
-func (db *Database) GetAllUsersAcademy(UserID int32) (pgx.Rows, error) {
+// GetUserAcademiesByUserID queries for all usersAcademy
+func (db *Database) GetUserAcademiesByUserID(UserID int32) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "SELECT user_academy_id,degree_id,user_academy_name,user_academy_institution,user_academy_year FROM users_academy where user_id = $1", UserID)
 }
 

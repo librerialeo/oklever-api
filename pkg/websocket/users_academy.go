@@ -3,7 +3,7 @@ package websocket
 // UsersGetAcademy get users all academy
 func UsersGetAcademy(s *Socket, a *Action) {
 	if s.userID != 0 {
-		academies, err := s.io.service.GetAllUsersAcademy(s.userID)
+		academies, err := s.io.service.GetUserAcademiesByUserID(s.userID)
 		if err != nil {
 			s.EmitServerError("Users get academy", err)
 		} else {

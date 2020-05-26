@@ -109,3 +109,13 @@ func (s *Service) SetUserImage(userID int32, image string) (string, error) {
 	}
 	return DBimage.String, nil
 }
+
+// SetUserStatus set user status
+func (s *Service) SetUserStatus(userID int32, status string) error {
+	rows, err := s.db.SetUserStatus(userID, status)
+	if err != nil {
+		return err
+	}
+	rows.Close()
+	return nil
+}
