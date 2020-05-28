@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1094px" preserveAspectRatio="none" style="width:4141px;height:1094px;" version="1.1" viewBox="0 0 4141 1094" width="4141px" zoomAndPan="magnify"><defs><filter height="300%" id="fz1pb1h204zem" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[49762a54e1b04ffe7db6f74326b29b36]
+class roles--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="52.8047" id="roles" style="stroke: #A80036; stroke-width: 1.5;" width="69" x="3138" y="1031"/><ellipse cx="3155.7" cy="1047" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3158.6688,1052.6406 Q3158.0906,1052.9375 3157.45,1053.0781 Q3156.8094,1053.2344 3156.1063,1053.2344 Q3153.6063,1053.2344 3152.2781,1051.5938 Q3150.9656,1049.9375 3150.9656,1046.8125 Q3150.9656,1043.6875 3152.2781,1042.0313 Q3153.6063,1040.375 3156.1063,1040.375 Q3156.8094,1040.375 3157.45,1040.5313 Q3158.1063,1040.6875 3158.6688,1040.9844 L3158.6688,1043.7031 Q3158.0438,1043.125 3157.45,1042.8594 Q3156.8563,1042.5781 3156.2313,1042.5781 Q3154.8875,1042.5781 3154.2,1043.6563 Q3153.5125,1044.7188 3153.5125,1046.8125 Q3153.5125,1048.9063 3154.2,1049.9844 Q3154.8875,1051.0469 3156.2313,1051.0469 Q3156.8563,1051.0469 3157.45,1050.7813 Q3158.0438,1050.5 3158.6688,1049.9219 L3158.6688,1052.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="3170.3" y="1051.1543">roles</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3139" x2="3206" y1="1063" y2="1063"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="35" x="3144" y="1077.2104">rol_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3183" y="1077.2104">INT</text><!--MD5=[3a05a11cd089da026a9d9a8af459bd09]
+class countries--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="52.8047" id="countries" style="stroke: #A80036; stroke-width: 1.5;" width="100" x="1831.5" y="1031"/><ellipse cx="1850.55" cy="1047" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1853.5188,1052.6406 Q1852.9406,1052.9375 1852.3,1053.0781 Q1851.6594,1053.2344 1850.9563,1053.2344 Q1848.4563,1053.2344 1847.1281,1051.5938 Q1845.8156,1049.9375 1845.8156,1046.8125 Q1845.8156,1043.6875 1847.1281,1042.0313 Q1848.4563,1040.375 1850.9563,1040.375 Q1851.6594,1040.375 1852.3,1040.5313 Q1852.9563,1040.6875 1853.5188,1040.9844 L1853.5188,1043.7031 Q1852.8938,1043.125 1852.3,1042.8594 Q1851.7063,1042.5781 1851.0813,1042.5781 Q1849.7375,1042.5781 1849.05,1043.6563 Q1848.3625,1044.7188 1848.3625,1046.8125 Q1848.3625,1048.9063 1849.05,1049.9844 Q1849.7375,1051.0469 1851.0813,1051.0469 Q1851.7063,1051.0469 1852.3,1050.7813 Q1852.8938,1050.5 1853.5188,1049.9219 L1853.5188,1052.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="59" x="1865.45" y="1051.1543">countries</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1832.5" x2="1930.5" y1="1063" y2="1063"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="66" x="1837.5" y="1077.2104">country_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1907.5" y="1077.2104">INT</text><!--MD5=[2aaf6e52a86eaa1a88a2c6cd06958d40]
+class degrees--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="degrees" style="stroke: #A80036; stroke-width: 1.5;" width="153" x="169" y="873"/><ellipse cx="215.25" cy="889" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M218.2188,894.6406 Q217.6406,894.9375 217,895.0781 Q216.3594,895.2344 215.6563,895.2344 Q213.1563,895.2344 211.8281,893.5938 Q210.5156,891.9375 210.5156,888.8125 Q210.5156,885.6875 211.8281,884.0313 Q213.1563,882.375 215.6563,882.375 Q216.3594,882.375 217,882.5313 Q217.6563,882.6875 218.2188,882.9844 L218.2188,885.7031 Q217.5938,885.125 217,884.8594 Q216.4063,884.5781 215.7813,884.5781 Q214.4375,884.5781 213.75,885.6563 Q213.0625,886.7188 213.0625,888.8125 Q213.0625,890.9063 213.75,891.9844 Q214.4375,893.0469 215.7813,893.0469 Q216.4063,893.0469 217,892.7813 Q217.5938,892.5 218.2188,891.9219 L218.2188,894.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="52" x="235.75" y="893.1543">degrees</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="170" x2="321" y1="905" y2="905"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="63" x="175" y="919.2104">degree_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="242" y="919.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="141" x="175" y="932.0151">degree_description TEXT</text><!--MD5=[1ea7ce9b93551e1c8213ad4efc3d7927]
+class insignias--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="insignias" style="stroke: #A80036; stroke-width: 1.5;" width="157" x="564" y="873"/><ellipse cx="610.75" cy="889" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M613.7188,894.6406 Q613.1406,894.9375 612.5,895.0781 Q611.8594,895.2344 611.1563,895.2344 Q608.6563,895.2344 607.3281,893.5938 Q606.0156,891.9375 606.0156,888.8125 Q606.0156,885.6875 607.3281,884.0313 Q608.6563,882.375 611.1563,882.375 Q611.8594,882.375 612.5,882.5313 Q613.1563,882.6875 613.7188,882.9844 L613.7188,885.7031 Q613.0938,885.125 612.5,884.8594 Q611.9063,884.5781 611.2813,884.5781 Q609.9375,884.5781 609.25,885.6563 Q608.5625,886.7188 608.5625,888.8125 Q608.5625,890.9063 609.25,891.9844 Q609.9375,893.0469 611.2813,893.0469 Q611.9063,893.0469 612.5,892.7813 Q613.0938,892.5 613.7188,891.9219 L613.7188,894.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="55" x="631.25" y="893.1543">insignias</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="565" x2="720" y1="905" y2="905"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="69" x="570" y="919.2104">insignia_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="643" y="919.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="113" x="570" y="932.0151">insignia_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="687" y="932.0151">TEXT</text><!--MD5=[28d7d2080e1f00db65d7d2b28402cc64]
+class chats--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="chats" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="757.5" y="873"/><ellipse cx="783.75" cy="889" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M786.7188,894.6406 Q786.1406,894.9375 785.5,895.0781 Q784.8594,895.2344 784.1563,895.2344 Q781.6563,895.2344 780.3281,893.5938 Q779.0156,891.9375 779.0156,888.8125 Q779.0156,885.6875 780.3281,884.0313 Q781.6563,882.375 784.1563,882.375 Q784.8594,882.375 785.5,882.5313 Q786.1563,882.6875 786.7188,882.9844 L786.7188,885.7031 Q786.0938,885.125 785.5,884.8594 Q784.9063,884.5781 784.2813,884.5781 Q782.9375,884.5781 782.25,885.6563 Q781.5625,886.7188 781.5625,888.8125 Q781.5625,890.9063 782.25,891.9844 Q782.9375,893.0469 784.2813,893.0469 Q784.9063,893.0469 785.5,892.7813 Q786.0938,892.5 786.7188,891.9219 L786.7188,894.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="800.25" y="893.1543">chats</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="758.5" x2="848.5" y1="905" y2="905"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="763.5" y="919.2104">chat_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="813.5" y="919.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="48" x="763.5" y="932.0151">log_data</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="815.5" y="932.0151">TEXT</text><!--MD5=[8413f8248b2da7966d2de021109ec289]
+class users--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="129.6328" id="users" style="stroke: #A80036; stroke-width: 1.5;" width="183" x="1790" y="841"/><ellipse cx="1859.75" cy="857" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1862.7188,862.6406 Q1862.1406,862.9375 1861.5,863.0781 Q1860.8594,863.2344 1860.1563,863.2344 Q1857.6563,863.2344 1856.3281,861.5938 Q1855.0156,859.9375 1855.0156,856.8125 Q1855.0156,853.6875 1856.3281,852.0313 Q1857.6563,850.375 1860.1563,850.375 Q1860.8594,850.375 1861.5,850.5313 Q1862.1563,850.6875 1862.7188,850.9844 L1862.7188,853.7031 Q1862.0938,853.125 1861.5,852.8594 Q1860.9063,852.5781 1860.2813,852.5781 Q1858.9375,852.5781 1858.25,853.6563 Q1857.5625,854.7188 1857.5625,856.8125 Q1857.5625,858.9063 1858.25,859.9844 Q1858.9375,861.0469 1860.2813,861.0469 Q1860.9063,861.0469 1861.5,860.7813 Q1862.0938,860.5 1862.7188,859.9219 L1862.7188,862.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="1880.25" y="861.1543">users</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1791" x2="1972" y1="873" y2="873"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="1796" y="887.2104">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1846" y="887.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="116" x="1796" y="900.0151">user_birthdate DATE</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="120" x="1796" y="912.8198">user_biography TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="133" x="1796" y="925.6245">user_months SMALLINT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="66" x="1796" y="938.4292">country_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1866" y="938.4292">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="35" x="1796" y="951.2339">rol_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1835" y="951.2339">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="171" x="1796" y="964.0386">user_lastaction TIMESTAMPTZ</text><!--MD5=[61f925e738cd589f99c48f20a3493156]
+class users_degrees--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_degrees" style="stroke: #A80036; stroke-width: 1.5;" width="131" x="6" y="696.5"/><ellipse cx="23.7" cy="712.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M26.6688,718.1406 Q26.0906,718.4375 25.45,718.5781 Q24.8094,718.7344 24.1063,718.7344 Q21.6063,718.7344 20.2781,717.0938 Q18.9656,715.4375 18.9656,712.3125 Q18.9656,709.1875 20.2781,707.5313 Q21.6063,705.875 24.1063,705.875 Q24.8094,705.875 25.45,706.0313 Q26.1063,706.1875 26.6688,706.4844 L26.6688,709.2031 Q26.0438,708.625 25.45,708.3594 Q24.8563,708.0781 24.2313,708.0781 Q22.8875,708.0781 22.2,709.1563 Q21.5125,710.2188 21.5125,712.3125 Q21.5125,714.4063 22.2,715.4844 Q22.8875,716.5469 24.2313,716.5469 Q24.8563,716.5469 25.45,716.2813 Q26.0438,716 26.6688,715.4219 L26.6688,718.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="93" x="38.3" y="716.6543">users_degrees</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="136" y1="728.5" y2="728.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="97" x="12" y="742.7104">user_degree_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="113" y="742.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="12" y="755.5151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="62" y="755.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="63" x="12" y="768.3198">degree_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="79" y="768.3198">INT</text><!--MD5=[3eb32d331248ffef9b2d468ea3ba2a55]
+class users_insignias--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_insignias" style="stroke: #A80036; stroke-width: 1.5;" width="137" x="574" y="696.5"/><ellipse cx="593.05" cy="712.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M596.0188,718.1406 Q595.4406,718.4375 594.8,718.5781 Q594.1594,718.7344 593.4563,718.7344 Q590.9563,718.7344 589.6281,717.0938 Q588.3156,715.4375 588.3156,712.3125 Q588.3156,709.1875 589.6281,707.5313 Q590.9563,705.875 593.4563,705.875 Q594.1594,705.875 594.8,706.0313 Q595.4563,706.1875 596.0188,706.4844 L596.0188,709.2031 Q595.3938,708.625 594.8,708.3594 Q594.2063,708.0781 593.5813,708.0781 Q592.2375,708.0781 591.55,709.1563 Q590.8625,710.2188 590.8625,712.3125 Q590.8625,714.4063 591.55,715.4844 Q592.2375,716.5469 593.5813,716.5469 Q594.2063,716.5469 594.8,716.2813 Q595.3938,716 596.0188,715.4219 L596.0188,718.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="96" x="607.95" y="716.6543">users_insignias</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="575" x2="710" y1="728.5" y2="728.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="103" x="580" y="742.7104">user_insignia_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="687" y="742.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="580" y="755.5151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="630" y="755.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="69" x="580" y="768.3198">insignia_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="653" y="768.3198">INT</text><!--MD5=[0d0867a1565ff4da9b37d7a7446dd2ac]
+class users_chats--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_chats" style="stroke: #A80036; stroke-width: 1.5;" width="114" x="746.5" y="696.5"/><ellipse cx="764.2" cy="712.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M767.1688,718.1406 Q766.5906,718.4375 765.95,718.5781 Q765.3094,718.7344 764.6063,718.7344 Q762.1063,718.7344 760.7781,717.0938 Q759.4656,715.4375 759.4656,712.3125 Q759.4656,709.1875 760.7781,707.5313 Q762.1063,705.875 764.6063,705.875 Q765.3094,705.875 765.95,706.0313 Q766.6063,706.1875 767.1688,706.4844 L767.1688,709.2031 Q766.5438,708.625 765.95,708.3594 Q765.3563,708.0781 764.7313,708.0781 Q763.3875,708.0781 762.7,709.1563 Q762.0125,710.2188 762.0125,712.3125 Q762.0125,714.4063 762.7,715.4844 Q763.3875,716.5469 764.7313,716.5469 Q765.3563,716.5469 765.95,716.2813 Q766.5438,716 767.1688,715.4219 L767.1688,718.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="778.8" y="716.6543">users_chats</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="747.5" x2="859.5" y1="728.5" y2="728.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="80" x="752.5" y="742.7104">chat_user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="836.5" y="742.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="752.5" y="755.5151">chat_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="802.5" y="755.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="752.5" y="768.3198">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="802.5" y="768.3198">INT</text><!--MD5=[8c25264fabe38feb155ffd76150d31fc]
+class languages--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="52.8047" id="languages" style="stroke: #A80036; stroke-width: 1.5;" width="112" x="912.5" y="879.5"/><ellipse cx="933.8" cy="895.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M936.7688,901.1406 Q936.1906,901.4375 935.55,901.5781 Q934.9094,901.7344 934.2063,901.7344 Q931.7063,901.7344 930.3781,900.0938 Q929.0656,898.4375 929.0656,895.3125 Q929.0656,892.1875 930.3781,890.5313 Q931.7063,888.875 934.2063,888.875 Q934.9094,888.875 935.55,889.0313 Q936.2063,889.1875 936.7688,889.4844 L936.7688,892.2031 Q936.1438,891.625 935.55,891.3594 Q934.9563,891.0781 934.3313,891.0781 Q932.9875,891.0781 932.3,892.1563 Q931.6125,893.2188 931.6125,895.3125 Q931.6125,897.4063 932.3,898.4844 Q932.9875,899.5469 934.3313,899.5469 Q934.9563,899.5469 935.55,899.2813 Q936.1438,899 936.7688,898.4219 L936.7688,901.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="66" x="949.2" y="899.6543">languages</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="913.5" x2="1023.5" y1="911.5" y2="911.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="78" x="918.5" y="925.7104">language_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1000.5" y="925.7104">INT</text><!--MD5=[f51ca7c7c834565a4fe6fd11af6d376c]
+class users_languages--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_languages" style="stroke: #A80036; stroke-width: 1.5;" width="146" x="895.5" y="696.5"/><ellipse cx="913.65" cy="712.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M916.6188,718.1406 Q916.0406,718.4375 915.4,718.5781 Q914.7594,718.7344 914.0563,718.7344 Q911.5563,718.7344 910.2281,717.0938 Q908.9156,715.4375 908.9156,712.3125 Q908.9156,709.1875 910.2281,707.5313 Q911.5563,705.875 914.0563,705.875 Q914.7594,705.875 915.4,706.0313 Q916.0563,706.1875 916.6188,706.4844 L916.6188,709.2031 Q915.9938,708.625 915.4,708.3594 Q914.8063,708.0781 914.1813,708.0781 Q912.8375,708.0781 912.15,709.1563 Q911.4625,710.2188 911.4625,712.3125 Q911.4625,714.4063 912.15,715.4844 Q912.8375,716.5469 914.1813,716.5469 Q914.8063,716.5469 915.4,716.2813 Q915.9938,716 916.6188,715.4219 L916.6188,718.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="107" x="928.35" y="716.6543">users_languages</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="896.5" x2="1040.5" y1="728.5" y2="728.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="112" x="901.5" y="742.7104">user_language_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1017.5" y="742.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="901.5" y="755.5151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="951.5" y="755.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="78" x="901.5" y="768.3198">language_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="983.5" y="768.3198">INT</text><!--MD5=[177af168714ef57ca6be0ae4b2c4691a]
+class users_research--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="users_research" style="stroke: #A80036; stroke-width: 1.5;" width="188" x="1860.5" y="690"/><ellipse cx="1902.05" cy="706" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1905.0188,711.6406 Q1904.4406,711.9375 1903.8,712.0781 Q1903.1594,712.2344 1902.4563,712.2344 Q1899.9563,712.2344 1898.6281,710.5938 Q1897.3156,708.9375 1897.3156,705.8125 Q1897.3156,702.6875 1898.6281,701.0313 Q1899.9563,699.375 1902.4563,699.375 Q1903.1594,699.375 1903.8,699.5313 Q1904.4563,699.6875 1905.0188,699.9844 L1905.0188,702.7031 Q1904.3938,702.125 1903.8,701.8594 Q1903.2063,701.5781 1902.5813,701.5781 Q1901.2375,701.5781 1900.55,702.6563 Q1899.8625,703.7188 1899.8625,705.8125 Q1899.8625,707.9063 1900.55,708.9844 Q1901.2375,710.0469 1902.5813,710.0469 Q1903.2063,710.0469 1903.8,709.7813 Q1904.3938,709.5 1905.0188,708.9219 L1905.0188,711.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="97" x="1921.95" y="710.1543">users_research</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1861.5" x2="2047.5" y1="722" y2="722"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="108" x="1866.5" y="736.2104">user_research_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1978.5" y="736.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="1866.5" y="749.0151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1916.5" y="749.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="144" x="1866.5" y="761.8198">user_research_reference</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="2014.5" y="761.8198">TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="114" x="1866.5" y="774.6245">user_research_year</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1984.5" y="774.6245">INT</text><!--MD5=[fb9c4c070366a83024e02d0df7b3c8d8]
+class users_managements--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_managements" style="stroke: #A80036; stroke-width: 1.5;" width="226" x="2083.5" y="696.5"/><ellipse cx="2126.85" cy="712.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2129.8188,718.1406 Q2129.2406,718.4375 2128.6,718.5781 Q2127.9594,718.7344 2127.2563,718.7344 Q2124.7563,718.7344 2123.4281,717.0938 Q2122.1156,715.4375 2122.1156,712.3125 Q2122.1156,709.1875 2123.4281,707.5313 Q2124.7563,705.875 2127.2563,705.875 Q2127.9594,705.875 2128.6,706.0313 Q2129.2563,706.1875 2129.8188,706.4844 L2129.8188,709.2031 Q2129.1938,708.625 2128.6,708.3594 Q2128.0063,708.0781 2127.3813,708.0781 Q2126.0375,708.0781 2125.35,709.1563 Q2124.6625,710.2188 2124.6625,712.3125 Q2124.6625,714.4063 2125.35,715.4844 Q2126.0375,716.5469 2127.3813,716.5469 Q2128.0063,716.5469 2128.6,716.2813 Q2129.1938,716 2129.8188,715.4219 L2129.8188,718.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="131" x="2147.15" y="716.6543">users_managements</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2084.5" x2="2308.5" y1="728.5" y2="728.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="135" x="2089.5" y="742.7104">user_management_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2228.5" y="742.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="2089.5" y="755.5151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2139.5" y="755.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="156" x="2089.5" y="768.3198">user_management_months</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="2249.5" y="768.3198">SMALLINT</text><!--MD5=[737a637ff7647c0c1cfc4b93facae92d]
+class users_expertises--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_expertises" style="stroke: #A80036; stroke-width: 1.5;" width="204" x="2344.5" y="696.5"/><ellipse cx="2389.25" cy="712.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2392.2188,718.1406 Q2391.6406,718.4375 2391,718.5781 Q2390.3594,718.7344 2389.6563,718.7344 Q2387.1563,718.7344 2385.8281,717.0938 Q2384.5156,715.4375 2384.5156,712.3125 Q2384.5156,709.1875 2385.8281,707.5313 Q2387.1563,705.875 2389.6563,705.875 Q2390.3594,705.875 2391,706.0313 Q2391.6563,706.1875 2392.2188,706.4844 L2392.2188,709.2031 Q2391.5938,708.625 2391,708.3594 Q2390.4063,708.0781 2389.7813,708.0781 Q2388.4375,708.0781 2387.75,709.1563 Q2387.0625,710.2188 2387.0625,712.3125 Q2387.0625,714.4063 2387.75,715.4844 Q2388.4375,716.5469 2389.7813,716.5469 Q2390.4063,716.5469 2391,716.2813 Q2391.5938,716 2392.2188,715.4219 L2392.2188,718.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="106" x="2409.75" y="716.6543">users_expertises</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2345.5" x2="2547.5" y1="728.5" y2="728.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="112" x="2350.5" y="742.7104">user_expertise_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2466.5" y="742.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="2350.5" y="755.5151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2400.5" y="755.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="134" x="2350.5" y="768.3198">user_expertise_months</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="2488.5" y="768.3198">SMALLINT</text><!--MD5=[9eaabea1a8a8b0ef439aa6696b5a955d]
+class users_institutions--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="users_institutions" style="stroke: #A80036; stroke-width: 1.5;" width="152" x="1147.5" y="702.5"/><ellipse cx="1166.55" cy="718.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1169.5188,724.1406 Q1168.9406,724.4375 1168.3,724.5781 Q1167.6594,724.7344 1166.9563,724.7344 Q1164.4563,724.7344 1163.1281,723.0938 Q1161.8156,721.4375 1161.8156,718.3125 Q1161.8156,715.1875 1163.1281,713.5313 Q1164.4563,711.875 1166.9563,711.875 Q1167.6594,711.875 1168.3,712.0313 Q1168.9563,712.1875 1169.5188,712.4844 L1169.5188,715.2031 Q1168.8938,714.625 1168.3,714.3594 Q1167.7063,714.0781 1167.0813,714.0781 Q1165.7375,714.0781 1165.05,715.1563 Q1164.3625,716.2188 1164.3625,718.3125 Q1164.3625,720.4063 1165.05,721.4844 Q1165.7375,722.5469 1167.0813,722.5469 Q1167.7063,722.5469 1168.3,722.2813 Q1168.8938,722 1169.5188,721.4219 L1169.5188,724.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="111" x="1181.45" y="722.6543">users_institutions</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1148.5" x2="1298.5" y1="734.5" y2="734.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="118" x="1153.5" y="748.7104">user_institution_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1275.5" y="748.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="1153.5" y="761.5151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1203.5" y="761.5151">INT</text><!--MD5=[90daeb74dce83170c5ee0f34f59f0759]
+class users_signatures--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_signatures" style="stroke: #A80036; stroke-width: 1.5;" width="147" x="172" y="696.5"/><ellipse cx="190.15" cy="712.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M193.1188,718.1406 Q192.5406,718.4375 191.9,718.5781 Q191.2594,718.7344 190.5563,718.7344 Q188.0563,718.7344 186.7281,717.0938 Q185.4156,715.4375 185.4156,712.3125 Q185.4156,709.1875 186.7281,707.5313 Q188.0563,705.875 190.5563,705.875 Q191.2594,705.875 191.9,706.0313 Q192.5563,706.1875 193.1188,706.4844 L193.1188,709.2031 Q192.4938,708.625 191.9,708.3594 Q191.3063,708.0781 190.6813,708.0781 Q189.3375,708.0781 188.65,709.1563 Q187.9625,710.2188 187.9625,712.3125 Q187.9625,714.4063 188.65,715.4844 Q189.3375,716.5469 190.6813,716.5469 Q191.3063,716.5469 191.9,716.2813 Q192.4938,716 193.1188,715.4219 L193.1188,718.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="204.85" y="716.6543">users_signatures</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="173" x2="318" y1="728.5" y2="728.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="113" x="178" y="742.7104">user_signature_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="295" y="742.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="178" y="755.5151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="228" y="755.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="63" x="178" y="768.3198">degree_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="245" y="768.3198">INT</text><!--MD5=[c106f6c18e3441a92ac730f26bfc94ed]
+class courses_levels--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="courses_levels" style="stroke: #A80036; stroke-width: 1.5;" width="184" x="2831.5" y="873"/><ellipse cx="2873.95" cy="889" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2876.9188,894.6406 Q2876.3406,894.9375 2875.7,895.0781 Q2875.0594,895.2344 2874.3563,895.2344 Q2871.8563,895.2344 2870.5281,893.5938 Q2869.2156,891.9375 2869.2156,888.8125 Q2869.2156,885.6875 2870.5281,884.0313 Q2871.8563,882.375 2874.3563,882.375 Q2875.0594,882.375 2875.7,882.5313 Q2876.3563,882.6875 2876.9188,882.9844 L2876.9188,885.7031 Q2876.2938,885.125 2875.7,884.8594 Q2875.1063,884.5781 2874.4813,884.5781 Q2873.1375,884.5781 2872.45,885.6563 Q2871.7625,886.7188 2871.7625,888.8125 Q2871.7625,890.9063 2872.45,891.9844 Q2873.1375,893.0469 2874.4813,893.0469 Q2875.1063,893.0469 2875.7,892.7813 Q2876.2938,892.5 2876.9188,891.9219 L2876.9188,894.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="91" x="2894.05" y="893.1543">courses_levels</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2832.5" x2="3014.5" y1="905" y2="905"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="98" x="2837.5" y="919.2104">course_level_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2939.5" y="919.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="140" x="2837.5" y="932.0151">course_level_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="2981.5" y="932.0151">TEXT</text><!--MD5=[55a45b7d8adce1ee642b3cfd81144937]
+class resources_types--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="resources_types" style="stroke: #A80036; stroke-width: 1.5;" width="194" x="3749.5" y="348.5"/><ellipse cx="3791.05" cy="364.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3794.0188,370.1406 Q3793.4406,370.4375 3792.8,370.5781 Q3792.1594,370.7344 3791.4563,370.7344 Q3788.9563,370.7344 3787.6281,369.0938 Q3786.3156,367.4375 3786.3156,364.3125 Q3786.3156,361.1875 3787.6281,359.5313 Q3788.9563,357.875 3791.4563,357.875 Q3792.1594,357.875 3792.8,358.0313 Q3793.4563,358.1875 3794.0188,358.4844 L3794.0188,361.2031 Q3793.3938,360.625 3792.8,360.3594 Q3792.2063,360.0781 3791.5813,360.0781 Q3790.2375,360.0781 3789.55,361.1563 Q3788.8625,362.2188 3788.8625,364.3125 Q3788.8625,366.4063 3789.55,367.4844 Q3790.2375,368.5469 3791.5813,368.5469 Q3792.2063,368.5469 3792.8,368.2813 Q3793.3938,368 3794.0188,367.4219 L3794.0188,370.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="103" x="3810.95" y="368.6543">resources_types</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3750.5" x2="3942.5" y1="380.5" y2="380.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="108" x="3755.5" y="394.7104">resource_type_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3867.5" y="394.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="182" x="3755.5" y="407.5151">resource_type_description TEXT</text><!--MD5=[01f3cd7788e2e1ce7144602b38a38c75]
+class quizzes--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="quizzes" style="stroke: #A80036; stroke-width: 1.5;" width="147" x="3716" y="867"/><ellipse cx="3763.25" cy="883" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3766.2188,888.6406 Q3765.6406,888.9375 3765,889.0781 Q3764.3594,889.2344 3763.6563,889.2344 Q3761.1563,889.2344 3759.8281,887.5938 Q3758.5156,885.9375 3758.5156,882.8125 Q3758.5156,879.6875 3759.8281,878.0313 Q3761.1563,876.375 3763.6563,876.375 Q3764.3594,876.375 3765,876.5313 Q3765.6563,876.6875 3766.2188,876.9844 L3766.2188,879.7031 Q3765.5938,879.125 3765,878.8594 Q3764.4063,878.5781 3763.7813,878.5781 Q3762.4375,878.5781 3761.75,879.6563 Q3761.0625,880.7188 3761.0625,882.8125 Q3761.0625,884.9063 3761.75,885.9844 Q3762.4375,887.0469 3763.7813,887.0469 Q3764.4063,887.0469 3765,886.7813 Q3765.5938,886.5 3766.2188,885.9219 L3766.2188,888.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="44" x="3783.75" y="887.1543">quizzes</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3717" x2="3862" y1="899" y2="899"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="45" x="3722" y="913.2104">quiz_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3771" y="913.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="75" x="3722" y="926.0151">quiz_attemps</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3801" y="926.0151">SMALLINT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="77" x="3722" y="938.8198">quiz_approval</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3803" y="938.8198">SMALLINT</text><!--MD5=[d0a166c1a05714997f2b8d3c01f7bb07]
+class questions_types--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="questions_types" style="stroke: #A80036; stroke-width: 1.5;" width="192" x="3758.5" y="27"/><ellipse cx="3799.6" cy="43" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3802.5688,48.6406 Q3801.9906,48.9375 3801.35,49.0781 Q3800.7094,49.2344 3800.0063,49.2344 Q3797.5063,49.2344 3796.1781,47.5938 Q3794.8656,45.9375 3794.8656,42.8125 Q3794.8656,39.6875 3796.1781,38.0313 Q3797.5063,36.375 3800.0063,36.375 Q3800.7094,36.375 3801.35,36.5313 Q3802.0063,36.6875 3802.5688,36.9844 L3802.5688,39.7031 Q3801.9438,39.125 3801.35,38.8594 Q3800.7563,38.5781 3800.1313,38.5781 Q3798.7875,38.5781 3798.1,39.6563 Q3797.4125,40.7188 3797.4125,42.8125 Q3797.4125,44.9063 3798.1,45.9844 Q3798.7875,47.0469 3800.1313,47.0469 Q3800.7563,47.0469 3801.35,46.7813 Q3801.9438,46.5 3802.5688,45.9219 L3802.5688,48.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="102" x="3819.4" y="47.1543">questions_types</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3759.5" x2="3949.5" y1="59" y2="59"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="108" x="3764.5" y="73.2104">question_type_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3876.5" y="73.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="148" x="3764.5" y="86.0151">question_type_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3916.5" y="86.0151">TEXT</text><!--MD5=[81560b533bd3a28b6f5b35f62413c8b9]
+class questions--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="questions" style="stroke: #A80036; stroke-width: 1.5;" width="150" x="3631.5" y="690"/><ellipse cx="3671.7" cy="706" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3674.6688,711.6406 Q3674.0906,711.9375 3673.45,712.0781 Q3672.8094,712.2344 3672.1063,712.2344 Q3669.6063,712.2344 3668.2781,710.5938 Q3666.9656,708.9375 3666.9656,705.8125 Q3666.9656,702.6875 3668.2781,701.0313 Q3669.6063,699.375 3672.1063,699.375 Q3672.8094,699.375 3673.45,699.5313 Q3674.1063,699.6875 3674.6688,699.9844 L3674.6688,702.7031 Q3674.0438,702.125 3673.45,701.8594 Q3672.8563,701.5781 3672.2313,701.5781 Q3670.8875,701.5781 3670.2,702.6563 Q3669.5125,703.7188 3669.5125,705.8125 Q3669.5125,707.9063 3670.2,708.9844 Q3670.8875,710.0469 3672.2313,710.0469 Q3672.8563,710.0469 3673.45,709.7813 Q3674.0438,709.5 3674.6688,708.9219 L3674.6688,711.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="62" x="3691.3" y="710.1543">questions</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3632.5" x2="3780.5" y1="722" y2="722"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="74" x="3637.5" y="736.2104">question_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3715.5" y="736.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="45" x="3637.5" y="749.0151">quiz_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3686.5" y="749.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="49" x="3637.5" y="761.8198">question</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3690.5" y="761.8198">TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="138" x="3637.5" y="774.6245">question_resource TEXT</text><!--MD5=[51896a0c0e30391fce21b5696213dc51]
+class questions_options--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="104.0234" id="questions_options" style="stroke: #A80036; stroke-width: 1.5;" width="206" x="3565.5" y="513"/><ellipse cx="3607.05" cy="529" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3610.0188,534.6406 Q3609.4406,534.9375 3608.8,535.0781 Q3608.1594,535.2344 3607.4563,535.2344 Q3604.9563,535.2344 3603.6281,533.5938 Q3602.3156,531.9375 3602.3156,528.8125 Q3602.3156,525.6875 3603.6281,524.0313 Q3604.9563,522.375 3607.4563,522.375 Q3608.1594,522.375 3608.8,522.5313 Q3609.4563,522.6875 3610.0188,522.9844 L3610.0188,525.7031 Q3609.3938,525.125 3608.8,524.8594 Q3608.2063,524.5781 3607.5813,524.5781 Q3606.2375,524.5781 3605.55,525.6563 Q3604.8625,526.7188 3604.8625,528.8125 Q3604.8625,530.9063 3605.55,531.9844 Q3606.2375,533.0469 3607.5813,533.0469 Q3608.2063,533.0469 3608.8,532.7813 Q3609.3938,532.5 3610.0188,531.9219 L3610.0188,534.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="115" x="3626.95" y="533.1543">questions_options</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3566.5" x2="3770.5" y1="545" y2="545"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="121" x="3571.5" y="559.2104">question_option_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3696.5" y="559.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="74" x="3571.5" y="572.0151">question_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3649.5" y="572.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="90" x="3571.5" y="584.8198">question_option</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3665.5" y="584.8198">TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="179" x="3571.5" y="597.6245">question_option_resource TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="136" x="3571.5" y="610.4292">question_option_correct</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3711.5" y="610.4292">BOOLEAN</text><!--MD5=[d04b831151f8e91143624a69a82d65b5]
+class courses--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="courses" style="stroke: #A80036; stroke-width: 1.5;" width="152" x="2847.5" y="690"/><ellipse cx="2894.25" cy="706" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2897.2188,711.6406 Q2896.6406,711.9375 2896,712.0781 Q2895.3594,712.2344 2894.6563,712.2344 Q2892.1563,712.2344 2890.8281,710.5938 Q2889.5156,708.9375 2889.5156,705.8125 Q2889.5156,702.6875 2890.8281,701.0313 Q2892.1563,699.375 2894.6563,699.375 Q2895.3594,699.375 2896,699.5313 Q2896.6563,699.6875 2897.2188,699.9844 L2897.2188,702.7031 Q2896.5938,702.125 2896,701.8594 Q2895.4063,701.5781 2894.7813,701.5781 Q2893.4375,701.5781 2892.75,702.6563 Q2892.0625,703.7188 2892.0625,705.8125 Q2892.0625,707.9063 2892.75,708.9844 Q2893.4375,710.0469 2894.7813,710.0469 Q2895.4063,710.0469 2896,709.7813 Q2896.5938,709.5 2897.2188,708.9219 L2897.2188,711.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="2914.75" y="710.1543">courses</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2848.5" x2="2998.5" y1="722" y2="722"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="61" x="2853.5" y="736.2104">course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2918.5" y="736.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="98" x="2853.5" y="749.0151">course_level_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2955.5" y="749.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="67" x="2853.5" y="761.8198">teacher_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2924.5" y="761.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="108" x="2853.5" y="774.6245">course_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="2965.5" y="774.6245">TEXT</text><!--MD5=[bd3f1013ef89abb6e8ed2a0e6d8a447c]
+class synchronous_classes--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="116.8281" id="synchronous_classes" style="stroke: #A80036; stroke-width: 1.5;" width="269" x="2828" y="323"/><ellipse cx="2891.75" cy="339" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2894.7188,344.6406 Q2894.1406,344.9375 2893.5,345.0781 Q2892.8594,345.2344 2892.1563,345.2344 Q2889.6563,345.2344 2888.3281,343.5938 Q2887.0156,341.9375 2887.0156,338.8125 Q2887.0156,335.6875 2888.3281,334.0313 Q2889.6563,332.375 2892.1563,332.375 Q2892.8594,332.375 2893.5,332.5313 Q2894.1563,332.6875 2894.7188,332.9844 L2894.7188,335.7031 Q2894.0938,335.125 2893.5,334.8594 Q2892.9063,334.5781 2892.2813,334.5781 Q2890.9375,334.5781 2890.25,335.6563 Q2889.5625,336.7188 2889.5625,338.8125 Q2889.5625,340.9063 2890.25,341.9844 Q2890.9375,343.0469 2892.2813,343.0469 Q2892.9063,343.0469 2893.5,342.7813 Q2894.0938,342.5 2894.7188,341.9219 L2894.7188,344.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="133" x="2912.25" y="343.1543">synchronous_classes</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2829" x2="3096" y1="355" y2="355"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="138" x="2834" y="369.2104">synchronous_class_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2976" y="369.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="61" x="2834" y="382.0151">course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2899" y="382.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="178" x="2834" y="394.8198">synchronous_class_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3016" y="394.8198">TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="173" x="2834" y="407.6245">synchronous_class_scheduled</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="80" x="3011" y="407.6245">TIMESTAMPTZ</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="162" x="2834" y="420.4292">synchronous_class_duration</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3000" y="420.4292">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="160" x="2834" y="433.2339">synchronous_class_finished</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="2998" y="433.2339">BOOLEAN</text><!--MD5=[d9fe6c6667095602496fc95028cde2e7]
+class synchronous_classes_resources--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="synchronous_classes_resources" style="stroke: #A80036; stroke-width: 1.5;" width="241" x="3328" y="172"/><ellipse cx="3346.15" cy="188" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3349.1188,193.6406 Q3348.5406,193.9375 3347.9,194.0781 Q3347.2594,194.2344 3346.5563,194.2344 Q3344.0563,194.2344 3342.7281,192.5938 Q3341.4156,190.9375 3341.4156,187.8125 Q3341.4156,184.6875 3342.7281,183.0313 Q3344.0563,181.375 3346.5563,181.375 Q3347.2594,181.375 3347.9,181.5313 Q3348.5563,181.6875 3349.1188,181.9844 L3349.1188,184.7031 Q3348.4938,184.125 3347.9,183.8594 Q3347.3063,183.5781 3346.6813,183.5781 Q3345.3375,183.5781 3344.65,184.6563 Q3343.9625,185.7188 3343.9625,187.8125 Q3343.9625,189.9063 3344.65,190.9844 Q3345.3375,192.0469 3346.6813,192.0469 Q3347.3063,192.0469 3347.9,191.7813 Q3348.4938,191.5 3349.1188,190.9219 L3349.1188,193.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="202" x="3360.85" y="192.1543">synchronous_classes_resources</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3329" x2="3568" y1="204" y2="204"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="200" x="3334" y="218.2104">synchronous_class_resource_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3538" y="218.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="138" x="3334" y="231.0151">synchronous_class_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3476" y="231.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="108" x="3334" y="243.8198">resource_type_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3446" y="243.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="197" x="3334" y="256.6245">synchronous_class_resource_data</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3535" y="256.6245">TEXT</text><!--MD5=[e54ef76b4d14bf2feceae12d1ce114d2]
+class courses_projects--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="courses_projects" style="stroke: #A80036; stroke-width: 1.5;" width="197" x="2595" y="526"/><ellipse cx="2636.1" cy="542" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2639.0688,547.6406 Q2638.4906,547.9375 2637.85,548.0781 Q2637.2094,548.2344 2636.5063,548.2344 Q2634.0063,548.2344 2632.6781,546.5938 Q2631.3656,544.9375 2631.3656,541.8125 Q2631.3656,538.6875 2632.6781,537.0313 Q2634.0063,535.375 2636.5063,535.375 Q2637.2094,535.375 2637.85,535.5313 Q2638.5063,535.6875 2639.0688,535.9844 L2639.0688,538.7031 Q2638.4438,538.125 2637.85,537.8594 Q2637.2563,537.5781 2636.6313,537.5781 Q2635.2875,537.5781 2634.6,538.6563 Q2633.9125,539.7188 2633.9125,541.8125 Q2633.9125,543.9063 2634.6,544.9844 Q2635.2875,546.0469 2636.6313,546.0469 Q2637.2563,546.0469 2637.85,545.7813 Q2638.4438,545.5 2639.0688,544.9219 L2639.0688,547.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="107" x="2655.9" y="546.1543">courses_projects</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2596" x2="2791" y1="558" y2="558"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="112" x="2601" y="572.2104">course_project_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2717" y="572.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="61" x="2601" y="585.0151">course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2666" y="585.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="153" x="2601" y="597.8198">course_project_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="2758" y="597.8198">TEXT</text><!--MD5=[6b49ab62a545027a10a396c710967da3]
+class courses_reviews--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="116.8281" id="courses_reviews" style="stroke: #A80036; stroke-width: 1.5;" width="191" x="3268" y="506.5"/><ellipse cx="3308.65" cy="522.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3311.6188,528.1406 Q3311.0406,528.4375 3310.4,528.5781 Q3309.7594,528.7344 3309.0563,528.7344 Q3306.5563,528.7344 3305.2281,527.0938 Q3303.9156,525.4375 3303.9156,522.3125 Q3303.9156,519.1875 3305.2281,517.5313 Q3306.5563,515.875 3309.0563,515.875 Q3309.7594,515.875 3310.4,516.0313 Q3311.0563,516.1875 3311.6188,516.4844 L3311.6188,519.2031 Q3310.9938,518.625 3310.4,518.3594 Q3309.8063,518.0781 3309.1813,518.0781 Q3307.8375,518.0781 3307.15,519.1563 Q3306.4625,520.2188 3306.4625,522.3125 Q3306.4625,524.4063 3307.15,525.4844 Q3307.8375,526.5469 3309.1813,526.5469 Q3309.8063,526.5469 3310.4,526.2813 Q3310.9938,526 3311.6188,525.4219 L3311.6188,528.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="102" x="3328.35" y="526.6543">courses_reviews</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3269" x2="3458" y1="538.5" y2="538.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="110" x="3274" y="552.7104">course_review_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3388" y="552.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="61" x="3274" y="565.5151">course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3339" y="565.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="3274" y="578.3198">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3324" y="578.3198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="35" x="3274" y="591.1245">rol_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3313" y="591.1245">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="121" x="3274" y="603.9292">course_review_rating</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3399" y="603.9292">SMALLINT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="141" x="3274" y="616.7339">course_review_message</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3419" y="616.7339">TEXT</text><!--MD5=[530834f75243b0042ca93ca314846b91]
+class courses_datasheets--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="courses_datasheets" style="stroke: #A80036; stroke-width: 1.5;" width="166" x="2127.5" y="526"/><ellipse cx="2145.2" cy="542" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2148.1688,547.6406 Q2147.5906,547.9375 2146.95,548.0781 Q2146.3094,548.2344 2145.6063,548.2344 Q2143.1063,548.2344 2141.7781,546.5938 Q2140.4656,544.9375 2140.4656,541.8125 Q2140.4656,538.6875 2141.7781,537.0313 Q2143.1063,535.375 2145.6063,535.375 Q2146.3094,535.375 2146.95,535.5313 Q2147.6063,535.6875 2148.1688,535.9844 L2148.1688,538.7031 Q2147.5438,538.125 2146.95,537.8594 Q2146.3563,537.5781 2145.7313,537.5781 Q2144.3875,537.5781 2143.7,538.6563 Q2143.0125,539.7188 2143.0125,541.8125 Q2143.0125,543.9063 2143.7,544.9844 Q2144.3875,546.0469 2145.7313,546.0469 Q2146.3563,546.0469 2146.95,545.7813 Q2147.5438,545.5 2148.1688,544.9219 L2148.1688,547.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="128" x="2159.8" y="546.1543">courses_datasheets</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2128.5" x2="2292.5" y1="558" y2="558"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="132" x="2133.5" y="572.2104">course_datasheet_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2269.5" y="572.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="61" x="2133.5" y="585.0151">course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2198.5" y="585.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="79" x="2133.5" y="597.8198">academic_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2216.5" y="597.8198">INT</text><!--MD5=[86c09ac146455e36a6ec68a8764178c4]
+class courses_forums--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="courses_forums" style="stroke: #A80036; stroke-width: 1.5;" width="192" x="2827.5" y="526"/><ellipse cx="2869.95" cy="542" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2872.9188,547.6406 Q2872.3406,547.9375 2871.7,548.0781 Q2871.0594,548.2344 2870.3563,548.2344 Q2867.8563,548.2344 2866.5281,546.5938 Q2865.2156,544.9375 2865.2156,541.8125 Q2865.2156,538.6875 2866.5281,537.0313 Q2867.8563,535.375 2870.3563,535.375 Q2871.0594,535.375 2871.7,535.5313 Q2872.3563,535.6875 2872.9188,535.9844 L2872.9188,538.7031 Q2872.2938,538.125 2871.7,537.8594 Q2871.1063,537.5781 2870.4813,537.5781 Q2869.1375,537.5781 2868.45,538.6563 Q2867.7625,539.7188 2867.7625,541.8125 Q2867.7625,543.9063 2868.45,544.9844 Q2869.1375,546.0469 2870.4813,546.0469 Q2871.1063,546.0469 2871.7,545.7813 Q2872.2938,545.5 2872.9188,544.9219 L2872.9188,547.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="2890.05" y="546.1543">courses_forums</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2828.5" x2="3018.5" y1="558" y2="558"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="104" x="2833.5" y="572.2104">course_forum_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2941.5" y="572.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="61" x="2833.5" y="585.0151">course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2898.5" y="585.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="148" x="2833.5" y="597.8198">course_forum_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="2985.5" y="597.8198">TEXT</text><!--MD5=[c25b27a1e2043ca90555c836eb2b7a2a]
+class courses_forums_comments--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="104.0234" id="courses_forums_comments" style="stroke: #A80036; stroke-width: 1.5;" width="241" x="2421" y="329.5"/><ellipse cx="2453.55" cy="345.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2456.5188,351.1406 Q2455.9406,351.4375 2455.3,351.5781 Q2454.6594,351.7344 2453.9563,351.7344 Q2451.4563,351.7344 2450.1281,350.0938 Q2448.8156,348.4375 2448.8156,345.3125 Q2448.8156,342.1875 2450.1281,340.5313 Q2451.4563,338.875 2453.9563,338.875 Q2454.6594,338.875 2455.3,339.0313 Q2455.9563,339.1875 2456.5188,339.4844 L2456.5188,342.2031 Q2455.8938,341.625 2455.3,341.3594 Q2454.7063,341.0781 2454.0813,341.0781 Q2452.7375,341.0781 2452.05,342.1563 Q2451.3625,343.2188 2451.3625,345.3125 Q2451.3625,347.4063 2452.05,348.4844 Q2452.7375,349.5469 2454.0813,349.5469 Q2454.7063,349.5469 2455.3,349.2813 Q2455.8938,349 2456.5188,348.4219 L2456.5188,351.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="170" x="2471.45" y="349.6543">courses_forums_comments</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2422" x2="2661" y1="361.5" y2="361.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="168" x="2427" y="375.7104">course_forum_comment_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2599" y="375.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="104" x="2427" y="388.5151">course_forum_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2535" y="388.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="2427" y="401.3198">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2477" y="401.3198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="35" x="2427" y="414.1245">rol_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2466" y="414.1245">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="197" x="2427" y="426.9292">course_forum_comment_message</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="2628" y="426.9292">TEXT</text><!--MD5=[b56e8f0604d19330bb169c4b3578da85]
+class modules--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="116.8281" id="modules" style="stroke: #A80036; stroke-width: 1.5;" width="155" x="3807" y="506.5"/><ellipse cx="3853.75" cy="522.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3856.7188,528.1406 Q3856.1406,528.4375 3855.5,528.5781 Q3854.8594,528.7344 3854.1563,528.7344 Q3851.6563,528.7344 3850.3281,527.0938 Q3849.0156,525.4375 3849.0156,522.3125 Q3849.0156,519.1875 3850.3281,517.5313 Q3851.6563,515.875 3854.1563,515.875 Q3854.8594,515.875 3855.5,516.0313 Q3856.1563,516.1875 3856.7188,516.4844 L3856.7188,519.2031 Q3856.0938,518.625 3855.5,518.3594 Q3854.9063,518.0781 3854.2813,518.0781 Q3852.9375,518.0781 3852.25,519.1563 Q3851.5625,520.2188 3851.5625,522.3125 Q3851.5625,524.4063 3852.25,525.4844 Q3852.9375,526.5469 3854.2813,526.5469 Q3854.9063,526.5469 3855.5,526.2813 Q3856.0938,526 3856.7188,525.4219 L3856.7188,528.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="53" x="3874.25" y="526.6543">modules</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3808" x2="3961" y1="538.5" y2="538.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="65" x="3813" y="552.7104">module_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3882" y="552.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="61" x="3813" y="565.5151">course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3878" y="565.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="71" x="3813" y="578.3198">module_sort</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3888" y="578.3198">SMALLINT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="111" x="3813" y="591.1245">module_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3928" y="591.1245">TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="45" x="3813" y="603.9292">quiz_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3862" y="603.9292">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="72" x="3813" y="616.7339">exercise_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3889" y="616.7339">INT</text><!--MD5=[3720ee1e277a6e1ab12b06bd823b1f93]
+class modules_feedback--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="104.0234" id="modules_feedback" style="stroke: #A80036; stroke-width: 1.5;" width="217" x="3322" y="329.5"/><ellipse cx="3367.75" cy="345.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3370.7188,351.1406 Q3370.1406,351.4375 3369.5,351.5781 Q3368.8594,351.7344 3368.1563,351.7344 Q3365.6563,351.7344 3364.3281,350.0938 Q3363.0156,348.4375 3363.0156,345.3125 Q3363.0156,342.1875 3364.3281,340.5313 Q3365.6563,338.875 3368.1563,338.875 Q3368.8594,338.875 3369.5,339.0313 Q3370.1563,339.1875 3370.7188,339.4844 L3370.7188,342.2031 Q3370.0938,341.625 3369.5,341.3594 Q3368.9063,341.0781 3368.2813,341.0781 Q3366.9375,341.0781 3366.25,342.1563 Q3365.5625,343.2188 3365.5625,345.3125 Q3365.5625,347.4063 3366.25,348.4844 Q3366.9375,349.5469 3368.2813,349.5469 Q3368.9063,349.5469 3369.5,349.2813 Q3370.0938,349 3370.7188,348.4219 L3370.7188,351.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="117" x="3388.25" y="349.6543">modules_feedback</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3323" x2="3538" y1="361.5" y2="361.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="116" x="3328" y="375.7104">class_feedback_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3448" y="375.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="65" x="3328" y="388.5151">module_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3397" y="388.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="79" x="3328" y="401.3198">academic_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3411" y="401.3198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="146" x="3328" y="414.1245">class_feedback_message</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3478" y="414.1245">TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="147" x="3328" y="426.9292">class_feedback_corrected</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3479" y="426.9292">BOOLEAN</text><!--MD5=[0927fbcf439b62aaf71a9699cd0b6172]
+class modules_resources--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="modules_resources" style="stroke: #A80036; stroke-width: 1.5;" width="174" x="3869.5" y="172"/><ellipse cx="3893.5" cy="188" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3896.4688,193.6406 Q3895.8906,193.9375 3895.25,194.0781 Q3894.6094,194.2344 3893.9063,194.2344 Q3891.4063,194.2344 3890.0781,192.5938 Q3888.7656,190.9375 3888.7656,187.8125 Q3888.7656,184.6875 3890.0781,183.0313 Q3891.4063,181.375 3893.9063,181.375 Q3894.6094,181.375 3895.25,181.5313 Q3895.9063,181.6875 3896.4688,181.9844 L3896.4688,184.7031 Q3895.8438,184.125 3895.25,183.8594 Q3894.6563,183.5781 3894.0313,183.5781 Q3892.6875,183.5781 3892,184.6563 Q3891.3125,185.7188 3891.3125,187.8125 Q3891.3125,189.9063 3892,190.9844 Q3892.6875,192.0469 3894.0313,192.0469 Q3894.6563,192.0469 3895.25,191.7813 Q3895.8438,191.5 3896.4688,190.9219 L3896.4688,193.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="122" x="3909.5" y="192.1543">modules_resources</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3870.5" x2="4042.5" y1="204" y2="204"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="127" x="3875.5" y="218.2104">module_resource_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="4006.5" y="218.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="65" x="3875.5" y="231.0151">module_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3944.5" y="231.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="108" x="3875.5" y="243.8198">resource_type_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3987.5" y="243.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="130" x="3875.5" y="256.6245">module_resource_data</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="4009.5" y="256.6245">TEXT</text><!--MD5=[2a61db90fa02f599a61356a407fa7cae]
+class topics--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="topics" style="stroke: #A80036; stroke-width: 1.5;" width="140" x="3574.5" y="336"/><ellipse cx="3621.25" cy="352" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3624.2188,357.6406 Q3623.6406,357.9375 3623,358.0781 Q3622.3594,358.2344 3621.6563,358.2344 Q3619.1563,358.2344 3617.8281,356.5938 Q3616.5156,354.9375 3616.5156,351.8125 Q3616.5156,348.6875 3617.8281,347.0313 Q3619.1563,345.375 3621.6563,345.375 Q3622.3594,345.375 3623,345.5313 Q3623.6563,345.6875 3624.2188,345.9844 L3624.2188,348.7031 Q3623.5938,348.125 3623,347.8594 Q3622.4063,347.5781 3621.7813,347.5781 Q3620.4375,347.5781 3619.75,348.6563 Q3619.0625,349.7188 3619.0625,351.8125 Q3619.0625,353.9063 3619.75,354.9844 Q3620.4375,356.0469 3621.7813,356.0469 Q3622.4063,356.0469 3623,355.7813 Q3623.5938,355.5 3624.2188,354.9219 L3624.2188,357.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="38" x="3641.75" y="356.1543">topics</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3575.5" x2="3713.5" y1="368" y2="368"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="50" x="3580.5" y="382.2104">topic_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3634.5" y="382.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="65" x="3580.5" y="395.0151">module_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3649.5" y="395.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="56" x="3580.5" y="407.8198">topic_sort</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3640.5" y="407.8198">SMALLINT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="96" x="3580.5" y="420.6245">topic_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3680.5" y="420.6245">TEXT</text><!--MD5=[3d2aa7b59e4398433ff7377c2d32cb55]
+class topics_resources--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="topics_resources" style="stroke: #A80036; stroke-width: 1.5;" width="159" x="3604" y="172"/><ellipse cx="3628" cy="188" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3630.9688,193.6406 Q3630.3906,193.9375 3629.75,194.0781 Q3629.1094,194.2344 3628.4063,194.2344 Q3625.9063,194.2344 3624.5781,192.5938 Q3623.2656,190.9375 3623.2656,187.8125 Q3623.2656,184.6875 3624.5781,183.0313 Q3625.9063,181.375 3628.4063,181.375 Q3629.1094,181.375 3629.75,181.5313 Q3630.4063,181.6875 3630.9688,181.9844 L3630.9688,184.7031 Q3630.3438,184.125 3629.75,183.8594 Q3629.1563,183.5781 3628.5313,183.5781 Q3627.1875,183.5781 3626.5,184.6563 Q3625.8125,185.7188 3625.8125,187.8125 Q3625.8125,189.9063 3626.5,190.9844 Q3627.1875,192.0469 3628.5313,192.0469 Q3629.1563,192.0469 3629.75,191.7813 Q3630.3438,191.5 3630.9688,190.9219 L3630.9688,193.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="107" x="3644" y="192.1543">topics_resources</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3605" x2="3762" y1="204" y2="204"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="112" x="3610" y="218.2104">topic_resource_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3726" y="218.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="50" x="3610" y="231.0151">topic_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3664" y="231.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="108" x="3610" y="243.8198">resource_type_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3722" y="243.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="115" x="3610" y="256.6245">topic_resource_data</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3729" y="256.6245">TEXT</text><!--MD5=[1be8aaf5234ed73e7d5ef928f6a19e36]
+class classes--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="classes" style="stroke: #A80036; stroke-width: 1.5;" width="143" x="3150" y="172"/><ellipse cx="3193.8" cy="188" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3196.7688,193.6406 Q3196.1906,193.9375 3195.55,194.0781 Q3194.9094,194.2344 3194.2063,194.2344 Q3191.7063,194.2344 3190.3781,192.5938 Q3189.0656,190.9375 3189.0656,187.8125 Q3189.0656,184.6875 3190.3781,183.0313 Q3191.7063,181.375 3194.2063,181.375 Q3194.9094,181.375 3195.55,181.5313 Q3196.2063,181.6875 3196.7688,181.9844 L3196.7688,184.7031 Q3196.1438,184.125 3195.55,183.8594 Q3194.9563,183.5781 3194.3313,183.5781 Q3192.9875,183.5781 3192.3,184.6563 Q3191.6125,185.7188 3191.6125,187.8125 Q3191.6125,189.9063 3192.3,190.9844 Q3192.9875,192.0469 3194.3313,192.0469 Q3194.9563,192.0469 3195.55,191.7813 Q3196.1438,191.5 3196.7688,190.9219 L3196.7688,193.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="47" x="3214.2" y="192.1543">classes</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3151" x2="3292" y1="204" y2="204"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="51" x="3156" y="218.2104">class_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3211" y="218.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="50" x="3156" y="231.0151">topic_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3210" y="231.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="59" x="3156" y="243.8198">class_sort</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3219" y="243.8198">SMALLINT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="99" x="3156" y="256.6245">class_description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3259" y="256.6245">TEXT</text><!--MD5=[9a2a28244d094399746415012d058b9f]
+class classes_resources--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="104.0234" id="classes_resources" style="stroke: #A80036; stroke-width: 1.5;" width="186" x="3537.5" y="8"/><ellipse cx="3569.6" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3572.5688,29.6406 Q3571.9906,29.9375 3571.35,30.0781 Q3570.7094,30.2344 3570.0063,30.2344 Q3567.5063,30.2344 3566.1781,28.5938 Q3564.8656,26.9375 3564.8656,23.8125 Q3564.8656,20.6875 3566.1781,19.0313 Q3567.5063,17.375 3570.0063,17.375 Q3570.7094,17.375 3571.35,17.5313 Q3572.0063,17.6875 3572.5688,17.9844 L3572.5688,20.7031 Q3571.9438,20.125 3571.35,19.8594 Q3570.7563,19.5781 3570.1313,19.5781 Q3568.7875,19.5781 3568.1,20.6563 Q3567.4125,21.7188 3567.4125,23.8125 Q3567.4125,25.9063 3568.1,26.9844 Q3568.7875,28.0469 3570.1313,28.0469 Q3570.7563,28.0469 3571.35,27.7813 Q3571.9438,27.5 3572.5688,26.9219 L3572.5688,29.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="116" x="3587.4" y="28.1543">classes_resources</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3538.5" x2="3722.5" y1="40" y2="40"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="113" x="3543.5" y="54.2104">class_resource_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3660.5" y="54.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="51" x="3543.5" y="67.0151">class_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3598.5" y="67.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="108" x="3543.5" y="79.8198">resource_type_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3655.5" y="79.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="118" x="3543.5" y="92.6245">class_resource_data</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3665.5" y="92.6245">TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="174" x="3543.5" y="105.4292">class_resource_sort SMALLINT</text><!--MD5=[f6ccaabdbfaacc33d0bdad914ea5b506]
+class classes_comments--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="104.0234" id="classes_comments" style="stroke: #A80036; stroke-width: 1.5;" width="192" x="3125.5" y="8"/><ellipse cx="3159.4" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3162.3688,29.6406 Q3161.7906,29.9375 3161.15,30.0781 Q3160.5094,30.2344 3159.8063,30.2344 Q3157.3063,30.2344 3155.9781,28.5938 Q3154.6656,26.9375 3154.6656,23.8125 Q3154.6656,20.6875 3155.9781,19.0313 Q3157.3063,17.375 3159.8063,17.375 Q3160.5094,17.375 3161.15,17.5313 Q3161.8063,17.6875 3162.3688,17.9844 L3162.3688,20.7031 Q3161.7438,20.125 3161.15,19.8594 Q3160.5563,19.5781 3159.9313,19.5781 Q3158.5875,19.5781 3157.9,20.6563 Q3157.2125,21.7188 3157.2125,23.8125 Q3157.2125,25.9063 3157.9,26.9844 Q3158.5875,28.0469 3159.9313,28.0469 Q3160.5563,28.0469 3161.15,27.7813 Q3161.7438,27.5 3162.3688,26.9219 L3162.3688,29.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="118" x="3177.6" y="28.1543">classes_comments</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3126.5" x2="3316.5" y1="40" y2="40"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="115" x="3131.5" y="54.2104">class_comment_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3250.5" y="54.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="51" x="3131.5" y="67.0151">class_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3186.5" y="67.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="3131.5" y="79.8198">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3181.5" y="79.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="35" x="3131.5" y="92.6245">rol_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3170.5" y="92.6245">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="148" x="3131.5" y="105.4292">class_comment_message</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="3283.5" y="105.4292">TEXT</text><!--MD5=[b3d193ae1e4ad5a456e58dd27ff324af]
+class test_classes--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="129.6328" id="test_classes" style="stroke: #A80036; stroke-width: 1.5;" width="159" x="2329" y="500"/><ellipse cx="2366.05" cy="516" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2369.0188,521.6406 Q2368.4406,521.9375 2367.8,522.0781 Q2367.1594,522.2344 2366.4563,522.2344 Q2363.9563,522.2344 2362.6281,520.5938 Q2361.3156,518.9375 2361.3156,515.8125 Q2361.3156,512.6875 2362.6281,511.0313 Q2363.9563,509.375 2366.4563,509.375 Q2367.1594,509.375 2367.8,509.5313 Q2368.4563,509.6875 2369.0188,509.9844 L2369.0188,512.7031 Q2368.3938,512.125 2367.8,511.8594 Q2367.2063,511.5781 2366.5813,511.5781 Q2365.2375,511.5781 2364.55,512.6563 Q2363.8625,513.7188 2363.8625,515.8125 Q2363.8625,517.9063 2364.55,518.9844 Q2365.2375,520.0469 2366.5813,520.0469 Q2367.2063,520.0469 2367.8,519.7813 Q2368.3938,519.5 2369.0188,518.9219 L2369.0188,521.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="78" x="2384.95" y="520.1543">test_classes</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="2330" x2="2487" y1="532" y2="532"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="82" x="2335" y="546.2104">test_class_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2421" y="546.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="67" x="2335" y="559.0151">teacher_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2406" y="559.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="79" x="2335" y="571.8198">academic_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2418" y="571.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="88" x="2335" y="584.6245">test_class_type</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2427" y="584.6245">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="147" x="2335" y="597.4292">test_class_feedback TEXT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="104" x="2335" y="610.2339">test_class_quizz</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="2443" y="610.2339">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="89" x="2335" y="623.0386">test_class_data</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="2428" y="623.0386">TEXT</text><!--MD5=[bd0354e2670da72eed6c1fb4d50a4b3b]
+class subscriptions--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="52.8047" id="subscriptions" style="stroke: #A80036; stroke-width: 1.5;" width="131" x="1406" y="709"/><ellipse cx="1427.75" cy="725" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1430.7188,730.6406 Q1430.1406,730.9375 1429.5,731.0781 Q1428.8594,731.2344 1428.1563,731.2344 Q1425.6563,731.2344 1424.3281,729.5938 Q1423.0156,727.9375 1423.0156,724.8125 Q1423.0156,721.6875 1424.3281,720.0313 Q1425.6563,718.375 1428.1563,718.375 Q1428.8594,718.375 1429.5,718.5313 Q1430.1563,718.6875 1430.7188,718.9844 L1430.7188,721.7031 Q1430.0938,721.125 1429.5,720.8594 Q1428.9063,720.5781 1428.2813,720.5781 Q1426.9375,720.5781 1426.25,721.6563 Q1425.5625,722.7188 1425.5625,724.8125 Q1425.5625,726.9063 1426.25,727.9844 Q1426.9375,729.0469 1428.2813,729.0469 Q1428.9063,729.0469 1429.5,728.7813 Q1430.0938,728.5 1430.7188,727.9219 L1430.7188,730.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="1443.25" y="729.1543">subscriptions</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1407" x2="1536" y1="741" y2="741"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="97" x="1412" y="755.2104">subscription_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1513" y="755.2104">INT</text><!--MD5=[77f1a9014cc5bb2e51e5daef8f78fbd7]
+class purchases--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="purchases" style="stroke: #A80036; stroke-width: 1.5;" width="111" x="1572" y="702.5"/><ellipse cx="1592.85" cy="718.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1595.8188,724.1406 Q1595.2406,724.4375 1594.6,724.5781 Q1593.9594,724.7344 1593.2563,724.7344 Q1590.7563,724.7344 1589.4281,723.0938 Q1588.1156,721.4375 1588.1156,718.3125 Q1588.1156,715.1875 1589.4281,713.5313 Q1590.7563,711.875 1593.2563,711.875 Q1593.9594,711.875 1594.6,712.0313 Q1595.2563,712.1875 1595.8188,712.4844 L1595.8188,715.2031 Q1595.1938,714.625 1594.6,714.3594 Q1594.0063,714.0781 1593.3813,714.0781 Q1592.0375,714.0781 1591.35,715.1563 Q1590.6625,716.2188 1590.6625,718.3125 Q1590.6625,720.4063 1591.35,721.4844 Q1592.0375,722.5469 1593.3813,722.5469 Q1594.0063,722.5469 1594.6,722.2813 Q1595.1938,722 1595.8188,721.4219 L1595.8188,724.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="66" x="1608.15" y="722.6543">purchases</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1573" x2="1682" y1="734.5" y2="734.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="77" x="1578" y="748.7104">purchase_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1659" y="748.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="1578" y="761.5151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1628" y="761.5151">INT</text><!--MD5=[fe0f311491af3b9fe8fe72fd4491bd0c]
+class purchases_products--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="65.6094" id="purchases_products" style="stroke: #A80036; stroke-width: 1.5;" width="166" x="1620.5" y="532"/><ellipse cx="1638.2" cy="548" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1641.1688,553.6406 Q1640.5906,553.9375 1639.95,554.0781 Q1639.3094,554.2344 1638.6063,554.2344 Q1636.1063,554.2344 1634.7781,552.5938 Q1633.4656,550.9375 1633.4656,547.8125 Q1633.4656,544.6875 1634.7781,543.0313 Q1636.1063,541.375 1638.6063,541.375 Q1639.3094,541.375 1639.95,541.5313 Q1640.6063,541.6875 1641.1688,541.9844 L1641.1688,544.7031 Q1640.5438,544.125 1639.95,543.8594 Q1639.3563,543.5781 1638.7313,543.5781 Q1637.3875,543.5781 1636.7,544.6563 Q1636.0125,545.7188 1636.0125,547.8125 Q1636.0125,549.9063 1636.7,550.9844 Q1637.3875,552.0469 1638.7313,552.0469 Q1639.3563,552.0469 1639.95,551.7813 Q1640.5438,551.5 1641.1688,550.9219 L1641.1688,553.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="128" x="1652.8" y="552.1543">purchases_products</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1621.5" x2="1785.5" y1="564" y2="564"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="132" x="1626.5" y="578.2104">purchase_product_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1762.5" y="578.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="77" x="1626.5" y="591.0151">purchase_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1707.5" y="591.0151">INT</text><!--MD5=[d54b36069f0947f30891a7f33267b082]
+class users_courses--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="104.0234" id="users_courses" style="stroke: #A80036; stroke-width: 1.5;" width="200" x="1821.5" y="513"/><ellipse cx="1871.75" cy="529" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1874.7188,534.6406 Q1874.1406,534.9375 1873.5,535.0781 Q1872.8594,535.2344 1872.1563,535.2344 Q1869.6563,535.2344 1868.3281,533.5938 Q1867.0156,531.9375 1867.0156,528.8125 Q1867.0156,525.6875 1868.3281,524.0313 Q1869.6563,522.375 1872.1563,522.375 Q1872.8594,522.375 1873.5,522.5313 Q1874.1563,522.6875 1874.7188,522.9844 L1874.7188,525.7031 Q1874.0938,525.125 1873.5,524.8594 Q1872.9063,524.5781 1872.2813,524.5781 Q1870.9375,524.5781 1870.25,525.6563 Q1869.5625,526.7188 1869.5625,528.8125 Q1869.5625,530.9063 1870.25,531.9844 Q1870.9375,533.0469 1872.2813,533.0469 Q1872.9063,533.0469 1873.5,532.7813 Q1874.0938,532.5 1874.7188,531.9219 L1874.7188,534.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="91" x="1892.25" y="533.1543">users_courses</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1822.5" x2="2020.5" y1="545" y2="545"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="1827.5" y="559.2104">user_course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1926.5" y="559.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="77" x="1827.5" y="572.0151">purchase_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1908.5" y="572.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="61" x="1827.5" y="584.8198">course_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1892.5" y="584.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="1827.5" y="597.6245">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1877.5" y="597.6245">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="130" x="1827.5" y="610.4292">user_course_approved</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="1961.5" y="610.4292">BOOLEAN</text><!--MD5=[e477ff0e7f10fb2b123cd97d333cf9c3]
+class users_quizzes--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="users_quizzes" style="stroke: #A80036; stroke-width: 1.5;" width="176" x="3338.5" y="690"/><ellipse cx="3380.05" cy="706" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3383.0188,711.6406 Q3382.4406,711.9375 3381.8,712.0781 Q3381.1594,712.2344 3380.4563,712.2344 Q3377.9563,712.2344 3376.6281,710.5938 Q3375.3156,708.9375 3375.3156,705.8125 Q3375.3156,702.6875 3376.6281,701.0313 Q3377.9563,699.375 3380.4563,699.375 Q3381.1594,699.375 3381.8,699.5313 Q3382.4563,699.6875 3383.0188,699.9844 L3383.0188,702.7031 Q3382.3938,702.125 3381.8,701.8594 Q3381.2063,701.5781 3380.5813,701.5781 Q3379.2375,701.5781 3378.55,702.6563 Q3377.8625,703.7188 3377.8625,705.8125 Q3377.8625,707.9063 3378.55,708.9844 Q3379.2375,710.0469 3380.5813,710.0469 Q3381.2063,710.0469 3381.8,709.7813 Q3382.3938,709.5 3383.0188,708.9219 L3383.0188,711.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="85" x="3399.95" y="710.1543">users_quizzes</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3339.5" x2="3513.5" y1="722" y2="722"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="79" x="3344.5" y="736.2104">user_quiz_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3427.5" y="736.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="3344.5" y="749.0151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3394.5" y="749.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="45" x="3344.5" y="761.8198">quiz_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3393.5" y="761.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="106" x="3344.5" y="774.6245">user_quiz_aproved</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="3454.5" y="774.6245">BOOLEAN</text><!--MD5=[4b621569d7a5c16367ea4fce87517bfd]
+class users_answers--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="users_answers" style="stroke: #A80036; stroke-width: 1.5;" width="155" x="3132" y="336"/><ellipse cx="3160.5" cy="352" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M3163.4688,357.6406 Q3162.8906,357.9375 3162.25,358.0781 Q3161.6094,358.2344 3160.9063,358.2344 Q3158.4063,358.2344 3157.0781,356.5938 Q3155.7656,354.9375 3155.7656,351.8125 Q3155.7656,348.6875 3157.0781,347.0313 Q3158.4063,345.375 3160.9063,345.375 Q3161.6094,345.375 3162.25,345.5313 Q3162.9063,345.6875 3163.4688,345.9844 L3163.4688,348.7031 Q3162.8438,348.125 3162.25,347.8594 Q3161.6563,347.5781 3161.0313,347.5781 Q3159.6875,347.5781 3159,348.6563 Q3158.3125,349.7188 3158.3125,351.8125 Q3158.3125,353.9063 3159,354.9844 Q3159.6875,356.0469 3161.0313,356.0469 Q3161.6563,356.0469 3162.25,355.7813 Q3162.8438,355.5 3163.4688,354.9219 L3163.4688,357.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="93" x="3177.5" y="356.1543">users_answers</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="3133" x2="3286" y1="368" y2="368"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="99" x="3138" y="382.2104">user_answer_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3241" y="382.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="79" x="3138" y="395.0151">user_quiz_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3221" y="395.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="3138" y="407.8198">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3188" y="407.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="121" x="3138" y="420.6245">question_option_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="3263" y="420.6245">INT</text><!--MD5=[d2065093f50521f91c82ce7a24d36511]
+class users_projects--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="users_projects" style="stroke: #A80036; stroke-width: 1.5;" width="146" x="1759.5" y="336"/><ellipse cx="1784.4" cy="352" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1787.3688,357.6406 Q1786.7906,357.9375 1786.15,358.0781 Q1785.5094,358.2344 1784.8063,358.2344 Q1782.3063,358.2344 1780.9781,356.5938 Q1779.6656,354.9375 1779.6656,351.8125 Q1779.6656,348.6875 1780.9781,347.0313 Q1782.3063,345.375 1784.8063,345.375 Q1785.5094,345.375 1786.15,345.5313 Q1786.8063,345.6875 1787.3688,345.9844 L1787.3688,348.7031 Q1786.7438,348.125 1786.15,347.8594 Q1785.5563,347.5781 1784.9313,347.5781 Q1783.5875,347.5781 1782.9,348.6563 Q1782.2125,349.7188 1782.2125,351.8125 Q1782.2125,353.9063 1782.9,354.9844 Q1783.5875,356.0469 1784.9313,356.0469 Q1785.5563,356.0469 1786.15,355.7813 Q1786.7438,355.5 1787.3688,354.9219 L1787.3688,357.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="92" x="1800.6" y="356.1543">users_projects</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1760.5" x2="1904.5" y1="368" y2="368"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="97" x="1765.5" y="382.2104">user_project_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1866.5" y="382.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="112" x="1765.5" y="395.0151">course_project_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1881.5" y="395.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="1765.5" y="407.8198">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1815.5" y="407.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="102" x="1765.5" y="420.6245">user_project_data</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="1871.5" y="420.6245">TEXT</text><!--MD5=[2e308add5869a57449adda7ea5fe7f29]
+class users_subscriptions--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_subscriptions" style="stroke: #A80036; stroke-width: 1.5;" width="179" x="1406" y="526"/><ellipse cx="1430.9" cy="542" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1433.8688,547.6406 Q1433.2906,547.9375 1432.65,548.0781 Q1432.0094,548.2344 1431.3063,548.2344 Q1428.8063,548.2344 1427.4781,546.5938 Q1426.1656,544.9375 1426.1656,541.8125 Q1426.1656,538.6875 1427.4781,537.0313 Q1428.8063,535.375 1431.3063,535.375 Q1432.0094,535.375 1432.65,535.5313 Q1433.3063,535.6875 1433.8688,535.9844 L1433.8688,538.7031 Q1433.2438,538.125 1432.65,537.8594 Q1432.0563,537.5781 1431.4313,537.5781 Q1430.0875,537.5781 1429.4,538.6563 Q1428.7125,539.7188 1428.7125,541.8125 Q1428.7125,543.9063 1429.4,544.9844 Q1430.0875,546.0469 1431.4313,546.0469 Q1432.0563,546.0469 1432.65,545.7813 Q1433.2438,545.5 1433.8688,544.9219 L1433.8688,547.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="125" x="1447.1" y="546.1543">users_subscriptions</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1407" x2="1584" y1="558" y2="558"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="145" x="1412" y="572.2104">users_subscriptions_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1561" y="572.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="77" x="1412" y="585.0151">purchase_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1493" y="585.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="97" x="1412" y="597.8198">subscription_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1513" y="597.8198">INT</text><!--MD5=[a431d307043e09973a7e2ebed5fb1473]
+class users_projects_history--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="78.4141" id="users_projects_history" style="stroke: #A80036; stroke-width: 1.5;" width="181" x="1742" y="178.5"/><ellipse cx="1761.05" cy="194.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1764.0188,200.1406 Q1763.4406,200.4375 1762.8,200.5781 Q1762.1594,200.7344 1761.4563,200.7344 Q1758.9563,200.7344 1757.6281,199.0938 Q1756.3156,197.4375 1756.3156,194.3125 Q1756.3156,191.1875 1757.6281,189.5313 Q1758.9563,187.875 1761.4563,187.875 Q1762.1594,187.875 1762.8,188.0313 Q1763.4563,188.1875 1764.0188,188.4844 L1764.0188,191.2031 Q1763.3938,190.625 1762.8,190.3594 Q1762.2063,190.0781 1761.5813,190.0781 Q1760.2375,190.0781 1759.55,191.1563 Q1758.8625,192.2188 1758.8625,194.3125 Q1758.8625,196.4063 1759.55,197.4844 Q1760.2375,198.5469 1761.5813,198.5469 Q1762.2063,198.5469 1762.8,198.2813 Q1763.3938,198 1764.0188,197.4219 L1764.0188,200.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="140" x="1775.95" y="198.6543">users_projects_history</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1743" x2="1922" y1="210.5" y2="210.5"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="147" x="1748" y="224.7104">user_project_history_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1899" y="224.7104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="97" x="1748" y="237.5151">user_project_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="1849" y="237.5151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="102" x="1748" y="250.3198">user_project_data</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="28" x="1854" y="250.3198">TEXT</text><!--MD5=[4f15a03e5dd43ea2277484e2b45069cc]
+class users_academy--><rect fill="#FEFECE" filter="url(#fz1pb1h204zem)" height="91.2188" id="users_academy" style="stroke: #A80036; stroke-width: 1.5;" width="184" x="354.5" y="690"/><ellipse cx="394.25" cy="706" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M397.2188,711.6406 Q396.6406,711.9375 396,712.0781 Q395.3594,712.2344 394.6563,712.2344 Q392.1563,712.2344 390.8281,710.5938 Q389.5156,708.9375 389.5156,705.8125 Q389.5156,702.6875 390.8281,701.0313 Q392.1563,699.375 394.6563,699.375 Q395.3594,699.375 396,699.5313 Q396.6563,699.6875 397.2188,699.9844 L397.2188,702.7031 Q396.5938,702.125 396,701.8594 Q395.4063,701.5781 394.7813,701.5781 Q393.4375,701.5781 392.75,702.6563 Q392.0625,703.7188 392.0625,705.8125 Q392.0625,707.9063 392.75,708.9844 Q393.4375,710.0469 394.7813,710.0469 Q395.4063,710.0469 396,709.7813 Q396.5938,709.5 397.2188,708.9219 L397.2188,711.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="97" x="413.75" y="710.1543">users_academy</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="355.5" x2="537.5" y1="722" y2="722"/><text fill="#008000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="109" x="360.5" y="736.2104">user_academy_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="473.5" y="736.2104">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="46" x="360.5" y="749.0151">user_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="410.5" y="749.0151">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="63" x="360.5" y="761.8198">degree_id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="18" x="427.5" y="761.8198">INT</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="114" x="360.5" y="774.6245">user_academy_year</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="478.5" y="774.6245">SMALLINT</text><!--MD5=[7c5e3f67f71dbfd0d44c69a16adaa315]
+reverse link users to countries--><path d="M1881.5,976.72 C1881.5,996.09 1881.5,1015.92 1881.5,1030.96 " fill="none" id="users&lt;-countries" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1881.5,971.27,1877.5,980.27,1881.5,976.27,1885.5,980.27,1881.5,971.27" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[bb8e3518d52c75b7a9afa2493bd3fabe]
+reverse link users to roles--><path d="M1978.07,918.18 C2242.66,948.82 2970.7,1033.13 3137.94,1052.5 " fill="none" id="users&lt;-roles" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1973.05,917.6,1981.5344,922.6016,1978.0173,918.171,1982.4479,914.6539,1973.05,917.6" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a0370ea4d59ab8e6028dac71fbddf206]
+reverse link users_degrees to users--><path d="M141.31,776.53 C145.7,778.23 150.11,779.74 154.5,781 C344.38,835.57 844.45,826.83 1041.5,841 C1313.75,860.58 1635.47,885.62 1789.85,897.76 " fill="none" id="users_degrees&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="136.57,774.62,143.422,781.6946,141.2074,776.4892,146.4128,774.2747,136.57,774.62" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[c0c2cc22e45a45819954fbc68930766b]
+reverse link users_degrees to degrees--><path d="M114.62,778.25 C144.82,807.5 184.57,846 212.31,872.86 " fill="none" id="users_degrees&lt;-degrees" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="110.98,774.74,114.6639,783.8739,114.5723,778.2178,120.2284,778.1262,110.98,774.74" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7379a02a180c7e465b2fbf32892bbd4b]
+reverse link users_insignias to users--><path d="M715.31,776.45 C719.71,778.15 724.13,779.68 728.5,781 C927.19,840.79 1553.42,884.69 1789.89,899.52 " fill="none" id="users_insignias&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="710.55,774.54,717.4282,781.5891,715.1943,776.392,720.3915,774.1582,710.55,774.54" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[dd54d5fc552b44e0ba432112be629d2e]
+reverse link users_insignias to insignias--><path d="M642.5,780.05 C642.5,809.06 642.5,846.55 642.5,872.86 " fill="none" id="users_insignias&lt;-insignias" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="642.5,774.74,638.5,783.74,642.5,779.74,646.5,783.74,642.5,774.74" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[dd924d505374d801a38ca7ccc8ee4a1f]
+reverse link users_chats to chats--><path d="M803.5,780.05 C803.5,809.06 803.5,846.55 803.5,872.86 " fill="none" id="users_chats&lt;-chats" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="803.5,774.74,799.5,783.74,803.5,779.74,807.5,783.74,803.5,774.74" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4e593db77dfb363f3c581de42648a6db]
+reverse link users_chats to users--><path d="M865.28,776.12 C869.33,777.94 873.43,779.59 877.5,781 C1045.5,838.95 1575.32,882.77 1789.91,898.58 " fill="none" id="users_chats&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="860.54,773.9,867.0028,781.3318,865.0706,776.0152,870.3872,774.0829,860.54,773.9" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9741457189c2924fe0629a9f7726d29e]
+reverse link users_languages to users--><path d="M1046.69,773.64 C1053.97,776.38 1061.31,778.89 1068.5,781 C1323.52,855.72 1637.47,887.34 1789.86,899.03 " fill="none" id="users_languages&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1041.66,771.71,1048.6127,778.6856,1046.3238,773.5126,1051.4968,771.2236,1041.66,771.71" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e752cd48dbdbaae3f0e34c20b0dbeaa9]
+reverse link users_languages to languages--><path d="M968.5,780.1 C968.5,811.63 968.5,853.15 968.5,879.47 " fill="none" id="users_languages&lt;-languages" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="968.5,774.74,964.5,783.74,968.5,779.74,972.5,783.74,968.5,774.74" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[84ab11edeeca51da825aaa8e24955e8e]
+reverse link users_research to users--><path d="M1933.06,785.98 C1925.64,803.12 1917.21,822.58 1909.35,840.73 " fill="none" id="users_research&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1935.13,781.21,1927.8656,787.8605,1933.1312,785.7931,1935.1985,791.0586,1935.13,781.21" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f26970cba5540df2a30823e2847fd59a]
+reverse link users_managements to users--><path d="M2120.89,776.95 C2076.53,800.67 2020.17,830.82 1973.28,855.91 " fill="none" id="users_managements&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2125.42,774.52,2115.5968,775.2308,2121.0094,776.8752,2119.3651,782.2878,2125.42,774.52" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e3467135ac4b3bf852ab9594da13800d]
+reverse link users_expertises to users--><path d="M2341.87,776.2 C2337.03,777.86 2332.22,779.46 2327.5,781 C2206.17,820.47 2063.81,858.67 1973.16,882 " fill="none" id="users_expertises&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2346.73,774.52,2336.918,773.6688,2342.0025,776.1482,2339.5231,781.2327,2346.73,774.52" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a06668bf683418f5d4a73b7c3abc1043]
+reverse link users_institutions to users--><path d="M1297.61,770.48 C1307.23,774.3 1317.03,777.93 1326.5,781 C1486.14,832.81 1678.5,870.49 1789.73,889.96 " fill="none" id="users_institutions&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1292.91,768.58,1299.7544,775.6619,1297.5454,770.4542,1302.7532,768.2452,1292.91,768.58" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[6a71dd10f5b03eb3f929af9c42c1afcc]
+reverse link users_signatures to users--><path d="M321.91,776.33 C326.78,778.09 331.67,779.68 336.5,781 C371.79,790.67 1462.97,873.46 1789.85,898.11 " fill="none" id="users_signatures&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="317.06,774.51,324.0755,781.4225,321.7399,776.2703,326.892,773.9347,317.06,774.51" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[76dd24fe5e8b8ced7c394d5c00ed8eb0]
+reverse link users_signatures to degrees--><path d="M245.5,780.05 C245.5,809.06 245.5,846.55 245.5,872.86 " fill="none" id="users_signatures&lt;-degrees" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="245.5,774.74,241.5,783.74,245.5,779.74,249.5,783.74,245.5,774.74" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[887750c015807cad3387394b11935b87]
+reverse link questions to quizzes--><path d="M3730.87,785.98 C3743.61,811.83 3758.96,842.99 3770.75,866.94 " fill="none" id="questions&lt;-quizzes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3728.52,781.21,3728.9169,791.0509,3730.7332,785.6935,3736.0905,787.5097,3728.52,781.21" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[09da3f70fb74521c331d036e3de8bb99]
+reverse link questions_options to questions--><path d="M3681.12,621.97 C3686.11,644.07 3691.75,669.1 3696.45,689.94 " fill="none" id="questions_options&lt;-questions" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3680,617.01,3678.0806,626.67,3681.1013,621.8872,3685.8841,624.9079,3680,617.01" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[768bac963aae900c6d6d4048136b14db]
+reverse link courses to courses_levels--><path d="M2923.5,786.36 C2923.5,814.35 2923.5,848.46 2923.5,872.9 " fill="none" id="courses&lt;-courses_levels" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2923.5,781.21,2919.5,790.21,2923.5,786.21,2927.5,790.21,2923.5,781.21" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[86692888196b6814d595690705c5b0da]
+reverse link courses to users--><path d="M2842.2,757.03 C2808.4,765.15 2768.69,774.16 2732.5,781 C2457.79,832.92 2129.66,875.23 1973.22,894.21 " fill="none" id="courses&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2847.14,755.84,2837.4542,754.0551,2842.2786,757.009,2839.3247,761.8334,2847.14,755.84" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e85f6f52c4916e387ec42976641dd655]
+reverse link synchronous_classes to courses--><path d="M3011.26,444.56 C3022.02,461.6 3031.87,480.73 3037.5,500 C3053.69,555.46 3060.76,577.11 3037.5,630 C3027.28,653.22 3009.08,673.54 2990.17,689.93 " fill="none" id="synchronous_classes&lt;-courses" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3008.51,440.27,3010.0121,450.0036,3011.2138,444.4759,3016.7415,445.6776,3008.51,440.27" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9642843a904e1ffcf56f902bafa7fc57]
+reverse link synchronous_classes_resources to synchronous_classes--><path d="M3322.84,259.11 C3318.68,260.42 3314.56,261.73 3310.5,263 C3223.59,290.31 3200.7,293.53 3114.5,323 C3108.76,324.96 3102.91,327 3097.01,329.09 " fill="none" id="synchronous_classes_resources&lt;-synchronous_classes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3327.74,257.56,3317.9537,256.4516,3322.9714,259.0636,3320.3595,264.0813,3327.74,257.56" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f73fbd8c8a9530e5414158cacbe01341]
+reverse link synchronous_classes_resources to resources_types--><path d="M3574.03,261.19 C3623.87,279.05 3681.39,300.79 3732.5,323 C3750.19,330.68 3769.02,339.79 3786.18,348.46 " fill="none" id="synchronous_classes_resources&lt;-resources_types" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3569.23,259.48,3576.3577,266.2767,3573.9381,261.1635,3579.0513,258.7438,3569.23,259.48" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[fcad5fbf00da36a30c12c35229ec997c]
+reverse link courses_projects to courses--><path d="M2749.52,607.04 C2783.68,632.07 2827.36,664.07 2862.41,689.75 " fill="none" id="courses_projects&lt;-courses" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2745.4,604.02,2750.2882,612.5701,2749.4307,606.9787,2755.0221,606.1211,2745.4,604.02" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9e12164158a825c07a23d55fe27d6d57]
+reverse link courses_reviews to courses--><path d="M3263.01,604.48 C3182.95,635.14 3072.58,677.41 2999.69,705.32 " fill="none" id="courses_reviews&lt;-courses" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3267.76,602.67,3257.925,602.1473,3263.0896,604.4553,3260.7815,609.6199,3267.76,602.67" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b88b2558de7684f7d70966151763cb21]
+reverse link courses_reviews to users--><path d="M3345.49,628.45 C3327.53,678.61 3294.65,746.21 3240.5,781 C3187.07,815.33 2269.61,879.15 1973.11,898.97 " fill="none" id="courses_reviews&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3347.19,623.66,3340.4317,630.8242,3345.5319,628.3771,3347.979,633.4772,3347.19,623.66" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8960fca167977e259953118b1a6e8ea4]
+reverse link courses_reviews to roles--><path d="M3463.59,616.36 C3490.98,635.43 3517.28,659.96 3532.5,690 C3550.78,726.08 3550.41,744.74 3532.5,781 C3462.97,921.77 3283.18,1010.45 3207.21,1042.74 " fill="none" id="courses_reviews&lt;-roles" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3459.19,613.34,3464.3538,621.7266,3463.3148,616.166,3468.8754,615.1269,3459.19,613.34" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1f179baff340c15ab57ff613ada90f82]
+reverse link courses_datasheets to courses--><path d="M2266.23,606.79 C2280.42,615.61 2296.05,624.06 2311.5,630 C2360.89,648.99 2694.63,700.33 2847.41,723.22 " fill="none" id="courses_datasheets&lt;-courses" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2261.87,604.04,2267.3622,612.2153,2266.1036,606.7003,2271.6186,605.4416,2261.87,604.04" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[64bc2328d0b56dbc066d9d31b6bf7622]
+reverse link courses_datasheets to users--><path d="M2122.45,600.13 C2095.91,610.1 2066.62,620.78 2039.5,630 C1953.24,659.31 1897.68,616.76 1843.5,690 C1811.49,733.27 1826.68,794.69 1846.56,840.81 " fill="none" id="courses_datasheets&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2127.37,598.28,2117.5365,597.731,2122.6948,600.0528,2120.373,605.2112,2127.37,598.28" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[062788420ce049d3b6ddf54ec88645a6]
+reverse link courses_forums to courses--><path d="M2923.5,609.41 C2923.5,634.1 2923.5,664.96 2923.5,689.85 " fill="none" id="courses_forums&lt;-courses" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2923.5,604.24,2919.5,613.24,2923.5,609.24,2927.5,613.24,2923.5,604.24" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[fa8f88c70ecb1f48df81f9801b1bc865]
+reverse link courses_forums_comments to courses_forums--><path d="M2666.72,434.37 C2712.14,453.98 2763.56,477.1 2809.5,500 C2825.55,508 2842.55,517.16 2858.38,525.99 " fill="none" id="courses_forums_comments&lt;-courses_forums" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2662.07,432.37,2668.7395,439.6169,2666.6583,434.3568,2671.9184,432.2757,2662.07,432.37" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[3b287ffd094632755c1476b824586a0f]
+reverse link courses_forums_comments to users--><path d="M2415.72,399.73 C2302.23,418.16 2147.58,451.45 2110.5,500 C2075.43,545.91 2072.4,586.56 2110.5,630 C2245.28,783.68 2431.72,536.32 2566.5,690 C2593.17,720.41 2592.43,749.96 2566.5,781 C2491.93,870.28 2142.18,895.4 1973.27,902.38 " fill="none" id="courses_forums_comments&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2420.75,398.92,2411.2325,396.3868,2415.8124,399.7072,2412.492,404.287,2420.75,398.92" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[de209caa301c627e0f6290cf78eb2000]
+reverse link courses_forums_comments to roles--><path d="M2536.5,439.06 C2534.62,492.66 2539.49,573.19 2577.5,630 C2606.53,673.4 2643.19,651.54 2678.5,690 C2772.34,792.2 2706.37,884.06 2814.5,971 C2864.73,1011.39 3058.14,1041.22 3137.85,1052.05 " fill="none" id="courses_forums_comments&lt;-roles" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2536.7,433.96,2532.3435,442.7929,2536.5002,438.956,2540.3371,443.1127,2536.7,433.96" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ca96a0f4e35c5770c5076054fd3fa97d]
+reverse link modules to courses--><path d="M3802.19,624.64 C3797.98,626.62 3793.74,628.42 3789.5,630 C3771,636.89 3207.51,701.95 2999.59,725.8 " fill="none" id="modules&lt;-courses" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3806.73,622.43,3796.8868,622.7641,3802.2325,624.6145,3800.382,629.9602,3806.73,622.43" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f798ed19c0b3c504cd75b388f70753c0]
+reverse link modules to quizzes--><path d="M3856.85,628.45 C3833.34,698.17 3802.91,808.8 3791.79,866.74 " fill="none" id="modules&lt;-quizzes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3858.53,623.51,3851.8564,630.7531,3856.9274,628.2462,3859.4343,633.3173,3858.53,623.51" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f798ed19c0b3c504cd75b388f70753c0]
+reverse link modules to quizzes--><path d="M3877.74,628.45 C3862.41,698.17 3830.8,808.8 3809.15,866.74 " fill="none" id="modules&lt;-quizzes-1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3878.82,623.51,3873.0071,631.4605,3877.7626,628.3969,3880.8262,633.1524,3878.82,623.51" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7e3f263cee2579854989d059eb3e7650]
+reverse link modules_feedback to modules--><path d="M3544.03,435.04 C3548.56,436.77 3553.06,438.43 3557.5,440 C3657.94,475.43 3692.38,456.28 3789.5,500 C3795.3,502.61 3801.14,505.57 3806.91,508.75 " fill="none" id="modules_feedback&lt;-modules" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3539.12,433.14,3546.0727,440.1156,3543.7838,434.9426,3548.9568,432.6536,3539.12,433.14" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2dc7e3fdb20a5c54e76d2d9070039fab]
+reverse link modules_feedback to users--><path d="M3327.19,436.54 C3299.92,454.18 3272.11,475.61 3250.5,500 C3207.8,548.2 3218.95,574.37 3186.5,630 C3145.57,700.17 3153.28,739.41 3083.5,781 C2988.72,837.49 2237.98,884.87 1973.4,899.97 " fill="none" id="modules_feedback&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3331.56,433.74,3321.8241,435.2271,3327.3499,436.4373,3326.1397,441.9632,3331.56,433.74" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[752e970712cd61a1c5f88d3a7e5d5858]
+reverse link modules_resources to modules--><path d="M3965.92,268.36 C3972.6,313.97 3977.8,382.84 3961.5,440 C3954.86,463.27 3942.46,486.44 3929.52,506.34 " fill="none" id="modules_resources&lt;-modules" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3965.14,263.19,3962.5488,272.6919,3965.8971,268.1324,3970.4566,271.4806,3965.14,263.19" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[bedee785e49f09ac3ccb6d41db87ba4b]
+reverse link modules_resources to resources_types--><path d="M3923.33,267.36 C3905.53,293.57 3884.08,325.15 3868.38,348.28 " fill="none" id="modules_resources&lt;-resources_types" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3926.15,263.2,3917.784,268.397,3923.3404,267.336,3924.4015,272.8924,3926.15,263.2" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ad25a521639bc8037edd32e602231c7b]
+reverse link topics to modules--><path d="M3707.64,430.25 C3738.53,453.61 3775.97,481.92 3808.43,506.47 " fill="none" id="topics&lt;-modules" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3703.52,427.13,3708.2855,435.7491,3707.508,430.146,3713.1111,429.3684,3703.52,427.13" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b9aba5a4c90f0831a4c6915a4ee2b7cf]
+reverse link topics_resources to topics--><path d="M3671.51,268.32 C3666.31,289.91 3660.27,314.99 3655.23,335.95 " fill="none" id="topics_resources&lt;-topics" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3672.74,263.2,3666.7414,271.0113,3671.5677,268.0606,3674.5184,272.887,3672.74,263.2" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[69f0101a79869d2c6f34c5713eaedb70]
+reverse link topics_resources to resources_types--><path d="M3732.33,267.03 C3758.77,293.31 3790.71,325.05 3814.08,348.28 " fill="none" id="topics_resources&lt;-resources_types" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3728.47,263.2,3732.0241,272.3852,3732.0127,266.7284,3737.6695,266.717,3728.47,263.2" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b773f9379ac4e02549bcba52de50de6d]
+reverse link classes to topics--><path d="M3298.14,258.15 C3302.28,259.87 3306.42,261.5 3310.5,263 C3416.16,301.74 3453.24,278.24 3556.5,323 C3564.87,326.63 3573.33,331.03 3581.52,335.77 " fill="none" id="classes&lt;-topics" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3293.27,256.08,3299.9856,263.2842,3297.8709,258.0375,3303.1176,255.9228,3293.27,256.08" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2bb57039ba4d7a27aac840c4db39710e]
+reverse link classes_resources to classes--><path d="M3532.27,91.41 C3468.32,112.11 3383.51,141.24 3310.5,172 C3304.77,174.41 3298.89,177.03 3293.02,179.74 " fill="none" id="classes_resources&lt;-classes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3537.23,89.81,3527.4359,88.773,3532.4725,91.3483,3529.8972,96.385,3537.23,89.81" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[85747f35e30cf1c793b1c4dd4ed438c9]
+reverse link classes_resources to resources_types--><path d="M3723.13,115.43 C3744.35,131.43 3765.14,150.5 3780.5,172 C3819.45,226.54 3836.06,304.98 3842.63,348.44 " fill="none" id="classes_resources&lt;-resources_types" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3718.89,112.27,3723.7097,120.859,3722.8969,115.2608,3728.495,114.448,3718.89,112.27" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7e59eb9dc9f7957dfab7e20067c77b16]
+reverse link classes_comments to classes--><path d="M3221.5,117.37 C3221.5,135.35 3221.5,154.98 3221.5,171.99 " fill="none" id="classes_comments&lt;-classes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3221.5,112.35,3217.5,121.35,3221.5,117.35,3225.5,121.35,3221.5,112.35" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4864b0727842dd4bf8de47679b0ddbbf]
+reverse link classes_comments to users--><path d="M3120.17,65.27 C2828.88,78.05 1992.95,118.47 1724.5,172 C1435.26,229.67 1094.5,85.56 1094.5,380.5 C1094.5,380.5 1094.5,380.5 1094.5,566 C1094.5,662.81 1061.11,712.47 1129.5,781 C1220.75,872.43 1610.25,896.53 1789.97,902.81 " fill="none" id="classes_comments&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3125.26,65.04,3116.097,61.429,3120.2646,65.2541,3116.4395,69.4217,3125.26,65.04" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[c81244557c85de7d8644f8a2b6a74f05]
+reverse link classes_comments to roles--><path d="M3322.75,79.78 C3380.55,90.13 3454.44,102.71 3520.5,112 C3640.28,128.84 3973.61,88.89 4061.5,172 C4129.77,236.56 4096.5,286.54 4096.5,380.5 C4096.5,380.5 4096.5,380.5 4096.5,736.5 C4096.5,878.2 4006.62,906.41 3880.5,971 C3760.52,1032.45 3332.41,1051.22 3207.16,1055.46 " fill="none" id="classes_comments&lt;-roles" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3317.56,78.85,3325.7106,84.3788,3322.4812,79.7344,3327.1256,76.505,3317.56,78.85" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[75d58d4e49256dea74c334c04a63d4de]
+reverse link test_classes to users--><path d="M2492.74,626.72 C2494.67,627.82 2496.59,628.92 2498.5,630 C2547.63,657.83 2581.49,641.55 2610.5,690 C2631.28,724.7 2636.65,750.15 2610.5,781 C2529.06,877.09 2150.62,898.8 1973.3,903.64 " fill="none" id="test_classes&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2488.2,624.12,2494.0127,632.0706,2492.5359,626.6099,2497.9966,625.1331,2488.2,624.12" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[75d58d4e49256dea74c334c04a63d4de]
+reverse link test_classes to users--><path d="M2492.85,606.56 C2506.49,614.45 2520.39,622.57 2533.5,630 C2582.63,657.83 2616.49,641.55 2645.5,690 C2666.28,724.7 2671.65,750.15 2645.5,781 C2561.09,880.6 2157.62,900.28 1973.31,904.11 " fill="none" id="test_classes&lt;-users-1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2488.23,603.89,2494.023,611.855,2492.5597,606.3907,2498.0241,604.9274,2488.23,603.89" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8942544abf3a7766e1fb470dfeaeea04]
+reverse link test_classes to users_quizzes--><path d="M2492.99,602.53 C2519.61,612.81 2549.4,623.06 2577.5,630 C2650.26,647.98 3136.22,702.59 3338.45,724.87 " fill="none" id="test_classes&lt;-users_quizzes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2488.05,600.62,2494.9841,607.6141,2492.7089,602.435,2497.8881,600.1598,2488.05,600.62" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[69d695791d11634f03b639ce6b306c5c]
+reverse link purchases to users--><path d="M1680.08,771.38 C1711.75,792.39 1752.97,819.73 1789.86,844.2 " fill="none" id="purchases&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1675.87,768.59,1681.1397,776.9105,1680.0303,771.3635,1685.5773,770.2541,1675.87,768.59" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2e3b7a3b41e6c52577ed7b582b09736e]
+reverse link purchases_products to purchases--><path d="M1686.92,602.75 C1673.53,632.44 1654.87,673.82 1642.05,702.24 " fill="none" id="purchases_products&lt;-purchases" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1689.03,598.09,1681.6813,604.6472,1686.9728,602.6472,1688.9729,607.9387,1689.03,598.09" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[90bc520f8fe90696db462371077d0508]
+reverse link users_courses to purchases--><path d="M1827.92,619.64 C1780.34,646.9 1724.13,679.12 1683.37,702.48 " fill="none" id="users_courses&lt;-purchases" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1832.49,617.01,1822.692,618.0092,1828.1505,619.4938,1826.666,624.9523,1832.49,617.01" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5fdb5846b1b25f32e543a80930a72c7d]
+reverse link users_courses to courses--><path d="M2026.95,605.83 C2053.89,614.86 2083.01,623.65 2110.5,630 C2128.43,634.14 2648.3,699.83 2847.16,724.89 " fill="none" id="users_courses&lt;-courses" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2021.95,604.14,2029.1992,610.807,2026.6877,605.7383,2031.7564,603.2267,2021.95,604.14" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b07a40e0e2a92d392b4315236687ffde]
+reverse link users_courses to users--><path d="M1837.27,620.42 C1814.93,639.49 1793.66,662.99 1781.5,690 C1764.9,726.88 1768.04,742.86 1781.5,781 C1789.09,802.52 1802.18,823.04 1816.43,840.98 " fill="none" id="users_courses&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1841.16,617.15,1831.7011,619.8941,1837.3377,620.3733,1836.8584,626.0098,1841.16,617.15" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8a79965d30be7ec07cfca3739002010a]
+reverse link users_quizzes to users--><path d="M3333.38,775.04 C3326.05,777.3 3318.7,779.33 3311.5,781 C3181.51,811.14 2268.01,877.65 1973.08,898.57 " fill="none" id="users_quizzes&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3338.45,773.44,3328.6637,772.3316,3333.6814,774.9436,3331.0695,779.9613,3338.45,773.44" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[989cd5bb72e3388e66f6bb1c41c57637]
+reverse link users_quizzes to quizzes--><path d="M3519.56,779.7 C3580.54,808 3659.14,844.49 3715.78,870.78 " fill="none" id="users_quizzes&lt;-quizzes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3514.84,777.5,3521.3118,784.924,3519.3731,779.6097,3524.6874,777.6711,3514.84,777.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[3616b7a7495039c4453c5ede71d93ca9]
+reverse link users_answers to users_quizzes--><path d="M3284.11,429.62 C3290.91,433.31 3297.77,436.83 3304.5,440 C3377.75,474.48 3429.62,433.99 3476.5,500 C3516.75,556.68 3483.21,639.2 3455.02,689.73 " fill="none" id="users_answers&lt;-users_quizzes" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3279.41,427.03,3285.3653,434.8744,3283.7902,429.4412,3289.2233,427.8661,3279.41,427.03" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d968416545a4dcf7205b4d48c6ea769d]
+reverse link users_answers to users--><path d="M3201.41,432.23 C3184.43,519.05 3136.33,697.02 3017.5,781 C2932.8,840.87 2228.41,885.67 1973.29,900.07 " fill="none" id="users_answers&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3202.39,427.15,3196.7658,435.2351,3201.4479,432.0604,3204.6225,436.7425,3202.39,427.15" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f769fb71a740d70814be6a5ad49906ff]
+reverse link users_answers to questions_options--><path d="M3282.33,429.46 C3289.68,433.31 3297.14,436.91 3304.5,440 C3403.49,481.58 3437.8,462.76 3538.5,500 C3548.88,503.84 3559.53,508.25 3570.06,512.92 " fill="none" id="users_answers&lt;-questions_options" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="3277.78,427.03,3283.8441,434.7906,3282.1934,429.38,3287.604,427.7293,3277.78,427.03" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5eca03851c5c91e309f0bf3bf81020fc]
+reverse link users_projects to courses_projects--><path d="M1911.17,392.2 C2037.67,408.69 2293.56,445.77 2505.5,500 C2534.89,507.52 2566.29,517.43 2594.85,527.2 " fill="none" id="users_projects&lt;-courses_projects" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1905.99,391.52,1914.4008,396.6442,1910.9485,392.163,1915.4297,388.7107,1905.99,391.52" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ad231697b2645390b0b2d9205b40e313]
+reverse link users_projects to users--><path d="M1754.3,391.79 C1639.16,407.26 1432.83,442.41 1388.5,500 C1312.32,598.96 1311.71,682.51 1388.5,781 C1437.34,843.64 1661.23,879.5 1789.86,895.27 " fill="none" id="users_projects&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1759.37,391.11,1749.9224,388.3274,1754.4134,391.7671,1750.9737,396.258,1759.37,391.11" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2c6901eed20416ba981c286757be65b0]
+reverse link users_subscriptions to purchases--><path d="M1528.77,608.47 C1551.61,637.62 1581.45,675.72 1602.32,702.36 " fill="none" id="users_subscriptions&lt;-purchases" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1525.45,604.24,1527.8636,613.7885,1528.5385,608.1721,1534.1549,608.847,1525.45,604.24" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f58627eb8a008746adfbfe2f26dc25fe]
+reverse link users_subscriptions to subscriptions--><path d="M1489.35,609.21 C1484.85,640.79 1478.9,682.54 1475.14,708.97 " fill="none" id="users_subscriptions&lt;-subscriptions" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1490.05,604.24,1484.8275,612.5902,1489.3489,609.1906,1492.7485,613.712,1490.05,604.24" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[978e3ca63e974150532dc6ad62260dd5]
+reverse link users_projects_history to users_projects--><path d="M1832.5,261.98 C1832.5,284.82 1832.5,312.76 1832.5,335.78 " fill="none" id="users_projects_history&lt;-users_projects" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1832.5,256.89,1828.5,265.89,1832.5,261.89,1836.5,265.89,1832.5,256.89" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1ef3c1d587210f436e3fb63e29567cef]
+reverse link users_academy to users--><path d="M543.65,777.53 C547.96,778.8 552.26,779.97 556.5,781 C675.68,810.02 1509.01,876.23 1789.56,897.95 " fill="none" id="users_academy&lt;-users" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="538.59,775.99,546.0347,782.438,543.3732,777.4464,548.3649,774.7849,538.59,775.99" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8c562aa234e06080701b70ec0dcde66d]
+reverse link users_academy to degrees--><path d="M389.09,784.63 C355.32,812.94 313.55,847.95 283.79,872.9 " fill="none" id="users_academy&lt;-degrees" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="393.16,781.21,383.6902,783.9161,389.3247,784.4179,388.8229,790.0525,393.16,781.21" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[914aea37efad99f3897f057bd7f4504f]
+@startuml entidad-relación
+hide methods
+!define nn(x) <u>x</u>
+!define u(x) <color:green>x</color>
+!define fk(x) <b>x</b> INT
+!define pk(x) nn(u(<b>x</b>)) INT
+
+'entities
+class roles {
+	pk(rol_id)
+	nn(u(rol_name)) VARCHAR(16)
+}
+
+class countries {
+	pk(country_id)
+	nn(u(country_code)) VARCHAR(3)
+	nn(country_name) VARCHAR(32)
+	nn(country_fullname) VARCHAR(128)
+}
+
+class degrees {
+	pk(degree_id)
+	nn(u(degree_name)) VARCHAR(64)
+	degree_description TEXT
+	degree_class VARCHAR(20)
+}
+
+class insignias {
+	pk(insignia_id)
+	nn(u(insignia_name)) VARCHAR(64)
+	nn(insignia_description) TEXT
+}
+
+class chats {
+	pk(chat_id)
+	nn(log_data) TEXT
+}
+
+class users {
+	pk(user_id)
+	nn(u(user_email)) VARCHAR(64)
+	nn(user_password) VARCHAR(128)
+	nn(user_firstname) VARCHAR(32)
+	nn(user_lastname) VARCHAR(32)
+	user_gender VARCHAR(16)
+	user_image VARCHAR(64)
+	user_birthdate DATE
+	user_phone VARCHAR(24)
+	u(user_license) VARCHAR(32)
+	u(user_rfc) VARCHAR(16)
+	user_biography TEXT
+	user_months SMALLINT
+	nn(user_status) VARCHAR(32)
+	fk(country_id)
+	fk(nn(rol_id))
+	user_lastaction TIMESTAMPTZ
+}
+
+class users_degrees {
+	pk(user_degree_id)
+	fk(nn(user_id))
+	fk(nn(degree_id))
+	nn(user_degree_name) VARCHAR(64)
+	nn(user_degree_institution) VARCHAR(128)
+}
+
+class users_insignias {
+	pk(user_insignia_id)
+	fk(nn(user_id))
+	fk(nn(insignia_id))
+}
+
+class users_chats {
+	pk(chat_user_id)
+	fk(nn(chat_id))
+	fk(nn(user_id))
+}
+
+class languages {
+	pk(language_id)
+	nn(language_name) VARCHAR(32)
+	nn(language_iso) VARCHAR(3)
+}
+
+class users_languages {
+	pk(user_language_id)
+	fk(nn(user_id))
+	fk(nn(language_id))
+}
+
+class users_research {
+	pk(user_research_id)
+	fk(nn(user_id))
+	nn(user_research_type) VARCHAR(32)
+	nn(user_research_reference) TEXT
+	nn(user_research_year) INT
+}
+
+class users_managements {
+	pk(user_management_id)
+	fk(nn(user_id))
+	nn(user_management_job) VARCHAR(128)
+	nn(user_management_institution) VARCHAR(128)
+	nn(user_management_months) SMALLINT
+}
+
+class users_expertises {
+	pk(user_expertise_id)
+	fk(nn(user_id))
+	nn(user_expertise_name) VARCHAR(128)
+	nn(user_expertise_months) SMALLINT
+}
+
+class users_institutions {
+	pk(user_institution_id)
+	fk(nn(user_id))
+	nn(user_institution_name) VARCHAR(128)
+}
+
+class users_signatures {
+	pk(user_signature_id)
+	fk(nn(user_id))
+	fk(nn(degree_id))
+	nn(user_signature_name) VARCHAR(128)
+}
+
+class courses_levels {
+	pk(course_level_id)
+	nn(course_level_name) VARCHAR(32)
+	nn(course_level_description) TEXT
+}
+
+class resources_types {
+	pk(resource_type_id)
+	nn(u(resource_type_name)) VARCHAR(32)
+	resource_type_description TEXT
+}
+
+class quizzes {
+	pk(quiz_id)
+	nn(quiz_attemps) SMALLINT
+	nn(quiz_approval) SMALLINT
+}
+
+class questions_types {
+	pk(question_type_id)
+	nn(question_type_name) VARCHAR(32)
+	nn(question_type_description) TEXT
+}
+
+class questions {
+	pk(question_id)
+	fk(nn(quiz_id))
+	nn(question_type_id) INT  REFERENCES questions_types(question_type_id)
+	nn(question) TEXT
+	question_resource TEXT
+}
+
+class questions_options {
+	pk(question_option_id)
+	fk(nn(question_id))
+	nn(question_option) TEXT
+	question_option_resource TEXT
+	nn(question_option_correct) BOOLEAN
+}
+
+class courses {
+	pk(course_id)
+	fk(nn(course_level_id))
+	fk(nn(teacher_id))
+	nn(course_name) VARCHAR(128)
+	nn(course_description) TEXT
+}
+
+class synchronous_classes {
+	pk(synchronous_class_id)
+	fk(nn(course_id))
+	nn(synchronous_class_name) VARCHAR(64)
+	nn(synchronous_class_description) TEXT
+	nn(synchronous_class_scheduled) TIMESTAMPTZ
+	nn(synchronous_class_duration) INT
+	nn(synchronous_class_finished) BOOLEAN
+}
+
+class synchronous_classes_resources {
+	pk(synchronous_class_resource_id)
+	fk(nn(synchronous_class_id))
+	fk(nn(resource_type_id))
+	nn(synchronous_class_resource_data) TEXT
+}
+
+class courses_projects {
+	pk(course_project_id)
+	fk(nn(course_id))
+	nn(course_project_name) VARCHAR(128)
+	nn(course_project_description) TEXT
+}
+
+class courses_reviews {
+	pk(course_review_id)
+	fk(nn(course_id))
+	fk(nn(user_id))
+	fk(nn(rol_id))
+	nn(course_review_rating) SMALLINT
+	nn(course_review_message) TEXT
+}
+
+class courses_datasheets {
+	pk(course_datasheet_id)
+	fk(nn(course_id))
+	fk(nn(academic_id))
+	nn(course_datasheet_sentence) VARCHAR(128)
+}
+
+class courses_forums {
+	pk(course_forum_id)
+	fk(nn(course_id))
+	nn(course_forum_topic) VARCHAR(128)
+	nn(course_forum_description) TEXT
+}
+
+class courses_forums_comments {
+	pk(course_forum_comment_id)
+	fk(nn(course_forum_id))
+	fk(nn(user_id))
+	fk(nn(rol_id))
+	nn(course_forum_comment_message) TEXT
+}
+
+class modules {
+	pk(module_id)
+	fk(nn(course_id))
+	nn(module_sort) SMALLINT
+	nn(module_name) VARCHAR(64)
+	nn(module_description) TEXT
+	fk(nn(quiz_id))
+	fk(nn(exercise_id))
+}
+
+class modules_feedback {
+	pk(class_feedback_id)
+	fk(nn(module_id))
+	fk(nn(academic_id))
+	nn(class_feedback_message) TEXT
+	nn(class_feedback_corrected) BOOLEAN
+}
+
+class modules_resources {
+	pk(module_resource_id)
+	fk(nn(module_id))
+	fk(nn(resource_type_id))
+	nn(module_resource_data) TEXT
+}
+
+class topics {
+	pk(topic_id)
+	fk(nn(module_id))
+	nn(topic_sort) SMALLINT
+	nn(topic_name) VARCHAR(128)
+	nn(topic_description) TEXT
+}
+
+class topics_resources {
+	pk(topic_resource_id)
+	fk(nn(topic_id))
+	fk(nn(resource_type_id))
+	nn(topic_resource_data) TEXT
+}
+
+class classes {
+	pk(class_id)
+	fk(nn(topic_id))
+	nn(class_sort) SMALLINT
+	nn(class_name) VARCHAR(64)
+	nn(class_description) TEXT
+}
+
+class classes_resources {
+	pk(class_resource_id)
+	fk(nn(class_id))
+	fk(nn(resource_type_id))
+	nn(class_resource_data) TEXT
+	class_resource_sort SMALLINT
+}
+
+class classes_comments {
+	pk(class_comment_id)
+	fk(nn(class_id))
+	fk(nn(user_id))
+	fk(nn(rol_id))
+	nn(class_comment_message) TEXT
+}
+
+class test_classes {
+	pk(test_class_id)
+	fk(nn(teacher_id))
+	fk(nn(academic_id))
+	nn(test_class_type) INT
+	nn(test_class_name) VARCHAR(64)
+	nn(test_class_description) VARCHAR(64)
+	test_class_feedback TEXT
+	fk(test_class_quizz)
+	nn(test_class_data) TEXT
+}
+
+class subscriptions {
+	pk(subscription_id)
+	nn(u(subscription_name)) VARCHAR(64)
+	nn(subscription_price) DECIMAL(8,2)
+}
+
+class purchases {
+	pk(purchase_id)
+	fk(nn(user_id))
+	nn(purchase_total) DECIMAL(8,2)
+	nn(purchase_discount) DECIMAL(8,2)
+	nn(purchase_currency) DECIMAL(8,2)
+	nn(purchase_currency_value) DECIMAL(8,2)
+}
+
+class purchases_products {
+	pk(purchase_product_id)
+	fk(nn(purchase_id))
+	purchase_product_name VARCHAR(64)
+	nn(purchase_product_price) DECIMAL(8,2)
+}
+
+class users_courses {
+	pk(user_course_id)
+	fk(nn(purchase_id))
+	fk(nn(course_id))
+	fk(nn(user_id))
+	nn(user_course_approved) BOOLEAN
+}
+
+class users_quizzes {
+	pk(user_quiz_id)
+	fk(nn(user_id))
+	fk(nn(quiz_id))
+	nn(user_quiz_aproved) BOOLEAN
+}
+
+class users_answers {
+	pk(user_answer_id)
+	fk(nn(user_quiz_id))
+	fk(nn(user_id))
+	fk(nn(question_option_id))
+}
+
+class users_projects {
+	pk(user_project_id)
+	fk(nn(course_project_id))
+	fk(nn(user_id))
+	nn(user_project_type) VARCHAR(64)
+	nn(user_project_data) TEXT
+}
+
+class users_subscriptions {
+	pk(users_subscriptions_id)
+	fk(nn(purchase_id))
+	fk(nn(subscription_id))
+}
+
+class users_projects_history {
+	pk(user_project_history_id)
+	fk(nn(user_project_id))
+	nn(user_project_type) VARCHAR(64)
+	nn(user_project_data) TEXT
+}
+
+
+class users_academy {
+	pk(user_academy_id)
+	fk(nn(user_id))
+	fk(nn(degree_id))
+	nn(user_academy_name) VARCHAR(64)
+	nn(user_academy_institution) VARCHAR(64)
+	nn(user_academy_year) SMALLINT
+}
+
+
+
+'relation
+users <- - countries
+users <- - roles
+users_degrees <- - users
+users_degrees <- - degrees
+users_insignias <- - users
+users_insignias <- - insignias
+users_chats <- - chats
+users_chats <- - users
+users_languages <- - users
+users_languages <- - languages
+users_research <- - users
+users_managements <- - users
+users_expertises <- - users
+users_institutions <- - users
+users_signatures <- - users
+users_signatures <- - degrees
+questions <- - quizzes
+questions_options <- - questions
+courses <- - courses_levels
+courses <- - users
+synchronous_classes <- - courses
+synchronous_classes_resources <- - synchronous_classes
+synchronous_classes_resources <- - resources_types
+courses_projects <- - courses
+courses_reviews <- - courses
+courses_reviews <- - users
+courses_reviews <- - roles
+courses_datasheets <- - courses
+courses_datasheets <- - users
+courses_forums <- - courses
+courses_forums_comments <- - courses_forums
+courses_forums_comments <- - users
+courses_forums_comments <- - roles
+modules <- - courses
+modules <- - quizzes
+modules <- - quizzes
+modules_feedback <- - modules
+modules_feedback <- - users
+modules_resources <- - modules
+modules_resources <- - resources_types
+topics <- - modules
+topics_resources <- - topics
+topics_resources <- - resources_types
+classes <- - topics
+classes_resources <- - classes
+classes_resources <- - resources_types
+classes_comments <- - classes
+classes_comments <- - users
+classes_comments <- - roles
+test_classes <- - users
+test_classes <- - users
+test_classes <- - users_quizzes
+purchases <- - users
+purchases_products <- - purchases
+users_courses <- - purchases
+users_courses <- - courses
+users_courses <- - users
+users_quizzes <- - users
+users_quizzes <- - quizzes
+users_answers <- - users_quizzes
+users_answers <- - users
+users_answers <- - questions_options
+users_projects <- - courses_projects
+users_projects <- - users
+users_subscriptions <- - purchases
+users_subscriptions <- - subscriptions
+users_projects_history <- - users_projects
+users_academy <- - users
+users_academy <- - degrees
+
+
+@enduml
+
+@startuml entidad-relación
+hide methods
+
+class roles {
+	<u><color:green><b>rol_id</b></color></u> INT
+	<u><color:green>rol_name</color></u> VARCHAR(16)
+}
+
+class countries {
+	<u><color:green><b>country_id</b></color></u> INT
+	<u><color:green>country_code</color></u> VARCHAR(3)
+	<u>country_name</u> VARCHAR(32)
+	<u>country_fullname</u> VARCHAR(128)
+}
+
+class degrees {
+	<u><color:green><b>degree_id</b></color></u> INT
+	<u><color:green>degree_name</color></u> VARCHAR(64)
+	degree_description TEXT
+	degree_class VARCHAR(20)
+}
+
+class insignias {
+	<u><color:green><b>insignia_id</b></color></u> INT
+	<u><color:green>insignia_name</color></u> VARCHAR(64)
+	<u>insignia_description</u> TEXT
+}
+
+class chats {
+	<u><color:green><b>chat_id</b></color></u> INT
+	<u>log_data</u> TEXT
+}
+
+class users {
+	<u><color:green><b>user_id</b></color></u> INT
+	<u><color:green>user_email</color></u> VARCHAR(64)
+	<u>user_password</u> VARCHAR(128)
+	<u>user_firstname</u> VARCHAR(32)
+	<u>user_lastname</u> VARCHAR(32)
+	user_gender VARCHAR(16)
+	user_image VARCHAR(64)
+	user_birthdate DATE
+	user_phone VARCHAR(24)
+	<color:green>user_license</color> VARCHAR(32)
+	<color:green>user_rfc</color> VARCHAR(16)
+	user_biography TEXT
+	user_months SMALLINT
+	<u>user_status</u> VARCHAR(32)
+	<b>country_id</b> INT
+	<b><u>rol_id</u></b> INT
+	user_lastaction TIMESTAMPTZ
+}
+
+class users_degrees {
+	<u><color:green><b>user_degree_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<b><u>degree_id</u></b> INT
+	<u>user_degree_name</u> VARCHAR(64)
+	<u>user_degree_institution</u> VARCHAR(128)
+}
+
+class users_insignias {
+	<u><color:green><b>user_insignia_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<b><u>insignia_id</u></b> INT
+}
+
+class users_chats {
+	<u><color:green><b>chat_user_id</b></color></u> INT
+	<b><u>chat_id</u></b> INT
+	<b><u>user_id</u></b> INT
+}
+
+class languages {
+	<u><color:green><b>language_id</b></color></u> INT
+	<u>language_name</u> VARCHAR(32)
+	<u>language_iso</u> VARCHAR(3)
+}
+
+class users_languages {
+	<u><color:green><b>user_language_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<b><u>language_id</u></b> INT
+}
+
+class users_research {
+	<u><color:green><b>user_research_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<u>user_research_type</u> VARCHAR(32)
+	<u>user_research_reference</u> TEXT
+	<u>user_research_year</u> INT
+}
+
+class users_managements {
+	<u><color:green><b>user_management_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<u>user_management_job</u> VARCHAR(128)
+	<u>user_management_institution</u> VARCHAR(128)
+	<u>user_management_months</u> SMALLINT
+}
+
+class users_expertises {
+	<u><color:green><b>user_expertise_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<u>user_expertise_name</u> VARCHAR(128)
+	<u>user_expertise_months</u> SMALLINT
+}
+
+class users_institutions {
+	<u><color:green><b>user_institution_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<u>user_institution_name</u> VARCHAR(128)
+}
+
+class users_signatures {
+	<u><color:green><b>user_signature_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<b><u>degree_id</u></b> INT
+	<u>user_signature_name</u> VARCHAR(128)
+}
+
+class courses_levels {
+	<u><color:green><b>course_level_id</b></color></u> INT
+	<u>course_level_name</u> VARCHAR(32)
+	<u>course_level_description</u> TEXT
+}
+
+class resources_types {
+	<u><color:green><b>resource_type_id</b></color></u> INT
+	<u><color:green>resource_type_name</color></u> VARCHAR(32)
+	resource_type_description TEXT
+}
+
+class quizzes {
+	<u><color:green><b>quiz_id</b></color></u> INT
+	<u>quiz_attemps</u> SMALLINT
+	<u>quiz_approval</u> SMALLINT
+}
+
+class questions_types {
+	<u><color:green><b>question_type_id</b></color></u> INT
+	<u>question_type_name</u> VARCHAR(32)
+	<u>question_type_description</u> TEXT
+}
+
+class questions {
+	<u><color:green><b>question_id</b></color></u> INT
+	<b><u>quiz_id</u></b> INT
+	<u>question_type_id</u> INT  REFERENCES questions_types(question_type_id)
+	<u>question</u> TEXT
+	question_resource TEXT
+}
+
+class questions_options {
+	<u><color:green><b>question_option_id</b></color></u> INT
+	<b><u>question_id</u></b> INT
+	<u>question_option</u> TEXT
+	question_option_resource TEXT
+	<u>question_option_correct</u> BOOLEAN
+}
+
+class courses {
+	<u><color:green><b>course_id</b></color></u> INT
+	<b><u>course_level_id</u></b> INT
+	<b><u>teacher_id</u></b> INT
+	<u>course_name</u> VARCHAR(128)
+	<u>course_description</u> TEXT
+}
+
+class synchronous_classes {
+	<u><color:green><b>synchronous_class_id</b></color></u> INT
+	<b><u>course_id</u></b> INT
+	<u>synchronous_class_name</u> VARCHAR(64)
+	<u>synchronous_class_description</u> TEXT
+	<u>synchronous_class_scheduled</u> TIMESTAMPTZ
+	<u>synchronous_class_duration</u> INT
+	<u>synchronous_class_finished</u> BOOLEAN
+}
+
+class synchronous_classes_resources {
+	<u><color:green><b>synchronous_class_resource_id</b></color></u> INT
+	<b><u>synchronous_class_id</u></b> INT
+	<b><u>resource_type_id</u></b> INT
+	<u>synchronous_class_resource_data</u> TEXT
+}
+
+class courses_projects {
+	<u><color:green><b>course_project_id</b></color></u> INT
+	<b><u>course_id</u></b> INT
+	<u>course_project_name</u> VARCHAR(128)
+	<u>course_project_description</u> TEXT
+}
+
+class courses_reviews {
+	<u><color:green><b>course_review_id</b></color></u> INT
+	<b><u>course_id</u></b> INT
+	<b><u>user_id</u></b> INT
+	<b><u>rol_id</u></b> INT
+	<u>course_review_rating</u> SMALLINT
+	<u>course_review_message</u> TEXT
+}
+
+class courses_datasheets {
+	<u><color:green><b>course_datasheet_id</b></color></u> INT
+	<b><u>course_id</u></b> INT
+	<b><u>academic_id</u></b> INT
+	<u>course_datasheet_sentence</u> VARCHAR(128)
+}
+
+class courses_forums {
+	<u><color:green><b>course_forum_id</b></color></u> INT
+	<b><u>course_id</u></b> INT
+	<u>course_forum_topic</u> VARCHAR(128)
+	<u>course_forum_description</u> TEXT
+}
+
+class courses_forums_comments {
+	<u><color:green><b>course_forum_comment_id</b></color></u> INT
+	<b><u>course_forum_id</u></b> INT
+	<b><u>user_id</u></b> INT
+	<b><u>rol_id</u></b> INT
+	<u>course_forum_comment_message</u> TEXT
+}
+
+class modules {
+	<u><color:green><b>module_id</b></color></u> INT
+	<b><u>course_id</u></b> INT
+	<u>module_sort</u> SMALLINT
+	<u>module_name</u> VARCHAR(64)
+	<u>module_description</u> TEXT
+	<b><u>quiz_id</u></b> INT
+	<b><u>exercise_id</u></b> INT
+}
+
+class modules_feedback {
+	<u><color:green><b>class_feedback_id</b></color></u> INT
+	<b><u>module_id</u></b> INT
+	<b><u>academic_id</u></b> INT
+	<u>class_feedback_message</u> TEXT
+	<u>class_feedback_corrected</u> BOOLEAN
+}
+
+class modules_resources {
+	<u><color:green><b>module_resource_id</b></color></u> INT
+	<b><u>module_id</u></b> INT
+	<b><u>resource_type_id</u></b> INT
+	<u>module_resource_data</u> TEXT
+}
+
+class topics {
+	<u><color:green><b>topic_id</b></color></u> INT
+	<b><u>module_id</u></b> INT
+	<u>topic_sort</u> SMALLINT
+	<u>topic_name</u> VARCHAR(128)
+	<u>topic_description</u> TEXT
+}
+
+class topics_resources {
+	<u><color:green><b>topic_resource_id</b></color></u> INT
+	<b><u>topic_id</u></b> INT
+	<b><u>resource_type_id</u></b> INT
+	<u>topic_resource_data</u> TEXT
+}
+
+class classes {
+	<u><color:green><b>class_id</b></color></u> INT
+	<b><u>topic_id</u></b> INT
+	<u>class_sort</u> SMALLINT
+	<u>class_name</u> VARCHAR(64)
+	<u>class_description</u> TEXT
+}
+
+class classes_resources {
+	<u><color:green><b>class_resource_id</b></color></u> INT
+	<b><u>class_id</u></b> INT
+	<b><u>resource_type_id</u></b> INT
+	<u>class_resource_data</u> TEXT
+	class_resource_sort SMALLINT
+}
+
+class classes_comments {
+	<u><color:green><b>class_comment_id</b></color></u> INT
+	<b><u>class_id</u></b> INT
+	<b><u>user_id</u></b> INT
+	<b><u>rol_id</u></b> INT
+	<u>class_comment_message</u> TEXT
+}
+
+class test_classes {
+	<u><color:green><b>test_class_id</b></color></u> INT
+	<b><u>teacher_id</u></b> INT
+	<b><u>academic_id</u></b> INT
+	<u>test_class_type</u> INT
+	<u>test_class_name</u> VARCHAR(64)
+	<u>test_class_description</u> VARCHAR(64)
+	test_class_feedback TEXT
+	<b>test_class_quizz</b> INT
+	<u>test_class_data</u> TEXT
+}
+
+class subscriptions {
+	<u><color:green><b>subscription_id</b></color></u> INT
+	<u><color:green>subscription_name</color></u> VARCHAR(64)
+	<u>subscription_price</u> DECIMAL(8,2)
+}
+
+class purchases {
+	<u><color:green><b>purchase_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<u>purchase_total</u> DECIMAL(8,2)
+	<u>purchase_discount</u> DECIMAL(8,2)
+	<u>purchase_currency</u> DECIMAL(8,2)
+	<u>purchase_currency_value</u> DECIMAL(8,2)
+}
+
+class purchases_products {
+	<u><color:green><b>purchase_product_id</b></color></u> INT
+	<b><u>purchase_id</u></b> INT
+	purchase_product_name VARCHAR(64)
+	<u>purchase_product_price</u> DECIMAL(8,2)
+}
+
+class users_courses {
+	<u><color:green><b>user_course_id</b></color></u> INT
+	<b><u>purchase_id</u></b> INT
+	<b><u>course_id</u></b> INT
+	<b><u>user_id</u></b> INT
+	<u>user_course_approved</u> BOOLEAN
+}
+
+class users_quizzes {
+	<u><color:green><b>user_quiz_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<b><u>quiz_id</u></b> INT
+	<u>user_quiz_aproved</u> BOOLEAN
+}
+
+class users_answers {
+	<u><color:green><b>user_answer_id</b></color></u> INT
+	<b><u>user_quiz_id</u></b> INT
+	<b><u>user_id</u></b> INT
+	<b><u>question_option_id</u></b> INT
+}
+
+class users_projects {
+	<u><color:green><b>user_project_id</b></color></u> INT
+	<b><u>course_project_id</u></b> INT
+	<b><u>user_id</u></b> INT
+	<u>user_project_type</u> VARCHAR(64)
+	<u>user_project_data</u> TEXT
+}
+
+class users_subscriptions {
+	<u><color:green><b>users_subscriptions_id</b></color></u> INT
+	<b><u>purchase_id</u></b> INT
+	<b><u>subscription_id</u></b> INT
+}
+
+class users_projects_history {
+	<u><color:green><b>user_project_history_id</b></color></u> INT
+	<b><u>user_project_id</u></b> INT
+	<u>user_project_type</u> VARCHAR(64)
+	<u>user_project_data</u> TEXT
+}
+
+
+class users_academy {
+	<u><color:green><b>user_academy_id</b></color></u> INT
+	<b><u>user_id</u></b> INT
+	<b><u>degree_id</u></b> INT
+	<u>user_academy_name</u> VARCHAR(64)
+	<u>user_academy_institution</u> VARCHAR(64)
+	<u>user_academy_year</u> SMALLINT
+}
+
+
+
+users <- - countries
+users <- - roles
+users_degrees <- - users
+users_degrees <- - degrees
+users_insignias <- - users
+users_insignias <- - insignias
+users_chats <- - chats
+users_chats <- - users
+users_languages <- - users
+users_languages <- - languages
+users_research <- - users
+users_managements <- - users
+users_expertises <- - users
+users_institutions <- - users
+users_signatures <- - users
+users_signatures <- - degrees
+questions <- - quizzes
+questions_options <- - questions
+courses <- - courses_levels
+courses <- - users
+synchronous_classes <- - courses
+synchronous_classes_resources <- - synchronous_classes
+synchronous_classes_resources <- - resources_types
+courses_projects <- - courses
+courses_reviews <- - courses
+courses_reviews <- - users
+courses_reviews <- - roles
+courses_datasheets <- - courses
+courses_datasheets <- - users
+courses_forums <- - courses
+courses_forums_comments <- - courses_forums
+courses_forums_comments <- - users
+courses_forums_comments <- - roles
+modules <- - courses
+modules <- - quizzes
+modules <- - quizzes
+modules_feedback <- - modules
+modules_feedback <- - users
+modules_resources <- - modules
+modules_resources <- - resources_types
+topics <- - modules
+topics_resources <- - topics
+topics_resources <- - resources_types
+classes <- - topics
+classes_resources <- - classes
+classes_resources <- - resources_types
+classes_comments <- - classes
+classes_comments <- - users
+classes_comments <- - roles
+test_classes <- - users
+test_classes <- - users
+test_classes <- - users_quizzes
+purchases <- - users
+purchases_products <- - purchases
+users_courses <- - purchases
+users_courses <- - courses
+users_courses <- - users
+users_quizzes <- - users
+users_quizzes <- - quizzes
+users_answers <- - users_quizzes
+users_answers <- - users
+users_answers <- - questions_options
+users_projects <- - courses_projects
+users_projects <- - users
+users_subscriptions <- - purchases
+users_subscriptions <- - subscriptions
+users_projects_history <- - users_projects
+users_academy <- - users
+users_academy <- - degrees
+
+
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 04:35:57 CDT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.7+10-post-Ubuntu-3ubuntu1
+Operating System: Linux
+Default Encoding: UTF-8
+Language: es
+Country: MX
+--></g></svg>

@@ -1,0 +1,455 @@
+@startuml entidad-relación
+hide methods
+!define nn(x) <u>x</u>
+!define u(x) <color:green>x</color>
+!define fk(x) <b>x</b> INT
+!define pk(x) nn(u(<b>x</b>)) INT
+
+'entities
+class roles {
+	pk(rol_id)
+	nn(u(rol_name)) VARCHAR[16]
+}
+
+class countries {
+	pk(country_id)
+	nn(u(country_code)) VARCHAR[3]
+	nn(country_name) VARCHAR[32]
+	nn(country_fullname) VARCHAR[128]
+}
+
+class degrees {
+	pk(degree_id)
+	nn(u(degree_name)) VARCHAR[64]
+	degree_description TEXT
+	degree_class VARCHAR[20]
+}
+
+class insignias {
+	pk(insignia_id)
+	nn(u(insignia_name)) VARCHAR[64]
+	nn(insignia_description) TEXT
+}
+
+class chats {
+	pk(chat_id)
+	nn(log_data) TEXT
+}
+
+class users {
+	pk(user_id)
+	nn(u(user_email)) VARCHAR[64]
+	nn(user_password) VARCHAR[128]
+	nn(user_firstname) VARCHAR[32]
+	nn(user_lastname) VARCHAR[32]
+	user_gender VARCHAR[16]
+	user_image VARCHAR[64]
+	user_birthdate DATE
+	user_phone VARCHAR[24]
+	u(user_license) VARCHAR[32]
+	u(user_rfc) VARCHAR[16]
+	user_biography TEXT
+	user_months SMALLINT
+	nn(user_status) VARCHAR[32]
+	fk(country_id)
+	fk(nn(rol_id))
+	user_lastaction TIMESTAMPTZ
+}
+
+class users_degrees {
+	pk(user_degree_id)
+	fk(nn(user_id))
+	fk(nn(degree_id))
+	nn(user_degree_name) VARCHAR[64]
+	nn(user_degree_institution) VARCHAR[128]
+}
+
+class users_insignias {
+	pk(user_insignia_id)
+	fk(nn(user_id))
+	fk(nn(insignia_id))
+}
+
+class users_chats {
+	pk(chat_user_id)
+	fk(nn(chat_id))
+	fk(nn(user_id))
+}
+
+class languages {
+	pk(language_id)
+	nn(language_name) VARCHAR[32]
+	nn(language_iso) VARCHAR[3]
+}
+
+class users_languages {
+	pk(user_language_id)
+	fk(nn(user_id))
+	fk(nn(language_id))
+}
+
+class users_research {
+	pk(user_research_id)
+	fk(nn(user_id))
+	nn(user_research_type) VARCHAR[32]
+	nn(user_research_reference) TEXT
+	nn(user_research_year) INT
+}
+
+class users_managements {
+	pk(user_management_id)
+	fk(nn(user_id))
+	nn(user_management_job) VARCHAR[128]
+	nn(user_management_institution) VARCHAR[128]
+	nn(user_management_months) SMALLINT
+}
+
+class users_expertises {
+	pk(user_expertise_id)
+	fk(nn(user_id))
+	nn(user_expertise_name) VARCHAR[128]
+	nn(user_expertise_months) SMALLINT
+}
+
+class users_institutions {
+	pk(user_institution_id)
+	fk(nn(user_id))
+	nn(user_institution_name) VARCHAR[128]
+}
+
+class users_signatures {
+	pk(user_signature_id)
+	fk(nn(user_id))
+	fk(nn(degree_id))
+	nn(user_signature_name) VARCHAR[128]
+}
+
+class courses_levels {
+	pk(course_level_id)
+	nn(course_level_name) VARCHAR[32]
+	nn(course_level_description) TEXT
+}
+
+class resources_types {
+	pk(resource_type_id)
+	nn(u(resource_type_name)) VARCHAR[32]
+	resource_type_description TEXT
+}
+
+class quizzes {
+	pk(quiz_id)
+	nn(quiz_attemps) SMALLINT
+	nn(quiz_approval) SMALLINT
+}
+
+class questions_types {
+	pk(question_type_id)
+	nn(question_type_name) VARCHAR[32]
+	nn(question_type_description) TEXT
+}
+
+class questions {
+	pk(question_id)
+	fk(nn(quiz_id))
+	nn(question_type_id) INT  REFERENCES questions_types(question_type_id)
+	nn(question) TEXT
+	question_resource TEXT
+}
+
+class questions_options {
+	pk(question_option_id)
+	fk(nn(question_id))
+	nn(question_option) TEXT
+	question_option_resource TEXT
+	nn(question_option_correct) BOOLEAN
+}
+
+class courses {
+	pk(course_id)
+	fk(nn(course_level_id))
+	fk(nn(teacher_id))
+	nn(course_name) VARCHAR[128]
+	nn(course_description) TEXT
+}
+
+class synchronous_classes {
+	pk(synchronous_class_id)
+	fk(nn(course_id))
+	nn(synchronous_class_name) VARCHAR[64]
+	nn(synchronous_class_description) TEXT
+	nn(synchronous_class_scheduled) TIMESTAMPTZ
+	nn(synchronous_class_duration) INT
+	nn(synchronous_class_finished) BOOLEAN
+}
+
+class synchronous_classes_resources {
+	pk(synchronous_class_resource_id)
+	fk(nn(synchronous_class_id))
+	fk(nn(resource_type_id))
+	nn(synchronous_class_resource_data) TEXT
+}
+
+class courses_projects {
+	pk(course_project_id)
+	fk(nn(course_id))
+	nn(course_project_name) VARCHAR[128]
+	nn(course_project_description) TEXT
+}
+
+class courses_reviews {
+	pk(course_review_id)
+	fk(nn(course_id))
+	fk(nn(user_id))
+	fk(nn(rol_id))
+	nn(course_review_rating) SMALLINT
+	nn(course_review_message) TEXT
+}
+
+class courses_datasheets {
+	pk(course_datasheet_id)
+	fk(nn(course_id))
+	fk(nn(academic_id))
+	nn(course_datasheet_sentence) VARCHAR[128]
+}
+
+class courses_forums {
+	pk(course_forum_id)
+	fk(nn(course_id))
+	nn(course_forum_topic) VARCHAR[128]
+	nn(course_forum_description) TEXT
+}
+
+class courses_forums_comments {
+	pk(course_forum_comment_id)
+	fk(nn(course_forum_id))
+	fk(nn(user_id))
+	fk(nn(rol_id))
+	nn(course_forum_comment_message) TEXT
+}
+
+class modules {
+	pk(module_id)
+	fk(nn(course_id))
+	nn(module_sort) SMALLINT
+	nn(module_name) VARCHAR[64]
+	nn(module_description) TEXT
+	fk(nn(quiz_id))
+	fk(nn(exercise_id))
+}
+
+class modules_feedback {
+	pk(class_feedback_id)
+	fk(nn(module_id))
+	fk(nn(academic_id))
+	nn(class_feedback_message) TEXT
+	nn(class_feedback_corrected) BOOLEAN
+}
+
+class modules_resources {
+	pk(module_resource_id)
+	fk(nn(module_id))
+	fk(nn(resource_type_id))
+	nn(module_resource_data) TEXT
+}
+
+class topics {
+	pk(topic_id)
+	fk(nn(module_id))
+	nn(topic_sort) SMALLINT
+	nn(topic_name) VARCHAR[128]
+	nn(topic_description) TEXT
+}
+
+class topics_resources {
+	pk(topic_resource_id)
+	fk(nn(topic_id))
+	fk(nn(resource_type_id))
+	nn(topic_resource_data) TEXT
+}
+
+class classes {
+	pk(class_id)
+	fk(nn(topic_id))
+	nn(class_sort) SMALLINT
+	nn(class_name) VARCHAR[64]
+	nn(class_description) TEXT
+}
+
+class classes_resources {
+	pk(class_resource_id)
+	fk(nn(class_id))
+	fk(nn(resource_type_id))
+	nn(class_resource_data) TEXT
+	class_resource_sort SMALLINT
+}
+
+class classes_comments {
+	pk(class_comment_id)
+	fk(nn(class_id))
+	fk(nn(user_id))
+	fk(nn(rol_id))
+	nn(class_comment_message) TEXT
+}
+
+class test_classes {
+	pk(test_class_id)
+	fk(nn(teacher_id))
+	fk(nn(academic_id))
+	nn(test_class_type) INT
+	nn(test_class_name) VARCHAR[64]
+	nn(test_class_description) VARCHAR[64]
+	test_class_feedback TEXT
+	fk(test_class_quizz)
+	nn(test_class_data) TEXT
+}
+
+class subscriptions {
+	pk(subscription_id)
+	nn(u(subscription_name)) VARCHAR[64]
+	nn(subscription_price) DECIMAL(8,2)
+}
+
+class purchases {
+	pk(purchase_id)
+	fk(nn(user_id))
+	nn(purchase_total) DECIMAL(8,2)
+	nn(purchase_discount) DECIMAL(8,2)
+	nn(purchase_currency) DECIMAL(8,2)
+	nn(purchase_currency_value) DECIMAL(8,2)
+}
+
+class purchases_products {
+	pk(purchase_product_id)
+	fk(nn(purchase_id))
+	purchase_product_name VARCHAR[64]
+	nn(purchase_product_price) DECIMAL(8,2)
+}
+
+class users_courses {
+	pk(user_course_id)
+	fk(nn(purchase_id))
+	fk(nn(course_id))
+	fk(nn(user_id))
+	nn(user_course_approved) BOOLEAN
+}
+
+class users_quizzes {
+	pk(user_quiz_id)
+	fk(nn(user_id))
+	fk(nn(quiz_id))
+	nn(user_quiz_aproved) BOOLEAN
+}
+
+class users_answers {
+	pk(user_answer_id)
+	fk(nn(user_quiz_id))
+	fk(nn(user_id))
+	fk(nn(question_option_id))
+}
+
+class users_projects {
+	pk(user_project_id)
+	fk(nn(course_project_id))
+	fk(nn(user_id))
+	nn(user_project_type) VARCHAR[64]
+	nn(user_project_data) TEXT
+}
+
+class users_subscriptions {
+	pk(users_subscriptions_id)
+	fk(nn(purchase_id))
+	fk(nn(subscription_id))
+}
+
+class users_projects_history {
+	pk(user_project_history_id)
+	fk(nn(user_project_id))
+	nn(user_project_type) VARCHAR[64]
+	nn(user_project_data) TEXT
+}
+
+
+class users_academy {
+	pk(user_academy_id)
+	fk(nn(user_id))
+	fk(nn(degree_id))
+	nn(user_academy_name) VARCHAR[64]
+	nn(user_academy_institution) VARCHAR[64]
+	nn(user_academy_year) SMALLINT
+}
+
+
+
+'relation
+users <-- countries
+users <-- roles
+users_degrees <-- users
+users_degrees <-- degrees
+users_insignias <-- users
+users_insignias <-- insignias
+users_chats <-- chats
+users_chats <-- users
+users_languages <-- users
+users_languages <-- languages
+users_research <-- users
+users_managements <-- users
+users_expertises <-- users
+users_institutions <-- users
+users_signatures <-- users
+users_signatures <-- degrees
+questions <-- quizzes
+questions_options <-- questions
+courses <-- courses_levels
+courses <-- users
+synchronous_classes <-- courses
+synchronous_classes_resources <-- synchronous_classes
+synchronous_classes_resources <-- resources_types
+courses_projects <-- courses
+courses_reviews <-- courses
+courses_reviews <-- users
+courses_reviews <-- roles
+courses_datasheets <-- courses
+courses_datasheets <-- users
+courses_forums <-- courses
+courses_forums_comments <-- courses_forums
+courses_forums_comments <-- users
+courses_forums_comments <-- roles
+modules <-- courses
+modules <-- quizzes
+modules <-- quizzes
+modules_feedback <-- modules
+modules_feedback <-- users
+modules_resources <-- modules
+modules_resources <-- resources_types
+topics <-- modules
+topics_resources <-- topics
+topics_resources <-- resources_types
+classes <-- topics
+classes_resources <-- classes
+classes_resources <-- resources_types
+classes_comments <-- classes
+classes_comments <-- users
+classes_comments <-- roles
+test_classes <-- users
+test_classes <-- users
+test_classes <-- users_quizzes
+purchases <-- users
+purchases_products <-- purchases
+users_courses <-- purchases
+users_courses <-- courses
+users_courses <-- users
+users_quizzes <-- users
+users_quizzes <-- quizzes
+users_answers <-- users_quizzes
+users_answers <-- users
+users_answers <-- questions_options
+users_projects <-- courses_projects
+users_projects <-- users
+users_subscriptions <-- purchases
+users_subscriptions <-- subscriptions
+users_projects_history <-- users_projects
+users_academy <-- users
+users_academy <-- degrees
+
+
+@enduml
