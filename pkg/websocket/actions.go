@@ -63,6 +63,7 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("TEACHER_REGISTER", TeacherRegister, []string{})
 	io.AddActionHandler("TEACHER_LOGIN", TeacherLogin, []string{})
 	io.AddActionHandler("UPDATE_TEACHER_INFORMATION", UpdateTeacherInformation, []string{})
+	io.AddActionHandler("SET_TEACHER_TEST_CLASS", AddTeachersTestClass, []string{})
 
 	// academy actions
 }

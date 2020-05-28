@@ -484,29 +484,19 @@ ON classes_comments FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 CREATE TABLE test_classes (
 	test_class_id SERIAL PRIMARY KEY,
 	teacher_id INT NOT NULL REFERENCES users(user_id),
-	academic_id INT NOT NULL REFERENCES users(user_id),
-	test_class_type INT NOT NULL,
+	academic_id INT REFERENCES users(user_id),
+	test_class_type INT,
 	test_class_name VARCHAR(64) NOT NULL,
-	test_class_description VARCHAR(64) NOT NULL,
-	test_class_data TEXT NOT NULL,
+	test_class_description VARCHAR(64),
+	test_class_data VARCHAR(64) NOT NULL,
+	test_class_feedback_message TEXT,
+	test_class_status INT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
 CREATE TRIGGER update_test_classes_modified_at BEFORE UPDATE
 ON test_classes FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
-
-CREATE TABLE test_classes_feedback (
-	test_class_feedback_id SERIAL PRIMARY KEY,
-	test_class_id INT NOT NULL REFERENCES test_classes(test_class_id),
-	academic_id INT NOT NULL REFERENCES users(user_id),
-	test_class_feedback_message TEXT NOT NULL,
-	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	deleted_at TIMESTAMPTZ
-);
-CREATE TRIGGER update_test_classes_feedback_modified_at BEFORE UPDATE
-ON test_classes_feedback FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE subscriptions (
 	subscription_id SERIAL PRIMARY KEY,
