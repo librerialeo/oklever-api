@@ -75,7 +75,7 @@ CREATE TABLE users (
 	user_rfc VARCHAR(16) UNIQUE,
 	user_biography TEXT,
 	user_months SMALLINT,
-	user_accepted BOOLEAN NOT NULL DEFAULT FALSE,
+	user_status VARCHAR(32) NOT NULL DEFAULT "new",
 	country_id INT REFERENCES countries(country_id),
 	rol_id INT NOT NULL REFERENCES roles(rol_id),
 	user_lastaction TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,

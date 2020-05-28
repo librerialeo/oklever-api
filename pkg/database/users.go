@@ -24,7 +24,7 @@ type DBUser struct {
 	RFC            pgtype.Varchar     `json:"rfc"`
 	Biography      pgtype.Text        `json:"biography"`
 	TeachingMonths pgtype.Int2        `json:"teaching_months"`
-	Accepted       pgtype.Bool        `json:"accepted"`
+	Status         pgtype.Varchar     `json:"status"`
 	Country        pgtype.Int4        `json:"country"`
 	Rol            pgtype.Int4        `json:"rol"`
 	LastAction     pgtype.Timestamptz `json:"last_action"`
@@ -44,7 +44,7 @@ func (user *DBUser) ParseForUser() atreugo.JSON {
 		"rfc":             user.RFC.String,
 		"biography":       user.Biography.String,
 		"teaching_months": user.TeachingMonths.Int,
-		"accepted":        user.Accepted.Bool,
+		"status":          user.Status.String,
 		"country":         user.Country.Int,
 	}
 }
@@ -87,4 +87,9 @@ func (db *Database) SetUserBiography(userID int32, biography string) (pgx.Rows, 
 // SetUserImage get user biography
 func (db *Database) SetUserImage(userID int32, image string) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "UPDATE users SET user_image=$1 WHERE user_id = $2 RETURNING user_image", image, userID)
+}
+
+// SetUserStatus set user status
+func (db *Database) SetUserStatus(userID int32, status string) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "UPDATE users SET user_status = $1 WHERE user_id = $2 RETURNING user_image", status, userID)
 }

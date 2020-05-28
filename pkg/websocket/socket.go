@@ -152,9 +152,20 @@ func (s *Socket) Emit(actionType string, data ...interface{}) {
 	}
 }
 
+// Redirect sends a redirection action to socket
+func (s *Socket) Redirect(route string) {
+	s.Emit("REDIRECT", route)
+}
+
 // EmitMessage emits a message to socket
 func (s *Socket) EmitMessage(message string, class string) {
-	s.Emit("MESSAGE", map[string]string{"message": message, "class": class})
+	s.Emit("ADD_ELEMENT", map[string]interface{}{
+		"kind": "toast",
+		"element": map[string]string{
+			"html":  message,
+			"class": class,
+		},
+	})
 }
 
 // EmitSuccess emits a success mesage to socket

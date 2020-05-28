@@ -56,7 +56,7 @@ func (s *Service) GetTeacherUserByEmail(email string) (*database.DBUser, error) 
 			&u.RFC,
 			&u.Biography,
 			&u.TeachingMonths,
-			&u.Accepted,
+			&u.Status,
 			&u.Country,
 			&u.Rol,
 			&u.LastAction,
@@ -68,7 +68,41 @@ func (s *Service) GetTeacherUserByEmail(email string) (*database.DBUser, error) 
 }
 
 // GetTeacherByUserID get teacher from user id
-func (s *Service) GetTeacherByUserID(userID int32) {
+func (s *Service) GetTeacherByUserID(userID int32) (*database.DBUser, error) {
+	rows, err := s.db.GetTeacherByUserID(userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var u database.DBUser
+	if rows.CommandTag().RowsAffected() > 1 {
+		return nil, errors.New("dupplicated email")
+	} else if rows.CommandTag().RowsAffected() > 1 {
+		return nil, errors.New("user not found")
+	}
+	if rows.Next() {
+		err = rows.Scan(&u.ID,
+			&u.Email,
+			&u.Password,
+			&u.Firstname,
+			&u.Lastname,
+			&u.Gender,
+			&u.Image,
+			&u.Birthdate,
+			&u.Phone,
+			&u.License,
+			&u.RFC,
+			&u.Biography,
+			&u.TeachingMonths,
+			&u.Status,
+			&u.Country,
+			&u.Rol,
+			&u.LastAction,
+			&u.Created,
+			&u.Modified,
+			&u.Deleted)
+	}
+	return &u, err
 }
 
 // UpdateTeacherInformation updates teacher license and rfc

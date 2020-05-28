@@ -4,9 +4,9 @@ import (
 	"github.com/librerialeo/oklever-api/pkg/database"
 )
 
-// GetAllUsersAcademy return all usersAcademy
-func (s *Service) GetAllUsersAcademy(userID int32) (*[]database.DBUsersAcademy, error) {
-	rows, err := s.db.GetAllUsersAcademy(userID)
+// GetUserAcademiesByUserID return all usersAcademy
+func (s *Service) GetUserAcademiesByUserID(userID int32) (*[]database.DBUsersAcademy, error) {
+	rows, err := s.db.GetUserAcademiesByUserID(userID)
 	if err != nil {
 		return nil, err
 	}

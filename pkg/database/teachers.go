@@ -18,7 +18,7 @@ func (db *Database) GetTeacherByEmail(email string) (pgx.Rows, error) {
 
 // GetTeacherByUserID get teacher information by user id
 func (db *Database) GetTeacherByUserID(userID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM teachers WHERE user_id = $1")
+	return db.conn.Query(context.Background(), "SELECT * FROM users WHERE user_id = $1", userID)
 }
 
 // UpdateTeacherInformation update teacher information
