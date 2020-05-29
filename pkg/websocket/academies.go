@@ -1,6 +1,7 @@
 package websocket
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/librerialeo/oklever-api/pkg/utils"
@@ -57,6 +58,7 @@ func AcademyLogin(s *Socket, a *Action) {
 		if emailOk && passwordOk {
 			user, err := s.io.service.GetAcademyUserByEmail(email)
 			if err != nil {
+				fmt.Println(err)
 				switch err.Error() {
 				case "duplicated email":
 				case "email not found":

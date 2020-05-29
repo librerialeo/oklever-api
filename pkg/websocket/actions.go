@@ -68,4 +68,5 @@ func (io *IO) InitActions() {
 
 	// academy actions
 	io.AddActionHandler("ACADEMY_LOGIN", AcademyLogin, []string{})
+	io.AddActionHandler("ACADEMY_REGISTER", AcademyRegister, []string{})
 }

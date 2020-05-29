@@ -1,8 +1,6 @@
 package service
 
 import (
-	"errors"
-
 	"github.com/librerialeo/oklever-api/pkg/database"
 )
 
@@ -30,11 +28,6 @@ func (s *Service) GetAcademyUserByEmail(email string) (*database.DBUser, error) 
 		return nil, err
 	}
 	defer rows.Close()
-	if rows.CommandTag().RowsAffected() > 1 {
-		return nil, errors.New("dupplicated email")
-	} else if rows.CommandTag().RowsAffected() < 1 {
-		return nil, errors.New("email not found")
-	}
 	var u database.DBUser
 	if rows.Next() {
 		err = rows.Scan(&u.ID,

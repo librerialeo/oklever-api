@@ -37,11 +37,6 @@ func (s *Service) GetTeacherUserByEmail(email string) (*database.DBUser, error) 
 	}
 	defer rows.Close()
 	var u database.DBUser
-	if rows.CommandTag().RowsAffected() > 1 {
-		return nil, errors.New("dupplicated email")
-	} else if rows.CommandTag().RowsAffected() > 1 {
-		return nil, errors.New("user not found")
-	}
 	if rows.Next() {
 		err = rows.Scan(&u.ID,
 			&u.Email,
