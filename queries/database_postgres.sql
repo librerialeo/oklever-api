@@ -489,8 +489,9 @@ CREATE TABLE test_classes (
 	test_class_name VARCHAR(64) NOT NULL,
 	test_class_description VARCHAR(64),
 	test_class_data VARCHAR(64) NOT NULL,
-	test_class_feedback_message TEXT,
-	test_class_status INT NOT NULL,
+	test_class_feedback TEXT,
+	test_class_quizz INT REFERENCES quizzes(quiz_id),
+	test_class_status INT NOT NULL DEFAULT 0,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ

@@ -297,10 +297,11 @@ class test_classes {
 	fk(nn(academic_id))
 	nn(test_class_type) INT
 	nn(test_class_name) VARCHAR[64]
-	nn(test_class_description) VARCHAR[64]
+	test_class_description VARCHAR[64]
 	test_class_feedback TEXT
-	fk(test_class_quizz)
+	fk(test_class_quizz) INT
 	nn(test_class_data) TEXT
+	nn(test_class_status) INT
 }
 
 class subscriptions {
