@@ -166,10 +166,17 @@ class questions_options {
 
 class courses {
 	pk(course_id)
-	fk(nn(course_level_id))
+	fk(course_level_id)
 	fk(nn(teacher_id))
+	nn(course_type) INT
 	nn(course_name) VARCHAR[128]
-	nn(course_description) TEXT
+	nn(course_introduction) TEXT
+	nn(course_objetive) TEXT
+	course_price DECIMAL[8,2]
+	course_student_profile TEXT
+	course_conditions BOOLEAN
+	course_activation DATE
+	nn(course_modules_no) SMALLINT
 }
 
 class synchronous_classes {
@@ -201,6 +208,7 @@ class courses_reviews {
 	fk(nn(course_id))
 	fk(nn(user_id))
 	fk(nn(rol_id))
+	fk(course_quizz) INT<
 	nn(course_review_rating) SMALLINT
 	nn(course_review_message) TEXT
 }
@@ -232,17 +240,18 @@ class modules {
 	fk(nn(course_id))
 	nn(module_sort) SMALLINT
 	nn(module_name) VARCHAR[64]
-	nn(module_description) TEXT
+	module_description TEXT
+	nn(module_status) INT
 	fk(nn(quiz_id))
 	fk(nn(exercise_id))
 }
 
 class modules_feedback {
-	pk(class_feedback_id)
+	pk(modules_feedback_id)
 	fk(nn(module_id))
 	fk(nn(academic_id))
-	nn(class_feedback_message) TEXT
-	nn(class_feedback_corrected) BOOLEAN
+	fk(nn(module_feedback_quizz)) INT
+	nn(modules_feedback_message) TEXT
 }
 
 class modules_resources {
@@ -257,7 +266,7 @@ class topics {
 	fk(nn(module_id))
 	nn(topic_sort) SMALLINT
 	nn(topic_name) VARCHAR[128]
-	nn(topic_description) TEXT
+	topic_description TEXT
 }
 
 class topics_resources {
@@ -307,23 +316,23 @@ class test_classes {
 class subscriptions {
 	pk(subscription_id)
 	nn(u(subscription_name)) VARCHAR[64]
-	nn(subscription_price) DECIMAL(8,2)
+	nn(subscription_price) DECIMAL[8,2]
 }
 
 class purchases {
 	pk(purchase_id)
 	fk(nn(user_id))
-	nn(purchase_total) DECIMAL(8,2)
-	nn(purchase_discount) DECIMAL(8,2)
-	nn(purchase_currency) DECIMAL(8,2)
-	nn(purchase_currency_value) DECIMAL(8,2)
+	nn(purchase_total) DECIMAL[8,2]
+	nn(purchase_discount) DECIMAL[8,2]
+	nn(purchase_currency) DECIMAL[8,2]
+	nn(purchase_currency_value) DECIMAL[8,2]
 }
 
 class purchases_products {
 	pk(purchase_product_id)
 	fk(nn(purchase_id))
 	purchase_product_name VARCHAR[64]
-	nn(purchase_product_price) DECIMAL(8,2)
+	nn(purchase_product_price) DECIMAL[8,2]
 }
 
 class users_courses {
@@ -332,6 +341,14 @@ class users_courses {
 	fk(nn(course_id))
 	fk(nn(user_id))
 	nn(user_course_approved) BOOLEAN
+}
+
+class users_courses_classes {
+	pk(user_course_class_id)
+	fk(nn(user_course_id))
+	fk(nn(class_id))
+	nn(user_course_class_viewed) BOOLEAN
+	nn(user_course_class_timing) TIME
 }
 
 class users_quizzes {
