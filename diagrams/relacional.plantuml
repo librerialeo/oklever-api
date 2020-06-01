@@ -151,7 +151,7 @@ class questions_types {
 class questions {
 	pk(question_id)
 	fk(nn(quiz_id))
-	nn(question_type_id) INT  REFERENCES questions_types(question_type_id)
+	fk(nn(question_type_id))
 	nn(question) TEXT
 	question_resource TEXT
 }
@@ -207,7 +207,6 @@ class courses_reviews {
 	pk(course_review_id)
 	fk(nn(course_id))
 	fk(nn(user_id))
-	fk(nn(rol_id))
 	fk(course_quizz) INT<
 	nn(course_review_rating) SMALLINT
 	nn(course_review_message) TEXT
@@ -231,7 +230,6 @@ class courses_forums_comments {
 	pk(course_forum_comment_id)
 	fk(nn(course_forum_id))
 	fk(nn(user_id))
-	fk(nn(rol_id))
 	nn(course_forum_comment_message) TEXT
 }
 
@@ -296,7 +294,6 @@ class classes_comments {
 	pk(class_comment_id)
 	fk(nn(class_id))
 	fk(nn(user_id))
-	fk(nn(rol_id))
 	nn(class_comment_message) TEXT
 }
 
@@ -308,7 +305,7 @@ class test_classes {
 	nn(test_class_name) VARCHAR[64]
 	test_class_description VARCHAR[64]
 	test_class_feedback TEXT
-	fk(test_class_quizz) INT
+	fk(test_class_quizz)
 	nn(test_class_data) TEXT
 	nn(test_class_status) INT
 }
@@ -365,6 +362,14 @@ class users_answers {
 	fk(nn(question_option_id))
 }
 
+class users_reviews {
+	pk(user_review_id)
+	fk(nn(receiver_id))
+	fk(nn(sender_id))
+	nn(user_review_message)
+	fk(nn(user_review_quizz))
+}
+
 class users_projects {
 	pk(user_project_id)
 	fk(nn(course_project_id))
@@ -416,6 +421,7 @@ users_institutions <-- users
 users_signatures <-- users
 users_signatures <-- degrees
 questions <-- quizzes
+questions <-- questions_types
 questions_options <-- questions
 courses <-- courses_levels
 courses <-- users
@@ -468,6 +474,11 @@ users_subscriptions <-- subscriptions
 users_projects_history <-- users_projects
 users_academy <-- users
 users_academy <-- degrees
+users_reviews <-- users
+users_reviews <-- users
+users_reviews <-- users_quizzes
+users_courses_classes <-- users_courses
+users_courses_classes <-- classes
 
 
 @enduml
