@@ -6,6 +6,7 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
+	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/valyala/fasthttp"
 
 	"github.com/fasthttp/websocket"
@@ -48,13 +49,13 @@ type Action struct {
 
 // Socket is a client websocket connection instance
 type Socket struct {
-	ID     uint16
-	io     *IO
-	conn   *websocket.Conn
-	rooms  []string
-	userID int32
-	token  string
-	send   chan []byte
+	ID    uint16
+	io    *IO
+	conn  *websocket.Conn
+	rooms []string
+	user  *service.UserCredential
+	token string
+	send  chan []byte
 }
 
 func (s *Socket) unregister() {
@@ -78,41 +79,36 @@ func (s *Socket) register() {
 
 // ValidateToken validate the token from action or connection
 func (s *Socket) ValidateToken(tokenString string) bool {
-	claims, token, valid := s.io.service.CheckToken(tokenString)
-	if valid {
-		if claims != nil {
-			if token != "" {
-				s.SetToken(token)
-			}
-			if userID, ok := claims["user"]; ok {
-				s.userID = int32(userID.(float64))
-			}
-			if rol, ok := claims["rol"]; ok {
-				switch int32(rol.(float64)) {
-				case 1: // students
-					s.JoinRoom("students")
-					break
-				case 2: // teachers
-					s.JoinRoom("teachers")
-					break
-				case 3: // academics
-					s.JoinRoom("academics")
-					break
-				case 4: // coordinators
-					s.JoinRoom("coordinators")
-					break
-				case 5: // supports
-					s.JoinRoom("supports")
-					break
-				default: // invalid
-					s.unregister()
-					return false
-				}
-			}
-		} else {
-			Logout(s, &Action{})
-		}
-	} else {
+	credential, token, valid := s.io.service.CheckToken(tokenString)
+	if !valid {
+		s.unregister()
+		return false
+	}
+	if credential == nil {
+		Logout(s, &Action{})
+		return true
+	}
+	if token != "" {
+		s.SetToken(token)
+	}
+	s.user = credential
+	switch credential.Rol {
+	case 1: // students
+		s.JoinRoom("students")
+		break
+	case 2: // teachers
+		s.JoinRoom("teachers")
+		break
+	case 3: // academics
+		s.JoinRoom("academics")
+		break
+	case 4: // coordinators
+		s.JoinRoom("coordinators")
+		break
+	case 5: // supports
+		s.JoinRoom("supports")
+		break
+	default: // invalid
 		s.unregister()
 		return false
 	}
@@ -253,7 +249,13 @@ func (s *Socket) readPump() {
 			for actionType, actionHandlers := range s.io.actions {
 				if action.Type == actionType {
 					for _, actionHandler := range actionHandlers {
-						if len(actionHandler.Credentials) == 0 {
+						for _, validation := range actionHandler.Validations {
+							if !validation(s.user) {
+								valid = false
+								break
+							}
+						}
+						if valid {
 							actionHandler.Handler(s, &action)
 						}
 					}

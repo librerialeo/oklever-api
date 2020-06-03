@@ -28,14 +28,14 @@ type IO struct {
 // ActionHandler wraps action function handler
 type ActionHandler struct {
 	Handler     func(*Socket, *Action)
-	Credentials []string
+	Validations []func(*service.UserCredential) bool
 }
 
 // ActionsHandlers is and array
 
 // AddActionHandler adds a new action handler to map
-func (io *IO) AddActionHandler(action string, handler func(*Socket, *Action), credentials []string) {
-	io.actions[action] = []ActionHandler{{Handler: handler, Credentials: credentials}}
+func (io *IO) AddActionHandler(action string, handler func(*Socket, *Action), validations ...func(*service.UserCredential) bool) {
+	io.actions[action] = []ActionHandler{{Handler: handler, Validations: validations}}
 }
 
 func (io *IO) addSocket(s *Socket) {

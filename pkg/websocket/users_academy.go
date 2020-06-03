@@ -2,8 +2,8 @@ package websocket
 
 // UsersGetAcademy get users all academy
 func UsersGetAcademy(s *Socket, a *Action) {
-	if s.userID != 0 {
-		academies, err := s.io.service.GetUserAcademiesByUserID(s.userID)
+	if s.user.ID != 0 {
+		academies, err := s.io.service.GetUserAcademiesByUserID(s.user.ID)
 		if err != nil {
 			s.EmitServerError("Users get academy", err)
 		} else {
@@ -17,13 +17,13 @@ func UsersGetAcademy(s *Socket, a *Action) {
 // UsersAddAcademy add users academy
 func UsersAddAcademy(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if ok && s.userID != 0 {
+	if ok && s.user.ID != 0 {
 		degree, degreeOk := data["degree"].(float64)
 		name, nameOk := data["name"].(string)
 		institution, institutionOk := data["institution"].(string)
 		year, yearOk := data["year"].(float64)
 		if degreeOk && nameOk && institutionOk && yearOk {
-			academy, err := s.io.service.AddUsersAcademy(s.userID, int(degree), name, institution, int(year))
+			academy, err := s.io.service.AddUsersAcademy(s.user.ID, int(degree), name, institution, int(year))
 			if err != nil {
 				s.EmitServerError("Error al guardar los datos", err)
 			} else {
@@ -40,14 +40,14 @@ func UsersAddAcademy(s *Socket, a *Action) {
 // UsersUpdateAcademy update users academy by id
 func UsersUpdateAcademy(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if ok && s.userID != 0 {
+	if ok && s.user.ID != 0 {
 		degree, degreeOk := data["degree"].(float64)
 		name, nameOk := data["name"].(string)
 		institution, institutionOk := data["institution"].(string)
 		year, yearOk := data["year"].(float64)
 		academyID, academyIDOk := data["id"].(float64)
 		if degreeOk && nameOk && institutionOk && yearOk && academyIDOk {
-			academy, err := s.io.service.UpdateUsersAcademy(int(academyID), s.userID, int(degree), name, institution, int(year))
+			academy, err := s.io.service.UpdateUsersAcademy(int(academyID), s.user.ID, int(degree), name, institution, int(year))
 			if err != nil {
 				s.EmitServerError("Error al actualizar tus datos", err)
 			} else {
@@ -64,10 +64,10 @@ func UsersUpdateAcademy(s *Socket, a *Action) {
 // UsersDeleteAcademy delete users academy by id
 func UsersDeleteAcademy(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if ok && s.userID != 0 {
+	if ok && s.user.ID != 0 {
 		academyID, academyIDOk := data["id"].(float64)
 		if academyIDOk {
-			err := s.io.service.DeleteUsersAcademy(int(academyID), s.userID)
+			err := s.io.service.DeleteUsersAcademy(int(academyID), s.user.ID)
 			if err != nil {
 				s.EmitServerError("Error al eliminar tus datos", err)
 			} else {

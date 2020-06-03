@@ -20,8 +20,8 @@ func GetUserManagement(s *Socket, a *Action) {
 
 // GetUserManagements Get user management
 func GetUserManagements(s *Socket, a *Action) {
-	if s.userID != 0 {
-		managements, err := s.io.service.GetUserManagements(s.userID)
+	if s.user.ID != 0 {
+		managements, err := s.io.service.GetUserManagements(s.user.ID)
 		if err != nil {
 			s.EmitServerError("GetUserManagements", err)
 		} else {
@@ -37,12 +37,12 @@ func GetUserManagements(s *Socket, a *Action) {
 // AddUserManagement Add user management
 func AddUserManagement(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if ok && s.userID != 0 {
+	if ok && s.user.ID != 0 {
 		job, jOk := data["job"].(string)
 		institution, iOk := data["institution"].(string)
 		months, mOk := data["months"].(float64)
 		if jOk && iOk && mOk {
-			management, err := s.io.service.AddUserManagement(s.userID, job, institution, int16(months))
+			management, err := s.io.service.AddUserManagement(s.user.ID, job, institution, int16(months))
 			if err != nil {
 				s.EmitServerError("AddUserManagement", err)
 			} else {
@@ -55,7 +55,7 @@ func AddUserManagement(s *Socket, a *Action) {
 // UpdateUserManagement Update user management
 func UpdateUserManagement(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if !ok || s.userID == 0 {
+	if !ok || s.user.ID == 0 {
 		return
 	}
 	managementID, ok := data["id"].(float64)
@@ -70,7 +70,7 @@ func UpdateUserManagement(s *Socket, a *Action) {
 		s.EmitServerError("UpdateUserManagement: management not found", err)
 		return
 	}
-	if management.UserID.Int != s.userID {
+	if management.UserID.Int != s.user.ID {
 		return
 	}
 	management, err = s.io.service.UpdateUserManagement(int32(managementID), job, institution, int16(months))
@@ -96,7 +96,7 @@ func DeleteUserManagement(s *Socket, a *Action) {
 		s.EmitServerError("DeleteUserManagement: management not found", err)
 		return
 	}
-	if management.UserID.Int != s.userID {
+	if management.UserID.Int != s.user.ID {
 		return
 	}
 	err = s.io.service.DeleteUserManagement(int32(managementID))

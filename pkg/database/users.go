@@ -56,7 +56,7 @@ func (db *Database) GetAllUsers() (pgx.Rows, error) {
 
 // AddUser adds new user
 func (db *Database) AddUser(firstname string, lastname string, email string, password string, rol int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users(user_firstname,user_lastname,user_email,user_password,rol_id) VALUES($1,$2,$3,$4,$5) RETURNING user_id, user_firstname, user_lastname, user_email, rol_id", firstname, lastname, email, password, rol)
+	return db.conn.Query(context.Background(), "INSERT INTO users(user_firstname,user_lastname,user_email,user_password,rol_id) VALUES($1,$2,$3,$4,$5) RETURNING user_id, user_firstname, user_lastname, user_email, rol_id, user_status", firstname, lastname, email, password, rol)
 }
 
 // GetUserLastAction get the user last action from database
@@ -92,4 +92,14 @@ func (db *Database) SetUserImage(userID int32, image string) (pgx.Rows, error) {
 // SetUserStatus set user status
 func (db *Database) SetUserStatus(userID int32, status string) (pgx.Rows, error) {
 	return db.conn.Query(context.Background(), "UPDATE users SET user_status = $1 WHERE user_id = $2 RETURNING user_image", status, userID)
+}
+
+// GetUserByID gets user with passed id from database if exits
+func (db *Database) GetUserByID(userID int32) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "SELECT * FROM users WHERE user_id = $1", userID)
+}
+
+// GetUserCredentialsByID gets user with passed id from database if exits
+func (db *Database) GetUserCredentialsByID(userID int32) (pgx.Rows, error) {
+	return db.conn.Query(context.Background(), "SELECT user_id, rol_id, user_status FROM users WHERE user_id = $1", userID)
 }

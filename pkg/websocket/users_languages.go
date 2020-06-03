@@ -2,8 +2,8 @@ package websocket
 
 //UsersGetLanguages get all languages
 func UsersGetLanguages(s *Socket, a *Action) {
-	if s.userID != 0 {
-		ids, err := s.io.service.GetAllUsersLanguages(s.userID)
+	if s.user.ID != 0 {
+		ids, err := s.io.service.GetAllUsersLanguages(s.user.ID)
 		if err != nil {
 			s.EmitServerError("Users get languages", err)
 		} else {
@@ -17,10 +17,10 @@ func UsersGetLanguages(s *Socket, a *Action) {
 // UsersAddLanguage add language
 func UsersAddLanguage(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if ok && s.userID != 0 {
+	if ok && s.user.ID != 0 {
 		id, idOk := data["id"].(float64)
 		if idOk {
-			err := s.io.service.AddUsersLanguages(s.userID, int(id))
+			err := s.io.service.AddUsersLanguages(s.user.ID, int(id))
 			if err != nil {
 				s.EmitServerError("Error al registrar el idioma", err)
 			} else {
@@ -37,10 +37,10 @@ func UsersAddLanguage(s *Socket, a *Action) {
 // UsersDeleteLanguage delete teacher language
 func UsersDeleteLanguage(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if ok && s.userID != 0 {
+	if ok && s.user.ID != 0 {
 		id, idOk := data["id"].(float64)
 		if idOk {
-			err := s.io.service.DeleteUsersLanguages(s.userID, int(id))
+			err := s.io.service.DeleteUsersLanguages(s.user.ID, int(id))
 			if err != nil {
 				s.EmitServerError("No se puedo eliminar el idioma", err)
 			} else {

@@ -5,7 +5,15 @@ import (
 
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
+	"github.com/librerialeo/oklever-api/pkg/database"
 )
+
+// UserCredential user credential info
+type UserCredential struct {
+	ID     int32
+	Rol    int32
+	Status string
+}
 
 // GetAllUsers return all users
 func (s *Service) GetAllUsers() (pgx.Rows, error) {
@@ -118,4 +126,58 @@ func (s *Service) SetUserStatus(userID int32, status string) error {
 	}
 	rows.Close()
 	return nil
+}
+
+// GetUserByID get user with passed id
+func (s *Service) GetUserByID(userID int32) (*database.DBUser, error) {
+	rows, err := s.db.GetUserByID(userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var u database.DBUser
+	if rows.Next() {
+		err = rows.Scan(&u.ID,
+			&u.Email,
+			&u.Password,
+			&u.Firstname,
+			&u.Lastname,
+			&u.Gender,
+			&u.Image,
+			&u.Birthdate,
+			&u.Phone,
+			&u.License,
+			&u.RFC,
+			&u.Biography,
+			&u.TeachingMonths,
+			&u.Status,
+			&u.Country,
+			&u.Rol,
+			&u.LastAction,
+			&u.Created,
+			&u.Modified,
+			&u.Deleted)
+	}
+	return &u, err
+}
+
+// GetUserCredentialsByID get user credentials data
+func (s *Service) GetUserCredentialsByID(userID int32) (*UserCredential, error) {
+	rows, err := s.db.GetUserCredentialsByID(userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var u database.DBUser
+	var credential UserCredential
+	if rows.Next() {
+		err = rows.Scan(&u.ID,
+			&u.Rol,
+			&u.Status)
+		if err != nil {
+			return nil, err
+		}
+		credential = UserCredential{ID: u.ID.Int, Rol: u.Rol.Int, Status: u.Status.String}
+	}
+	return &credential, err
 }

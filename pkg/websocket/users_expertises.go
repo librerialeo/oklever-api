@@ -20,8 +20,8 @@ func GetUserExpertise(s *Socket, a *Action) {
 
 // GetUserExpertises Get user expertise
 func GetUserExpertises(s *Socket, a *Action) {
-	if s.userID != 0 {
-		expertises, err := s.io.service.GetUserExpertises(s.userID)
+	if s.user.ID != 0 {
+		expertises, err := s.io.service.GetUserExpertises(s.user.ID)
 		if err != nil {
 			s.EmitServerError("GetUserExpertises", err)
 		} else {
@@ -37,11 +37,11 @@ func GetUserExpertises(s *Socket, a *Action) {
 // AddUserExpertise Add user expertise
 func AddUserExpertise(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if ok && s.userID != 0 {
+	if ok && s.user.ID != 0 {
 		name, nOk := data["name"].(string)
 		months, mOk := data["months"].(float64)
 		if nOk && mOk {
-			expertise, err := s.io.service.AddUserExpertise(s.userID, name, int16(months))
+			expertise, err := s.io.service.AddUserExpertise(s.user.ID, name, int16(months))
 			if err != nil {
 				s.EmitServerError("AddUserExpertise", err)
 			} else {
@@ -54,7 +54,7 @@ func AddUserExpertise(s *Socket, a *Action) {
 // UpdateUserExpertise Update user expertise
 func UpdateUserExpertise(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
-	if !ok || s.userID == 0 {
+	if !ok || s.user.ID == 0 {
 		return
 	}
 	expertiseID, ok := data["id"].(float64)
@@ -68,7 +68,7 @@ func UpdateUserExpertise(s *Socket, a *Action) {
 		s.EmitServerError("UpdateUserExpertise: expertise not found", err)
 		return
 	}
-	if expertise.UserID.Int != s.userID {
+	if expertise.UserID.Int != s.user.ID {
 		return
 	}
 	expertise, err = s.io.service.UpdateUserExpertise(int32(expertiseID), name, int16(months))
@@ -94,7 +94,7 @@ func DeleteUserExpertise(s *Socket, a *Action) {
 		s.EmitServerError("DeleteUserExpertise: expertise not found", err)
 		return
 	}
-	if expertise.UserID.Int != s.userID {
+	if expertise.UserID.Int != s.user.ID {
 		return
 	}
 	err = s.io.service.DeleteUserExpertise(int32(expertiseID))

@@ -13,7 +13,7 @@ func (s *Service) AddAcademy(firstname string, lastname string, email string, pa
 	defer rows.Close()
 	var u database.DBUser
 	if rows.Next() {
-		err = rows.Scan(&u.ID, &u.Firstname, &u.Lastname, &u.Email, &u.Rol)
+		err = rows.Scan(&u.ID, &u.Firstname, &u.Lastname, &u.Email, &u.Rol, &u.Status)
 	}
 	if err != nil {
 		return nil, err

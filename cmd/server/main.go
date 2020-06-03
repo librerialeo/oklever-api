@@ -2,7 +2,9 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
+	"os"
 
 	"github.com/savsgio/atreugo"
 
@@ -12,12 +14,12 @@ import (
 )
 
 func main() {
-	conn, err := pgx.Connect(context.Background(), "database=oklever")
+	conn, err := pgx.Connect(context.Background(), fmt.Sprintf("database=%s", os.Getenv("DB_NAME")))
 	if err != nil {
 		log.Fatal(err)
 	}
 	config := atreugo.Config{
-		Addr: "0.0.0.0:8010",
+		Addr: fmt.Sprintf("0.0.0.0:%s", os.Getenv("OKLEVER_PORT")),
 	}
 	router := atreugo.New(config)
 	rest.InitRouterHandler(router, conn)

@@ -1,7 +1,7 @@
 package rest
 
 import (
-	"github.com/atreugo/middlewares/cors"
+	"github.com/atreugo/cors"
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/librerialeo/oklever-api/pkg/websocket"
@@ -44,18 +44,15 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	r.UseBefore(func(ctx *atreugo.RequestCtx) error {
 		tokenString := string(ctx.Request.Header.Peek("Authorization"))
 		if tokenString != "" {
-			claims, token, valid := s.CheckToken(tokenString[7:])
+			credential, token, valid := s.CheckToken(tokenString[7:])
 			if valid {
-				if claims != nil {
+				if credential != nil {
 					if token != "" {
 						ctx.SetUserValue("token", token)
 					}
-					if userID, ok := claims["user"]; ok {
-						ctx.SetUserValue("user", userID)
-					}
-					if rol, ok := claims["rol"]; ok {
-						ctx.SetUserValue("rol", rol)
-					}
+					ctx.SetUserValue("user", credential.ID)
+					ctx.SetUserValue("rol", credential.Rol)
+					ctx.SetUserValue("status", credential.Status)
 				} else {
 					ctx.SetUserValue("logout", true)
 				}

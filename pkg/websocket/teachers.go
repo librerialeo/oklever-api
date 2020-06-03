@@ -25,7 +25,7 @@ func TeacherRegister(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("TeachersRegister: error al guardar el usuario", err)
 			} else {
-				token, err := s.io.service.CreateToken(u.ID.Int, u.Rol.Int, false)
+				token, err := s.io.service.CreateToken(u.ID.Int, u.Rol.Int, u.Status.String, false)
 				if err != nil {
 					s.EmitServerError("TeacherRegister: error al generar el token", err)
 				} else {
@@ -66,7 +66,7 @@ func TeacherLogin(s *Socket, a *Action) {
 				}
 			} else {
 				if utils.CheckPasswordHash(password, user.Password.String) {
-					token, err := s.io.service.CreateToken(user.ID.Int, user.Rol.Int, remember)
+					token, err := s.io.service.CreateToken(user.ID.Int, user.Rol.Int, user.Status.String, remember)
 					if err != nil {
 						s.EmitServerError("TeacherLogin: generate token", err)
 					} else {
@@ -116,12 +116,12 @@ func UpdateTeacherInformation(s *Socket, a *Action) {
 		phone, phoneOk := data["phone"].(string)
 		license, licenseOk := data["license"].(string)
 		rfc, rfcOk := data["rfc"].(string)
-		if emailOk && firstnameOk && lastnameOk && genderOk && phoneOk && licenseOk && rfcOk && s.userID != 0 {
-			if err := s.io.service.UpdateUserInformation(s.userID, firstname, lastname, email, gender, phone); err != nil {
+		if emailOk && firstnameOk && lastnameOk && genderOk && phoneOk && licenseOk && rfcOk && s.user.ID != 0 {
+			if err := s.io.service.UpdateUserInformation(s.user.ID, firstname, lastname, email, gender, phone); err != nil {
 				s.EmitServerError("UpdateTeacherInformation: update user information", err)
 				return
 			}
-			if err := s.io.service.UpdateTeacherInformation(s.userID, license, rfc); err != nil {
+			if err := s.io.service.UpdateTeacherInformation(s.user.ID, license, rfc); err != nil {
 				s.EmitServerError("UpdateTeacherInformation: update teacher information", err)
 				return
 			}
@@ -140,11 +140,11 @@ func UpdateTeacherInformation(s *Socket, a *Action) {
 
 // ValidateTeacherProfile validates teacher acception first step
 func ValidateTeacherProfile(s *Socket, a *Action) {
-	if s.userID == 0 {
+	if s.user.ID == 0 {
 		return
 	}
 	points := 0
-	user, err := s.io.service.GetTeacherByUserID(s.userID)
+	user, err := s.io.service.GetTeacherByUserID(s.user.ID)
 	if err != nil {
 		s.EmitServerError("ValidateTeacherProfile: GetTeacherByUserID", err)
 		return
@@ -155,7 +155,7 @@ func ValidateTeacherProfile(s *Socket, a *Action) {
 	} else if user.TeachingMonths.Int >= 72 {
 		points += 5
 	}
-	academies, err := s.io.service.GetUserAcademiesByUserID(s.userID)
+	academies, err := s.io.service.GetUserAcademiesByUserID(s.user.ID)
 	if err != nil {
 		s.EmitServerError("ValidateTeacherProfile: GetUserAcademiesByUserID", err)
 		return
@@ -173,7 +173,7 @@ func ValidateTeacherProfile(s *Socket, a *Action) {
 	} else if aux == 1 {
 		points += 5
 	}
-	signatures, err := s.io.service.GetUserTeachingSignatures(s.userID)
+	signatures, err := s.io.service.GetUserTeachingSignatures(s.user.ID)
 	if err != nil {
 		s.EmitServerError("ValidateTeacherProfile: GetUserTeachingSignatures", err)
 		return
@@ -191,7 +191,7 @@ func ValidateTeacherProfile(s *Socket, a *Action) {
 	} else if aux == 1 {
 		points += 5
 	}
-	investments, err := s.io.service.GetUserInvestments(s.userID)
+	investments, err := s.io.service.GetUserInvestments(s.user.ID)
 	if err != nil {
 		s.EmitServerError("ValidateTeacherProfile: GetUserInvestments", err)
 		return
@@ -202,7 +202,7 @@ func ValidateTeacherProfile(s *Socket, a *Action) {
 	} else if len(*investments) >= 7 {
 		points += 5
 	}
-	managements, err := s.io.service.GetUserManagements(s.userID)
+	managements, err := s.io.service.GetUserManagements(s.user.ID)
 	if err != nil {
 		s.EmitServerError("ValidateTeacherProfile: GetUserManagements", err)
 		return
@@ -218,7 +218,7 @@ func ValidateTeacherProfile(s *Socket, a *Action) {
 	} else if aux >= 60 {
 		points += 5
 	}
-	expertises, err := s.io.service.GetUserExpertises(s.userID)
+	expertises, err := s.io.service.GetUserExpertises(s.user.ID)
 	if err != nil {
 		s.EmitServerError("ValidateTeacherProfile: GetUserExpertises", err)
 		return
@@ -235,7 +235,7 @@ func ValidateTeacherProfile(s *Socket, a *Action) {
 		points += 5
 	}
 	if points >= 18 {
-		err := s.io.service.SetUserStatus(s.userID, "passant")
+		err := s.io.service.SetUserStatus(s.user.ID, "passant")
 		if err != nil {
 			s.EmitServerError("ValidateTeacherProfile: SetUserStatus", err)
 			return

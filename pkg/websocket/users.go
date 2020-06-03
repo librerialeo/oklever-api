@@ -23,7 +23,7 @@ func Logout(s *Socket, a *Action) {
 
 // GetUserBiography send user biography
 func GetUserBiography(s *Socket, a *Action) {
-	biography, err := s.io.service.GetUserBiography(s.userID)
+	biography, err := s.io.service.GetUserBiography(s.user.ID)
 	if err != nil {
 		s.EmitServerError("GetUserBiography", err)
 	} else {
@@ -39,7 +39,7 @@ func SetUserBiography(s *Socket, a *Action) {
 	if ok {
 		biography, ok := data["biography"]
 		if ok {
-			DBbiography, err := s.io.service.SetUserBiography(s.userID, biography.(string))
+			DBbiography, err := s.io.service.SetUserBiography(s.user.ID, biography.(string))
 			if err != nil {
 				s.EmitServerError("GetUserBiography", err)
 			} else {
@@ -54,8 +54,7 @@ func SetUserBiography(s *Socket, a *Action) {
 // SetUserImage set user image
 func SetUserImage(s *Socket, a *Action) {
 	data, ok := a.Data.(string)
-	if !ok || s.userID == 0 {
-		fmt.Println("a")
+	if !ok || s.user.ID == 0 {
 		return
 	}
 	image, err := utils.DataToImage(data)
@@ -63,13 +62,13 @@ func SetUserImage(s *Socket, a *Action) {
 		fmt.Println(err)
 		return
 	}
-	filename := fmt.Sprintf("%d-image.png", s.userID)
+	filename := fmt.Sprintf("%d-image.png", s.user.ID)
 	err = utils.SaveImageToFile(os.Getenv("USERS_DIR"), filename, image, "image/png")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	filename, err = s.io.service.SetUserImage(s.userID, filename)
+	filename, err = s.io.service.SetUserImage(s.user.ID, filename)
 	if err != nil {
 		return
 	}

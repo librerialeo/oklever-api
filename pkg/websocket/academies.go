@@ -26,7 +26,7 @@ func AcademyRegister(s *Socket, a *Action) {
 			if err != nil {
 				s.EmitServerError("AcademiesRegister: error al guardar el usuario", err)
 			} else {
-				token, err := s.io.service.CreateToken(u.ID.Int, u.Rol.Int, false)
+				token, err := s.io.service.CreateToken(u.ID.Int, u.Rol.Int, u.Status.String, false)
 				if err != nil {
 					s.EmitServerError("AcademyRegister: error al generar el token", err)
 				} else {
@@ -68,7 +68,7 @@ func AcademyLogin(s *Socket, a *Action) {
 				}
 			} else {
 				if utils.CheckPasswordHash(password, user.Password.String) {
-					token, err := s.io.service.CreateToken(user.ID.Int, user.Rol.Int, remember)
+					token, err := s.io.service.CreateToken(user.ID.Int, user.Rol.Int, user.Status.String, remember)
 					if err != nil {
 						s.EmitServerError("AcademyLogin: generate token", err)
 					} else {
@@ -83,6 +83,7 @@ func AcademyLogin(s *Socket, a *Action) {
 							"image":     user.Image.String,
 							"license":   user.License.String,
 							"rfc":       user.RFC.String,
+							"rol":       user.Rol.Int,
 							"status":    user.Status.String,
 						})
 						s.EmitSuccess("Iniciaste sesión correctamente")
@@ -118,12 +119,12 @@ func UpdateAcademyInformation(s *Socket, a *Action) {
 		phone, phoneOk := data["phone"].(string)
 		license, licenseOk := data["license"].(string)
 		rfc, rfcOk := data["rfc"].(string)
-		if emailOk && firstnameOk && lastnameOk && genderOk && phoneOk && licenseOk && rfcOk && s.userID != 0 {
-			if err := s.io.service.UpdateUserInformation(s.userID, firstname, lastname, email, gender, phone); err != nil {
+		if emailOk && firstnameOk && lastnameOk && genderOk && phoneOk && licenseOk && rfcOk && s.user.ID != 0 {
+			if err := s.io.service.UpdateUserInformation(s.user.ID, firstname, lastname, email, gender, phone); err != nil {
 				s.EmitServerError("UpdateAcademyInformation: update user information", err)
 				return
 			}
-			if err := s.io.service.UpdateAcademyInformation(s.userID, license, rfc); err != nil {
+			if err := s.io.service.UpdateAcademyInformation(s.user.ID, license, rfc); err != nil {
 				s.EmitServerError("UpdateAcademyInformation: update academy information", err)
 				return
 			}
