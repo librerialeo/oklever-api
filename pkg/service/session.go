@@ -15,7 +15,7 @@ func (s *Service) CreateToken(user int32, rol int32, status string, long bool) (
 		"authorized": true,
 		"user":       user,
 		"rol":        rol,
-		"status":     rol,
+		"status":     status,
 		"created":    time.Now(),
 		"long":       long,
 	}
@@ -99,7 +99,7 @@ func (s *Service) CheckToken(tokenString string) (*UserCredential, string, bool)
 
 // Validations
 
-// ValidateTeacherActive
+// ValidateTeacherActive validate teacher credentials
 func (s *Service) ValidateTeacherActive(c *UserCredential) bool {
 	if c.Rol != 2 {
 		return false
