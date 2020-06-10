@@ -1,6 +1,8 @@
 package websocket
 
-import "github.com/librerialeo/oklever-api/pkg/service"
+import (
+	"github.com/librerialeo/oklever-api/pkg/service"
+)
 
 // NewIO creates a new IO instance
 func NewIO(s *service.Service) *IO {

@@ -1,6 +1,8 @@
 package rest
 
 import (
+	"os"
+
 	"github.com/atreugo/cors"
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/service"
@@ -32,7 +34,7 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 	io := websocket.NewIO(s)
 	io.InitActions()
 	cors := cors.New(cors.Config{
-		AllowedOrigins:   []string{"http://localhost:8080", "null"},
+		AllowedOrigins:   []string{os.Getenv("STUDENTS_ROUTE"), os.Getenv("TEACHERS_ROUTE"), os.Getenv("ACADEMY_ROUTE"), os.Getenv("SUPPORT_ROUTE"), "null"},
 		AllowedHeaders:   []string{"Content-Type", "X-Custom", "authorization"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
 		ExposedHeaders:   []string{"Content-Length", "Authorization"},
