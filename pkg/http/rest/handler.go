@@ -7,7 +7,7 @@ import (
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/service"
 	"github.com/librerialeo/oklever-api/pkg/websocket"
-	"github.com/savsgio/atreugo"
+	"github.com/savsgio/atreugo/v11"
 )
 
 // SendResponse send parsed json structure response
@@ -42,7 +42,7 @@ func InitRouterHandler(r *atreugo.Atreugo, conn *pgx.Conn) {
 		AllowMaxAge:      5600,
 	})
 	r.Static("/static", "static")
-	r.UseBefore(cors)
+	r.UseAfter(cors)
 	r.UseBefore(func(ctx *atreugo.RequestCtx) error {
 		tokenString := string(ctx.Request.Header.Peek("Authorization"))
 		if tokenString != "" {

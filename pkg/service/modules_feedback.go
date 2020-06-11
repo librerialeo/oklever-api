@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllModulesFeedback return all modulesFeedback
-func (s *Service) GetAllModulesFeedback() (pgx.Rows, error) {
+func (s *Service) GetAllModulesFeedback() (*pgx.Rows, error) {
 	return s.db.GetAllModulesFeedback()
 }

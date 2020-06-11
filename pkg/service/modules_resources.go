@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllModulesResources return all modulesResources
-func (s *Service) GetAllModulesResources() (pgx.Rows, error) {
+func (s *Service) GetAllModulesResources() (*pgx.Rows, error) {
 	return s.db.GetAllModulesResources()
 }

@@ -6,7 +6,7 @@ import (
 )
 
 // GetAllTestClasses return all testClasses
-func (s *Service) GetAllTestClasses() (pgx.Rows, error) {
+func (s *Service) GetAllTestClasses() (*pgx.Rows, error) {
 	return s.db.GetAllTestClasses()
 }
 

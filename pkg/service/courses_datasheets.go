@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllCoursesDatasheets return all coursesDatasheets
-func (s *Service) GetAllCoursesDatasheets() (pgx.Rows, error) {
+func (s *Service) GetAllCoursesDatasheets() (*pgx.Rows, error) {
 	return s.db.GetAllCoursesDatasheets()
 }

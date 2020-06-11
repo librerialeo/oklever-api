@@ -1,7 +1,7 @@
 package rest
 
 import (
-	"github.com/savsgio/atreugo"
+	"github.com/savsgio/atreugo/v11"
 )
 
 func sessionMiddleware(ctx *atreugo.RequestCtx) error {

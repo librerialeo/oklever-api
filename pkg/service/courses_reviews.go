@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllCoursesReviews return all coursesReviews
-func (s *Service) GetAllCoursesReviews() (pgx.Rows, error) {
+func (s *Service) GetAllCoursesReviews() (*pgx.Rows, error) {
 	return s.db.GetAllCoursesReviews()
 }

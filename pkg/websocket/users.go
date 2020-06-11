@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/librerialeo/oklever-api/pkg/utils"
-	"github.com/savsgio/atreugo"
+	"github.com/savsgio/atreugo/v11"
 )
 
 // UserRegister register new user

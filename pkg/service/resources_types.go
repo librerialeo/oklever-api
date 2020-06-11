@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllResourcesTypes return all resourcesTypes
-func (s *Service) GetAllResourcesTypes() (pgx.Rows, error) {
+func (s *Service) GetAllResourcesTypes() (*pgx.Rows, error) {
 	return s.db.GetAllResourcesTypes()
 }

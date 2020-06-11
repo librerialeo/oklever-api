@@ -1,8 +1,6 @@
 package database
 
 import (
-	"context"
-
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
 )
@@ -18,6 +16,6 @@ type DBLanguage struct {
 }
 
 // GetAllLanguages queries for all languages
-func (db *Database) GetAllLanguages() (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM languages")
+func (db *Database) GetAllLanguages() (*pgx.Rows, error) {
+	return db.conn.Query("SELECT * FROM languages")
 }

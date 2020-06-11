@@ -1,11 +1,9 @@
 package database
 
 import (
-	"context"
-
 	"github.com/jackc/pgtype"
 	"github.com/jackc/pgx"
-	"github.com/savsgio/atreugo"
+	"github.com/savsgio/atreugo/v11"
 )
 
 // DBSignature is user_signatures database table structure
@@ -29,28 +27,28 @@ func (signature *DBSignature) ParseForUser() atreugo.JSON {
 }
 
 // GetUserTeachingSignature get all userID teaching signatures
-func (db *Database) GetUserTeachingSignature(signatureID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_signatures WHERE user_signature_id=$1", signatureID)
+func (db *Database) GetUserTeachingSignature(signatureID int32) (*pgx.Rows, error) {
+	return db.conn.Query("SELECT * FROM users_signatures WHERE user_signature_id=$1", signatureID)
 }
 
 // GetUserTeachingSignatures get all userID teaching signatures
-func (db *Database) GetUserTeachingSignatures(userID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_signatures WHERE user_id=$1", userID)
+func (db *Database) GetUserTeachingSignatures(userID int32) (*pgx.Rows, error) {
+	return db.conn.Query("SELECT * FROM users_signatures WHERE user_id=$1", userID)
 }
 
 // AddUserTeachingSignature get all userID teaching signatures
-func (db *Database) AddUserTeachingSignature(userID int32, degreeID int32, name string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_signatures (user_id, degree_id, user_signature_name) values ($1, $2, $3) RETURNING *", userID, degreeID, name)
+func (db *Database) AddUserTeachingSignature(userID int32, degreeID int32, name string) (*pgx.Rows, error) {
+	return db.conn.Query("INSERT INTO users_signatures (user_id, degree_id, user_signature_name) values ($1, $2, $3) RETURNING *", userID, degreeID, name)
 }
 
 // UpdateUserTeachingSignature get all userID teaching signatures
-func (db *Database) UpdateUserTeachingSignature(signatureID int32, name string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "UPDATE users_signatures SET user_signature_name=$1 WHERE user_signature_id=$2 RETURNING *", name, signatureID)
+func (db *Database) UpdateUserTeachingSignature(signatureID int32, name string) (*pgx.Rows, error) {
+	return db.conn.Query("UPDATE users_signatures SET user_signature_name=$1 WHERE user_signature_id=$2 RETURNING *", name, signatureID)
 }
 
 // DeleteUserTeachingSignature get all userID teaching signatures
-func (db *Database) DeleteUserTeachingSignature(signatureID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "DELETE FROM users_signatures WHERE user_signature_id=$1", signatureID)
+func (db *Database) DeleteUserTeachingSignature(signatureID int32) (*pgx.Rows, error) {
+	return db.conn.Query("DELETE FROM users_signatures WHERE user_signature_id=$1", signatureID)
 }
 
 // DBInstitution is user_institutions database table structure
@@ -72,36 +70,36 @@ func (institution *DBInstitution) ParseForUser() atreugo.JSON {
 }
 
 // GetUserTeachingInstitution get all userID teaching institutions
-func (db *Database) GetUserTeachingInstitution(institutionID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_institutions WHERE user_institution_id=$1", institutionID)
+func (db *Database) GetUserTeachingInstitution(institutionID int32) (*pgx.Rows, error) {
+	return db.conn.Query("SELECT * FROM users_institutions WHERE user_institution_id=$1", institutionID)
 }
 
 // GetUserTeachingInstitutions get all userID teaching institutions
-func (db *Database) GetUserTeachingInstitutions(userID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT * FROM users_institutions WHERE user_id=$1", userID)
+func (db *Database) GetUserTeachingInstitutions(userID int32) (*pgx.Rows, error) {
+	return db.conn.Query("SELECT * FROM users_institutions WHERE user_id=$1", userID)
 }
 
 // AddUserTeachingInstitution get all userID teaching institutions
-func (db *Database) AddUserTeachingInstitution(userID int32, name string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "INSERT INTO users_institutions (user_id, user_institution_name) values ($1, $2) RETURNING *", userID, name)
+func (db *Database) AddUserTeachingInstitution(userID int32, name string) (*pgx.Rows, error) {
+	return db.conn.Query("INSERT INTO users_institutions (user_id, user_institution_name) values ($1, $2) RETURNING *", userID, name)
 }
 
 // UpdateUserTeachingInstitution get all userID teaching institutions
-func (db *Database) UpdateUserTeachingInstitution(institutionID int32, name string) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "UPDATE users_institutions SET user_institution_name=$1 WHERE user_institution_id=$2 RETURNING *", name, institutionID)
+func (db *Database) UpdateUserTeachingInstitution(institutionID int32, name string) (*pgx.Rows, error) {
+	return db.conn.Query("UPDATE users_institutions SET user_institution_name=$1 WHERE user_institution_id=$2 RETURNING *", name, institutionID)
 }
 
 // DeleteUserTeachingInstitution get all userID teaching institutions
-func (db *Database) DeleteUserTeachingInstitution(institutionID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "DELETE FROM users_institutions WHERE user_institution_id=$1", institutionID)
+func (db *Database) DeleteUserTeachingInstitution(institutionID int32) (*pgx.Rows, error) {
+	return db.conn.Query("DELETE FROM users_institutions WHERE user_institution_id=$1", institutionID)
 }
 
 // GetUserExperience get user teaching experience months
-func (db *Database) GetUserExperience(userID int32) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT user_months FROM users WHERE user_id = $1", userID)
+func (db *Database) GetUserExperience(userID int32) (*pgx.Rows, error) {
+	return db.conn.Query("SELECT user_months FROM users WHERE user_id = $1", userID)
 }
 
 // SetUserExperience get user teaching experience months
-func (db *Database) SetUserExperience(userID int32, months int16) (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "UPDATE users SET user_months = $1 WHERE user_id = $2 RETURNING user_months", months, userID)
+func (db *Database) SetUserExperience(userID int32, months int16) (*pgx.Rows, error) {
+	return db.conn.Query("UPDATE users SET user_months = $1 WHERE user_id = $2 RETURNING user_months", months, userID)
 }

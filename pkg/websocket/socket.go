@@ -10,7 +10,7 @@ import (
 	"github.com/valyala/fasthttp"
 
 	"github.com/fasthttp/websocket"
-	"github.com/savsgio/atreugo"
+	"github.com/savsgio/atreugo/v11"
 )
 
 const (

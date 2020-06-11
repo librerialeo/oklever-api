@@ -1,8 +1,6 @@
 package database
 
 import (
-	"context"
-
 	"github.com/jackc/pgtype"
 
 	"github.com/jackc/pgx"
@@ -16,6 +14,6 @@ type DBDegrees struct {
 }
 
 // GetAllDegrees queries for all degrees
-func (db *Database) GetAllDegrees() (pgx.Rows, error) {
-	return db.conn.Query(context.Background(), "SELECT degree_id, degree_name, degree_class FROM degrees")
+func (db *Database) GetAllDegrees() (*pgx.Rows, error) {
+	return db.conn.Query("SELECT degree_id, degree_name, degree_class FROM degrees")
 }

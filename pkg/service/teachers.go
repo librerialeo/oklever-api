@@ -1,14 +1,12 @@
 package service
 
 import (
-	"errors"
-
 	"github.com/jackc/pgx"
 	"github.com/librerialeo/oklever-api/pkg/database"
 )
 
 // GetAllTeachers return all teachers
-func (s *Service) GetAllTeachers() (pgx.Rows, error) {
+func (s *Service) GetAllTeachers() (*pgx.Rows, error) {
 	return s.db.GetAllTeachers()
 }
 
@@ -70,11 +68,6 @@ func (s *Service) GetTeacherByUserID(userID int32) (*database.DBUser, error) {
 	}
 	defer rows.Close()
 	var u database.DBUser
-	if rows.CommandTag().RowsAffected() > 1 {
-		return nil, errors.New("dupplicated email")
-	} else if rows.CommandTag().RowsAffected() > 1 {
-		return nil, errors.New("user not found")
-	}
 	if rows.Next() {
 		err = rows.Scan(&u.ID,
 			&u.Email,

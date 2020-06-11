@@ -16,7 +16,7 @@ type UserCredential struct {
 }
 
 // GetAllUsers return all users
-func (s *Service) GetAllUsers() (pgx.Rows, error) {
+func (s *Service) GetAllUsers() (*pgx.Rows, error) {
 	return s.db.GetAllUsers()
 }
 

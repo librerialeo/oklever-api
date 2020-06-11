@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllTopicsResources return all topicsResources
-func (s *Service) GetAllTopicsResources() (pgx.Rows, error) {
+func (s *Service) GetAllTopicsResources() (*pgx.Rows, error) {
 	return s.db.GetAllTopicsResources()
 }

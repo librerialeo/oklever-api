@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllPurchases return all purchases
-func (s *Service) GetAllPurchases() (pgx.Rows, error) {
+func (s *Service) GetAllPurchases() (*pgx.Rows, error) {
 	return s.db.GetAllPurchases()
 }

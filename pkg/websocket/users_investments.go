@@ -1,6 +1,6 @@
 package websocket
 
-import "github.com/savsgio/atreugo"
+import "github.com/savsgio/atreugo/v11"
 
 // GetUserInvestment Get user investment
 func GetUserInvestment(s *Socket, a *Action) {

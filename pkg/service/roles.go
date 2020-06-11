@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllRoles return all roles
-func (s *Service) GetAllRoles() (pgx.Rows, error) {
+func (s *Service) GetAllRoles() (*pgx.Rows, error) {
 	return s.db.GetAllRoles()
 }

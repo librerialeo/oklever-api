@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllClassesComments return all ClassesComments
-func (s *Service) GetAllClassesComments() (pgx.Rows, error) {
+func (s *Service) GetAllClassesComments() (*pgx.Rows, error) {
 	return s.db.GetAllClassesComments()
 }

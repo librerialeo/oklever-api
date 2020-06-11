@@ -30,7 +30,7 @@ func (s *Service) GetUserExpertise(expertiseID int32) (*database.DBExpertise, er
 		return nil, err
 	}
 	defer rows.Close()
-	return readExpertise(&rows)
+	return readExpertise(rows)
 }
 
 // GetUserExpertises get all user expertises
@@ -41,10 +41,10 @@ func (s *Service) GetUserExpertises(userID int32) (*[]database.DBExpertise, erro
 	}
 	defer rows.Close()
 	expertises := []database.DBExpertise{}
-	expertise, err := readExpertise(&rows)
+	expertise, err := readExpertise(rows)
 	for expertise != nil && err == nil {
 		expertises = append(expertises, *expertise)
-		expertise, err = readExpertise(&rows)
+		expertise, err = readExpertise(rows)
 	}
 	if err != nil {
 		return nil, err
@@ -59,7 +59,7 @@ func (s *Service) AddUserExpertise(userID int32, name string, months int16) (*da
 		return nil, err
 	}
 	defer rows.Close()
-	return readExpertise(&rows)
+	return readExpertise(rows)
 }
 
 // UpdateUserExpertise update user expertise by id
@@ -69,7 +69,7 @@ func (s *Service) UpdateUserExpertise(expertiseID int32, name string, months int
 		return nil, err
 	}
 	defer rows.Close()
-	return readExpertise(&rows)
+	return readExpertise(rows)
 }
 
 // DeleteUserExpertise delete user expertise by id

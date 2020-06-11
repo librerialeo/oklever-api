@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllCoursesForums return all coursesForums
-func (s *Service) GetAllCoursesForums() (pgx.Rows, error) {
+func (s *Service) GetAllCoursesForums() (*pgx.Rows, error) {
 	return s.db.GetAllCoursesForums()
 }

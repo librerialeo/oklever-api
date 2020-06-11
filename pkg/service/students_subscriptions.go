@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllStudentsSubscriptions return all studentsSubscriptions
-func (s *Service) GetAllStudentsSubscriptions() (pgx.Rows, error) {
+func (s *Service) GetAllStudentsSubscriptions() (*pgx.Rows, error) {
 	return s.db.GetAllStudentsSubscriptions()
 }

@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllInsignias return all insignias
-func (s *Service) GetAllInsignias() (pgx.Rows, error) {
+func (s *Service) GetAllInsignias() (*pgx.Rows, error) {
 	return s.db.GetAllInsignias()
 }

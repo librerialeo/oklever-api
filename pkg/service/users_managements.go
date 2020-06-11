@@ -31,7 +31,7 @@ func (s *Service) GetUserManagement(managementID int32) (*database.DBManagement,
 		return nil, err
 	}
 	defer rows.Close()
-	return readManagement(&rows)
+	return readManagement(rows)
 }
 
 // GetUserManagements get all user managements
@@ -42,10 +42,10 @@ func (s *Service) GetUserManagements(userID int32) (*[]database.DBManagement, er
 	}
 	defer rows.Close()
 	managements := []database.DBManagement{}
-	management, err := readManagement(&rows)
+	management, err := readManagement(rows)
 	for management != nil && err == nil {
 		managements = append(managements, *management)
-		management, err = readManagement(&rows)
+		management, err = readManagement(rows)
 	}
 	if err != nil {
 		return nil, err
@@ -60,7 +60,7 @@ func (s *Service) AddUserManagement(userID int32, job string, institution string
 		return nil, err
 	}
 	defer rows.Close()
-	return readManagement(&rows)
+	return readManagement(rows)
 }
 
 // UpdateUserManagement update user management by id
@@ -70,7 +70,7 @@ func (s *Service) UpdateUserManagement(managementID int32, job string, instituti
 		return nil, err
 	}
 	defer rows.Close()
-	return readManagement(&rows)
+	return readManagement(rows)
 }
 
 // DeleteUserManagement delete user management by id

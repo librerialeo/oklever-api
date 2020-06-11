@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllUsersChats return all usersChats
-func (s *Service) GetAllUsersChats() (pgx.Rows, error) {
+func (s *Service) GetAllUsersChats() (*pgx.Rows, error) {
 	return s.db.GetAllUsersChats()
 }

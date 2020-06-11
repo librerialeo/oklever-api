@@ -1,6 +1,6 @@
 package websocket
 
-import "github.com/savsgio/atreugo"
+import "github.com/savsgio/atreugo/v11"
 
 // GetUserExpertise Get user expertise
 func GetUserExpertise(s *Socket, a *Action) {

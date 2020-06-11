@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllSynchronousClassesResources return all synchronousClassesResources
-func (s *Service) GetAllSynchronousClassesResources() (pgx.Rows, error) {
+func (s *Service) GetAllSynchronousClassesResources() (*pgx.Rows, error) {
 	return s.db.GetAllSynchronousClassesResources()
 }

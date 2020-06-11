@@ -31,7 +31,7 @@ func (s *Service) GetUserInvestment(investmentID int32) (*database.DBInvestment,
 		return nil, err
 	}
 	defer rows.Close()
-	return readInvestment(&rows)
+	return readInvestment(rows)
 }
 
 // GetUserInvestments get all user investments
@@ -42,10 +42,10 @@ func (s *Service) GetUserInvestments(userID int32) (*[]database.DBInvestment, er
 	}
 	defer rows.Close()
 	investments := []database.DBInvestment{}
-	investment, err := readInvestment(&rows)
+	investment, err := readInvestment(rows)
 	for investment != nil && err == nil {
 		investments = append(investments, *investment)
-		investment, err = readInvestment(&rows)
+		investment, err = readInvestment(rows)
 	}
 	if err != nil {
 		return nil, err
@@ -60,7 +60,7 @@ func (s *Service) AddUserInvestment(userID int32, typeof string, reference strin
 		return nil, err
 	}
 	defer rows.Close()
-	return readInvestment(&rows)
+	return readInvestment(rows)
 }
 
 // UpdateUserInvestment update user investment by id
@@ -70,7 +70,7 @@ func (s *Service) UpdateUserInvestment(investmentID int32, reference string, yea
 		return nil, err
 	}
 	defer rows.Close()
-	return readInvestment(&rows)
+	return readInvestment(rows)
 }
 
 // DeleteUserInvestment delete user investment by id

@@ -1,6 +1,6 @@
 package websocket
 
-import "github.com/savsgio/atreugo"
+import "github.com/savsgio/atreugo/v11"
 
 // GetUserTeachingSignature Get user signature
 func GetUserTeachingSignature(s *Socket, a *Action) {

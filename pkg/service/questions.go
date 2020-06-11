@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllQuestions return all questions
-func (s *Service) GetAllQuestions() (pgx.Rows, error) {
+func (s *Service) GetAllQuestions() (*pgx.Rows, error) {
 	return s.db.GetAllQuestions()
 }

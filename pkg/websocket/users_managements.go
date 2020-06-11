@@ -1,6 +1,6 @@
 package websocket
 
-import "github.com/savsgio/atreugo"
+import "github.com/savsgio/atreugo/v11"
 
 // GetUserManagement Get user management
 func GetUserManagement(s *Socket, a *Action) {

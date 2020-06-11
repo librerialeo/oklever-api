@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllUsersInsignias return all usersInsignias
-func (s *Service) GetAllUsersInsignias() (pgx.Rows, error) {
+func (s *Service) GetAllUsersInsignias() (*pgx.Rows, error) {
 	return s.db.GetAllUsersInsignias()
 }

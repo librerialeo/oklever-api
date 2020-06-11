@@ -2,7 +2,7 @@ package rest
 
 import (
 	"github.com/librerialeo/oklever-api/pkg/service"
-	"github.com/savsgio/atreugo"
+	"github.com/savsgio/atreugo/v11"
 )
 
 // InitCoursesHandler initialize courses router

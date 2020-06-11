@@ -5,6 +5,6 @@ import (
 )
 
 // GetAllUsersDegrees return all usersDegrees
-func (s *Service) GetAllUsersDegrees() (pgx.Rows, error) {
+func (s *Service) GetAllUsersDegrees() (*pgx.Rows, error) {
 	return s.db.GetAllUsersDegrees()
 }

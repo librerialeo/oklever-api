@@ -31,7 +31,7 @@ func (s *Service) GetUserTeachingSignature(signatureID int32) (*database.DBSigna
 		return nil, err
 	}
 	defer rows.Close()
-	return readSignature(&rows)
+	return readSignature(rows)
 }
 
 // GetUserTeachingSignatures get all user signatures
@@ -42,10 +42,10 @@ func (s *Service) GetUserTeachingSignatures(userID int32) (*[]database.DBSignatu
 	}
 	defer rows.Close()
 	signatures := []database.DBSignature{}
-	signature, err := readSignature(&rows)
+	signature, err := readSignature(rows)
 	for signature != nil && err == nil {
 		signatures = append(signatures, *signature)
-		signature, err = readSignature(&rows)
+		signature, err = readSignature(rows)
 	}
 	if err != nil {
 		return nil, err
@@ -60,7 +60,7 @@ func (s *Service) AddUserTeachingSignature(userID int32, degreeID int32, name st
 		return nil, err
 	}
 	defer rows.Close()
-	return readSignature(&rows)
+	return readSignature(rows)
 }
 
 // UpdateUserTeachingSignature update user signature by id
@@ -70,7 +70,7 @@ func (s *Service) UpdateUserTeachingSignature(signatureID int32, name string) (*
 		return nil, err
 	}
 	defer rows.Close()
-	return readSignature(&rows)
+	return readSignature(rows)
 }
 
 // DeleteUserTeachingSignature delete user signature by id
@@ -107,7 +107,7 @@ func (s *Service) GetUserTeachingInstitution(institutionID int32) (*database.DBI
 		return nil, err
 	}
 	defer rows.Close()
-	return readInstitution(&rows)
+	return readInstitution(rows)
 }
 
 // GetUserTeachingInstitutions get all user institutions
@@ -118,10 +118,10 @@ func (s *Service) GetUserTeachingInstitutions(userID int32) (*[]database.DBInsti
 	}
 	defer rows.Close()
 	institutions := []database.DBInstitution{}
-	institution, err := readInstitution(&rows)
+	institution, err := readInstitution(rows)
 	for institution != nil && err == nil {
 		institutions = append(institutions, *institution)
-		institution, err = readInstitution(&rows)
+		institution, err = readInstitution(rows)
 	}
 	if err != nil {
 		return nil, err
@@ -136,7 +136,7 @@ func (s *Service) AddUserTeachingInstitution(userID int32, name string) (*databa
 		return nil, err
 	}
 	defer rows.Close()
-	return readInstitution(&rows)
+	return readInstitution(rows)
 }
 
 // UpdateUserTeachingInstitution update user institution by id
@@ -146,7 +146,7 @@ func (s *Service) UpdateUserTeachingInstitution(institutionID int32, name string
 		return nil, err
 	}
 	defer rows.Close()
-	return readInstitution(&rows)
+	return readInstitution(rows)
 }
 
 // DeleteUserTeachingInstitution delete user institution by id

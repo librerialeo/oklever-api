@@ -1,12 +1,11 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"os"
 
-	"github.com/savsgio/atreugo"
+	"github.com/savsgio/atreugo/v11"
 
 	"github.com/librerialeo/oklever-api/pkg/http/rest"
 
@@ -14,7 +13,11 @@ import (
 )
 
 func main() {
-	conn, err := pgx.Connect(context.Background(), fmt.Sprintf("database=%s", os.Getenv("DB_NAME")))
+	conn, err := pgx.Connect(pgx.ConnConfig{
+		Database: os.Getenv("DB_NAME"),
+		User:     os.Getenv("DB_USER"),
+		Password: os.Getenv("DB_PASSWORD"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/librerialeo/oklever-api/pkg/service"
-	"github.com/savsgio/atreugo"
+	"github.com/savsgio/atreugo/v11"
 )
 
 // InitTestClassesHandler initialize testClasses router
