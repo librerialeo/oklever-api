@@ -226,8 +226,20 @@ CREATE TABLE resources_types (
 CREATE TRIGGER update_resources_types_modified_at BEFORE UPDATE
 ON resources_types FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
+CREATE TABLE quizzes_types (
+	quiz_type_id SERIAL PRIMARY KEY,
+	quiz_type_name VARCHAR(32) NOT NULL,
+	quiz_type_description VARCHAR(128) NOT NULL,
+	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	deleted_at TIMESTAMPTZ
+);
+CREATE TRIGGER update_quizzes_types_modified_at BEFORE UPDATE
+ON quizzes_types FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
+
 CREATE TABLE quizzes (
 	quiz_id SERIAL PRIMARY KEY,
+	quiz_type_id INT NOT NULL REFERENCES quizzes_types(quiz_type_id),
 	quiz_attemps SMALLINT NOT NULL,
 	quiz_approval SMALLINT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -583,7 +595,7 @@ CREATE TABLE users_projects (
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_users_projects_modified_at BEFORE UPDATE
+CREATE TRIGGER update_users_projects_modified_CREATE TABLEORE UPDATE
 ON users_projects FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE users_subscriptions (

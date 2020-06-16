@@ -136,8 +136,15 @@ class resources_types {
 	resource_type_description TEXT
 }
 
+class quizzes_types {
+	pk(quiz_type_id)
+	nn(u(quiz_type_name)) VARCHAR[32]
+	quiz_type_description VARCHAR[128]
+}
+
 class quizzes {
 	pk(quiz_id)
+	fk(nn(quiz_type_id))
 	nn(quiz_attemps) SMALLINT
 	nn(quiz_approval) SMALLINT
 }
@@ -420,6 +427,7 @@ users_expertises <-- users
 users_institutions <-- users
 users_signatures <-- users
 users_signatures <-- degrees
+quizzes <-- quizzes_types
 questions <-- quizzes
 questions <-- questions_types
 questions_options <-- questions
