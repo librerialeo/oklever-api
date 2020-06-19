@@ -22,7 +22,7 @@ func main() {
 		log.Fatal(err)
 	}
 	config := atreugo.Config{
-		Addr: fmt.Sprintf("0.0.0.0:%s", os.Getenv("OKLEVER_PORT")),
+		Addr: fmt.Sprintf("%s:%s", os.Getenv("OKLEVER_LOCAL_ADDRESS"), os.Getenv("OKLEVER_PORT")),
 	}
 	router := atreugo.New(config)
 	rest.InitRouterHandler(router, conn)
