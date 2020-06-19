@@ -595,7 +595,7 @@ CREATE TABLE users_projects (
 	modified_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	deleted_at TIMESTAMPTZ
 );
-CREATE TRIGGER update_users_projects_modified_CREATE TABLEORE UPDATE
+CREATE TRIGGER update_users_projects_modified_at BEFORE UPDATE
 ON users_projects FOR EACH ROW EXECUTE PROCEDURE update_modified_at_column();
 
 CREATE TABLE users_subscriptions (

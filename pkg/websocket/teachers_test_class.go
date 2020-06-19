@@ -31,19 +31,11 @@ func AddTeachersTestClass(s *Socket, a *Action) {
 			ext := strings.Split(strings.Split(video, ";")[0], "/")[1]
 			videoname := fmt.Sprintf("test-class-%d-%d.%s", s.user.ID, time.Now().Unix(), ext)
 			err := utils.SaveVideoToFile(os.Getenv("TEST_CLASS_DIR"), videoname, video)
-			testClass, err := s.io.service.GetTestClassByTeacherID(s.user.ID)
+			testClass, err := s.io.service.AddTeachersTestClass(s.user.ID, name, videoname, 0)
 			if err != nil {
-				s.EmitServerError("Error al obtener clase muestra", err)
-			}
-			if testClass == nil {
-				testClass, err := s.io.service.AddTeachersTestClass(s.user.ID, name, video)
-				if err != nil {
-					s.EmitServerError("Error al guardar la información", err)
-				} else {
-					s.Emit("ADD_TEACHER_TEST_CLASS", testClass)
-				}
+				s.EmitServerError("Error al guardar la información", err)
 			} else {
-				// hacer el update
+				s.Emit("ADD_TEACHER_TEST_CLASS", testClass)
 			}
 		}
 	}

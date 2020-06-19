@@ -19,35 +19,35 @@ func (s *Service) GetTestClassByTeacherID(teacherID int32) (*database.DBTestClas
 	defer rows.Close()
 	var t database.DBTestClass
 	if rows.Next() {
-		err = rows.Scan(t.Name, t.Video)
+		err = rows.Scan(t.ID, t.Name, t.Video, t.Status)
 	}
 	return &t, err
 }
 
 // AddTeachersTestClass add test class for teachers
-func (s *Service) AddTeachersTestClass(teacherID int32, name string, video string) (*database.DBTestClass, error) {
-	rows, err := s.db.AddTeachersTestClass(teacherID, name, video)
+func (s *Service) AddTeachersTestClass(teacherID int32, name string, video string, status int32) (*database.DBTestClass, error) {
+	rows, err := s.db.AddTeachersTestClass(teacherID, name, video, status)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 	var t database.DBTestClass
 	if rows.Next() {
-		err = rows.Scan(t.Name, t.Video)
+		err = rows.Scan(&t.ID, &t.Name, &t.Video, &t.Status)
 	}
 	return &t, err
 }
 
 // UpdateTeachersTestClass update teachers test class
-func (s *Service) UpdateTeachersTestClass(teacherID int32, name string, video string) (*database.DBTestClass, error) {
-	rows, err := s.db.UpdateTeachersTestClass(teacherID, name, video)
+func (s *Service) UpdateTeachersTestClass(teacherID int32, name string, video string, status int32) (*database.DBTestClass, error) {
+	rows, err := s.db.UpdateTeachersTestClass(teacherID, name, video, status)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 	var t database.DBTestClass
 	if rows.Next() {
-		err = rows.Scan(t.Name, t.Video)
+		err = rows.Scan(t.ID, t.Name, t.Video, t.Status)
 	}
 	return &t, err
 }

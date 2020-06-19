@@ -508,3 +508,31 @@ VALUES
 
 INSERT INTO roles(rol_name) VALUES ('student'), ('teacher'), ('academy'), ('coordinator'), ('support');
 INSERT INTO degrees(degree_name, degree_description, degree_class) VALUES ('Doctorado', 'Degrees description', 'cdoc'), ('Maestría', 'Degrees description', 'cmas'), ('Especialidad', 'Degrees description', 'cspe'), ('Licenciatura', 'Degrees description', 'cdeg'), ('Técnico', 'Degrees description', 'ctec');
+INSERT INTO quizzes_types(quiz_type_name, quiz_type_description) VALUES ('Academia -> clase muestra', 'Cuestionario para evaluar la clase muestra por un académico');
+INSERT INTO quizzes(quiz_type_id, quiz_attemps, quiz_approval) VALUES (1, 3, 5);
+INSERT INTO questions_types(question_type_name, question_type_description) VALUES ('opción múltiple', 'Pregunta de opción multiple radio button');
+INSERT INTO questions(quiz_id, question_type_id, question, question_resource) VALUES (1, 1, 'Planificación de la clase', '');
+INSERT INTO questions(quiz_id, question_type_id, question, question_resource) VALUES (1, 1, 'Comunicación', '');
+INSERT INTO questions(quiz_id, question_type_id, question, question_resource) VALUES (1, 1, 'Material de la clase', '');
+INSERT INTO questions(quiz_id, question_type_id, question, question_resource) VALUES (1, 1, 'Desarrollo de la clase', '');
+INSERT INTO questions(quiz_id, question_type_id, question, question_resource) VALUES (1, 1, 'Dominio del tema', '');
+
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (1, 'Clase improvisada, no explica los objetivos a lograr', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (1, 'Sólo menciona los  objetivos de la clase', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (1, 'Explica los objetivos al inicio de la clase', true);
+
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (2, 'No Modula la voz,  no tiene buen manejo de lenguaje corporal, no es objetivo', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (2, 'Modula la voz,  buen manejo de lenguaje corporal, es objetivo (cumple el 50% de los criterios)', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (2, 'Modula la voz,  buen manejo de lenguaje corporal, es objetivo', true);
+
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (3, 'Material sin concordancia con el tipo de clase', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (3, 'Material alineado al tipo de clase (sólo cumple al 50%)', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (3, 'Material alineado al tipo de clase', true);
+
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (4, 'No hay orden en la clase, no es claro en las ideas', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (4, 'Buen desarrollo de la clase, hay orden, se alinea no completa los objetivos de la clase', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (4, 'Coherencia clara entre los objetivos y el desarrollo de la clase. Mucha reflexión de los contenidos tratados', true);
+
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (5, 'Sin dominio del tema', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (5, 'Dominio medio del tema', false);
+INSERT INTO questions_options(question_id, question_option, question_option_correct) VALUES (5, 'Total dominio del tema', true);

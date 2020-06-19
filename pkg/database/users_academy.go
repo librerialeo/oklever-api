@@ -37,8 +37,8 @@ func (db *Database) AddUsersAcademy(userID int32, degreeID int, academyName stri
 }
 
 // UpdateUsersAcademy add new user academy
-func (db *Database) UpdateUsersAcademy(ID int, userID int32, degreeID int, academyName string, institution string, year int) (*pgx.Rows, error) {
-	return db.conn.Query("UPDATE users_academy SET degree_id = $1, user_academy_name = $2, user_academy_institution = $3, user_academy_year = $4 WHERE user_id = $6 AND user_academy_id = $5 RETURNING user_academy_id,degree_id,user_academy_name,user_academy_institution,user_academy_year", degreeID, academyName, institution, year, ID, userID)
+func (db *Database) UpdateUsersAcademy(ID int, userID int32, academyName string, institution string, year int) (*pgx.Rows, error) {
+	return db.conn.Query("UPDATE users_academy SET user_academy_name = $1, user_academy_institution = $2, user_academy_year = $3 WHERE user_id = $5 AND user_academy_id = $4 RETURNING user_academy_id,degree_id,user_academy_name,user_academy_institution,user_academy_year", academyName, institution, year, ID, userID)
 }
 
 // DeleteUsersAcademy add new user academy

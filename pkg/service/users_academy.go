@@ -51,8 +51,8 @@ func (s *Service) AddUsersAcademy(userID int32, degreeID int, academyName string
 }
 
 // UpdateUsersAcademy update users academy
-func (s *Service) UpdateUsersAcademy(ID int, userID int32, degreeID int, academyName string, institution string, year int) (*[]database.DBUsersAcademy, error) {
-	rows, err := s.db.UpdateUsersAcademy(ID, userID, degreeID, academyName, institution, year)
+func (s *Service) UpdateUsersAcademy(ID int, userID int32, academyName string, institution string, year int) (*[]database.DBUsersAcademy, error) {
+	rows, err := s.db.UpdateUsersAcademy(ID, userID, academyName, institution, year)
 	if err != nil {
 		return nil, err
 	}

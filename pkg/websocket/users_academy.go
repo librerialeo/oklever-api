@@ -41,13 +41,12 @@ func UsersAddAcademy(s *Socket, a *Action) {
 func UsersUpdateAcademy(s *Socket, a *Action) {
 	data, ok := a.Data.(map[string]interface{})
 	if ok && s.user.ID != 0 {
-		degree, degreeOk := data["degree"].(float64)
 		name, nameOk := data["name"].(string)
 		institution, institutionOk := data["institution"].(string)
 		year, yearOk := data["year"].(float64)
 		academyID, academyIDOk := data["id"].(float64)
-		if degreeOk && nameOk && institutionOk && yearOk && academyIDOk {
-			academy, err := s.io.service.UpdateUsersAcademy(int(academyID), s.user.ID, int(degree), name, institution, int(year))
+		if nameOk && institutionOk && yearOk && academyIDOk {
+			academy, err := s.io.service.UpdateUsersAcademy(int(academyID), s.user.ID, name, institution, int(year))
 			if err != nil {
 				s.EmitServerError("Error al actualizar tus datos", err)
 			} else {
