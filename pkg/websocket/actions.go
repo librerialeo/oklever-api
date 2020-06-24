@@ -11,6 +11,7 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("USER_REGISTER", UserRegister)
 	io.AddActionHandler("GET_LANGUAGES", GetAllLanguages)
 	io.AddActionHandler("GET_DEGREES", GetAllDegrees)
+	io.AddActionHandler("GET_QUIZ", GetQuizByID)
 
 	// user actions
 	io.AddActionHandler("LOGOUT", Logout)
