@@ -94,11 +94,18 @@ func (s *Service) GetTeacherByUserID(userID int32) (*database.DBUser, error) {
 }
 
 // UpdateTeacherInformation updates teacher license and rfc
-func (s *Service) UpdateTeacherInformation(userID int32, license string, rfc string) error {
+func (s *Service) UpdateTeacherInformation(userID int32, license string, rfc string) (*database.DBUser, error) {
 	rows, err := s.db.UpdateTeacherInformation(userID, license, rfc)
 	if err != nil {
-		return err
+		return nil, err
 	}
 	defer rows.Close()
-	return nil
+	var u database.DBUser
+	if rows.Next() {
+		err = rows.Scan(
+			&u.License,
+			&u.RFC,
+		)
+	}
+	return &u, err
 }

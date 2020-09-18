@@ -70,7 +70,7 @@ func (db *Database) UpdateUserLastAction(userID int32, lastaction time.Time) (*p
 
 // UpdateUserInformation update user information
 func (db *Database) UpdateUserInformation(userID int32, first string, last string, email string, gender string, phone string) (*pgx.Rows, error) {
-	return db.conn.Query("UPDATE users SET user_firstname=$1, user_lastname=$2, user_email=$3, user_gender=$4, user_phone=$5 WHERE user_id=$6", first, last, email, gender, phone, userID)
+	return db.conn.Query("UPDATE users SET user_firstname=$1, user_lastname=$2, user_email=$3, user_gender=$4, user_phone=$5 WHERE user_id=$6 RETURNING *", first, last, email, gender, phone, userID)
 }
 
 // GetUserBiography get user biography

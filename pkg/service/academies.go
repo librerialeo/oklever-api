@@ -55,6 +55,6 @@ func (s *Service) GetAcademyUserByEmail(email string) (*database.DBUser, error) 
 }
 
 // UpdateAcademyInformation asdf
-func (s *Service) UpdateAcademyInformation(userID int32, license string, rfc string) error {
+func (s *Service) UpdateAcademyInformation(userID int32, license string, rfc string) (*database.DBUser, error) {
 	return s.UpdateTeacherInformation(userID, license, rfc)
 }

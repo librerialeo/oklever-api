@@ -58,13 +58,36 @@ func (s *Service) UpdateUserLastAction(userID int32, lastaction time.Time) (*tim
 }
 
 // UpdateUserInformation update user information
-func (s *Service) UpdateUserInformation(userID int32, first string, last string, email string, gender string, phone string) error {
+func (s *Service) UpdateUserInformation(userID int32, first string, last string, email string, gender string, phone string) (*database.DBUser, error) {
 	rows, err := s.db.UpdateUserInformation(userID, first, last, email, gender, phone)
 	if err != nil {
-		return err
+		return nil, err
 	}
 	defer rows.Close()
-	return nil
+	var u database.DBUser
+	if rows.Next() {
+		err = rows.Scan(&u.ID,
+			&u.Email,
+			&u.Password,
+			&u.Firstname,
+			&u.Lastname,
+			&u.Gender,
+			&u.Image,
+			&u.Birthdate,
+			&u.Phone,
+			&u.License,
+			&u.RFC,
+			&u.Biography,
+			&u.TeachingMonths,
+			&u.Status,
+			&u.Country,
+			&u.Rol,
+			&u.LastAction,
+			&u.Created,
+			&u.Modified,
+			&u.Deleted)
+	}
+	return &u, err
 }
 
 // GetUserBiography get user biography string

@@ -64,7 +64,7 @@ func (io *IO) InitActions() {
 	io.AddActionHandler("TEACHER_REGISTER", TeacherRegister)
 	io.AddActionHandler("TEACHER_LOGIN", TeacherLogin)
 
-	io.AddActionHandler("UPDATE_TEACHER_INFORMATION", UpdateTeacherInformation)
+	io.AddActionHandler("UPDATE_USER_INFORMATION", UpdateUserInformation)
 	io.AddActionHandler("SET_TEACHER_TEST_CLASS", AddTeachersTestClass)
 	io.AddActionHandler("VALIDATE_TEACHER_PROFILE", ValidateTeacherProfile)
 

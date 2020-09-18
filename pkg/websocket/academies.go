@@ -107,36 +107,3 @@ func AcademyLogin(s *Socket, a *Action) {
 		}
 	}
 }
-
-// UpdateAcademyInformation update academies user data
-func UpdateAcademyInformation(s *Socket, a *Action) {
-	data, ok := a.Data.(map[string]interface{})
-	if ok {
-		email, emailOk := data["email"].(string)
-		firstname, firstnameOk := data["firstname"].(string)
-		lastname, lastnameOk := data["lastname"].(string)
-		gender, genderOk := data["gender"].(string)
-		phone, phoneOk := data["phone"].(string)
-		license, licenseOk := data["license"].(string)
-		rfc, rfcOk := data["rfc"].(string)
-		if emailOk && firstnameOk && lastnameOk && genderOk && phoneOk && licenseOk && rfcOk && s.user.ID != 0 {
-			if err := s.io.service.UpdateUserInformation(s.user.ID, firstname, lastname, email, gender, phone); err != nil {
-				s.EmitServerError("UpdateAcademyInformation: update user information", err)
-				return
-			}
-			if err := s.io.service.UpdateAcademyInformation(s.user.ID, license, rfc); err != nil {
-				s.EmitServerError("UpdateAcademyInformation: update academy information", err)
-				return
-			}
-			s.Emit("UPDATE_ACADEMY_INFORMATION", map[string]interface{}{
-				"email":     email,
-				"firstname": firstname,
-				"lastname":  lastname,
-				"gender":    gender,
-				"phone":     phone,
-				"license":   license,
-				"rfc":       rfc,
-			})
-		}
-	}
-}
